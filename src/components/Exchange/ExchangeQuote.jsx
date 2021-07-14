@@ -320,7 +320,7 @@ export default function ExchangeQuote({ strength }) {
 
   return (
     <ExchangeItem>
-      <strong>Bid {strength === 'strong' ? strong : weak}</strong>
+      <strong>{strength === 'strong' ? 'Buy ' + weak : 'Sell ' + weak}</strong>
       <Sending>
         <strong>I'm bidding</strong>
         <ExchangeInput
@@ -336,7 +336,7 @@ export default function ExchangeQuote({ strength }) {
         </MaxBtn>
       </Sending>
       <Receiving>
-        <strong>I'm asking</strong>
+        <strong>You will receive</strong>
         <ReceivingValue data-testid="exchange-weak-balance">
           {strength === bidDenom ? output : ''} {strength === 'strong' ? weak : strong}
         </ReceivingValue>
