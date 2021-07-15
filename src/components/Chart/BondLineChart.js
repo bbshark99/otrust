@@ -88,7 +88,7 @@ function LineChart({ id = 'bondingChart' }) {
 
   // charts and xAxis and yAxis
   useEffect(() => {
-    const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 20, right: 20, bottom: 40, left: 90 };
     const svg = select(svgRef.current);
     const svgContent = svg.select('.content');
     const { width, height } = dimensions || wrapperRef.current.getBoundingClientRect();

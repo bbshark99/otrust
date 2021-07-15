@@ -42,7 +42,7 @@ function LineChart(props) {
   //i've copied this from BondLineChart. seems to work well once loaded.
   const id = 'historicalChart';
   const lineGradient = 'historicalChartGradient';
-  const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+  const margin = { top: 20, right: 20, bottom: 40, left: 90 };
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
