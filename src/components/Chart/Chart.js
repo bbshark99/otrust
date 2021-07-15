@@ -7,7 +7,7 @@ import { responsive } from 'theme/constants';
 import BondLineChart from 'components/Chart/BondLineChart';
 import LineChart from 'components/Chart/HistoricalLineChart';
 import CandleChart from 'components/Chart/CandleChart';
-import { lineHeaderDefault, candleHeaderDefault } from 'components/Chart/defaultChartData';
+import { lineHeaderDefault, candleHeaderDefault, tempCandlestickData } from 'components/Chart/defaultChartData';
 
 const ChartWrapper = styled.div`
   padding: 20px;
@@ -116,7 +116,7 @@ export default function Chart() {
           />
         );
       case 'candleView':
-        return <CandleChart candleHeader={candleHeader} candleHeaderId={candleHeaderId} />;
+        return <CandleChart candleHeader={candleHeader} candleHeaderId={candleHeaderId} data={tempCandlestickData} />;
       case 'bondingCurve':
       default:
         return <BondLineChart />;

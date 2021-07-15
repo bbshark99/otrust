@@ -16,6 +16,57 @@ export const leftHeaderDefault = [
   },
 ];
 
+export const tempCandlestickData = [
+  {
+    id: 0,
+    high: 9590420130899,
+    low: 9290420130899,
+    open: 9490420130899,
+    close: 9390420130899,
+    timestamp: 1622339764,
+  },
+  {
+    id: 1,
+    high: 9719451242173,
+    low: 9073430177568,
+    open: 9390721240766,
+    close: 9559864341243,
+    timestamp: 1622349764,
+  },
+  {
+    id: 2,
+    high: 9889558939833,
+    low: 9045400707524,
+    open: 9832470851176,
+    close: 9388788710023,
+    timestamp: 1622359764,
+  },
+  {
+    id: 3,
+    close: 9760647423480,
+    high: 9849811735924,
+    low: 9182896110679,
+    open: 9616979532688,
+    timestamp: 1622369764,
+  },
+  {
+    id: 4,
+    close: 9276840417025,
+    high: 9724168043995,
+    low: 9153796478180,
+    open: 9260833962344,
+    timestamp: 1622379764,
+  },
+  {
+    id: 5,
+    close: 9957675249376,
+    high: 9996561052618,
+    low: 9281571860333,
+    open: 9541293766198,
+    timestamp: 1622389764,
+  },
+];
+
 export const lineHeaderDefault = [
   {
     id: 'Day',
