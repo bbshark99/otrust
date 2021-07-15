@@ -281,6 +281,7 @@ function LineChart(props) {
           var lowest = Math.min(dot_index, filtered_last);
           var highest = Math.max(dot_index, filtered_last);
           var difference = highest - lowest;
+          var transitionTime = 500 + 2 * difference;
           var tween_data = data.filter((f, i) => i >= lowest && i <= highest);
           if (dot_index > filtered_last) {
             //moving backwards - flip data and set highest to lowest
@@ -304,7 +305,7 @@ function LineChart(props) {
             .attr('visibility', 'visible')
             .interrupt()
             .transition()
-            .duration(500 * difference)
+            .duration(transitionTime)
             .attrTween('transform', function () {
               return function (t) {
                 var point = tweenPath.node().getPointAtLength(interpolator(t));
@@ -327,21 +328,21 @@ function LineChart(props) {
           select('.linePath')
             .interrupt()
             .transition()
-            .duration(500 * difference)
+            .duration(transitionTime)
             .attr('stroke-dashoffset', pathLength - pathInvisibleLength);
 
           select('.highlightRect')
             .attr('visibility', 'visible')
             .interrupt()
             .transition()
-            .duration(500 * difference)
+            .duration(transitionTime)
             .attr('x', -24 + xScale(data[highest][x_var]));
 
           select('.highlightYText')
             .attr('visibility', 'visible')
             .interrupt()
             .transition()
-            .duration(500 * difference)
+            .duration(transitionTime)
             .attr('y', yScale(data[highest][y_var]))
             .text(numberFormat(data[highest][y_var]));
 
@@ -349,14 +350,14 @@ function LineChart(props) {
             .attr('visibility', 'visible')
             .interrupt()
             .transition()
-            .duration(500 * difference)
+            .duration(transitionTime)
             .attr('y', yScale(data[highest][y_var]));
 
           select('.highlightLine')
             .attr('visibility', 'visible')
             .interrupt()
             .transition()
-            .duration(500 * difference)
+            .duration(transitionTime)
             .attr('y1', yScale(data[highest][y_var]))
             .attr('y2', yScale(data[highest][y_var]));
         }
