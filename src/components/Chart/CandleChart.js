@@ -24,7 +24,6 @@ const StyledSVG = styled.svg`
 `;
 
 function CandleChart(props) {
-  const id = 'candleChart';
   const margin = { top: 20, right: 20, bottom: 40, left: 90 };
   const svgRef = useRef();
   const wrapperRef = useRef();
@@ -56,7 +55,8 @@ function CandleChart(props) {
 
     const xScale = scaleTime()
       .domain(extent(data, xValue))
-      .range([margin.left, width - margin.right]);
+      .range([margin.left, width - margin.right])
+      .nice();
 
     let rectWidth = ((width - margin.left - margin.right) / data.length) * 0.95;
     if (rectWidth > 10) {
@@ -119,10 +119,11 @@ function CandleChart(props) {
     yComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`);
 
     var candleElements = svg
-      .selectAll('.candlestickGroup')
+      .select('.candlestickGroup')
+      .selectAll('.candlestickElements')
       .data(data)
       .join(function (group) {
-        var enter = group.append('g').attr('class', 'candlestickGroup');
+        var enter = group.append('g').attr('class', 'candlestickElements');
         enter.append('line').attr('class', 'candlestickRect');
         enter.append('line').attr('class', 'candlestickLine');
         return enter;
@@ -150,17 +151,10 @@ function CandleChart(props) {
   return (
     <div ref={wrapperRef} style={{ marginTop: '1rem', height: '400px' }} data-testid="candle-chart">
       <StyledSVG ref={svgRef} data-testid="candle-chart-svg">
-        <defs>
-          <clipPath id={id}>
-            <rect x="0" y="0" width="100%" height="100%" />
-          </clipPath>
-        </defs>
-        <g className="content" clipPath={`url(#${id})`}>
-          <g className="candlestickGroup" />
-        </g>
         <g className="y-axis" />
         <g className="x-axis1" />
         <g className="x-axis" />
+        <g className="candlestickGroup" />
       </StyledSVG>
     </div>
   );
