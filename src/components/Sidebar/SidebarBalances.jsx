@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { PrimaryButton } from 'components/Modals/styles';
+import { withTrimmedWrapper } from 'components/UI';
 import { responsive } from 'theme/constants';
 // import { CloseIcon } from './SidebarIcons';
 
@@ -201,6 +202,12 @@ const TooltipDesc = styled.p`
   color: ${props => props.theme.colors.textSecondary};
 `;
 
+const TrimmedApproved = withTrimmedWrapper(({ value }) => (
+  <Approved>
+    <span>{value} approved</span>
+  </Approved>
+));
+
 function Hint({ children }) {
   const [active, setActive] = useState(false);
 
@@ -234,10 +241,8 @@ export default function SidebarBalances({ strong, weak, strongBalance, weakBalan
           <BalanceNumber strong>
             {weakBalance}
             <small> = $16,208.04</small>
-            <Approved>
-              <span>{allowance} approved</span>
-              {/* <CloseIcon onClick={() => {}} /> */}
-            </Approved>
+            <TrimmedApproved value={allowance} />
+            {/* <CloseIcon onClick={() => {}} /> */}
           </BalanceNumber>
         </BalancePrice>
         <Hint>
