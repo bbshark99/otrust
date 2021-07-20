@@ -7,6 +7,7 @@ import RequestFailedModal from 'components/Modals/components/RequestFailedModal'
 import TransactionCompletedModal from 'components/Modals/components/TransactionCompletedModal';
 import TransactionFailedModal from 'components/Modals/components/TransactionFailedModal';
 import { useWeb3React } from '@web3-react/core';
+import _ from 'lodash';
 
 import { useChain } from 'context/chain/ChainContext';
 import { BondingCont, NOMCont } from 'context/chain/contracts';
@@ -225,99 +226,104 @@ export default function ExchangeQuote({ strength }) {
   const onTextChange = useCallback(
     async (evt, textStrength) => {
       evt.preventDefault();
-      const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$)/);
-      console.log('Component Strength: ', strength);
-      console.log('Text Strength: ', textStrength);
-      console.log('Bid Denom: ', bidDenom);
-      let strUpdate = new Map();
-      switch (true) {
-        case bidDenom === strength && input === evt.target.value.toString():
-          break;
-        case evt.target.value === '' || evt.target.value === '.':
-          {
+      strDispatch({
+        type: 'update',
+        value: new Map().set('input', evt.target.value.toString()),
+      });
+      const debounced = _.debounce(async () => {
+        const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$)/);
+        console.log('Component Strength: ', strength);
+        console.log('Text Strength: ', textStrength);
+        console.log('Bid Denom: ', bidDenom);
+        let strUpdate = new Map();
+        switch (true) {
+          case bidDenom === strength && input === evt.target.value.toString():
+            break;
+          case evt.target.value === '' || evt.target.value === '.':
+            {
+              let objUpdate = new Map();
+
+              objUpdate = objUpdate.set('askAmount', new BigNumber(0));
+
+              objUpdate = objUpdate.set('bidAmount', new BigNumber(0));
+
+              objUpdate = objUpdate.set('approveAmount', new BigNumber(0));
+
+              objDispatch({
+                type: 'update',
+                value: objUpdate,
+              });
+            }
+
+            strUpdate = strUpdate.set('bidDenom', strength);
+
+            strUpdate = strUpdate.set('input', evt.target.value.toString());
+
+            strUpdate = strUpdate.set('output', '');
+
+            strUpdate = strUpdate.set('approve', '');
+
+            strDispatch({
+              type: 'update',
+              value: strUpdate,
+            });
+
+            break;
+          case floatRegExp.test(evt.target.value.toString()):
+            const evttargetvalue = evt.target.value;
+
+            console.log('Input after test', evttargetvalue);
+
+            const bidAmountUpdate = parse18(new BigNumber(parseFloat(evttargetvalue).toString()));
+
+            if (bidDenom !== strength) {
+              strUpdate = strUpdate.set('bidDenom', strength);
+            }
+
+            var askAmountUpdate;
+
+            try {
+              console.log('calling here:', askAmount, bidAmountUpdate, textStrength);
+              askAmountUpdate = await getAskAmount(askAmount, bidAmountUpdate, textStrength);
+            } catch (err) {
+              if (err) {
+                console.log(err.error.message);
+                handleModal(<RequestFailedModal error={err.error.message} />);
+              }
+              break;
+            }
+
             let objUpdate = new Map();
 
-            objUpdate = objUpdate.set('askAmount', new BigNumber(0));
+            objUpdate = objUpdate.set('askAmount', new BigNumber(askAmountUpdate.toString()));
 
-            objUpdate = objUpdate.set('bidAmount', new BigNumber(0));
+            objUpdate = objUpdate.set('bidAmount', bidAmountUpdate);
 
-            objUpdate = objUpdate.set('approveAmount', new BigNumber(0));
+            if (bidAmountUpdate.gt(NOMallowance)) {
+              const approvalAmount = bidAmountUpdate.minus(NOMallowance);
+
+              objUpdate = objUpdate.set('approveAmount', approvalAmount);
+
+              strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
+            }
 
             objDispatch({
               type: 'update',
               value: objUpdate,
             });
-          }
 
-          strUpdate = strUpdate.set('bidDenom', strength);
+            strUpdate = strUpdate.set('output', format18(new BigNumber(askAmountUpdate.toString())).toFixed(8));
+            strDispatch({
+              type: 'update',
+              value: strUpdate,
+            });
 
-          strUpdate = strUpdate.set('input', evt.target.value.toString());
-
-          strUpdate = strUpdate.set('output', '');
-
-          strUpdate = strUpdate.set('approve', '');
-
-          strDispatch({
-            type: 'update',
-            value: strUpdate,
-          });
-
-          break;
-        case floatRegExp.test(evt.target.value.toString()):
-          console.log('Input after test', evt.target.value);
-          const bidAmountUpdate = parse18(new BigNumber(parseFloat(evt.target.value).toString()));
-
-          const inputUpdate = evt.target.value.toString();
-
-          if (bidDenom !== strength) {
-            strUpdate = strUpdate.set('bidDenom', strength);
-          }
-
-          var askAmountUpdate;
-
-          try {
-            console.log('calling here:', askAmount, bidAmountUpdate, textStrength);
-            askAmountUpdate = await getAskAmount(askAmount, bidAmountUpdate, textStrength);
-          } catch (err) {
-            if (err) {
-              console.log(err.error.message);
-              handleModal(<RequestFailedModal error={err.error.message} />);
-            }
             break;
-          }
-
-          let objUpdate = new Map();
-
-          objUpdate = objUpdate.set('askAmount', new BigNumber(askAmountUpdate.toString()));
-
-          objUpdate = objUpdate.set('bidAmount', bidAmountUpdate);
-
-          if (bidAmountUpdate.gt(NOMallowance)) {
-            const approvalAmount = bidAmountUpdate.minus(NOMallowance);
-
-            objUpdate = objUpdate.set('approveAmount', approvalAmount);
-
-            strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
-          }
-
-          objDispatch({
-            type: 'update',
-            value: objUpdate,
-          });
-
-          strUpdate = strUpdate.set('input', inputUpdate);
-
-          strUpdate = strUpdate.set('output', format18(new BigNumber(askAmountUpdate.toString())).toFixed(8));
-
-          strDispatch({
-            type: 'update',
-            value: strUpdate,
-          });
-
-          break;
-        default:
-          handleModal(<RequestFailedModal error="Please enter numbers only. Thank you!" />);
-      }
+          default:
+            handleModal(<RequestFailedModal error="Please enter numbers only. Thank you!" />);
+        }
+      }, 500);
+      debounced.call();
     },
     [askAmount, bidDenom, NOMallowance, getAskAmount, handleModal, input, objDispatch, strDispatch, strength],
   );
