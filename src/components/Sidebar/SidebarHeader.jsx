@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { responsive } from 'theme/constants';
-import { CogIcon, LogoutIcon } from './SidebarIcons';
+import { LogoutIcon } from './SidebarIcons';
 
 const PrimaryIcon = styled.a`
   display: flex;
@@ -183,9 +183,7 @@ const AccountNumber = styled.div`
 export default function SidebarHeader({ account, onLogout }) {
   return (
     <Header>
-      <PrimaryIcon>
-        <CogIcon />
-      </PrimaryIcon>
+      <span></span>
       <Avatar src="https://picsum.photos/72" alt="" />
       <PrimaryIcon onClick={onLogout}>
         <LogoutIcon />
