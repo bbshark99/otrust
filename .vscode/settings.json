@@ -1,6 +1,6 @@
 {
   "json.maxItemsComputed": 500000,
-  "eslint.options": { "configFile": ".eslintrc.js"},
+  "eslint.options": { "configFile": ".eslintrc.js" },
   "eslint.validate": ["javascript", "javascriptreact"],
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.defaultFormatter": "esbenp.prettier-vscode",

@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useWeb3React } from '@web3-react/core';
 
 import { Close } from '../Icons';
 import * as Modal from '../styles';
 import { responsive } from 'theme/constants';
-import { Sending, ExchangeInput, MaxBtn } from '../../Exchange/exchangeStyles';
+import { BridgeSending, ExchangeInput, MaxBtn, BridgeInput } from '../../Exchange/exchangeStyles';
 import oneWayBridgeImg from '../assets/one-way-bridge.svg';
 import whyBridgeImg from '../assets/why-bridge.svg';
 import bridgeCurveImg from '../assets/icon-bridge-curve.svg';
 import walletImg from '../assets/icon-onomy-wallet.svg';
 
 const InputWrapper = styled.div`
-  margin: 0 0 25px;
+  margin: 0 0 12px;
 `;
 
 const FormWrapper = styled.form`
@@ -31,16 +32,32 @@ const FormWrapper = styled.form`
   }
 `;
 
-export default function BridgeSwapModal() {
+export default function BridgeSwapModal({ ...props }) {
+  const { account } = useWeb3React();
+
+  const {
+    onomyWalletValue,
+    onomyWalletError,
+    amountInputValue,
+    amountError,
+    formattedWeakBalance,
+    isButtonDisabled,
+    handleWalletInputChange,
+    handleAmountInputChange,
+    maxBtnHandler,
+    submitTrans,
+    closeModalHandler,
+  } = props;
+
   return (
     <Modal.BridgeModalWrapper>
-      <Modal.CloseIcon>
+      <Modal.CloseIcon onClick={() => closeModalHandler()}>
         <Close />
       </Modal.CloseIcon>
 
       <Modal.BridgeLayout>
         <main>
-          <Modal.CaptionLeft>Onomy Bridge</Modal.CaptionLeft>
+          <Modal.CaptionLeft>Onomy Bridge Here</Modal.CaptionLeft>
 
           <Modal.BridgeContent>
             <Modal.ConnectionItem>
@@ -49,11 +66,11 @@ export default function BridgeSwapModal() {
               </Modal.ConnectionItemIcon>
               <Modal.ConnectionItemContent>
                 <strong>Onomy Bonding Curve</strong>
-                <span>0x526..123sdas8b</span>
+                <span>{account ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}` : ''}</span>
               </Modal.ConnectionItemContent>
               <Modal.Balance>
                 <strong>wNOM Balance</strong>
-                <span>10,429.22</span>
+                <span>{`${formattedWeakBalance.toFixed(6)}`}</span>
               </Modal.Balance>
             </Modal.ConnectionItem>
 
@@ -63,24 +80,39 @@ export default function BridgeSwapModal() {
               <Modal.ConnectionItemIcon>
                 <img src={walletImg} alt="" />
               </Modal.ConnectionItemIcon>
-              <Modal.ConnectionItemContent>
-                <strong>My Onomy Wallet</strong>
-                <span>0x5262f6ef7cbdsad334123sdas8b</span>
-              </Modal.ConnectionItemContent>
+              <Modal.CosmosInputSection error={onomyWalletError}>
+                <BridgeInput
+                  type="text"
+                  placeholder="Your Onomy Wallet Address"
+                  value={
+                    onomyWalletValue.length > 24
+                      ? `${onomyWalletValue.substring(0, 10)}...${onomyWalletValue.substring(
+                          onomyWalletValue.length - 11,
+                        )}`
+                      : onomyWalletValue
+                  }
+                  onChange={handleWalletInputChange}
+                />
+              </Modal.CosmosInputSection>
             </Modal.ConnectionItem>
           </Modal.BridgeContent>
 
           <FormWrapper>
             <InputWrapper>
-              <Sending>
-                <strong>Swap to NOM</strong>
-                <ExchangeInput type="text" />
+              <BridgeSending error={amountError}>
+                <strong>I want to swap to NOM</strong>
+                <ExchangeInput type="text" value={amountInputValue} onChange={handleAmountInputChange} />
                 wNOM
-                <MaxBtn>Max</MaxBtn>
-              </Sending>
+                <MaxBtn onClick={maxBtnHandler}>Max</MaxBtn>
+              </BridgeSending>
             </InputWrapper>
+            {(onomyWalletError || amountError) && (
+              <Modal.ErrorSection>{onomyWalletError || amountError}</Modal.ErrorSection>
+            )}
 
-            <Modal.FullWidthButton>Swap wNOM for NOM</Modal.FullWidthButton>
+            <Modal.FullWidthButton onClick={submitTrans} disabled={isButtonDisabled}>
+              Swap wNOM for NOM
+            </Modal.FullWidthButton>
           </FormWrapper>
         </main>
         <Modal.Info>

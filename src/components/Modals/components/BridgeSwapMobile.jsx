@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { responsive } from 'theme/constants';
-import { Sending, ExchangeInput, MaxBtn } from '../../Exchange/exchangeStyles';
-import ConnectionStatus from '../../Sidebar/Sidebar';
+import { ExchangeInput, MaxBtn, BridgeInput, BridgeSending } from '../../Exchange/exchangeStyles';
+import { ConnectionStatus } from '../../UI/ConnectionStatus';
 import * as Modal from '../styles';
 import oneWayBridgeImg from '../assets/one-way-bridge.svg';
 import whyBridgeImg from '../assets/why-bridge.svg';
@@ -46,14 +46,14 @@ const FormWrapper = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  padding: 56px 20px;
+  padding: 26px 20px;
 `;
 
 const HeaderInfoItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-
+  align-items: ${props => (props.align ? props.align : 'normal')};
   @media screen and (max-width: ${responsive.laptop}) {
     gap: 5px;
   }
@@ -103,6 +103,7 @@ const HeaderInfoItemValue = styled.div`
 
 const ModalInfo = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   padding: 32px 20px;
@@ -136,9 +137,23 @@ const modalOverride = {
   },
 };
 
-export default function BridgeSwapMobile() {
+export default function BridgeSwapMobile({ ...props }) {
   const [swapModal, setSwapModal] = useState(true);
   const [infoModal, setInfoModal] = useState(false);
+
+  const {
+    onomyWalletValue,
+    onomyWalletError,
+    amountInputValue,
+    amountError,
+    formattedWeakBalance,
+    isButtonDisabled,
+    handleWalletInputChange,
+    handleAmountInputChange,
+    maxBtnHandler,
+    submitTrans,
+    closeModalHandler,
+  } = props;
 
   return (
     <BridgeSwapModalWrapper>
@@ -208,11 +223,11 @@ export default function BridgeSwapMobile() {
         isOpen={swapModal}
         style={modalOverride}
         data-testid="bridge-mobile-swap-modal"
-        // onRequestClose={() => {}}
+        onRequestClose={() => closeModalHandler()}
       >
         <BridgeSwapModal>
           <ModalHeader>
-            <ModalBtn onClick={() => setSwapModal(false)} data-testid="bridge-mobile-header-button">
+            <ModalBtn onClick={() => closeModalHandler()} data-testid="bridge-mobile-header-button">
               <FontAwesomeIcon icon={faChevronLeft} />
             </ModalBtn>
             <h6>Onomy Bridge</h6>
@@ -222,32 +237,45 @@ export default function BridgeSwapMobile() {
             <HeaderInfoItem>
               <strong>wNom Balance</strong>
               <HeaderInfoItemValue>
-                <strong>10,429.22</strong>
+                <strong>{`${formattedWeakBalance.toFixed(6)}`}</strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
-            <HeaderInfoItem>
+            <HeaderInfoItem align={'flex-end'}>
               <strong>Bridge</strong>
               <HeaderInfoItemValue>
                 <ConnectionStatus>Connected</ConnectionStatus>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
-            <HeaderInfoItem>
-              <strong>Onomy Wallet</strong>
-              <HeaderInfoItemValue>
-                <span>0xk3210230x…223</span>
-              </HeaderInfoItemValue>
-            </HeaderInfoItem>
+            <Modal.CosmosInputSection error={onomyWalletError}>
+              <BridgeInput
+                type="text"
+                placeholder="Your Onomy Wallet Address"
+                value={
+                  onomyWalletValue.length > 24
+                    ? `${onomyWalletValue.substring(0, 10)}...${onomyWalletValue.substring(
+                        onomyWalletValue.length - 11,
+                      )}`
+                    : onomyWalletValue
+                }
+                onChange={handleWalletInputChange}
+              />
+            </Modal.CosmosInputSection>
           </ModalInfo>
 
           <FormWrapper>
-            <Sending>
+            <BridgeSending error={amountError}>
               <strong>Swap to NOM</strong>
-              <ExchangeInput type="text" />
+              <ExchangeInput type="text" value={amountInputValue} onChange={handleAmountInputChange} />
               wNOM
-              <MaxBtn>Max</MaxBtn>
-            </Sending>
+              <MaxBtn onClick={maxBtnHandler}>Max</MaxBtn>
+            </BridgeSending>
+            {(onomyWalletError || amountError) && (
+              <Modal.ErrorSection>{onomyWalletError || amountError}</Modal.ErrorSection>
+            )}
 
-            <Modal.FullWidthButton>Swap wNOM for NOM</Modal.FullWidthButton>
+            <Modal.FullWidthButton onClick={submitTrans} disabled={isButtonDisabled}>
+              Swap wNOM for NOM
+            </Modal.FullWidthButton>
             <Modal.SecondaryButton
               style={{ width: '100%' }}
               onClick={() => {

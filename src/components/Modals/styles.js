@@ -608,6 +608,29 @@ export const BridgeLayout = styled.div`
   }
 `;
 
+export const ErrorSection = styled.div`
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  background: rgba(199, 90, 90, 0.1);
+  color: ${props => props.theme.colors.highlightRed};
+  text-align: center;
+  line-height: 52px;
+  margin-bottom: 24px;
+`;
+
+export const CosmosInputSection = styled.div`
+  width: 100%;
+  border: 1px solid ${props => (props.error ? props.theme.colors.highlightRed : props.theme.colors.bgHighlightBorder)};
+  border-radius: 8px;
+  padding: 16px 29px 16px 20px;
+  opacity: 1;
+
+  @media screen and (max-width: ${responsive.smartphoneLarge}) {
+      margin-top: 16px;
+    }
+`;
+
 export const Desc = styled.p`
   max-width: 600px;
   margin-bottom: 40px;
@@ -635,6 +658,19 @@ export const List = styled.ol`
 
 export const FullWidthButton = styled(PrimaryButton)`
   width: 100%;
+  height: 52px;
+
+  background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.textPrimary)};
+
+  color: ${props => (props.disabled ? props.theme.colors.textThirdly : props.theme.colors.bgDarken)};
+
+  &:hover {
+    background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : '#fff')};
+  }
+
+  &:active {
+    background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.textSecondary)};
+  }
 `;
 
 export const CaptionLeft = styled(Caption)`
