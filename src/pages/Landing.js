@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { isMobile } from 'react-device-detect';
 
 import { AccentButton } from 'components/UI/Button';
 import logo from '../assets/images/onomy.png';
@@ -112,16 +113,24 @@ export default function Landing({ connectWallet }) {
   const onWalletClick = wallet => {
     Object.values(SUPPORTED_WALLETS).forEach(sWallet => {
       if (sWallet.name === wallet.title) {
-        window.localStorage.setItem('connectorId', sWallet.name);
-        // This part of code never can be executed with SUPPORTED_WALLETS constants. Can it be deleted?
-        if (sWallet.name === 'Injected') {
-          if (typeof web3 !== 'undefined') {
-            connectWallet(sWallet.connector);
-          } else {
-            window.open('https://metamask.io/download.html');
-          }
+        if (isMobile && wallet.title === 'Metamask' && window.ethereum === undefined) {
+          let url = window.location.href;
+          let arr = url.split('/');
+          arr[2] = arr[2].replaceAll('/', '');
+          let newurl = 'https://metamask.app.link/dapp/' + arr[2];
+          window.location.href = newurl;
         } else {
-          connectWallet(sWallet.connector);
+          window.localStorage.setItem('connectorId', sWallet.name);
+          // This part of code never can be executed with SUPPORTED_WALLETS constants. Can it be deleted?
+          if (sWallet.name === 'Injected') {
+            if (typeof web3 !== 'undefined') {
+              connectWallet(sWallet.connector);
+            } else {
+              window.open('https://metamask.io/download.html');
+            }
+          } else {
+            connectWallet(sWallet.connector);
+          }
         }
       }
     });
