@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { BigNumber } from 'bignumber.js';
 import ConfirmTransactionModal from 'components/Modals/components/ConfirmTransactionModal';
 import PendingModal from 'components/Modals/components/PendingModal';
@@ -39,6 +39,9 @@ export default function ExchangeQuote({ strength }) {
   const { objDispatch, strDispatch } = useUpdateExchange();
   const isBuying = strength === 'strong';
 
+  const approveRef = useRef();
+  approveRef.current = approveAmount;
+
   const getAskAmount = useCallback(
     async (askAmountState, bidAmountUpdate, textStrength) => {
       var askAmountUpdate = askAmountState;
@@ -63,34 +66,15 @@ export default function ExchangeQuote({ strength }) {
     [bondContract],
   );
 
-  const onApprove = async () => {
-    if (weakBalance.gte(bidAmount)) {
-      if (bidAmount.gt(NOMallowance)) {
-        handleModal(<ApproveTokensModal onConfirmApprove={onConfirmApprove} />);
-      } else {
-        handleModal(<ConfirmTransactionModal submitTrans={submitTrans} />);
-      }
-    } else {
-      handleModal(<TransactionFailedModal error={`${weak} Balance too low`} />);
-    }
-  };
-
-  const onConfirmApprove = () => {
-    try {
-      handleModal(<ConfirmTransactionModal isApproving submitTrans={submitTrans} />);
-    } catch (e) {
-      handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
-    }
-  };
-
   const submitTrans = useCallback(
     async (isApproving, slippage, gasPrice) => {
       handleModal(<PendingModal isApproving={isApproving} />);
 
       if (isApproving) {
         if (!approveAmount) return;
+
         try {
-          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveAmount.toString(), {
+          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveRef.current.toString(), {
             gasPrice: gasPrice.toFixed(0),
           });
 
@@ -167,6 +151,26 @@ export default function ExchangeQuote({ strength }) {
     },
     [askAmount, bidAmount, approveAmount, bidDenom, NOMcontract, bondContract, handleModal, strong, weak],
   );
+
+  const onConfirmApprove = () => {
+    try {
+      handleModal(<ConfirmTransactionModal isApproving submitTrans={submitTrans} />);
+    } catch (e) {
+      handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+    }
+  };
+
+  const onApprove = () => {
+    if (weakBalance.gte(bidAmount)) {
+      if (bidAmount.gt(NOMallowance)) {
+        handleModal(<ApproveTokensModal onConfirmApprove={onConfirmApprove} />);
+      } else {
+        handleModal(<ConfirmTransactionModal submitTrans={submitTrans} />);
+      }
+    } else {
+      handleModal(<TransactionFailedModal error={`${weak} Balance too low`} />);
+    }
+  };
 
   const onBid = () => {
     switch (true) {
@@ -434,6 +438,10 @@ export default function ExchangeQuote({ strength }) {
     },
     [askAmount, bidDenom, NOMallowance, getAskAmount, handleModal, input, objDispatch, strDispatch, strength],
   );
+
+  React.useEffect(() => {
+    console.log('DEBUG-APPROVE-AMOUNT', approveAmount.toString());
+  }, [approveAmount]);
 
   return (
     <ExchangeItem>

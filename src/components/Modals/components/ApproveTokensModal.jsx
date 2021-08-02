@@ -89,32 +89,22 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
 
   useInterval(increaseCount, delay);
 
-  const onTextChange = async event => {
+  const onTextChange = event => {
     event.preventDefault();
-
-    console.log('Approve Amount:-approve ', approve);
 
     const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d\.$)/);
 
     if (floatRegExp.test(event.target.value.toString())) {
-      console.log('Approve Amount:-pass ', approve);
-
       const approvalAmount = parse18(new BigNumber(parseFloat(event.target.value).toString()));
 
-      let objUpdate = new Map();
-      objUpdate = objUpdate.set('approveAmount', approvalAmount);
-
       objDispatch({
-        type: 'update',
-        value: objUpdate,
+        type: 'approveAmount',
+        value: approvalAmount,
       });
 
-      let strUpdate = new Map();
-      strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
-
       strDispatch({
-        type: 'update',
-        value: strUpdate,
+        type: 'approve',
+        value: format18(approvalAmount).toString(),
       });
     } else {
       console.log('Text Change: ', 'regex failed');
