@@ -9,9 +9,7 @@ import { useModal } from 'context/modal/ModalContext';
 
 const Message = styled.div`
   margin: 32px 0 0;
-
   color: ${props => props.theme.colors.textSecondary};
-
   @media screen and (max-width: ${responsive.smartphone}) {
     font-size: 14px;
   }

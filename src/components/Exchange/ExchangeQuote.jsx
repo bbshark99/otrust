@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { BigNumber } from 'bignumber.js';
 import ConfirmTransactionModal from 'components/Modals/components/ConfirmTransactionModal';
 import PendingModal from 'components/Modals/components/PendingModal';
+import ApproveTokensModal from 'components/Modals/components/ApproveTokensModal';
 import RequestFailedModal from 'components/Modals/components/RequestFailedModal';
 import TransactionCompletedModal from 'components/Modals/components/TransactionCompletedModal';
 import TransactionFailedModal from 'components/Modals/components/TransactionFailedModal';
@@ -38,6 +39,9 @@ export default function ExchangeQuote({ strength }) {
   const { objDispatch, strDispatch } = useUpdateExchange();
   const isBuying = strength === 'strong';
 
+  const approveRef = useRef();
+  approveRef.current = approveAmount;
+
   const getAskAmount = useCallback(
     async (askAmountState, bidAmountUpdate, textStrength) => {
       var askAmountUpdate = askAmountState;
@@ -62,44 +66,15 @@ export default function ExchangeQuote({ strength }) {
     [bondContract],
   );
 
-  const onApprove = async () => {
-    if (bidAmount <= weakBalance) {
-      handleModal(<PendingModal type="approving" />);
-      // try {
-      //   strDispatch({
-      //     type: 'status',
-      //     value: 'APPROVE',
-      //   });
-
-      //   let tx = await NOMcontract.increaseAllowance(bondContract.address, bidAmount.toFixed(0));
-
-      //   tx.wait().then(() => {
-      //     handleModal(<TransactionCompletedModal tx={tx} />);
-      //   });
-
-      //   strDispatch({
-      //     type: 'status',
-      //     value: '',
-      //   });
-      // } catch (e) {
-      //   // eslint-disable-next-line no-console
-      //   // console.error(e.code, e.message.message);
-      //   // alert(e.message)
-      //   handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
-      // }
-    } else {
-      handleModal(<TransactionFailedModal error={`${weak} Balance too low`} />);
-    }
-  };
-
   const submitTrans = useCallback(
     async (isApproving, slippage, gasPrice) => {
       handleModal(<PendingModal isApproving={isApproving} />);
 
       if (isApproving) {
         if (!approveAmount) return;
+
         try {
-          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveAmount.toString(), {
+          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveRef.current.toString(), {
             gasPrice: gasPrice.toFixed(0),
           });
 
@@ -176,6 +151,26 @@ export default function ExchangeQuote({ strength }) {
     },
     [askAmount, bidAmount, approveAmount, bidDenom, NOMcontract, bondContract, handleModal, strong, weak],
   );
+
+  const onConfirmApprove = () => {
+    try {
+      handleModal(<ConfirmTransactionModal isApproving submitTrans={submitTrans} />);
+    } catch (e) {
+      handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+    }
+  };
+
+  const onApprove = () => {
+    if (weakBalance.gte(bidAmount)) {
+      if (bidAmount.gt(NOMallowance)) {
+        handleModal(<ApproveTokensModal onConfirmApprove={onConfirmApprove} />);
+      } else {
+        handleModal(<ConfirmTransactionModal submitTrans={submitTrans} />);
+      }
+    } else {
+      handleModal(<TransactionFailedModal error={`${weak} Balance too low`} />);
+    }
+  };
 
   const onBid = () => {
     switch (true) {
@@ -327,7 +322,7 @@ export default function ExchangeQuote({ strength }) {
             type: 'update',
             value: objUpdate,
           });
-          
+
           strDispatch({
             type: 'update',
             value: strUpdate,
@@ -339,110 +334,13 @@ export default function ExchangeQuote({ strength }) {
         default:
           handleModal(<RequestFailedModal error="Please enter numbers only. Thank you!" />);
       }
-      // strDispatch({
-      //   type: 'update',
-      //   value: new Map().set('input', evt.target.value.toString()),
-      // });
-
-      /*
-        const debounced = _.debounce(async () => {
-          const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$)/);
-          console.log('Component Strength: ', strength);
-          console.log('Text Strength: ', textStrength);
-          console.log('Bid Denom: ', bidDenom);
-          let strUpdate = new Map();
-          switch (true) {
-            case bidDenom === strength && input === evt.target.value.toString():
-              break;
-            case evt.target.value === '' || evt.target.value === '.':
-              {
-                let objUpdate = new Map();
-
-                objUpdate = objUpdate.set('askAmount', new BigNumber(0));
-
-                objUpdate = objUpdate.set('bidAmount', new BigNumber(0));
-
-                objUpdate = objUpdate.set('approveAmount', new BigNumber(0));
-
-                objDispatch({
-                  type: 'update',
-                  value: objUpdate,
-                });
-              }
-
-              strUpdate = strUpdate.set('bidDenom', strength);
-
-              strUpdate = strUpdate.set('input', evt.target.value.toString());
-
-              strUpdate = strUpdate.set('output', '');
-
-              strUpdate = strUpdate.set('approve', '');
-
-              strDispatch({
-                type: 'update',
-                value: strUpdate,
-              });
-
-              break;
-            case floatRegExp.test(evt.target.value.toString()):
-              const evttargetvalue = evt.target.value;
-
-              console.log('Input after test', evttargetvalue);
-
-              const bidAmountUpdate = parse18(new BigNumber(parseFloat(evttargetvalue).toString()));
-
-              if (bidDenom !== strength) {
-                strUpdate = strUpdate.set('bidDenom', strength);
-              }
-
-              var askAmountUpdate;
-
-              try {
-                console.log('calling here:', askAmount, bidAmountUpdate, textStrength);
-                askAmountUpdate = await getAskAmount(askAmount, bidAmountUpdate, textStrength);
-              } catch (err) {
-                if (err) {
-                  console.log(err.error.message);
-                  handleModal(<RequestFailedModal error={err.error.message} />);
-                }
-                break;
-              }
-
-              let objUpdate = new Map();
-
-              objUpdate = objUpdate.set('askAmount', new BigNumber(askAmountUpdate.toString()));
-
-              objUpdate = objUpdate.set('bidAmount', bidAmountUpdate);
-
-              if (bidAmountUpdate.gt(NOMallowance)) {
-                const approvalAmount = bidAmountUpdate.minus(NOMallowance);
-
-                objUpdate = objUpdate.set('approveAmount', approvalAmount);
-
-                strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
-              }
-
-              objDispatch({
-                type: 'update',
-                value: objUpdate,
-              });
-
-              strUpdate = strUpdate.set('output', format18(new BigNumber(askAmountUpdate.toString())).toFixed(8));
-              strDispatch({
-                type: 'update',
-                value: strUpdate,
-              });
-
-              break;
-            default:
-              handleModal(<RequestFailedModal error="Please enter numbers only. Thank you!" />);
-          }
-        }, 500);
-        debounced.call();
-      */
     },
     [askAmount, bidDenom, NOMallowance, getAskAmount, handleModal, input, objDispatch, strDispatch, strength],
   );
+
+  React.useEffect(() => {
+    console.log('DEBUG-APPROVE-AMOUNT', approveAmount.toString());
+  }, [approveAmount]);
 
   return (
     <ExchangeItem>

@@ -11,22 +11,18 @@ import { useModal } from 'context/modal/ModalContext';
 import * as Modal from 'components/Modals/styles';
 import 'components/Modals/loadingBar.css';
 import { useExchange } from 'context/exchange/ExchangeContext';
-import { BondingCont } from 'context/chain/contracts';
 
 const TransactionDetailsRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   & + & {
     margin-top: 16px;
   }
-
   span {
     font-weight: 400;
     color: ${props => props.theme.colors.textThirdly};
   }
-
   strong {
     font-weight: 500;
   }
@@ -34,7 +30,6 @@ const TransactionDetailsRow = styled.div`
 
 const OptionsWrapper = styled.section`
   padding: 32px 32px;
-
   border-top: 1px solid ${props => props.theme.colors.bgHighlightBorder};
 `;
 
@@ -52,20 +47,16 @@ const Options = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-
   margin: 12px 0 16px;
 `;
 
 const WalletIcon = styled.div`
   width: 40px;
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: ${props => props.theme.colors.bgDarken};
-
   svg {
     width: 24px;
     height: 24px;
@@ -74,19 +65,15 @@ const WalletIcon = styled.div`
 
 const OptionBtn = styled.button`
   padding: 12px 16px;
-
   background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
   border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
   border-radius: 22px;
-
   font-size: 14px;
   font-weight: 500;
   color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
-
   &:hover {
     background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
   }
-
   &:active {
     background-color: ${props => props.theme.colors.bgHighlightBorder_darken};
   }
@@ -148,11 +135,10 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
   const [slippage, setSlippage] = useState(0);
   const [gasPriceChoice, setGasPriceChoice] = useState(2);
   const [gasPrice, setGasPrice] = useState(0);
-  const [askAmountNew, setAskAmountNew] = useState(0);
   const { handleModal } = useModal();
-  const { account, library } = useWeb3React();
-  const { askAmount, bidAmount, bidDenom, strong, weak } = useExchange();
-  const bondContract = BondingCont(library);
+  const { account } = useWeb3React();
+
+  const { askAmount, bidAmount, bidDenom, strong, weak, approve } = useExchange();
 
   const [count, setCount] = useState(60);
   const [delay, setDelay] = useState(1000);
@@ -179,23 +165,8 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
   }, [gasPriceChoice]);
 
   useEffect(() => {
-    async function getUpdated() {
-      await getGasPrices();
-    }
-    getUpdated();
+    getGasPrices();
   }, [getGasPrices]);
-
-  useEffect(() => {
-    async function getUpdated() {
-      const gasFeeBuy = await bondContract.estimateGas.buyQuoteETH(bidAmount.toFixed(0));
-      let gasFee = new BigNumber(gasFeeBuy.toString());
-      gasFee = gasFee.times(gasPrice);
-      let newBidAmount = bidAmount.minus(gasFee);
-      const askAmountUpdateRaw = await bondContract.buyQuoteETH(newBidAmount.toFixed(0));
-      setAskAmountNew(new BigNumber(askAmountUpdateRaw.toString()));
-    }
-    getUpdated();
-  }, [gasPrice, bidAmount, bondContract]);
 
   useInterval(increaseCount, delay);
 
@@ -212,7 +183,7 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
           <Modal.ExchangeResultDescription>
             {isApproving ? "You're approving" : "You're receiving"}
           </Modal.ExchangeResultDescription>
-          ~ {BigNumber.isBigNumber(askAmountNew) ? format18(askAmountNew).toFixed(6) : ''}{' '}
+          ~ {isApproving ? approve : BigNumber.isBigNumber(askAmount) ? format18(askAmount).toFixed(6) : ''}{' '}
           <sup>{isApproving ? 'wNOM' : bidDenom === 'strong' ? 'wNOM' : 'ETH'}</sup>
         </Modal.ExchangeResult>
 
@@ -222,9 +193,7 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
             {bidDenom && (
               <>
                 1 {bidDenom === 'strong' ? strong : weak} ={' '}
-                {BigNumber.isBigNumber(bidAmount)
-                  ? format18(askAmount.div(format18(bidAmount).toFixed(6))).toFixed(6)
-                  : 'Loading'}
+                {BigNumber.isBigNumber(bidAmount) ? askAmount.div(bidAmount).toFixed(6) : 'Loading'}
               </>
             )}{' '}
             {bidDenom === 'strong' ? weak : strong}
@@ -233,7 +202,7 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
         <TransactionDetailsRow>
           <span>{isApproving ? "You're approving" : "You're sending"}</span>
           <strong>
-            {format18(bidAmount).toFixed(6)} {bidDenom === 'strong' ? strong : weak}
+            {isApproving ? approve : format18(bidAmount).toFixed(6)} {bidDenom === 'strong' ? strong : weak}
           </strong>
         </TransactionDetailsRow>
         <TransactionDetailsRow>
@@ -259,7 +228,7 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
         {/* <FeeWrapper>
           <span>Transaction fee</span>
           <span>
-            <strong>${gasUsd}</strong> ({gasEth} ETH)
+            <strong>$5.4</strong> (0.00032 ETH)
           </span>
         </FeeWrapper> */}
       </main>
