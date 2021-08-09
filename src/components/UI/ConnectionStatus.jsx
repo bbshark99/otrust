@@ -5,7 +5,7 @@ export const ConnectionStatus = styled.div`
   align-items: center;
   gap: 8px;
 
-  color: ${props => props.theme.colors.highlightGreen};
+  color: ${props => (props.active ? props.theme.colors.highlightGreen : props.theme.colors.highlightRed)};
   font-weight: 500;
 
   &:before {

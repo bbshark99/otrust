@@ -55,7 +55,7 @@ export default function SidebarConnection({ active, error, chainId, blockNumber 
     <ConnectionWrapper>
       <ConnectionRow>
         <strong>Connection</strong>
-        <ConnectionStatus>{active ? 'Connected' : error ? 'Error' : 'Loading'}</ConnectionStatus>
+        <ConnectionStatus active={active}>{active ? 'Connected' : error ? 'Error' : 'Loading'}</ConnectionStatus>
       </ConnectionRow>
       <ConnectionRow>
         <strong>Chain Id</strong>

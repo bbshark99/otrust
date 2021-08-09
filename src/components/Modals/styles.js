@@ -50,6 +50,35 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const BridgeSectionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background-color: ${props => props.theme.colors.bgNormal};
+
+   main {
+    padding: 0;
+  };
+
+  footer {
+    display: flex;
+    padding: 0;
+    margin-top: auto;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+  }
+`;
+
+export const BridgeSuccessWrapper = styled(BridgeSectionWrapper)`
+
+  footer {
+    margin: auto;
+  }
+`;
+
 export const FooterControls = styled.div`
   display: flex;
   align-items: center;
@@ -60,6 +89,11 @@ export const FooterControls = styled.div`
   @media screen and (max-width: ${responsive.laptop}) {
     padding-bottom: 24px;
   }
+`;
+
+export const BridgeFooterControl = styled(FooterControls)`
+  width: 100%;
+  justify-content: center;
 `;
 
 export const CloseIcon = styled.button`
@@ -94,11 +128,11 @@ export const PrimaryButton = styled.button`
   width: 170px;
   height: 50px;
 
-  background-color: ${props => props.theme.colors.textPrimary};
+  background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.textPrimary)};
   border: none;
   border-radius: 8px;
 
-  color: ${props => props.theme.colors.bgDarken};
+  color: ${props => (props.disabled ? props.theme.colors.textThirdly : props.theme.colors.bgDarken)};
   font-weight: 600;
   font-size: 14px;
 
@@ -114,25 +148,25 @@ export const PrimaryButton = styled.button`
   }
 
   &:hover {
-    background-color: #fff;
+    background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : '#fff')};
   }
 
   &:active {
-    background-color: ${props => props.theme.colors.textSecondary};
+    background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.textSecondary)};
   }
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
-  background-color: ${props => props.theme.colors.bgHighlightBorder};
+  background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.bgHighlightBorder)};
 
-  color: ${props => props.theme.colors.textPrimary};
+  color: ${props => (props.disabled ? props.theme.colors.textThirdly : props.theme.colors.textPrimary)};
 
   &:hover {
-    background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
+    background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.bgHighlightBorder_lighten)};
   }
 
   &:active {
-    background-color: ${props => props.theme.colors.bgNormal};
+    background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.textSecondary)};
   }
 `;
 
@@ -174,6 +208,8 @@ export const ExchangeRateWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  padding-bottom: 16px;
 
   span {
     font-weight: 400;
@@ -344,6 +380,10 @@ export const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
+`;
+
+export const ApprovedModalLoadingWrapper = styled(LoadingWrapper)`
+  padding: 10px;
 `;
 
 /* Bridge Modal Styles */
@@ -544,9 +584,9 @@ export const ConnectionStatus = styled.div`
   position: relative;
 
   border-radius: 8px;
-  background-color: ${props => (props.disconnected ? '#30232e' : '#2a3438')};
+  background-color: ${props => (props.active ? '#2a3438' : '#30232e')};
 
-  color: ${props => (props.disconnected ? props.theme.colors.highlightRed : props.theme.colors.highlightGreen)};
+  color: ${props => (props.active ? props.theme.colors.highlightGreen : props.theme.colors.highlightRed)};
   white-space: nowrap;
 
   @media screen and (max-width: ${responsive.tabletSmall}) {
@@ -574,7 +614,7 @@ export const ConnectionStatus = styled.div`
     left: 50%;
 
     background-color: ${props =>
-    props.disconnected ? props.theme.colors.highlightRed : props.theme.colors.highlightGreen};
+    props.active ? props.theme.colors.highlightGreen : props.theme.colors.highlightRed};
 
     @media screen and (max-width: ${responsive.tabletSmall}) {
       display: none;
@@ -586,7 +626,7 @@ export const ConnectionStatus = styled.div`
     bottom: -30px;
 
     background-color: ${props =>
-    props.disconnected ? props.theme.colors.bgHighlightBorder : props.theme.colors.highlightGreen};
+      props.active ? props.theme.colors.highlightGreen : props.theme.colors.highlightRed};
   }
 `;
 
@@ -616,7 +656,18 @@ export const ErrorSection = styled.div`
   color: ${props => props.theme.colors.highlightRed};
   text-align: center;
   line-height: 52px;
+  margin-top: 12px;
   margin-bottom: 24px;
+  overflow: hidden;
+
+  @media screen and (max-width: ${responsive.tabletSmall}) {
+    margin-bottom: 8px;
+  }
+`;
+
+export const SuccessSection = styled(ErrorSection)`
+  color: ${props => props.theme.colors.highlightGreen};
+  background-color: #2a3438;
 `;
 
 export const CosmosInputSection = styled.div`

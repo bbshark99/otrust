@@ -20,6 +20,10 @@ export function format18(bignumber) {
   return bignumber.div(new BigNumber(10 ** 18));
 }
 
+export function bignumberToJsNumber(bignumber) {
+  return parseFloat(format18(new BigNumber(bignumber.toString())).toNumber());
+}
+
 export function parse18(bignumber) {
   return bignumber.times(new BigNumber(10 ** 18));
 }

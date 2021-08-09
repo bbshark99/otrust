@@ -153,6 +153,10 @@ export const MaxBtn = styled.button`
   }
 `;
 
+export const BridgeMaxBtn = styled(MaxBtn)`
+  background-color: transparent;
+`;
+
 export const ExchangeInput = styled.input`
   width: ${props => (props.value ? '100%' : '120px')};
 
@@ -186,9 +190,15 @@ export const ReceivingValue = styled.span`
   }
 `;
 
-export const BridgeInput = styled(ExchangeInput)`
+export const BridgeAddressInput = styled(ExchangeInput)`
   width: 100%;
   text-align: left;
+  font-size: 14px;
+`;
+
+export const BridgeAmountInput = styled(ExchangeInput)`
+  width: 100%;
+  padding: 0 10px;
 `;
 
 export const ExchangeButton = styled.button`
