@@ -17,7 +17,7 @@ const BondingCurveLayout = styled.div`
   }
 
   @media screen and (max-width: ${responsive.laptopSmall}) {
-    grid-template-columns: 1fr 250px;
+    // grid-template-columns: 1fr 250px;
   }
 
   @media screen and (max-width: ${responsive.tablet}) {

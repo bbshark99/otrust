@@ -34,7 +34,12 @@ const Balances = styled.div`
   }
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
     padding: 20px;
+    gap: 0px;
   }
 
   strong {
@@ -156,6 +161,11 @@ const WithdrawBtnWrapper = styled.div`
   @media screen and (max-width: ${responsive.tablet}) {
     margin: 0 0 0 auto;
   }
+
+  @media screen and (max-width: ${responsive.smartphoneLarge}) {
+    padding-top: 10px;
+    margin: 0;
+  }
 `;
 
 const TooltipWrapper = styled.div`
@@ -263,7 +273,7 @@ export default function SidebarBalances({ strong, weak, strongBalance, weakBalan
           </PrimaryButton>
         </WithdrawBtnWrapper>
       </Balances>
-      {showBridge && <BridgeSwapMain closeModalHandler={() => setShowBridge(false)} />}
+      {showBridge && <BridgeSwapMain closeModalClickHandler={() => setShowBridge(false)} />}
     </>
   );
 }

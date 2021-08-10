@@ -39,38 +39,18 @@ const FormWrapper = styled.form`
 
 export default function BridgeSwapModal({ ...props }) {
   const { active, account } = useWeb3React();
-
-  const {
-    onomyWalletValue,
-    amountInputValue,
-    formattedWeakBalance,
-    isDisabled,
-    isMaxButtonClicked,
-    handleWalletInputChange,
-    handleAmountInputChange,
-    maxBtnHandler,
-    submitTrans,
-    closeModalHandler,
-    showBridgeExchangeModal,
-    showApproveModal,
-    showTransactionCompleted,
-    onCancelHandler,
-    allowanceAmountGravity,
-    weakBalance,
-    showLoader,
-    errors,
-  } = props;
+  const { values, flags, handlers } = { ...props };
 
   return (
     <>
-      <Dimmer onClick={() => closeModalHandler()} />
+      <Dimmer onClick={() => handlers.closeModalClickHandler()} />
       <Modal.BridgeModalWrapper>
-        <Modal.CloseIcon onClick={() => closeModalHandler()}>
+        <Modal.CloseIcon onClick={() => handlers.closeModalClickHandler()}>
           <Close />
         </Modal.CloseIcon>
 
         <Modal.BridgeLayout>
-          {showBridgeExchangeModal && (
+          {flags.showBridgeExchangeModal && (
             <main>
               <Modal.CaptionLeft>Onomy Bridge Here</Modal.CaptionLeft>
 
@@ -87,64 +67,74 @@ export default function BridgeSwapModal({ ...props }) {
                   </Modal.ConnectionItemContent>
                   <Modal.Balance>
                     <strong>wNOM Balance</strong>
-                    <span>{`${formattedWeakBalance.toFixed(6)}`}</span>
+                    <span>{`${values.formattedWeakBalance.toFixed(6)}`}</span>
                   </Modal.Balance>
                 </Modal.ConnectionItem>
                 <Modal.ConnectionStatus active={active}>
-                  {active ? 'Bridge Connected' : 'Bridge Disconnected'}
+                  {active ? 'Bridge Connected' : 'Wallet Disconnected'}
                 </Modal.ConnectionStatus>
 
                 <Modal.ConnectionItem>
                   <Modal.ConnectionItemIcon>
                     <img src={walletImg} alt="" />
                   </Modal.ConnectionItemIcon>
-                  <Modal.CosmosInputSection error={errors.onomyWalletError}>
+                  <Modal.CosmosInputSection error={values.errors.onomyWalletError}>
                     <BridgeAddressInput
                       type="text"
                       placeholder="Your Onomy Wallet Address"
-                      value={onomyWalletValue}
-                      onChange={handleWalletInputChange}
+                      value={values.onomyWalletValue}
+                      onChange={handlers.walletChangeHandler}
                     />
                   </Modal.CosmosInputSection>
                 </Modal.ConnectionItem>
               </Modal.BridgeContent>
               <FormWrapper>
-                {showLoader && (
+                {flags.showLoader && (
                   <Modal.LoadingWrapper>
                     <LoadingSpinner />
                   </Modal.LoadingWrapper>
                 )}
                 <InputWrapper>
-                  <BridgeSending error={errors.amountError}>
+                  <BridgeSending error={values.errors.amountError}>
                     <strong>I want to swap to NOM</strong>
-                    <BridgeAmountInput type="text" value={amountInputValue} onChange={handleAmountInputChange} />
+                    <BridgeAmountInput type="text" value={values.amountValue} onChange={handlers.amountChangeHandler} />
                     wNOM
-                    <BridgeMaxBtn onClick={maxBtnHandler}>Max</BridgeMaxBtn>
+                    <BridgeMaxBtn onClick={handlers.maxBtnClickHandler} disabled={flags.isTransactionPending}>
+                      Max
+                    </BridgeMaxBtn>
                   </BridgeSending>
                 </InputWrapper>
-                {getFirstMessage(errors) && <Modal.ErrorSection>{getFirstMessage(errors)}</Modal.ErrorSection>}
-                <Modal.FullWidthButton onClick={submitTrans} disabled={isDisabled}>
+                {getFirstMessage(values.errors) && (
+                  <Modal.ErrorSection>{getFirstMessage(values.errors)}</Modal.ErrorSection>
+                )}
+                <Modal.FullWidthButton
+                  onClick={handlers.submitTransClickHandler}
+                  disabled={flags.isDisabled || !active}
+                >
                   Swap wNOM for NOM
                 </Modal.FullWidthButton>
               </FormWrapper>
             </main>
           )}
-          {showApproveModal && (
+          {flags.showApproveModal && (
             <main>
               <ApproveTokensBridgeModal
                 {...props}
-                onCancelHandler={onCancelHandler}
-                amountInputValue={amountInputValue}
-                allowanceAmountGravity={allowanceAmountGravity}
-                formattedWeakBalance={formattedWeakBalance}
-                weakBalance={weakBalance}
-                isMaxAmount={isMaxButtonClicked}
+                onCancelHandler={handlers.onCancelClickHandler}
+                amountValue={values.amountValue}
+                allowanceAmountGravity={values.allowanceAmountGravity}
+                formattedWeakBalance={values.formattedWeakBalance}
+                weakBalance={values.weakBalance}
+                isMaxAmount={flags.isMaxButtonClicked}
               />
             </main>
           )}
-          {showTransactionCompleted && (
+          {flags.showTransactionCompleted && (
             <main>
-              <BridgeTransactionComplete {...props} />
+              <BridgeTransactionComplete
+                closeModalHandler={handlers.closeModalClickHandler}
+                amountValue={values.amountValue}
+              />
             </main>
           )}
           <Modal.Info>

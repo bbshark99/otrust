@@ -27,12 +27,12 @@ const SidebarLayout = styled.div`
   }
 
   @media screen and (max-width: ${responsive.tabletSmall}) {
-    grid-template-columns: 1fr 250px;
+    // grid-template-columns: 1fr 250px;
   }
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(3, auto);
+    display: flex;
+    flex-direction: column;
   }
 `;
 

@@ -86,7 +86,7 @@ const ApproveTokensWrapper = styled.div`
 `;
 
 export default function ApproveTokensBridgeModal({
-  amountInputValue,
+  amountValue,
   allowanceAmountGravity,
   onCancelHandler,
   formattedWeakBalance,
@@ -102,19 +102,20 @@ export default function ApproveTokensBridgeModal({
   const [showLoader, setShowLoader] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [isTransactionCompleted, setIsTransactionCompleted] = useState(false);
 
   const { library } = useWeb3React();
   const NOMContract = NOMCont(library);
 
   useEffect(() => {
-    if (amountInputValue && allowanceAmountGravity) {
-      const approveValue = amountInputValue - bignumberToJsNumber(allowanceAmountGravity);
+    if (amountValue && allowanceAmountGravity) {
+      const approveValue = amountValue - bignumberToJsNumber(allowanceAmountGravity);
       setCalculatedApproveValue(approveValue);
       setApproveAmountInputValue(approveValue);
     } else {
       setCalculatedApproveValue(0);
     }
-  }, [amountInputValue, allowanceAmountGravity]);
+  }, [amountValue, allowanceAmountGravity]);
 
   const handleApproveAmountInputChange = event => {
     setIsMaxButtonClicked(false);
@@ -147,7 +148,7 @@ export default function ApproveTokensBridgeModal({
   const confirmApproveHandler = useCallback(
     async event => {
       event.preventDefault();
-      if (approveAmountInputValue === '.' || approveAmountInputValue === '') {
+      if (approveAmountInputValue === '.' || !approveAmountInputValue) {
         return;
       }
 
@@ -172,6 +173,7 @@ export default function ApproveTokensBridgeModal({
           setSuccessMessage(NOTIFICATION_MESSAGES.success.approvedBridgeTokens(approveAmountInputValue));
           setShowLoader(false);
           setIsBtnDisabled(false);
+          setIsTransactionCompleted(true);
         });
       } catch (error) {
         if (error.code === 4001) {
@@ -198,7 +200,7 @@ export default function ApproveTokensBridgeModal({
 
       <main>
         <Message>
-          You want to sell <strong>{amountInputValue} wNOM</strong>, but you approved for sale only{' '}
+          You want to sell <strong>{amountValue} wNOM</strong>, but you approved for sale only{' '}
           {allowanceAmountGravity && bignumberToJsNumber(allowanceAmountGravity)} wNOM. To sell this amount, please
           approve <strong>{calculatedApproveValue} wNOM</strong> or more.
         </Message>
@@ -223,20 +225,29 @@ export default function ApproveTokensBridgeModal({
         </Modal.ApprovedModalLoadingWrapper>
       )}
       <footer>
-        <Modal.SecondaryButton
-          onClick={onCancelHandler}
-          disabled={isBtnDisabled}
-          data-testid="approve-tokens-modal-secondary-button"
-        >
-          Cancel
-        </Modal.SecondaryButton>
-        <Modal.PrimaryButton
-          onClick={confirmApproveHandler}
-          disabled={isBtnDisabled}
-          data-testid="approve-tokens-modal-primary-button"
-        >
-          Confirm ({count})
-        </Modal.PrimaryButton>
+        {!isTransactionCompleted && (
+          <>
+            <Modal.SecondaryButton
+              onClick={onCancelHandler}
+              disabled={isBtnDisabled}
+              data-testid="approve-tokens-modal-secondary-button"
+            >
+              Cancel
+            </Modal.SecondaryButton>
+            <Modal.PrimaryButton
+              onClick={confirmApproveHandler}
+              disabled={isBtnDisabled}
+              data-testid="approve-tokens-modal-primary-button"
+            >
+              Confirm ({count})
+            </Modal.PrimaryButton>
+          </>
+        )}
+        {isTransactionCompleted && (
+          <Modal.PrimaryButton onClick={onCancelHandler} style={{ margin: 'auto' }}>
+            Done
+          </Modal.PrimaryButton>
+        )}
       </footer>
     </Modal.BridgeSectionWrapper>
   );

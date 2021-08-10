@@ -9,11 +9,7 @@ export const ExplorerButton = styled(Modal.SecondaryButton)`
   margin-top: 32px;
 `;
 
-export default function BridgeTransactionComplete({ closeModalHandler, amountInputValue }) {
-  const closeModal = () => {
-    closeModalHandler();
-  };
-
+export default function BridgeTransactionComplete({ closeModalHandler, amountValue }) {
   return (
     <Modal.BridgeSuccessWrapper>
       <main>
@@ -23,7 +19,7 @@ export default function BridgeTransactionComplete({ closeModalHandler, amountInp
         <Modal.Caption>Transaction Completed!</Modal.Caption>
 
         <Modal.ExchangeResult data-testid="completed-modal-exchange-result">
-          + {amountInputValue} <sup>NOM</sup> / - {amountInputValue} <sup>wNOM</sup>
+          + {amountValue} <sup>NOM</sup> / - {amountValue} <sup>wNOM</sup>
         </Modal.ExchangeResult>
 
         <Modal.ExchangeRateWrapper data-testid="completed-modal-exchange-rate">
@@ -34,7 +30,7 @@ export default function BridgeTransactionComplete({ closeModalHandler, amountInp
       </main>
       <footer>
         <Modal.BridgeFooterControl>
-          <Modal.PrimaryButton onClick={() => closeModal()} data-testid="completed-modal-primary-button">
+          <Modal.PrimaryButton onClick={() => closeModalHandler()} data-testid="completed-modal-primary-button">
             Done
           </Modal.PrimaryButton>
         </Modal.BridgeFooterControl>

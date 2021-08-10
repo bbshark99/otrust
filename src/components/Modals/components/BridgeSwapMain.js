@@ -14,12 +14,13 @@ import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
 
 const initialErrorsState = { amountError: '', onomyWalletError: '', transactionError: '' };
 
-export default function BridgeSwapMain({ closeModalHandler }) {
+export default function BridgeSwapMain({ closeModalClickHandler }) {
   const [onomyWalletValue, setOnomyWalletValue] = useState('');
-  const [amountInputValue, setAmountInputValue] = useState('');
+  const [amountValue, setAmountValue] = useState('');
   const [errors, setErrors] = useState(initialErrorsState);
   const [formattedWeakBalance, setFormattedWeakBalance] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isTransactionPending, setIsTransactionPending] = useState(false);
   const [isMaxButtonClicked, setIsMaxButtonClicked] = useState(false);
   const [isMediaMinTablet, setIsMediaMinTablet] = useState(undefined);
   const [allowanceAmountGravity, setAllowanceAmountGravity] = useState(0);
@@ -36,7 +37,7 @@ export default function BridgeSwapMain({ closeModalHandler }) {
 
   const mediaQuery = window.matchMedia('(min-width: 768px)');
 
-  const handleTabletChange = useCallback(event => {
+  const tabletWidthChangeHandler = useCallback(event => {
     if (event.matches) {
       setIsMediaMinTablet(true);
     } else {
@@ -45,12 +46,12 @@ export default function BridgeSwapMain({ closeModalHandler }) {
   }, []);
 
   useEffect(() => {
-    mediaQuery.addListener(handleTabletChange);
+    mediaQuery.addListener(tabletWidthChangeHandler);
     mediaQuery.matches ? setIsMediaMinTablet(true) : setIsMediaMinTablet(false);
     return () => {
-      mediaQuery.removeListener(handleTabletChange);
+      mediaQuery.removeListener(tabletWidthChangeHandler);
     };
-  }, [handleTabletChange, mediaQuery]);
+  }, [tabletWidthChangeHandler, mediaQuery]);
 
   useEffect(() => {
     setFormattedWeakBalance(format18(weakBalance));
@@ -69,23 +70,23 @@ export default function BridgeSwapMain({ closeModalHandler }) {
   }, [NOMContract, account, allowanceAmountGravity, updateAllowanceAmount]);
 
   useEffect(() => {
-    mediaQuery.addListener(handleTabletChange);
+    mediaQuery.addListener(tabletWidthChangeHandler);
     mediaQuery.matches ? setIsMediaMinTablet(true) : setIsMediaMinTablet(false);
     return () => {
-      mediaQuery.removeListener(handleTabletChange);
+      mediaQuery.removeListener(tabletWidthChangeHandler);
     };
-  }, [handleTabletChange, mediaQuery]);
+  }, [tabletWidthChangeHandler, mediaQuery]);
 
-  const handleWalletInputChange = event => {
+  const walletChangeHandler = event => {
     setOnomyWalletValue(event.target.value);
     setIsMaxButtonClicked(false);
   };
 
-  const handleAmountInputChange = event => {
+  const amountChangeHandler = event => {
     const value = event.target.value;
     const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
     if (floatRegExp.test(value)) {
-      setAmountInputValue(value);
+      setAmountValue(value);
       if (value > formattedWeakBalance.toNumber()) {
         setErrors(prevState => {
           return { ...prevState, amountError: NOTIFICATION_MESSAGES.error.insufficientFunds };
@@ -101,36 +102,36 @@ export default function BridgeSwapMain({ closeModalHandler }) {
     setIsMaxButtonClicked(false);
   };
 
-  const maxBtnHandler = event => {
+  const maxBtnClickHandler = event => {
     event.preventDefault();
     if (weakBalance.toNumber()) {
-      setAmountInputValue(formattedWeakBalance.toNumber());
+      setAmountValue(formattedWeakBalance.toNumber());
       setIsDisabled(false);
       setIsMaxButtonClicked(true);
     }
   };
 
-  const onCancelHandler = () => {
+  const onCancelClickHandler = () => {
     setShowApproveModal(false);
     setShowBridgeExchangeModal(true);
     setIsDisabled(false);
     updateAllowanceAmount();
   };
 
-  const submitTrans = useCallback(
+  const submitTransClickHandler = useCallback(
     async event => {
       event.preventDefault();
       setErrors(initialErrorsState);
-      if (amountInputValue === '.' || amountInputValue === '') {
+      if (amountValue === '.' || !parseFloat(amountValue)) {
         setErrors(prevState => {
-          return { ...prevState, amountError: NOTIFICATION_MESSAGES.error.incorrectOnomyAddressFormat };
+          return { ...prevState, amountError: NOTIFICATION_MESSAGES.error.incorrectAmountFormat };
         });
         return;
       }
 
-      const amountInputValueUpdated = isMaxButtonClicked
+      const amountValueUpdated = isMaxButtonClicked
         ? weakBalance.toString(10)
-        : parse18(new BigNumber(amountInputValue)).toString(10);
+        : parse18(new BigNumber(amountValue)).toString(10);
       setIsDisabled(true);
 
       try {
@@ -146,10 +147,11 @@ export default function BridgeSwapMain({ closeModalHandler }) {
       }
 
       let tx;
-      if (allowanceAmountGravity.gte(ethers.BigNumber.from(amountInputValueUpdated))) {
+      if (allowanceAmountGravity.gte(ethers.BigNumber.from(amountValueUpdated))) {
         try {
           setShowLoader(true);
-          tx = await GravityContract.sendToCosmos(contAddrs.NOMERC20, cosmosAddressBytes32, amountInputValueUpdated, {
+          setIsTransactionPending(true);
+          tx = await GravityContract.sendToCosmos(contAddrs.NOMERC20, cosmosAddressBytes32, amountValueUpdated, {
             gasLimit: 100000,
           });
 
@@ -158,6 +160,7 @@ export default function BridgeSwapMain({ closeModalHandler }) {
             setShowBridgeExchangeModal(false);
             setShowTransactionCompleted(true);
             setShowLoader(false);
+            setIsTransactionPending(false);
             return;
           });
         } catch (error) {
@@ -173,6 +176,7 @@ export default function BridgeSwapMain({ closeModalHandler }) {
 
           setShowLoader(false);
           setIsDisabled(false);
+          setIsTransactionPending(false);
           return;
         }
       } else {
@@ -180,33 +184,35 @@ export default function BridgeSwapMain({ closeModalHandler }) {
         setShowApproveModal(true);
       }
     },
-    [onomyWalletValue, amountInputValue, GravityContract, isMaxButtonClicked, weakBalance, allowanceAmountGravity],
+    [onomyWalletValue, amountValue, GravityContract, isMaxButtonClicked, weakBalance, allowanceAmountGravity],
   );
 
   const Props = {
-    onomyWalletValue,
-    setOnomyWalletValue,
-    amountInputValue,
-    setAmountInputValue,
-    isMaxButtonClicked,
-    setIsMaxButtonClicked,
-    formattedWeakBalance,
-    setFormattedWeakBalance,
-    isDisabled,
-    setIsDisabled,
-    handleWalletInputChange,
-    handleAmountInputChange,
-    maxBtnHandler,
-    submitTrans,
-    closeModalHandler,
-    showBridgeExchangeModal,
-    showApproveModal,
-    showTransactionCompleted,
-    onCancelHandler,
-    allowanceAmountGravity,
-    weakBalance,
-    showLoader,
-    errors,
+    values: {
+      onomyWalletValue,
+      amountValue,
+      formattedWeakBalance,
+      allowanceAmountGravity,
+      weakBalance,
+      errors,
+    },
+    flags: {
+      isMaxButtonClicked,
+      isDisabled,
+      isTransactionPending,
+      showBridgeExchangeModal,
+      showApproveModal,
+      showTransactionCompleted,
+      showLoader,
+    },
+    handlers: {
+      walletChangeHandler,
+      amountChangeHandler,
+      maxBtnClickHandler,
+      submitTransClickHandler,
+      onCancelClickHandler,
+      closeModalClickHandler,
+    },
   };
 
   return (

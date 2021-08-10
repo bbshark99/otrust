@@ -29,6 +29,8 @@ const SidebarFooterWrapper = styled.footer`
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     padding: 24px 20px;
 
+    position: relative;
+
     background-color: ${props => props.theme.colors.bgDarken};
   }
 `;

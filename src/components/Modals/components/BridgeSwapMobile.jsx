@@ -145,50 +145,38 @@ const modalOverride = {
 export default function BridgeSwapMobile({ ...props }) {
   const { active } = useWeb3React();
 
-  const {
-    onomyWalletValue,
-    amountInputValue,
-    formattedWeakBalance,
-    isDisabled,
-    isMaxButtonClicked,
-    handleWalletInputChange,
-    handleAmountInputChange,
-    maxBtnHandler,
-    submitTrans,
-    closeModalHandler,
-    showBridgeExchangeModal,
-    showApproveModal,
-    showTransactionCompleted,
-    onCancelHandler,
-    allowanceAmountGravity,
-    weakBalance,
-    showLoader,
-    errors,
-  } = props;
+  const { values, flags, handlers } = { ...props };
 
   const [infoModal, setInfoModal] = useState(false);
 
   return (
     <BridgeSwapModalWrapper>
-      <ReactModal isOpen={showApproveModal} style={modalOverride} data-testid="bridge-mobile-approve-modal">
+      <ReactModal isOpen={flags.showApproveModal} style={modalOverride} data-testid="bridge-mobile-approve-modal">
         <BridgeSwapModal>
           <ModalInfo>
             <ApproveTokensBridgeModal
               {...props}
-              onCancelHandler={onCancelHandler}
-              amountInputValue={amountInputValue}
-              allowanceAmountGravity={allowanceAmountGravity}
-              formattedWeakBalance={formattedWeakBalance}
-              weakBalance={weakBalance}
-              isMaxAmount={isMaxButtonClicked}
+              onCancelHandler={handlers.onCancelClickHandler}
+              amountValue={values.amountValue}
+              allowanceAmountGravity={values.allowanceAmountGravity}
+              formattedWeakBalance={values.formattedWeakBalance}
+              weakBalance={values.weakBalance}
+              isMaxAmount={flags.isMaxButtonClicked}
             />
           </ModalInfo>
         </BridgeSwapModal>
       </ReactModal>
-      <ReactModal isOpen={showTransactionCompleted} style={modalOverride} data-testid="bridge-mobile-success-modal">
+      <ReactModal
+        isOpen={flags.showTransactionCompleted}
+        style={modalOverride}
+        data-testid="bridge-mobile-success-modal"
+      >
         <BridgeSwapModal>
           <ModalInfo>
-            <BridgeTransactionComplete {...props} />
+            <BridgeTransactionComplete
+              closeModalHandler={handlers.closeModalClickHandler}
+              amountValue={values.amountValue}
+            />
           </ModalInfo>
         </BridgeSwapModal>
       </ReactModal>
@@ -254,14 +242,14 @@ export default function BridgeSwapMobile({ ...props }) {
         </BridgeSwapModal>
       </ReactModal>
       <ReactModal
-        isOpen={showBridgeExchangeModal && !infoModal}
+        isOpen={flags.showBridgeExchangeModal && !infoModal}
         style={modalOverride}
         data-testid="bridge-mobile-swap-modal"
-        onRequestClose={() => closeModalHandler()}
+        onRequestClose={() => handlers.closeModalClickHandler()}
       >
         <BridgeSwapModal>
           <ModalHeader>
-            <ModalBtn onClick={() => closeModalHandler()} data-testid="bridge-mobile-header-button">
+            <ModalBtn onClick={() => handlers.closeModalClickHandler()} data-testid="bridge-mobile-header-button">
               <FontAwesomeIcon icon={faChevronLeft} />
             </ModalBtn>
             <h6>Onomy Bridge</h6>
@@ -271,40 +259,44 @@ export default function BridgeSwapMobile({ ...props }) {
             <HeaderInfoItem>
               <strong>wNom Balance</strong>
               <HeaderInfoItemValue>
-                <strong>{`${formattedWeakBalance.toFixed(6)}`}</strong>
+                <strong>{`${values.formattedWeakBalance.toFixed(6)}`}</strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
             <HeaderInfoItem align={'flex-end'}>
               <strong>Bridge</strong>
               <HeaderInfoItemValue>
-                <ConnectionStatus active={active}>{active ? 'Connected' : 'Disconnected'}</ConnectionStatus>
+                <ConnectionStatus active={active}>{active ? 'Connected' : 'Wallet Disconnected'}</ConnectionStatus>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
-            <Modal.CosmosInputSection error={errors.onomyWalletError}>
+            <Modal.CosmosInputSection error={values.errors.onomyWalletError}>
               <BridgeAddressInput
                 type="text"
                 placeholder="Your Onomy Wallet Address"
-                value={onomyWalletValue}
-                onChange={handleWalletInputChange}
+                value={values.onomyWalletValue}
+                onChange={handlers.walletChangeHandler}
               />
             </Modal.CosmosInputSection>
           </ModalInfo>
 
           <FormWrapper>
-            {showLoader && (
+            {flags.showLoader && (
               <Modal.LoadingWrapper>
                 <LoadingSpinner />
               </Modal.LoadingWrapper>
             )}
-            <BridgeSending error={errors.amountError}>
+            <BridgeSending error={values.errors.amountError}>
               <strong>Swap to NOM</strong>
-              <BridgeAmountInput type="text" value={amountInputValue} onChange={handleAmountInputChange} />
+              <BridgeAmountInput type="text" value={values.amountValue} onChange={handlers.amountChangeHandler} />
               wNOM
-              <BridgeMaxBtn onClick={maxBtnHandler}>Max</BridgeMaxBtn>
+              <BridgeMaxBtn onClick={handlers.maxBtnClickHandler} disabled={flags.isTransactionPending}>
+                Max
+              </BridgeMaxBtn>
             </BridgeSending>
-            {getFirstMessage(errors) && <Modal.ErrorSection>{getFirstMessage(errors)}</Modal.ErrorSection>}
+            {getFirstMessage(values.errors) && (
+              <Modal.ErrorSection>{getFirstMessage(values.errors)}</Modal.ErrorSection>
+            )}
 
-            <Modal.FullWidthButton onClick={submitTrans} disabled={isDisabled}>
+            <Modal.FullWidthButton onClick={handlers.submitTransClickHandler} disabled={flags.isDisabled || !active}>
               Swap wNOM for NOM
             </Modal.FullWidthButton>
             <Modal.SecondaryButton
