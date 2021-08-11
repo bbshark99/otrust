@@ -74,7 +74,7 @@ export default function ExchangeQuote({ strength }) {
         if (!approveAmount) return;
 
         try {
-          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveRef.current.toString(), {
+          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveRef.current.toFixed(0), {
             gasPrice: gasPrice.toFixed(0),
           });
 
@@ -337,10 +337,6 @@ export default function ExchangeQuote({ strength }) {
     },
     [askAmount, bidDenom, NOMallowance, getAskAmount, handleModal, input, objDispatch, strDispatch, strength],
   );
-
-  React.useEffect(() => {
-    console.log('DEBUG-APPROVE-AMOUNT', approveAmount.toString());
-  }, [approveAmount]);
 
   return (
     <ExchangeItem>
