@@ -110,6 +110,7 @@ const ModalInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  row-gap: 10px;
 
   padding: 32px 20px;
 
@@ -127,6 +128,35 @@ const ModalBtn = styled.button`
   color: #84809a;
 
   cursor: pointer;
+`;
+
+const OptionCaption = styled.p`
+  margin: 0 0 12px;
+  color: ${props => props.theme.colors.textThirdly};
+`;
+
+const Options = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 16px;
+`;
+
+const OptionBtn = styled.button`
+  padding: 12px 16px;
+  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  &:hover {
+    background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
+  }
+  &:active {
+    background-color: ${props => props.theme.colors.bgHighlightBorder_darken};
+  }
 `;
 
 const modalOverride = {
@@ -161,7 +191,10 @@ export default function BridgeSwapMobile({ ...props }) {
               allowanceAmountGravity={values.allowanceAmountGravity}
               formattedWeakBalance={values.formattedWeakBalance}
               weakBalance={values.weakBalance}
-              isMaxAmount={flags.isMaxButtonClicked}
+              gasOptions={values.gasOptions}
+              gasPriceChoice={values.gasPriceChoice}
+              gasPrice={values.gasPrice}
+              setGasPriceChoice={handlers.setGasPriceChoice}
             />
           </ModalInfo>
         </BridgeSwapModal>
@@ -295,7 +328,23 @@ export default function BridgeSwapMobile({ ...props }) {
             {getFirstMessage(values.errors) && (
               <Modal.ErrorSection>{getFirstMessage(values.errors)}</Modal.ErrorSection>
             )}
-
+            <div>
+              <OptionCaption>Gas Fee</OptionCaption>
+              <Options>
+                {values.gasOptions.map(gasPriceOption => (
+                  <OptionBtn
+                    active={values.gasPriceChoice === gasPriceOption.id}
+                    key={gasPriceOption.id}
+                    onClick={e => {
+                      e.preventDefault();
+                      handlers.setGasPriceChoice(gasPriceOption.id);
+                    }}
+                  >
+                    {gasPriceOption.text}
+                  </OptionBtn>
+                ))}
+              </Options>
+            </div>
             <Modal.FullWidthButton onClick={handlers.submitTransClickHandler} disabled={flags.isDisabled || !active}>
               Swap wNOM for NOM
             </Modal.FullWidthButton>

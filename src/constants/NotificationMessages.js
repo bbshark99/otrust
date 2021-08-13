@@ -5,6 +5,7 @@ export const NOTIFICATION_MESSAGES = {
     incorrectOnomyAddressFormat: 'Onomy wallet address format is not correct',
     incorrectAmountFormat: 'wNOM amount format is not correct',
     rejectedTransaction: 'Your transaction is rejected',
+    failedTransaction: 'Your transaction failed',
   },
   success: {
     approvedBridgeTokens: amount => `Transaction Completed! ${amount} wNOM approved to swap.`,

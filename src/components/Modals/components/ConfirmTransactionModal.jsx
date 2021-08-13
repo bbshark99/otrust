@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useInterval from '@use-it/interval';
-// import LoadingBar from 'components/Modals/LoadingBar'
 import { BigNumber } from 'bignumber.js';
 import { Close, Metamask } from 'components/Modals/Icons';
 import { useWeb3React } from '@web3-react/core';

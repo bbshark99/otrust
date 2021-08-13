@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BigNumber } from 'bignumber.js';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import LoadingSpinner from 'components/UI/LoadingSpinner';
+import { ethers } from 'ethers';
 
 import { NOMCont } from 'context/chain/contracts';
 import * as Modal from '../styles';
@@ -13,8 +14,6 @@ import { contAddrs } from '../../../context/chain/contracts';
 import { responsive } from 'theme/constants';
 import { MaxBtn } from 'components/Exchange/exchangeStyles';
 import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
-import { bignumberToJsNumber } from 'utils/math';
-import { parse18 } from 'utils/math';
 
 const Message = styled.div`
   margin: 32px 0 0;
@@ -85,20 +84,51 @@ const ApproveTokensWrapper = styled.div`
   }
 `;
 
+const OptionCaption = styled.p`
+  margin: 0 0 12px;
+  color: ${props => props.theme.colors.textThirdly};
+`;
+
+const Options = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 16px;
+`;
+
+const OptionBtn = styled.button`
+  padding: 12px 16px;
+  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  &:hover {
+    background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
+  }
+  &:active {
+    background-color: ${props => props.theme.colors.bgHighlightBorder_darken};
+  }
+`;
+
 export default function ApproveTokensBridgeModal({
   amountValue,
   allowanceAmountGravity,
   onCancelHandler,
   formattedWeakBalance,
   weakBalance,
-  isMaxAmount,
+  gasOptions,
+  gasPriceChoice,
+  setGasPriceChoice,
+  gasPrice,
 }) {
   const [count, setCount] = useState(60);
   const [delay, setDelay] = useState(1000);
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
   const [calculatedApproveValue, setCalculatedApproveValue] = useState('');
   const [approveAmountInputValue, setApproveAmountInputValue] = useState('');
-  const [isMaxButtonClicked, setIsMaxButtonClicked] = useState(isMaxAmount);
   const [showLoader, setShowLoader] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -109,18 +139,19 @@ export default function ApproveTokensBridgeModal({
 
   useEffect(() => {
     if (amountValue && allowanceAmountGravity) {
-      const approveValue = amountValue - bignumberToJsNumber(allowanceAmountGravity);
-      setCalculatedApproveValue(approveValue);
-      setApproveAmountInputValue(approveValue);
+      const string18FromAmount = BigNumber(amountValue).shiftedBy(18).toString(10);
+      const approveAmount = ethers.BigNumber.from(string18FromAmount).sub(allowanceAmountGravity).toString();
+      const formattedApproveAmount = BigNumber(approveAmount).shiftedBy(-18).toString(10);
+      setCalculatedApproveValue(formattedApproveAmount);
+      setApproveAmountInputValue(formattedApproveAmount);
     } else {
       setCalculatedApproveValue(0);
     }
   }, [amountValue, allowanceAmountGravity]);
 
   const handleApproveAmountInputChange = event => {
-    setIsMaxButtonClicked(false);
     const value = event.target.value;
-    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
+    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
     if (floatRegExp.test(value)) {
       setApproveAmountInputValue(value);
     }
@@ -139,9 +170,13 @@ export default function ApproveTokensBridgeModal({
 
   const maxBtnHandler = event => {
     event.preventDefault();
-    setIsMaxButtonClicked(true);
     if (formattedWeakBalance) {
-      setApproveAmountInputValue(formattedWeakBalance.toNumber() - bignumberToJsNumber(allowanceAmountGravity));
+      const maxApprovementFormattedAmount = BigNumber(
+        ethers.BigNumber.from(weakBalance.toString(10)).sub(allowanceAmountGravity).toString(),
+      )
+        .shiftedBy(-18)
+        .toString(10);
+      setApproveAmountInputValue(maxApprovementFormattedAmount);
     }
   };
 
@@ -160,14 +195,13 @@ export default function ApproveTokensBridgeModal({
         setIsBtnDisabled(true);
         setDelay(null);
         setShowLoader(true);
-        if (isMaxButtonClicked) {
-          tx = await NOMContract.approve(contAddrs.Gravity, weakBalance.toString(10));
-        } else {
-          tx = await NOMContract.increaseAllowance(
-            contAddrs.Gravity,
-            parse18(new BigNumber(approveAmountInputValue)).toString(10),
-          );
-        }
+        tx = await NOMContract.increaseAllowance(
+          contAddrs.Gravity,
+          BigNumber(approveAmountInputValue).shiftedBy(18).toString(10),
+          {
+            gasPrice: gasPrice.toFixed(0),
+          },
+        );
 
         tx.wait().then(() => {
           setSuccessMessage(NOTIFICATION_MESSAGES.success.approvedBridgeTokens(approveAmountInputValue));
@@ -186,7 +220,7 @@ export default function ApproveTokensBridgeModal({
         return;
       }
     },
-    [NOMContract, approveAmountInputValue, isMaxButtonClicked, weakBalance],
+    [NOMContract, approveAmountInputValue, gasPrice],
   );
 
   return (
@@ -201,8 +235,8 @@ export default function ApproveTokensBridgeModal({
       <main>
         <Message>
           You want to sell <strong>{amountValue} wNOM</strong>, but you approved for sale only{' '}
-          {allowanceAmountGravity && bignumberToJsNumber(allowanceAmountGravity)} wNOM. To sell this amount, please
-          approve <strong>{calculatedApproveValue} wNOM</strong> or more.
+          {allowanceAmountGravity && BigNumber(allowanceAmountGravity.toString()).shiftedBy(-18).toString(10)} wNOM. To
+          sell this amount, please approve <strong>{calculatedApproveValue} wNOM</strong> or more.
         </Message>
         <ApproveTokensWrapper>
           <div>
@@ -224,6 +258,23 @@ export default function ApproveTokensBridgeModal({
           <LoadingSpinner />
         </Modal.ApprovedModalLoadingWrapper>
       )}
+      <div>
+        <OptionCaption>Gas Fee</OptionCaption>
+        <Options>
+          {gasOptions.map(gasPriceOption => (
+            <OptionBtn
+              active={gasPriceChoice === gasPriceOption.id}
+              key={gasPriceOption.id}
+              onClick={e => {
+                e.preventDefault();
+                setGasPriceChoice(gasPriceOption.id);
+              }}
+            >
+              {gasPriceOption.text}
+            </OptionBtn>
+          ))}
+        </Options>
+      </div>
       <footer>
         {!isTransactionCompleted && (
           <>

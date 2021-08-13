@@ -173,6 +173,10 @@ const TooltipWrapper = styled.div`
 
   width: 360px;
   padding: 32px 40px;
+  @media screen and (max-width: ${responsive.smartphoneLarge}) {
+    width: 240px;
+    padding: 16px 40px;
+  }
 
   position: absolute;
   right: 72px;

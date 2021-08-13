@@ -37,6 +37,35 @@ const FormWrapper = styled.form`
   }
 `;
 
+const OptionCaption = styled.p`
+  margin: 0 0 12px;
+  color: ${props => props.theme.colors.textThirdly};
+`;
+
+const Options = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 16px;
+`;
+
+const OptionBtn = styled.button`
+  padding: 12px 16px;
+  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  &:hover {
+    background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
+  }
+  &:active {
+    background-color: ${props => props.theme.colors.bgHighlightBorder_darken};
+  }
+`;
+
 export default function BridgeSwapModal({ ...props }) {
   const { active, account } = useWeb3React();
   const { values, flags, handlers } = { ...props };
@@ -96,7 +125,7 @@ export default function BridgeSwapModal({ ...props }) {
                 )}
                 <InputWrapper>
                   <BridgeSending error={values.errors.amountError}>
-                    <strong>I want to swap to NOM</strong>
+                    <strong>Swap to NOM</strong>
                     <BridgeAmountInput type="text" value={values.amountValue} onChange={handlers.amountChangeHandler} />
                     wNOM
                     <BridgeMaxBtn onClick={handlers.maxBtnClickHandler} disabled={flags.isTransactionPending}>
@@ -107,6 +136,23 @@ export default function BridgeSwapModal({ ...props }) {
                 {getFirstMessage(values.errors) && (
                   <Modal.ErrorSection>{getFirstMessage(values.errors)}</Modal.ErrorSection>
                 )}
+                <div>
+                  <OptionCaption>Gas Fee</OptionCaption>
+                  <Options>
+                    {values.gasOptions.map(gasPriceOption => (
+                      <OptionBtn
+                        active={values.gasPriceChoice === gasPriceOption.id}
+                        key={gasPriceOption.id}
+                        onClick={e => {
+                          e.preventDefault();
+                          handlers.setGasPriceChoice(gasPriceOption.id);
+                        }}
+                      >
+                        {gasPriceOption.text}
+                      </OptionBtn>
+                    ))}
+                  </Options>
+                </div>
                 <Modal.FullWidthButton
                   onClick={handlers.submitTransClickHandler}
                   disabled={flags.isDisabled || !active}
@@ -125,7 +171,10 @@ export default function BridgeSwapModal({ ...props }) {
                 allowanceAmountGravity={values.allowanceAmountGravity}
                 formattedWeakBalance={values.formattedWeakBalance}
                 weakBalance={values.weakBalance}
-                isMaxAmount={flags.isMaxButtonClicked}
+                gasOptions={values.gasOptions}
+                gasPriceChoice={values.gasPriceChoice}
+                gasPrice={values.gasPrice}
+                setGasPriceChoice={handlers.setGasPriceChoice}
               />
             </main>
           )}

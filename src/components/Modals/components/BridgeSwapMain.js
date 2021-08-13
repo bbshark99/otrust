@@ -8,20 +8,36 @@ import BridgeSwapMobile from './BridgeSwapMobile';
 import BridgeSwapModal from './BridgeSwapModal';
 import { useChain } from 'context/chain/ChainContext';
 import { GravityCont, NOMCont } from 'context/chain/contracts';
-import { format18, parse18 } from 'utils/math';
 import { contAddrs } from '../../../context/chain/contracts';
 import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
 
 const initialErrorsState = { amountError: '', onomyWalletError: '', transactionError: '' };
 
+const initialGasOptions = [
+  {
+    id: 0,
+    text: '00.00 (Standard)',
+  },
+  {
+    id: 1,
+    text: '00.00 (Fast)',
+  },
+  {
+    id: 2,
+    text: '00.00 (Instant)',
+  },
+];
+
 export default function BridgeSwapMain({ closeModalClickHandler }) {
   const [onomyWalletValue, setOnomyWalletValue] = useState('');
   const [amountValue, setAmountValue] = useState('');
   const [errors, setErrors] = useState(initialErrorsState);
+  const [gasPrice, setGasPrice] = useState(0);
+  const [gasPriceChoice, setGasPriceChoice] = useState(2);
+  const [gasOptions, setGasOptions] = useState(initialGasOptions);
   const [formattedWeakBalance, setFormattedWeakBalance] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
   const [isTransactionPending, setIsTransactionPending] = useState(false);
-  const [isMaxButtonClicked, setIsMaxButtonClicked] = useState(false);
   const [isMediaMinTablet, setIsMediaMinTablet] = useState(undefined);
   const [allowanceAmountGravity, setAllowanceAmountGravity] = useState(0);
   const [showBridgeExchangeModal, setShowBridgeExchangeModal] = useState(true);
@@ -36,6 +52,34 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
   const NOMContract = useMemo(() => NOMCont(library), [library]);
 
   const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+  useEffect(() => {
+    const getGasPrices = async () => {
+      const prices = await fetch('https://www.gasnow.org/api/v3/gas/price?utm_source=onomy');
+      const result = await prices.json();
+      const fetchedGasOptions = [
+        {
+          id: 0,
+          text: (result.data.standard / 1e9).toPrecision(4) + ' (Standard)',
+          gas: new BigNumber(result.data.standard.toString()),
+        },
+        {
+          id: 1,
+          text: (result.data.fast / 1e9).toPrecision(4) + ' (Fast)',
+          gas: new BigNumber(result.data.fast.toString()),
+        },
+        {
+          id: 2,
+          text: (result.data.rapid / 1e9).toPrecision(4) + ' (Instant)',
+          gas: new BigNumber(result.data.rapid.toString()),
+        },
+      ];
+      setGasOptions(fetchedGasOptions);
+      setGasPrice(fetchedGasOptions[gasPriceChoice].gas);
+    };
+    getGasPrices();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gasPriceChoice, showApproveModal]);
 
   const tabletWidthChangeHandler = useCallback(event => {
     if (event.matches) {
@@ -54,7 +98,7 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
   }, [tabletWidthChangeHandler, mediaQuery]);
 
   useEffect(() => {
-    setFormattedWeakBalance(format18(weakBalance));
+    setFormattedWeakBalance(weakBalance.shiftedBy(-18));
   }, [weakBalance]);
 
   const updateAllowanceAmount = useCallback(async () => {
@@ -79,15 +123,15 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
 
   const walletChangeHandler = event => {
     setOnomyWalletValue(event.target.value);
-    setIsMaxButtonClicked(false);
   };
 
   const amountChangeHandler = event => {
     const value = event.target.value;
-    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
+    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
     if (floatRegExp.test(value)) {
       setAmountValue(value);
-      if (value > formattedWeakBalance.toNumber()) {
+      const bigAmountShifted18 = BigNumber(value).shiftedBy(18);
+      if (bigAmountShifted18.gt(weakBalance)) {
         setErrors(prevState => {
           return { ...prevState, amountError: NOTIFICATION_MESSAGES.error.insufficientFunds };
         });
@@ -99,15 +143,13 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
         setIsDisabled(false);
       }
     }
-    setIsMaxButtonClicked(false);
   };
 
   const maxBtnClickHandler = event => {
     event.preventDefault();
     if (weakBalance.toNumber()) {
-      setAmountValue(formattedWeakBalance.toNumber());
+      setAmountValue(formattedWeakBalance.toString(10));
       setIsDisabled(false);
-      setIsMaxButtonClicked(true);
     }
   };
 
@@ -129,12 +171,10 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
         return;
       }
 
-      const amountValueUpdated = isMaxButtonClicked
-        ? weakBalance.toString(10)
-        : parse18(new BigNumber(amountValue)).toString(10);
-      setIsDisabled(true);
+      const string18FromAmount = BigNumber(amountValue).shiftedBy(18).toString(10);
 
       try {
+        setIsDisabled(true);
         var bytes = cosmos.address.getBytes(onomyWalletValue);
         const ZEROS = Buffer.alloc(12);
         var cosmosAddressBytes32 = Buffer.concat([ZEROS, bytes]);
@@ -147,12 +187,12 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
       }
 
       let tx;
-      if (allowanceAmountGravity.gte(ethers.BigNumber.from(amountValueUpdated))) {
+      if (allowanceAmountGravity.gte(ethers.BigNumber.from(string18FromAmount))) {
         try {
           setShowLoader(true);
           setIsTransactionPending(true);
-          tx = await GravityContract.sendToCosmos(contAddrs.NOMERC20, cosmosAddressBytes32, amountValueUpdated, {
-            gasLimit: 100000,
+          tx = await GravityContract.sendToCosmos(contAddrs.NOMERC20, cosmosAddressBytes32, string18FromAmount, {
+            gasPrice: gasPrice.toFixed(0),
           });
 
           tx.wait().then(() => {
@@ -184,7 +224,7 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
         setShowApproveModal(true);
       }
     },
-    [onomyWalletValue, amountValue, GravityContract, isMaxButtonClicked, weakBalance, allowanceAmountGravity],
+    [onomyWalletValue, amountValue, GravityContract, allowanceAmountGravity, gasPrice],
   );
 
   const Props = {
@@ -195,9 +235,11 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
       allowanceAmountGravity,
       weakBalance,
       errors,
+      gasPrice,
+      gasPriceChoice,
+      gasOptions,
     },
     flags: {
-      isMaxButtonClicked,
       isDisabled,
       isTransactionPending,
       showBridgeExchangeModal,
@@ -212,6 +254,8 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
       submitTransClickHandler,
       onCancelClickHandler,
       closeModalClickHandler,
+      setGasPriceChoice,
+      setGasPrice,
     },
   };
 
