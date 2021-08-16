@@ -13,7 +13,7 @@ const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  height: 160px;
+  height: 125px;
   width: 100%;
 
   @media screen and (max-width: ${responsive.laptop}) {

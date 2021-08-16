@@ -10,9 +10,9 @@ import { responsive } from 'theme/constants';
 const Balances = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 14px;
 
-  padding: 40px;
+  padding: 24px 40px;
 
   border-bottom: 1px solid ${props => props.theme.colors.bgHighlightBorder};
 

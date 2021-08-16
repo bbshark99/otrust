@@ -9,7 +9,7 @@ const SidebarFooterWrapper = styled.footer`
   align-items: center;
   gap: 16px;
 
-  padding: 50px 40px;
+  padding: 24px 40px;
   margin-top: auto;
 
   @media screen and (max-width: ${responsive.laptop}) {
