@@ -70,8 +70,8 @@ const Header = styled.header`
   justify-content: center;
   gap: 32px 60px;
 
-  height: 240px;
-  padding: 40px 48px;
+  height: 200px;
+  padding: 24px 48px;
 
   background-color: ${props => props.theme.colors.bgDarken};
   border-radius: 4px;

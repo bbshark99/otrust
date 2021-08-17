@@ -10,8 +10,6 @@ const BondingCurveLayout = styled.div`
   grid-template-columns: 1fr 375px;
   gap: 6px;
 
-  padding-bottom: 150px;
-
   @media screen and (max-width: ${responsive.laptop}) {
     grid-template-columns: 1fr 290px;
   }
