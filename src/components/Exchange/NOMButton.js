@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useExchange } from 'context/exchange/ExchangeContext';
 import { useChain } from 'context/chain/ChainContext';
@@ -9,11 +9,6 @@ export default function NOMButton({ onBid, onApprove }) {
 
   const { bidAmount, bidDenom, input, weak } = useExchange();
 
-  useEffect(() => {
-    console.log('Bid Amount: ', bidAmount);
-    console.log('NOM Allowance: ', NOMallowance);
-  }, [NOMallowance, bidAmount]);
-
   return (
     <>
       {bidDenom === 'strong' ? (
@@ -21,7 +16,7 @@ export default function NOMButton({ onBid, onApprove }) {
       ) : bidAmount.lte(weakBalance) ? (
         input === '' ? (
           <SellBtn> Input Value </SellBtn>
-        ) : NOMallowance.gt(bidAmount) ? (
+        ) : NOMallowance.gte(bidAmount) ? (
           <SellBtn onClick={onBid}>Sell {weak}</SellBtn>
         ) : (
           <SellBtn onClick={onApprove}>Approve</SellBtn>
