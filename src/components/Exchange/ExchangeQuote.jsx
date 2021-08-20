@@ -103,7 +103,7 @@ export default function ExchangeQuote({ strength }) {
                   gasFee = new BigNumber(gasFeeRaw.toString());
 
                   const bidAmountUpdate = bidAmount.minus(gasFee.times(gasPrice));
-                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed(0));
+                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed());
                   const askAmountUpdate = new BigNumber(askAmountUpdateRaw.toString());
 
                   tx = await bondContract.buyNOM(askAmountUpdate.toFixed(0), slippage.toFixed(0), {
@@ -193,7 +193,7 @@ export default function ExchangeQuote({ strength }) {
     strUpdate.set('bidDenom', strength);
     let bidMaxValue = strength === 'strong' ? strongBalance : weakBalance;
 
-    strUpdate.set('input', format18(bidMaxValue).toString());
+    strUpdate.set('input', format18(bidMaxValue).toFixed());
 
     let askAmountUpdate;
 
