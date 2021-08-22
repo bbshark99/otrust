@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from 'react';
+import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
 import {
   extent,
@@ -28,7 +29,21 @@ const StyledSVG = styled.svg`
 
 let dot_index = 0;
 
-function LineChart(props) {
+const WNOM_HISTORICAL_DATA_QUERY = gql`
+  query transactions($filter: String!) {
+    wnomhistoricalFrames(first: 1000, skip: 0, where: { type: $filter }, orderBy: startTime, orderDirection: asc) {
+      startTime
+      startPrice
+    }
+  }
+`;
+
+const LineChart = React.memo(props => {
+  // useQuery Apollo Client Hook to get data from TheGraph
+  const { data: bondData } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
+    variables: { filter: props.chartTypeFilter },
+  });
+
   //Questions
   //time periods - at some point we need to set up functionality for these
   //wireframe = Day, Week, Month, Quartal, Year, All Time
@@ -49,14 +64,17 @@ function LineChart(props) {
   const { theme } = useContext(ChainContext);
 
   //temporary check to stop errors when svg/wrapper/data isn't loaded yet
-  if (svgRef.current !== undefined && wrapperRef.current !== undefined && props.bondData !== undefined) {
+  if (svgRef.current !== undefined && wrapperRef.current !== undefined && bondData !== undefined) {
     //define data, change timestamp to date format and build y_var
-    let data = props.bondData.transactionRecords;
-    data.map(m => (m.timestamp = m.timestamp.length === 10 ? new Date(+m.timestamp * 1000) : m.timestamp));
-    data.map(m => (m.y_var = +m.amountETH / +m.amountNOM));
+    let data = bondData.wnomhistoricalFrames;
+    data = data.map(m => ({
+      ...m,
+      startTime: m.startTime.length === 10 ? new Date(+m.startTime * 1000) : m.startTime, // ticks - startTime
+      y_var: m.startPrice, //startPrice
+    }));
 
     //constants so easy to change
-    const x_var = 'timestamp';
+    const x_var = 'startTime';
     const y_var = 'y_var';
     //make sure data is ordered by timestamp
     data = sort(data, (a, b) => ascending(a[x_var], b[x_var]));
@@ -390,6 +408,6 @@ function LineChart(props) {
       </StyledSVG>
     </div>
   );
-}
+});
 
 export default LineChart;

@@ -1,7 +1,6 @@
 import React, { useReducer, useEffect, createContext, useContext } from 'react';
 import { useWeb3React } from '@web3-react/core';
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { BigNumber } from 'bignumber.js';
 
 import { BondingCont, NOMCont, contAddrs } from 'context/chain/contracts';

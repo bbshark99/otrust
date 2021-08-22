@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useQuery } from '@apollo/client';
-import { gql } from 'apollo-boost';
 
 import { responsive } from 'theme/constants';
 import BondLineChart from 'components/Chart/BondLineChart';
 import LineChart from 'components/Chart/HistoricalLineChart';
 import CandleChart from 'components/Chart/CandleChart';
 import { lineHeaderDefault, candleHeaderDefault, tempCandlestickData } from 'components/Chart/defaultChartData';
+import { HISTORICAL_CHART_TYPE, HISTORICAL_CHART_TYPE_FILTER } from '../../constants/ChartSelections';
 
 const ChartWrapper = styled.div`
   padding: 20px;
@@ -19,6 +18,8 @@ const ChartWrapper = styled.div`
 `;
 
 const ChartHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     display: none;
   }
@@ -28,22 +29,18 @@ const ChartTypeBtn = styled.button`
   height: 50px;
   padding: 16px 24px;
 
-  background-color: ${props => props.theme.colors.bgHighlightBorder};
+  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
   border-radius: 6px;
   border: none;
 
   color: ${props => props.theme.colors.textPrimary};
-  font-size: 14px;
+  font-size: 12px;
 
   cursor: pointer;
 
   @media screen and (max-width: ${responsive.laptop}) {
     height: 44px;
-    padding: 12px 20px;
-  }
-
-  & + & {
-    margin-left: 1em;
+    padding: 12px 16px;
   }
 `;
 
@@ -69,22 +66,6 @@ const YAxis = styled.div`
   transform: translateY(-50%) rotate(-90deg);
 `;
 
-const TRANSACTIONS_QUERY = gql`
-  query transactions {
-    transactionRecords {
-      id
-      senderAddress
-      amountNOM
-      amountETH
-      price
-      supply
-      buyOrSell
-      slippage
-      timestamp
-    }
-  }
-`;
-
 const axisLabels = {
   lineChart: { x: '', y: 'Price (ETH)' },
   candleView: { x: '', y: 'Price (ETH)' },
@@ -92,10 +73,8 @@ const axisLabels = {
 };
 
 export default function Chart() {
-  // useQuery Apollo Client Hook to get data from TheGraph
-  const { error, loading, data } = useQuery(TRANSACTIONS_QUERY);
-
   const [chartType, setChartType] = useState('bondingCurve');
+  const [historicalChartType, setHistoricalChartType] = useState(HISTORICAL_CHART_TYPE.DAY);
 
   const [lineHeaderId] = useState('1');
   const [lineHeader] = useState(lineHeaderDefault);
@@ -110,9 +89,8 @@ export default function Chart() {
           <LineChart
             lineHeader={lineHeader}
             lineHeaderId={lineHeaderId}
-            bondData={data}
-            error={error}
-            loading={loading}
+            // chartTypeFilter={HISTORICAL_CHART_TYPE_FILTER[historicalChartType]}
+            chartTypeFilter={HISTORICAL_CHART_TYPE_FILTER[historicalChartType]}
           />
         );
       case 'candleView':
@@ -126,9 +104,75 @@ export default function Chart() {
   return (
     <ChartWrapper>
       <ChartHeader>
-        <ChartTypeBtn onClick={() => setChartType('bondingCurve')}>Bonding Curve Chart</ChartTypeBtn>
-        <ChartTypeBtn onClick={() => setChartType('lineChart')}>Line Chart</ChartTypeBtn>
-        <ChartTypeBtn onClick={() => setChartType('candleView')}>Candle View</ChartTypeBtn>
+        <span>
+          <ChartTypeBtn onClick={() => setChartType('bondingCurve')} active={chartType === 'bondingCurve'}>
+            Bonding Curve Chart
+          </ChartTypeBtn>
+          <ChartTypeBtn onClick={() => setChartType('lineChart')} active={chartType === 'lineChart'}>
+            Historical Chart
+          </ChartTypeBtn>
+          <ChartTypeBtn onClick={() => setChartType('candleView')} active={chartType === 'candleView'}>
+            Candles View
+          </ChartTypeBtn>
+        </span>
+        {chartType === 'lineChart' && (
+          <span>
+            <ChartTypeBtn
+              onClick={event => {
+                event.stopPropagation();
+                setHistoricalChartType(HISTORICAL_CHART_TYPE.DAY);
+              }}
+              active={historicalChartType === HISTORICAL_CHART_TYPE.DAY}
+            >
+              Day
+            </ChartTypeBtn>
+            <ChartTypeBtn
+              onClick={event => {
+                event.stopPropagation();
+                setHistoricalChartType(HISTORICAL_CHART_TYPE.WEEK);
+              }}
+              active={historicalChartType === HISTORICAL_CHART_TYPE.WEEK}
+            >
+              Week
+            </ChartTypeBtn>
+            <ChartTypeBtn
+              onClick={event => {
+                event.stopPropagation();
+                setHistoricalChartType(HISTORICAL_CHART_TYPE.MONTH);
+              }}
+              active={historicalChartType === HISTORICAL_CHART_TYPE.MONTH}
+            >
+              Month
+            </ChartTypeBtn>
+            <ChartTypeBtn
+              onClick={event => {
+                event.stopPropagation();
+                setHistoricalChartType(HISTORICAL_CHART_TYPE.QUARTAL);
+              }}
+              active={historicalChartType === HISTORICAL_CHART_TYPE.QUARTAL}
+            >
+              Quartal
+            </ChartTypeBtn>
+            <ChartTypeBtn
+              onClick={event => {
+                event.stopPropagation();
+                setHistoricalChartType(HISTORICAL_CHART_TYPE.YEAR);
+              }}
+              active={historicalChartType === HISTORICAL_CHART_TYPE.YEAR}
+            >
+              Year
+            </ChartTypeBtn>
+            <ChartTypeBtn
+              onClick={event => {
+                event.stopPropagation();
+                setHistoricalChartType(HISTORICAL_CHART_TYPE.ALL_TIME);
+              }}
+              active={historicalChartType === HISTORICAL_CHART_TYPE.ALL_TIME}
+            >
+              All Time
+            </ChartTypeBtn>
+          </span>
+        )}
       </ChartHeader>
 
       <YAxis>{axisLabels[chartType].y}</YAxis>
