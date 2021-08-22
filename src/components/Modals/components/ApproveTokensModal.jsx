@@ -110,7 +110,7 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
       });
 
       let strUpdate = new Map();
-      strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
+      strUpdate = strUpdate.set('approve', format18(approvalAmount).toFixed());
 
       strDispatch({
         type: 'update',
@@ -153,8 +153,8 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
 
         <Message>
           You want to sell <strong>{input} wNOM</strong>, but you approved for sale only{' '}
-          {parseFloat(format18(NOMallowance).toFixed(8)).toString()} wNOM. To sell this amount, please approve{' '}
-          <strong>{parseFloat(format18(initialApproveAmount).toFixed(8)).toString()} wNOM</strong> or more.
+          {format18(NOMallowance).toFixed()} wNOM. To sell this amount, please approve{' '}
+          <strong>{format18(initialApproveAmount).toFixed()} wNOM</strong> or more.
         </Message>
 
         <ApproveTokensWrapper>

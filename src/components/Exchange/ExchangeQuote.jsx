@@ -322,7 +322,7 @@ export default function ExchangeQuote({ strength }) {
 
             objUpdate = objUpdate.set('approveAmount', approvalAmount);
 
-            strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
+            strUpdate = strUpdate.set('approve', format18(approvalAmount).toFixed());
           }
 
           objDispatch({
