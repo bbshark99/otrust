@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { BigNumber } from 'bignumber.js';
 import styled from 'styled-components';
 import {
   extent,
@@ -20,6 +21,7 @@ import {
 
 import { useResizeObserver } from './utils';
 import { ChainContext } from 'context/chain/ChainContext';
+import { HISTORICAL_CHART_TYPE_FILTER, HISTORICAL_CHART_TYMESTAMPS } from '../../constants/ChartSelections';
 
 const StyledSVG = styled.svg`
   display: block;
@@ -39,9 +41,10 @@ const WNOM_HISTORICAL_DATA_QUERY = gql`
 `;
 
 const LineChart = React.memo(props => {
+  const { historicalChartType } = props;
   // useQuery Apollo Client Hook to get data from TheGraph
   const { data: bondData } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
-    variables: { filter: props.chartTypeFilter },
+    variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType] },
   });
 
   //Questions
@@ -66,11 +69,14 @@ const LineChart = React.memo(props => {
   //temporary check to stop errors when svg/wrapper/data isn't loaded yet
   if (svgRef.current !== undefined && wrapperRef.current !== undefined && bondData !== undefined) {
     //define data, change timestamp to date format and build y_var
-    let data = bondData.wnomhistoricalFrames;
+    let data = bondData.wnomhistoricalFrames.filter(
+      m => m.startTime > HISTORICAL_CHART_TYMESTAMPS[historicalChartType],
+    );
+
     data = data.map(m => ({
       ...m,
-      startTime: m.startTime.length === 10 ? new Date(+m.startTime * 1000) : m.startTime, // ticks - startTime
-      y_var: m.startPrice, //startPrice
+      startTime: m.startTime.length === 10 ? new Date(+m.startTime * 1000) : m.startTime,
+      y_var: BigNumber(m.startPrice).shiftedBy(-18).toFixed(10),
     }));
 
     //constants so easy to change
@@ -81,9 +87,16 @@ const LineChart = React.memo(props => {
 
     //fetch time period and set ticks.  current data is week (although as only one day should be day maybe?)
     //but need to define count/format for all periods.
-    const time_period = props.lineHeader[props.lineHeaderId].id;
-    const tick_count = { Week: 7 };
-    const time_formats = { Week: '%a' };
+    const time_period = historicalChartType;
+    const tick_count = { DAY: 6, WEEK: 7, MONTH: 8, QUARTAL: 6, YEAR: 6, ALL_TIME: 12 };
+    const time_formats = {
+      DAY: '%H:%M',
+      WEEK: '%a',
+      MONTH: '%d, %m',
+      QUARTAL: '%d, %m',
+      YEAR: '%b-%y',
+      ALL_TIME: '%Y',
+    };
     const x_ticks = tick_count[time_period];
     const x_format = time_formats[time_period];
     //set other constants.

@@ -25,6 +25,7 @@ import {
 import { useModal } from 'context/modal/ModalContext';
 import NOMButton from 'components/Exchange/NOMButton';
 import { format18, parse18 } from 'utils/math';
+import { NOTIFICATION_MESSAGES } from 'constants/NotificationMessages';
 
 export default function ExchangeQuote({ strength }) {
   const { strongBalance, weakBalance } = useChain();
@@ -102,8 +103,14 @@ export default function ExchangeQuote({ strength }) {
 
                   gasFee = new BigNumber(gasFeeRaw.toString());
 
+                  const gas = gasFee.times(gasPrice);
+                  if (bidAmount.lt(gas)) {
+                    handleModal(<TransactionFailedModal error={NOTIFICATION_MESSAGES.error.lowBid} />);
+                    return;
+                  }
+
                   const bidAmountUpdate = bidAmount.minus(gasFee.times(gasPrice));
-                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed(0));
+                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed());
                   const askAmountUpdate = new BigNumber(askAmountUpdateRaw.toString());
 
                   tx = await bondContract.buyNOM(askAmountUpdate.toFixed(0), slippage.toFixed(0), {
@@ -193,7 +200,7 @@ export default function ExchangeQuote({ strength }) {
     strUpdate.set('bidDenom', strength);
     let bidMaxValue = strength === 'strong' ? strongBalance : weakBalance;
 
-    strUpdate.set('input', format18(bidMaxValue).toString());
+    strUpdate.set('input', format18(bidMaxValue).toFixed());
 
     let askAmountUpdate;
 
@@ -315,7 +322,7 @@ export default function ExchangeQuote({ strength }) {
 
             objUpdate = objUpdate.set('approveAmount', approvalAmount);
 
-            strUpdate = strUpdate.set('approve', format18(approvalAmount).toString());
+            strUpdate = strUpdate.set('approve', format18(approvalAmount).toFixed());
           }
 
           objDispatch({

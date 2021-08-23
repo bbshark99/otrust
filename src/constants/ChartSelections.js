@@ -1,3 +1,5 @@
+import { getTimeStampDaysAgo, getTimeStampMonthsAgo } from '../utils/time';
+
 export const HISTORICAL_CHART_TYPE = {
   DAY: 'DAY',
   WEEK: 'WEEK',
@@ -8,10 +10,19 @@ export const HISTORICAL_CHART_TYPE = {
 };
 
 export const HISTORICAL_CHART_TYPE_FILTER = {
-  DAY: 'QuarterHour',
-  WEEK: 'Hour',
-  MONTH: 'QuarterDay',
-  QUARTAL: 'Day',
-  YEAR: 'Week',
+  DAY: 'Minute',
+  WEEK: 'QuarterHour',
+  MONTH: 'Hour',
+  QUARTAL: 'QuarterDay',
+  YEAR: 'Day',
   ALL_TIME: 'Week',
+};
+
+export const HISTORICAL_CHART_TYMESTAMPS = {
+  DAY: getTimeStampDaysAgo(1),
+  WEEK: getTimeStampDaysAgo(7),
+  MONTH: getTimeStampMonthsAgo(1),
+  QUARTAL: getTimeStampMonthsAgo(3),
+  YEAR: getTimeStampMonthsAgo(12),
+  ALL_TIME: 0,
 };

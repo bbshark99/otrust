@@ -178,42 +178,44 @@ export default function MainHeader() {
             </LogoText>
           </Logo>
 
-          <HeaderInfo>
-            <ExchangeRate>
-              <HeaderInfoItem>
-                <strong>NOM / USDT</strong>
-                <HeaderInfoItemValue>
-                  <strong>$10.12</strong>
-                  <Details type="increase">24.2%</Details>
-                </HeaderInfoItemValue>
-              </HeaderInfoItem>
-              <HeaderInfoItem>
-                <strong>NOM / ETH</strong>
-                <HeaderInfoItemValue>
-                  <strong>
-                    <span>
-                      {BigNumber.isBigNumber(currentETHPrice)
-                        ? `${Math.round(format18(currentETHPrice).toNumber())}`
-                        : 'Loading'}
-                    </span>
-                  </strong>
-                </HeaderInfoItemValue>
-              </HeaderInfoItem>
-            </ExchangeRate>
-            <Issued>
-              <HeaderInfoItem>
-                <strong>NOM Issued</strong>
-                <HeaderInfoItemValue>
-                  <strong>
-                    <span>
-                      {BigNumber.isBigNumber(supplyNOM) ? `${Math.round(format18(supplyNOM).toNumber())}` : 'Loading'}
-                    </span>
-                  </strong>
-                  <Details>/ 1E8</Details>
-                </HeaderInfoItemValue>
-              </HeaderInfoItem>
-            </Issued>
-          </HeaderInfo>
+          <div id="tour-prices">
+            <HeaderInfo>
+              <ExchangeRate>
+                <HeaderInfoItem>
+                  <strong>NOM / USDT</strong>
+                  <HeaderInfoItemValue>
+                    <strong>$10.12</strong>
+                    <Details type="increase">24.2%</Details>
+                  </HeaderInfoItemValue>
+                </HeaderInfoItem>
+                <HeaderInfoItem>
+                  <strong>NOM / ETH</strong>
+                  <HeaderInfoItemValue>
+                    <strong>
+                      <span>
+                        {BigNumber.isBigNumber(currentETHPrice)
+                          ? `${Math.round(format18(currentETHPrice).toNumber())}`
+                          : 'Loading'}
+                      </span>
+                    </strong>
+                  </HeaderInfoItemValue>
+                </HeaderInfoItem>
+              </ExchangeRate>
+              <Issued>
+                <HeaderInfoItem>
+                  <strong>NOM Issued</strong>
+                  <HeaderInfoItemValue>
+                    <strong>
+                      <span>
+                        {BigNumber.isBigNumber(supplyNOM) ? `${Math.round(format18(supplyNOM).toNumber())}` : 'Loading'}
+                      </span>
+                    </strong>
+                    <Details>/ 1E8</Details>
+                  </HeaderInfoItemValue>
+                </HeaderInfoItem>
+              </Issued>
+            </HeaderInfo>
+          </div>
         </HeaderWrapper>
       </Container>
     </header>

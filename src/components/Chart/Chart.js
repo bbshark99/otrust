@@ -5,8 +5,8 @@ import { responsive } from 'theme/constants';
 import BondLineChart from 'components/Chart/BondLineChart';
 import LineChart from 'components/Chart/HistoricalLineChart';
 import CandleChart from 'components/Chart/CandleChart';
-import { lineHeaderDefault, candleHeaderDefault, tempCandlestickData } from 'components/Chart/defaultChartData';
-import { HISTORICAL_CHART_TYPE, HISTORICAL_CHART_TYPE_FILTER } from '../../constants/ChartSelections';
+import { candleHeaderDefault, tempCandlestickData } from 'components/Chart/defaultChartData';
+import { HISTORICAL_CHART_TYPE } from '../../constants/ChartSelections';
 
 const ChartWrapper = styled.div`
   padding: 20px;
@@ -76,23 +76,13 @@ export default function Chart() {
   const [chartType, setChartType] = useState('bondingCurve');
   const [historicalChartType, setHistoricalChartType] = useState(HISTORICAL_CHART_TYPE.DAY);
 
-  const [lineHeaderId] = useState('1');
-  const [lineHeader] = useState(lineHeaderDefault);
-
   const [candleHeaderId] = useState('1');
   const [candleHeader] = useState(candleHeaderDefault);
 
   const renderChart = type => {
     switch (type) {
       case 'lineChart':
-        return (
-          <LineChart
-            lineHeader={lineHeader}
-            lineHeaderId={lineHeaderId}
-            // chartTypeFilter={HISTORICAL_CHART_TYPE_FILTER[historicalChartType]}
-            chartTypeFilter={HISTORICAL_CHART_TYPE_FILTER[historicalChartType]}
-          />
-        );
+        return <LineChart historicalChartType={historicalChartType} />;
       case 'candleView':
         return <CandleChart candleHeader={candleHeader} candleHeaderId={candleHeaderId} data={tempCandlestickData} />;
       case 'bondingCurve':
@@ -102,7 +92,7 @@ export default function Chart() {
   };
 
   return (
-    <ChartWrapper>
+    <ChartWrapper id="tour-chart">
       <ChartHeader>
         <span>
           <ChartTypeBtn onClick={() => setChartType('bondingCurve')} active={chartType === 'bondingCurve'}>

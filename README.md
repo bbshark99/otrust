@@ -8,6 +8,10 @@ wNOM will be continuously distributed through a bonding curve until all 100,000,
 2. Truffle https://www.trufflesuite.com/docs/truffle/getting-started/installation
 3. Metamask https://metamask.io/
 
+## Installing packages
+
+To install a new package simply use `npm install PACKAGE_NAME` as usual, but if you cloned the project and need to install deps from `package.json` use `npm ci` instead of `npm install`.
+
 ## Available Scripts
 
 In the project directory, you can run:

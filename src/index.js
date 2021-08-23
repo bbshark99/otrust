@@ -6,7 +6,8 @@ import Modal from 'react-modal';
 
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import './index.css';
+
+import 'intro.js/introjs.css';
 
 function getLibrary(provider) {
   const library = new Web3Provider(provider);

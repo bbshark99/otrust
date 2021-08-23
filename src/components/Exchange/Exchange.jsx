@@ -6,8 +6,12 @@ import ExchangeQuote from './ExchangeQuote';
 export default function Exchange() {
   return (
     <ExchangeWrapper>
-      <ExchangeQuote strength="strong" />
-      <ExchangeQuote strength="weak" />
+      <div id="tour-buy">
+        <ExchangeQuote strength="strong" />
+      </div>
+      <div id="tour-sell">
+        <ExchangeQuote strength="weak" />
+      </div>
     </ExchangeWrapper>
   );
 }

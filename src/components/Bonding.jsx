@@ -18,7 +18,9 @@ export default function Bonding() {
   return (
     <Panel>
       <ContentLayout>
+        {/* <div id="tour-chart"> */}
         <Chart />
+        {/* </div> */}
         <Exchange />
       </ContentLayout>
     </Panel>
