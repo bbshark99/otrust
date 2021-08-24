@@ -13,6 +13,10 @@ import SidebarBalances from './SidebarBalances';
 import SidebarFooter from './SidebarFooter';
 import SidebarConnection from './SidebarConnection';
 
+const PanelLayout = styled(Panel)`
+  height: 100%;
+`;
+
 const SidebarLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,7 +52,7 @@ export default function Sidebar() {
 
   return (
     <div id="tour-sidebar">
-      <Panel>
+      <PanelLayout>
         <SidebarLayout>
           <SidebarHeader account={account} onLogout={handleLogout} />
           <SidebarBalances
@@ -61,7 +65,7 @@ export default function Sidebar() {
           <SidebarConnection active={active} error={error} chainId={chainId} blockNumber={blockNumber} />
           <SidebarFooter />
         </SidebarLayout>
-      </Panel>
+      </PanelLayout>
     </div>
   );
 }
