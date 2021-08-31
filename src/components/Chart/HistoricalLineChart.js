@@ -36,28 +36,17 @@ const WNOM_HISTORICAL_DATA_QUERY = gql`
     wnomhistoricalFrames(first: 1000, skip: 0, where: { type: $filter }, orderBy: startTime, orderDirection: asc) {
       startTime
       startPrice
+      endPrice
     }
   }
 `;
 
 const LineChart = React.memo(props => {
   const { historicalChartType } = props;
-  // useQuery Apollo Client Hook to get data from TheGraph
   const { data: bondData } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
     variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType] },
   });
 
-  //Questions
-  //time periods - at some point we need to set up functionality for these
-  //wireframe = Day, Week, Month, Quartal, Year, All Time
-  //so that I can make sure the right ticks are appearing on the x axis
-
-  //size
-  //font size is "0.7rem" - copied from BondLineChart
-  //do you want the two rectangles (yellow on x axis, 50% opacity under dot) to be rem sized too?  Currently they are
-  //exact pixels on the wireframe
-
-  //i've copied this from BondLineChart. seems to work well once loaded.
   const id = 'historicalChart';
   const lineGradient = 'historicalChartGradient';
   const margin = { top: 20, right: 20, bottom: 40, left: 90 };
@@ -69,19 +58,38 @@ const LineChart = React.memo(props => {
   //temporary check to stop errors when svg/wrapper/data isn't loaded yet
   if (svgRef.current !== undefined && wrapperRef.current !== undefined && bondData !== undefined) {
     //define data, change timestamp to date format and build y_var
-    let data = bondData.wnomhistoricalFrames.filter(
-      m => m.startTime > HISTORICAL_CHART_TYMESTAMPS[historicalChartType],
-    );
+    let data = bondData.wnomhistoricalFrames;
+    const secondsTimeStampNow = Math.floor(new Date().getTime() / 1000).toString();
+    let lastElement = data.slice(-1)[0];
+    if (data.length) {
+      data = data.concat([
+        {
+          startPrice: lastElement.endPrice,
+          startTime: secondsTimeStampNow,
+        },
+      ]);
+    }
+
+    data = data.filter(m => m.startTime > HISTORICAL_CHART_TYMESTAMPS[historicalChartType]);
+
+    if (data.length === 1) {
+      data = [
+        {
+          startPrice: lastElement.startPrice,
+          startTime: HISTORICAL_CHART_TYMESTAMPS[historicalChartType],
+        },
+      ].concat(data);
+    }
 
     data = data.map(m => ({
       ...m,
       startTime: m.startTime.length === 10 ? new Date(+m.startTime * 1000) : m.startTime,
-      y_var: BigNumber(m.startPrice).shiftedBy(-18).toFixed(10),
+      startPrice: BigNumber(m.startPrice).shiftedBy(-18).toFixed(10),
     }));
 
     //constants so easy to change
     const x_var = 'startTime';
-    const y_var = 'y_var';
+    const y_var = 'startPrice';
     //make sure data is ordered by timestamp
     data = sort(data, (a, b) => ascending(a[x_var], b[x_var]));
 
@@ -95,7 +103,7 @@ const LineChart = React.memo(props => {
       MONTH: '%d, %m',
       QUARTAL: '%d, %m',
       YEAR: '%b-%y',
-      ALL_TIME: '%Y',
+      ALL_TIME: '%m-%Y',
     };
     const x_ticks = tick_count[time_period];
     const x_format = time_formats[time_period];
@@ -119,7 +127,8 @@ const LineChart = React.memo(props => {
 
     const yScale = scaleLinear()
       .domain(extent(data, yValue))
-      .range([height - margin.top - margin.bottom, 10]);
+      .range([height - margin.top - margin.bottom, 10])
+      .nice();
 
     const lineGenerator = line()
       .x(d => xScale(d[x_var]))
@@ -171,7 +180,7 @@ const LineChart = React.memo(props => {
       .attr('width', 57)
       .attr('height', 25)
       .attr('transform', 'translate(0,-12.5)');
-    //highlightYRect (defined in render) - text on rect on Y axis with value
+    //highlightYText (defined in render) - text on rect on Y axis with value
     select('.highlightYText')
       .attr('visibility', 'hidden')
       .attr('text-anchor', 'middle')
@@ -179,8 +188,8 @@ const LineChart = React.memo(props => {
       .attr('dy', 2.5)
       .attr('x', -28.5 + margin.left)
       .attr('y', 0);
-    //highlightLine (defined in render) - white line left to right
-    select('.highlightLine')
+    //highlightYLine (defined in render) - white line left to right
+    select('.highlightYLine')
       .attr('visibility', 'hidden')
       .attr('stroke', theme.colors.textPrimary)
       .attr('stroke-width', 1)
@@ -188,7 +197,42 @@ const LineChart = React.memo(props => {
       .attr('x1', xScale(data[0][x_var]))
       .attr('x2', xScale(data[data.length - 1][x_var]))
       .attr('y1', margin.left)
-      .attr('y2', margin.left);
+      .attr('y2', margin.left)
+      .style('cursor', 'crosshair')
+      .style('stroke-dasharray', '4,4');
+    //highlightXLine (defined in render) - white line top to bottom
+    select('.highlightXLine')
+      .attr('visibility', 'hidden')
+      .attr('stroke', theme.colors.textPrimary)
+      .attr('stroke-width', 1)
+      .attr('fill', 'none')
+      .attr('x1', margin.left)
+      .attr('x2', margin.left)
+      .attr('y1', margin.top - 10)
+      .attr('y2', height - margin.top - margin.bottom)
+      .style('cursor', 'crosshair')
+      .style('stroke-dasharray', '4,4');
+    //highlightXText (defined in render) - text on rect on Y axis with value
+    select('.highlightXText')
+      .attr('visibility', 'hidden')
+      .attr('text-anchor', 'middle')
+      .style('font-size', '0.7rem')
+      .attr('dy', 2.5)
+      .attr('x', -28.5 + margin.left)
+      .attr('y', height - margin.bottom - 8);
+
+    select('.highlightXRect')
+      .attr('visibility', 'hidden')
+      .attr('stroke', 0)
+      .attr('fill', theme.colors.highlightYellow)
+      .attr('x', margin.left)
+      .attr('y', height - margin.top - margin.bottom)
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .attr('width', 57)
+      .attr('height', 25)
+      .attr('transform', 'translate(-28.5,0)');
+
     //mouseDot (defined in render)
     select('.mouseDot')
       .attr('visibility', 'hidden')
@@ -196,7 +240,8 @@ const LineChart = React.memo(props => {
       .attr('stroke', theme.colors.bgNormal)
       .attr('stroke-width', 3)
       .attr('transform', 'translate(' + xScale(data[0][x_var]) + ',' + yScale(data[0][y_var]) + ')')
-      .attr('r', 4);
+      .attr('r', 4)
+      .style('cursor', 'crosshair');
 
     //data dependents
     //background baseLine - all values
@@ -209,7 +254,8 @@ const LineChart = React.memo(props => {
       .attr('stroke', `${theme.colors.bgHighlight}`)
       .attr('stroke-width', '0.16rem')
       .attr('fill', 'none')
-      .attr('d', lineGenerator);
+      .attr('d', lineGenerator)
+      .style('cursor', 'crosshair');
 
     const pathLength = baseline.node().getTotalLength();
 
@@ -239,12 +285,15 @@ const LineChart = React.memo(props => {
     //hide axis paths (horizontal lines)
     select('.x-axis path').style('display', 'none');
     select('.x-axis1 path').style('display', 'none');
-
+    // x axis grid height
+    const gridXlinesSize = height - margin.top - margin.bottom - 10;
     // x axis with text
     const xAxis = axisBottom(xScale)
       .tickSize('15')
       .ticks(x_ticks)
-      .tickFormat(d => timeFormat(x_format)(d));
+      .tickFormat(d => timeFormat(x_format)(d))
+      .tickSizeInner(-gridXlinesSize);
+
     //copied from BondLineChart
     const xComplex = svg
       .select('.x-axis')
@@ -259,7 +308,7 @@ const LineChart = React.memo(props => {
       .style('color', `${theme.colors.textThirdly}`)
       .style('font-size', '0.7rem');
 
-    xComplex.selectAll('.tick line').style('color', `${theme.colors.bgHighlight}`);
+    xComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`).style('cursor', 'crosshair');
 
     //x Axis minor - copied from BondLineChart
     const xAxis1 = axisBottom(xScale).tickSize('10').ticks(25).tickFormat([]);
@@ -273,8 +322,8 @@ const LineChart = React.memo(props => {
     xComplex1.selectAll('.tick line').style('stroke-width', '0.1rem').style('color', `${theme.colors.bgHighlight}`);
 
     // y Axis and gridlines
-    const gridlinesSize = width - margin.right - margin.left;
-    const yAxis = axisLeft(yScale).tickSizeInner(-gridlinesSize);
+    const gridYlinesSize = width - margin.right - margin.left;
+    const yAxis = axisLeft(yScale).tickSizeInner(-gridYlinesSize);
     const yComplex = svg
       .select('.y-axis')
       .attr('transform', `translate(${margin.left}, 0)`)
@@ -283,7 +332,7 @@ const LineChart = React.memo(props => {
 
     yComplex.selectAll('.tick text').style('color', `${theme.colors.txtThirdly}`);
 
-    yComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`);
+    yComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`).style('cursor', 'crosshair');
 
     //hover rect mouseover functionality.
     // can simplify, move to external function once functionality fixed...
@@ -292,6 +341,7 @@ const LineChart = React.memo(props => {
       .attr('height', height - margin.top - margin.bottom)
       .attr('fill', 'transparent')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+      .style('cursor', 'crosshair')
       .on('mouseover', function (event) {
         //get current index - need to switch to a constant - easier if chart only called when needed
         var mouse_date = xScale.invert(event.offsetX);
@@ -311,8 +361,9 @@ const LineChart = React.memo(props => {
           //filter data
           var lowest = Math.min(dot_index, filtered_last);
           var highest = Math.max(dot_index, filtered_last);
-          var difference = highest - lowest;
-          var transitionTime = 500 + 2 * difference;
+          // var difference = highest - lowest;
+          // var transitionTime = 500 + 2 * difference;
+          var transitionTime = 500;
           var tween_data = data.filter((f, i) => i >= lowest && i <= highest);
           if (dot_index > filtered_last) {
             //moving backwards - flip data and set highest to lowest
@@ -360,7 +411,8 @@ const LineChart = React.memo(props => {
             .interrupt()
             .transition()
             .duration(transitionTime)
-            .attr('stroke-dashoffset', pathLength - pathInvisibleLength);
+            .attr('stroke-dashoffset', pathLength - pathInvisibleLength)
+            .style('cursor', 'crosshair');
 
           select('.highlightRect')
             .attr('visibility', 'visible')
@@ -377,6 +429,14 @@ const LineChart = React.memo(props => {
             .attr('y', yScale(data[highest][y_var]))
             .text(numberFormat(data[highest][y_var]));
 
+          select('.highlightXText')
+            .attr('visibility', 'visible')
+            .interrupt()
+            .transition()
+            .duration(transitionTime)
+            .attr('x', xScale(data[highest][x_var]))
+            .text(timeFormat(x_format)(data[highest][x_var]));
+
           select('.highlightYRect')
             .attr('visibility', 'visible')
             .interrupt()
@@ -384,16 +444,30 @@ const LineChart = React.memo(props => {
             .duration(transitionTime)
             .attr('y', yScale(data[highest][y_var]));
 
-          select('.highlightLine')
+          select('.highlightYLine')
             .attr('visibility', 'visible')
             .interrupt()
             .transition()
             .duration(transitionTime)
             .attr('y1', yScale(data[highest][y_var]))
             .attr('y2', yScale(data[highest][y_var]));
+
+          select('.highlightXRect')
+            .attr('visibility', 'visible')
+            .interrupt()
+            .transition()
+            .duration(transitionTime)
+            .attr('x', xScale(data[highest][x_var]));
+
+          select('.highlightXLine')
+            .attr('visibility', 'visible')
+            .interrupt()
+            .transition()
+            .duration(transitionTime)
+            .attr('x1', xScale(data[highest][x_var]))
+            .attr('x2', xScale(data[highest][x_var]));
         }
       });
-    //test
   }
 
   return (
@@ -412,9 +486,12 @@ const LineChart = React.memo(props => {
           <linearGradient id={lineGradient} />
           <g className="baselineGroup" />
           <rect className="highlightRect" />
-          <line className="highlightLine" />
+          <line className="highlightXLine" />
+          <line className="highlightYLine" />
           <rect className="highlightYRect" />
+          <rect className="highlightXRect" />
           <text className="highlightYText" />
+          <text className="highlightXText" />
           <g className="highlightLineGroup" />
           <circle className="mouseDot" />
         </g>
