@@ -1,6 +1,5 @@
 export const responsive = {
   laptop: '1440px',
-  laptopMedium: '1300px',
   laptopSmall: '1180px',
   tablet: '1024px',
   tabletSmall: '834px',
