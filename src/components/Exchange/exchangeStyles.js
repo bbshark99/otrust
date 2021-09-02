@@ -31,6 +31,10 @@ export const ExchangeItem = styled.div`
     padding: 0 24px;
   }
 
+  @media screen and (max-width: ${responsive.laptopSmall}) {
+    padding: 0 10px;
+  }
+
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     display: none;
   }
@@ -69,6 +73,14 @@ export const Sending = styled.div`
 
   @media screen and (max-width: ${responsive.laptop}) {
     height: 60px;
+    padding: 16px 8px 16px 16px;
+  }
+
+  @media screen and (max-width: ${responsive.laptopSmall}) {
+    height: 55px;
+    padding: 10px 5px 10px 8px;
+
+    font-size: 12px;
   }
 
   strong {
@@ -120,6 +132,10 @@ export const Receiving = styled.div`
     margin-right: auto;
     font-weight: 500;
 
+    @media screen and (max-width: ${responsive.laptopSmall}) {
+      font-size: 14px;
+    }
+
     @media screen and (max-width: ${responsive.tabletSmall}) {
       font-size: 12px;
     }
@@ -167,6 +183,10 @@ export const ExchangeInput = styled.input`
   font-weight: 500;
   font-size: 18px;
   text-align: right;
+
+  @media screen and (max-width: ${responsive.laptopSmall}) {
+    font-size: 14px;
+  }
 
   @media screen and (max-width: ${responsive.tabletSmall}) {
     width: 100px;
