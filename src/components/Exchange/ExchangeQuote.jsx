@@ -214,6 +214,13 @@ export default function ExchangeQuote({ strength }) {
     }
 
     let objUpdate = new Map();
+    if (bidMaxValue.gt(NOMallowance)) {
+      const approvalAmount = bidMaxValue.minus(NOMallowance);
+
+      objUpdate = objUpdate.set('approveAmount', approvalAmount);
+
+      strUpdate = strUpdate.set('approve', format18(approvalAmount).toFixed());
+    }
 
     objUpdate = objUpdate.set('askAmount', askAmountUpdate);
 
@@ -350,7 +357,7 @@ export default function ExchangeQuote({ strength }) {
       <strong>{isBuying ? 'Buy ' + weak : 'Sell ' + weak}</strong>
       <Sending>
         <SendingBox input>
-          {(bidDenom !== strength || !input) && <strong>{isBuying ? "I'm buying" : "I'm selling"}</strong>}
+          {(bidDenom !== strength || !input) && <strong>{isBuying ? "I'm buying for" : "I'm selling"}</strong>}
           <ExchangeInput
             type="text"
             data-testid="exchange-strong-balance-input"

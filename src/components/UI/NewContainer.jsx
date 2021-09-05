@@ -13,7 +13,7 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: ${responsive.laptopSmall}) {
-    padding: 0 20px;
+    padding: 5px 10px;
   }
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {

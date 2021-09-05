@@ -24,6 +24,10 @@ const SidebarFooterWrapper = styled.footer`
     position: absolute;
     bottom: 0;
     left: 0;
+
+    padding: 10px 24px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
@@ -52,6 +56,10 @@ const Link = styled.a`
 
   @media screen and (max-width: ${responsive.laptop}) {
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: ${responsive.tablet}) {
+    margin: 0;
   }
 `;
 

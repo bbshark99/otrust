@@ -11,6 +11,16 @@ import panel from 'assets/onboarding/panel.svg';
 import prices from 'assets/onboarding/prices.svg';
 import bondingCurve from 'assets/onboarding/bonding-curve.svg';
 
+const BondingCurveContainer = styled(Container)`
+  @media screen and (max-width: ${responsive.tablet}) {
+    padding-bottom: 140px;
+  }
+
+  @media screen and (max-width: ${responsive.smartphoneLarge}) {
+    padding-bottom: 0;
+  }
+`;
+
 const BondingCurveLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr 375px;
@@ -21,7 +31,7 @@ const BondingCurveLayout = styled.div`
   }
 
   @media screen and (max-width: ${responsive.laptopSmall}) {
-    // grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 270px;
   }
 
   @media screen and (max-width: ${responsive.tablet}) {
@@ -42,7 +52,7 @@ export default function BondingCurve() {
   const [cookies, setCookie] = useCookies(['visitedBefore']);
 
   return (
-    <Container>
+    <BondingCurveContainer>
       <BondingCurveLayout>
         {!cookies.visitedBefore && (
           <Steps
@@ -119,6 +129,6 @@ export default function BondingCurve() {
         <Bonding />
         <Sidebar />
       </BondingCurveLayout>
-    </Container>
+    </BondingCurveContainer>
   );
 }
