@@ -25,15 +25,24 @@ import { HISTORICAL_CHART_TYPE_FILTER, HISTORICAL_CHART_TYMESTAMPS } from '../..
 
 const StyledSVG = styled.svg`
   display: block;
+
   width: 100%;
+  height: 100%;
+
   overflow: visible;
 `;
 
 let dot_index = 0;
 
 const WNOM_HISTORICAL_DATA_QUERY = gql`
-  query transactions($filter: String!) {
-    wnomhistoricalFrames(first: 1000, skip: 0, where: { type: $filter }, orderBy: startTime, orderDirection: asc) {
+  query transactions($filter: String!, $skipped: Int!) {
+    wnomhistoricalFrames(
+      first: 150
+      skip: $skipped
+      where: { type: $filter }
+      orderBy: startTime
+      orderDirection: asc
+    ) {
       startTime
       startPrice
       endPrice
@@ -43,8 +52,12 @@ const WNOM_HISTORICAL_DATA_QUERY = gql`
 
 const LineChart = React.memo(props => {
   const { historicalChartType } = props;
-  const { data: bondData } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
-    variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType] },
+  const { data: bondDataPrimary } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
+    variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType], skipped: 0 },
+  });
+
+  const { data: bondDataSecondary } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
+    variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType], skipped: 150 },
   });
 
   const id = 'historicalChart';
@@ -56,9 +69,14 @@ const LineChart = React.memo(props => {
   const { theme } = useContext(ChainContext);
 
   //temporary check to stop errors when svg/wrapper/data isn't loaded yet
-  if (svgRef.current !== undefined && wrapperRef.current !== undefined && bondData !== undefined) {
+  if (
+    svgRef.current !== undefined &&
+    wrapperRef.current !== undefined &&
+    bondDataPrimary !== undefined &&
+    bondDataSecondary !== undefined
+  ) {
     //define data, change timestamp to date format and build y_var
-    let data = bondData.wnomhistoricalFrames;
+    let data = bondDataPrimary.wnomhistoricalFrames.concat(bondDataSecondary.wnomhistoricalFrames);
     const secondsTimeStampNow = Math.floor(new Date().getTime() / 1000).toString();
     let lastElement = data.slice(-1)[0];
     if (data.length) {
