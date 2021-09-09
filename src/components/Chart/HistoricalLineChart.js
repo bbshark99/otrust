@@ -489,7 +489,7 @@ const LineChart = React.memo(props => {
   }
 
   return (
-    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '400px' }} data-testid="historical-line-chart">
+    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '350px' }} data-testid="historical-line-chart">
       <StyledSVG ref={svgRef} data-testid="historical-line-chart-svg">
         <defs>
           <clipPath id={id}>

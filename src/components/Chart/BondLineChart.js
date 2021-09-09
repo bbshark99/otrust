@@ -11,7 +11,7 @@ import { useResizeObserver } from './utils';
 const StyledSVG = styled.svg`
   display: block;
   width: 100%;
-  height: 400px;
+  height: 350px;
   overflow: visible;
 `;
 export function supplyToArray([supBegin, supEnd]) {
@@ -224,7 +224,7 @@ function LineChart({ id = 'bondingChart' }) {
   }, [areaData, data, dimensions, labelData, theme]);
 
   return (
-    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '400px' }} data-testid="bond-line-chart">
+    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '350px' }} data-testid="bond-line-chart">
       <StyledSVG ref={svgRef}>
         <defs>
           <clipPath id={id}>

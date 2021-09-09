@@ -356,7 +356,7 @@ export default function ExchangeQuote({ strength }) {
     <ExchangeItem>
       <strong>{isBuying ? 'Buy ' + weak : 'Sell ' + weak}</strong>
       <Sending>
-        <SendingBox input>
+        <SendingBox style={{ width: '100%', paddingRight: 16 }}>
           {(bidDenom !== strength || !input) && <strong>{isBuying ? "I'm buying for" : "I'm selling"}</strong>}
           <ExchangeInput
             type="text"

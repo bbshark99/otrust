@@ -395,13 +395,6 @@ export const BridgeModalWrapper = styled(Wrapper)`
     width: 1010px;
   }
 
-  @media screen and (max-width: ${responsive.laptopSmall}) {
-    width: 600px;
-
-    top: 50px;
-    transform: translate(-50%, 0);
-  }
-
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     display: none;
   }
@@ -636,10 +629,6 @@ export const BridgeLayout = styled.div`
 
   @media screen and (max-width: ${responsive.laptop}) {
     grid-template-columns: 400px 1fr;
-  }
-
-  @media screen and (max-width: ${responsive.laptopSmall}) {
-    grid-template-columns: none;
   }
 
   & > main {

@@ -13,6 +13,7 @@ export const ExchangeWrapper = styled.div`
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     grid-template-columns: 1fr;
+
     background-color: ${props => props.theme.colors.bgDarken};
 
     padding: 24px 20px;
@@ -22,7 +23,7 @@ export const ExchangeWrapper = styled.div`
 export const ExchangeItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 
   width: 100%;
   height: 100%;
@@ -74,7 +75,7 @@ export const Sending = styled.div`
 
   @media screen and (max-width: ${responsive.laptop}) {
     height: 60px;
-    padding: 16px 8px 16px 16px;
+    padding: 16px 8px;
   }
 
   @media screen and (max-width: ${responsive.laptopSmall}) {
@@ -102,18 +103,10 @@ export const BridgeSending = styled(Sending)`
 `;
 
 export const SendingBox = styled.div`
-  &&&& {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
 
-    ${props =>
-      props.input &&
-      `
-      width: 100%;
-      padding-right: 16px;
-    `}
-  }
+  gap: 16px;
 `;
 
 export const Receiving = styled.div`
@@ -122,11 +115,7 @@ export const Receiving = styled.div`
   gap: 16px;
 
   width: 100%;
-  margin-bottom: 30px;
-
-  @media screen and (max-width: ${responsive.laptop}) {
-    margin-bottom: 24px;
-  }
+  margin-bottom: 12px;
 
   strong {
     color: ${props => props.theme.colors.textThirdly};
@@ -175,7 +164,7 @@ export const BridgeMaxBtn = styled(MaxBtn)`
 `;
 
 export const ExchangeInput = styled.input`
-  width: ${props => (props.value ? '100%' : '120px')};
+  width: 100%;
 
   background: none;
   border: none;
@@ -190,8 +179,6 @@ export const ExchangeInput = styled.input`
   }
 
   @media screen and (max-width: ${responsive.tabletSmall}) {
-    width: 150px;
-
     font-size: 12px;
   }
 

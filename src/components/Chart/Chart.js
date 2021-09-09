@@ -20,6 +20,7 @@ const ChartWrapper = styled.div`
 const ChartHeader = styled.header`
   display: flex;
   justify-content: space-between;
+
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     display: none;
   }

@@ -149,7 +149,7 @@ function CandleChart(props) {
       .attr('y2', d => yScale(d.close));
   }
   return (
-    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '400px' }} data-testid="candle-chart">
+    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '350px' }} data-testid="candle-chart">
       <StyledSVG ref={svgRef} data-testid="candle-chart-svg">
         <g className="y-axis" />
         <g className="x-axis1" />
