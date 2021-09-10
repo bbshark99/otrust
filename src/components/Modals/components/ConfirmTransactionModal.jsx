@@ -5,6 +5,7 @@ import { BigNumber } from 'bignumber.js';
 import { Close, Metamask } from 'components/Modals/Icons';
 import { useWeb3React } from '@web3-react/core';
 
+import { Caret } from '../Icons';
 import { format18 } from 'utils/math';
 import { useModal } from 'context/modal/ModalContext';
 import * as Modal from 'components/Modals/styles';
@@ -132,6 +133,7 @@ const gasOptions = [
 
 export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
   const [slippage, setSlippage] = useState(0);
+  const [showSlippageDetails, setShowSlippageDetails] = useState(false);
   const [gasPriceChoice, setGasPriceChoice] = useState(2);
   const [gasPrice, setGasPrice] = useState(0);
   const { handleModal } = useModal();
@@ -247,22 +249,30 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
             </OptionBtn>
           ))}
         </Options>
-        <OptionCaption>Slippage Limit</OptionCaption>
-        <Options>
-          {limitOptions.map(slippageOption => (
-            <OptionBtn
-              active={slippage === slippageOption.id}
-              key={slippageOption.id}
-              onClick={() => setSlippage(slippageOption.id)}
-            >
-              {slippageOption.text}
-            </OptionBtn>
-          ))}
-        </Options>
-        <SlippageDesc>
-          Slippage is likely in times of high demand. Quote is based on most recent block and does not reflect
-          transactions ahead of you in the mempool
-        </SlippageDesc>
+
+        <Modal.DetailsButton active={showSlippageDetails} onClick={() => setShowSlippageDetails(!showSlippageDetails)}>
+          Slippage Limit <Caret />
+        </Modal.DetailsButton>
+
+        {showSlippageDetails && (
+          <>
+            <Options>
+              {limitOptions.map(slippageOption => (
+                <OptionBtn
+                  active={slippage === slippageOption.id}
+                  key={slippageOption.id}
+                  onClick={() => setSlippage(slippageOption.id)}
+                >
+                  {slippageOption.text}
+                </OptionBtn>
+              ))}
+            </Options>
+            <SlippageDesc>
+              Slippage is likely in times of high demand. Quote is based on most recent block and does not reflect
+              transactions ahead of you in the mempool
+            </SlippageDesc>
+          </>
+        )}
       </OptionsWrapper>
       <footer>
         <Modal.FooterControls>

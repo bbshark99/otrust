@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { responsive } from 'theme/constants';
@@ -76,9 +76,35 @@ const axisLabels = {
 export default function Chart() {
   const [chartType, setChartType] = useState('bondingCurve');
   const [historicalChartType, setHistoricalChartType] = useState(HISTORICAL_CHART_TYPE.DAY);
-
+  const [isMediaMinSmarthone, setIsMediaMinSmartphone] = useState(undefined);
   const [candleHeaderId] = useState('1');
   const [candleHeader] = useState(candleHeaderDefault);
+
+  const mediaQuery = window.matchMedia('(min-width: 700px)');
+
+  useEffect(() => {
+    if (isMediaMinSmarthone === false) {
+      setChartType('lineChart');
+    } else if (isMediaMinSmarthone === true) {
+      setChartType('bondingCurve');
+    }
+  }, [isMediaMinSmarthone]);
+
+  const smartphoneWidthChangeHandler = useCallback(event => {
+    if (event.matches) {
+      setIsMediaMinSmartphone(true);
+    } else {
+      setIsMediaMinSmartphone(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    mediaQuery.addListener(smartphoneWidthChangeHandler);
+    mediaQuery.matches ? setIsMediaMinSmartphone(true) : setIsMediaMinSmartphone(false);
+    return () => {
+      mediaQuery.removeListener(smartphoneWidthChangeHandler);
+    };
+  }, [smartphoneWidthChangeHandler, mediaQuery]);
 
   const renderChart = type => {
     switch (type) {
