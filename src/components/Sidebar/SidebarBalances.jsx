@@ -125,7 +125,6 @@ const Approved = styled.div`
   display: inline-block;
 
   padding: 4px 8px;
-  /* padding: 4px 30px 4px 8px; */
   margin-top: 6px;
 
   position: relative;
@@ -138,9 +137,9 @@ const Approved = styled.div`
   font-weight: 400;
   font-family: Poppins, sans-serif;
 
-  @media screen and (max-width: ${responsive.tablet}) {
+  /* @media screen and (max-width: ${responsive.tablet}) {
     margin: 0 0 0 12px;
-  }
+  } */
 
   svg {
     position: absolute;
