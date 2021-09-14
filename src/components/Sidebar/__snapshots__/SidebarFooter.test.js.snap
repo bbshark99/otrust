@@ -3,10 +3,10 @@
 exports[`Given the SidebarFooter component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <footer
-    class="sc-bdnxRM eCbtwF"
+    class="sc-bdnxRM gfThcl"
   >
     <a
-      class="sc-gtsrHT UPvhF"
+      class="sc-gtsrHT jGjvDU"
       href="https://onomy.io/"
       target="_blank"
     >

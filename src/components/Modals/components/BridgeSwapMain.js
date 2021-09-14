@@ -11,9 +11,9 @@ import { GravityCont, NOMCont } from 'context/chain/contracts';
 import { contAddrs } from '../../../context/chain/contracts';
 import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
 
-const initialErrorsState = { amountError: '', onomyWalletError: '', transactionError: '' };
+export const initialErrorsState = { amountError: '', onomyWalletError: '', transactionError: '' };
 
-const initialGasOptions = [
+export const initialGasOptions = [
   {
     id: 0,
     text: '00.00 (Standard)',

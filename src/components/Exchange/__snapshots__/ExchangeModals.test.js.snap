@@ -3,19 +3,19 @@
 exports[`Given an ExchangeModals component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqAclL kSpCPQ"
+    class="sc-kHWWYL gNGEIQ"
   >
     <button
-      class="sc-fujyAs eEqRnA"
+      class="sc-lbVvki eoDudu"
       data-testid="exchanges-modals-buy-button"
     >
-      Buy NOM
+      Buy wNOM
     </button>
     <button
-      class="sc-fujyAs sc-pNWdM eEqRnA fktmDR"
+      class="sc-lbVvki sc-gGLxEB eoDudu jFTELy"
       data-testid="exchanges-modals-sell-button"
     >
-      Sell NOM
+      Sell wNOM
     </button>
   </div>
 </DocumentFragment>

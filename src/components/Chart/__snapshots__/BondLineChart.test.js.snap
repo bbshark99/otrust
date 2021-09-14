@@ -4,10 +4,10 @@ exports[`Given the LineChart component when the component is rendered should mat
 <DocumentFragment>
   <div
     data-testid="bond-line-chart"
-    style="margin-top: 1rem; height: 400px;"
+    style="margin-top: 1rem; height: 350px;"
   >
     <svg
-      class="sc-bdnxRM jsxgsd"
+      class="sc-bdnxRM HAIXv"
     >
       <defs>
         <clippath
@@ -26,7 +26,7 @@ exports[`Given the LineChart component when the component is rendered should mat
         fill="none"
         font-family="sans-serif"
         font-size="10"
-        style="color: rgb(26, 23, 35);"
+        style="color: rgb(26, 24, 35);"
         text-anchor="end"
         transform="translate(90, 0)"
       >
@@ -88,7 +88,7 @@ exports[`Given the LineChart component when the component is rendered should mat
         >
           <stop
             offset="0%"
-            stop-color="#1A1723"
+            stop-color="#1a1823"
           />
           <stop
             offset="100%"
@@ -110,7 +110,7 @@ exports[`Given the LineChart component when the component is rendered should mat
           stroke-width="0.15rem"
         />
         <line
-          stroke="#1A1723"
+          stroke="#1a1823"
           stroke-width="0.12rem"
           x1="90"
           x2="-20"
@@ -127,10 +127,10 @@ exports[`Given the LineChart component when the component is rendered should mat
 <DocumentFragment>
   <div
     data-testid="bond-line-chart"
-    style="margin-top: 1rem; height: 400px;"
+    style="margin-top: 1rem; height: 350px;"
   >
     <svg
-      class="sc-bdnxRM jsxgsd"
+      class="sc-bdnxRM HAIXv"
     >
       <defs>
         <clippath
@@ -149,7 +149,7 @@ exports[`Given the LineChart component when the component is rendered should mat
         fill="none"
         font-family="sans-serif"
         font-size="10"
-        style="color: rgb(26, 23, 35);"
+        style="color: rgb(26, 24, 35);"
         text-anchor="end"
         transform="translate(90, 0)"
       >
@@ -211,7 +211,7 @@ exports[`Given the LineChart component when the component is rendered should mat
         >
           <stop
             offset="0%"
-            stop-color="#1A1723"
+            stop-color="#1a1823"
           />
           <stop
             offset="100%"
@@ -233,7 +233,7 @@ exports[`Given the LineChart component when the component is rendered should mat
           stroke-width="0.15rem"
         />
         <line
-          stroke="#1A1723"
+          stroke="#1a1823"
           stroke-width="0.12rem"
           x1="90"
           x2="-20"
@@ -250,10 +250,10 @@ exports[`Given the LineChart component when the component is rendered should mat
 <DocumentFragment>
   <div
     data-testid="bond-line-chart"
-    style="margin-top: 1rem; height: 400px;"
+    style="margin-top: 1rem; height: 350px;"
   >
     <svg
-      class="sc-bdnxRM jsxgsd"
+      class="sc-bdnxRM HAIXv"
     >
       <defs>
         <clippath
@@ -272,7 +272,7 @@ exports[`Given the LineChart component when the component is rendered should mat
         fill="none"
         font-family="sans-serif"
         font-size="10"
-        style="color: rgb(26, 23, 35);"
+        style="color: rgb(26, 24, 35);"
         text-anchor="end"
         transform="translate(90, 0)"
       >
@@ -334,7 +334,7 @@ exports[`Given the LineChart component when the component is rendered should mat
         >
           <stop
             offset="0%"
-            stop-color="#1A1723"
+            stop-color="#1a1823"
           />
           <stop
             offset="100%"
@@ -356,7 +356,7 @@ exports[`Given the LineChart component when the component is rendered should mat
           stroke-width="0.15rem"
         />
         <line
-          stroke="#1A1723"
+          stroke="#1a1823"
           stroke-width="0.12rem"
           x1="90"
           x2="-20"

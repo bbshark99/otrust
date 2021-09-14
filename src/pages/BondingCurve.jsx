@@ -3,6 +3,7 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import Bonding from 'components/Bonding';
 import { Steps } from 'intro.js-react';
 import { useCookies } from 'react-cookie';
+import { isMobile } from 'react-device-detect';
 
 import { Container } from 'components/UI';
 import { responsive } from 'theme/constants';
@@ -54,10 +55,15 @@ export default function BondingCurve() {
   return (
     <BondingCurveContainer>
       <BondingCurveLayout>
-        {!cookies.visitedBefore && (
+        {!cookies.visitedBefore && !isMobile && (
           <Steps
             enabled={true}
-            options={{ showBullets: false, tooltipClass: 'onomyOnboarding', disableInteraction: 'true' }}
+            options={{
+              showBullets: false,
+              tooltipClass: 'onomyOnboarding',
+              disableInteraction: 'true',
+              scrollTo: 'body',
+            }}
             steps={[
               {
                 intro: `

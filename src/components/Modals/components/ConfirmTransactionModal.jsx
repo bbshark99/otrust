@@ -225,13 +225,6 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
             <Metamask />
           </WalletIcon>
         </TransactionDetailsRow>
-
-        {/* <FeeWrapper>
-          <span>Transaction fee</span>
-          <span>
-            <strong>$5.4</strong> (0.00032 ETH)
-          </span>
-        </FeeWrapper> */}
       </main>
       <OptionsWrapper>
         <OptionCaption>Gas Fee</OptionCaption>
@@ -250,7 +243,11 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
           ))}
         </Options>
 
-        <Modal.DetailsButton active={showSlippageDetails} onClick={() => setShowSlippageDetails(!showSlippageDetails)}>
+        <Modal.DetailsButton
+          active={showSlippageDetails}
+          onClick={() => setShowSlippageDetails(!showSlippageDetails)}
+          data-testid="confirm-modal-slippage-button"
+        >
           Slippage Limit <Caret />
         </Modal.DetailsButton>
 

@@ -3,10 +3,13 @@
 exports[`Given the BridgeSwapModal component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnxRM sc-fFSPTT leVZfT jvmFKX"
+    class="sc-kHWWYL gZHipK"
+  />
+  <div
+    class="sc-bdnxRM sc-hHEiqL leVZfT hziPPQ"
   >
     <button
-      class="sc-dlnjwi cSfPnY"
+      class="sc-jSFjdj dYAyKF"
     >
       <svg
         viewBox="0 0 24 24"
@@ -33,22 +36,22 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
       </svg>
     </button>
     <div
-      class="sc-cxNHIi fvYRQH"
+      class="sc-ezzafa dpYZLt"
     >
       <main>
         <h3
-          class="sc-pNWdM sc-ezzafa ipkocU jLFTFE"
+          class="sc-iqAclL sc-cBoqAE jbEKlq jjiUbU"
         >
-          Onomy Bridge
+          Onomy Bridge Here
         </h3>
         <div
-          class="sc-bYwzuL iwiYWN"
+          class="sc-ciSkZP cezVwi"
         >
           <div
-            class="sc-dIvrsQ etHfzy"
+            class="sc-fKgJPI dAGIdY"
           >
             <div
-              class="sc-kfYoZR dvduFO"
+              class="sc-cxNHIi ioclSA"
             >
               <img
                 alt=""
@@ -56,36 +59,34 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
               />
             </div>
             <div
-              class="sc-fKgJPI eDdDGW"
+              class="sc-lmgQwP eoJsdn"
             >
               <strong>
                 Onomy Bonding Curve
               </strong>
-              <span>
-                0x526..123sdas8b
-              </span>
+              <span />
             </div>
             <div
-              class="sc-bCwfaz ihjfKQ"
+              class="sc-iJCRrE kuBHNO"
             >
               <strong>
                 wNOM Balance
               </strong>
               <span>
-                10,429.22
+                0.000000
               </span>
             </div>
           </div>
           <div
-            class="sc-iwajpm jltzXP"
+            class="sc-giAqHp hATyRz"
           >
-            Bridge Connected
+            Wallet Disconnected
           </div>
           <div
-            class="sc-dIvrsQ etHfzy"
+            class="sc-fKgJPI dAGIdY"
           >
             <div
-              class="sc-kfYoZR dvduFO"
+              class="sc-cxNHIi ioclSA"
             >
               <img
                 alt=""
@@ -93,70 +94,98 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
               />
             </div>
             <div
-              class="sc-fKgJPI eDdDGW"
+              class="sc-iklJeh bceAWz"
             >
-              <strong>
-                My Onomy Wallet
-              </strong>
-              <span>
-                0x5262f6ef7cbdsad334123sdas8b
-              </span>
+              <input
+                class="sc-bBjRSN sc-Arkif iVvvTU qdyvg"
+                placeholder="Your Onomy Wallet Address"
+                type="text"
+                value=""
+              />
             </div>
           </div>
         </div>
         <form
-          class="sc-cTJkRt eoDLjh"
+          class="sc-dsXzNU kFqVpz"
         >
           <div
-            class="sc-efHYUO gsCRzc"
+            class="sc-hOPeYd bkxBpP"
           >
             <div
-              class="sc-jJMGnK jkA-DxN"
+              class="sc-iTVJFM sc-iBzEeX bAcugn zwAsw"
             >
               <strong>
                 Swap to NOM
               </strong>
               <input
-                class="sc-cBoqAE buOumO"
+                class="sc-bBjRSN sc-khIgEk iVvvTU hfJszz"
                 type="text"
+                value=""
               />
               wNOM
               <button
-                class="sc-gXfVKN eWEgdu"
+                class="sc-jNnpgg sc-dPaNzc gRwTxe fmXglj"
               >
                 Max
               </button>
             </div>
           </div>
+          <div>
+            <p
+              class="sc-daBunf iGZrVP"
+            >
+              Gas Fee
+            </p>
+            <div
+              class="sc-jUfyBS jqSSYO"
+            >
+              <button
+                class="sc-jQAxuV jpnMRH"
+              >
+                00.00 (Standard)
+              </button>
+              <button
+                class="sc-jQAxuV jpnMRH"
+              >
+                00.00 (Fast)
+              </button>
+              <button
+                class="sc-jQAxuV jpnMRH"
+              >
+                00.00 (Instant)
+              </button>
+            </div>
+          </div>
           <button
-            class="sc-hKFxyN sc-giAqHp fFAwxg ArcId"
+            class="sc-gKAaRy sc-gXfVKN tiUWj hdhsjP"
+            disabled=""
           >
             Swap wNOM for NOM
           </button>
         </form>
       </main>
       <aside
-        class="sc-bkbkJK bgKCAf"
+        class="sc-dlMDgC fSFXAr"
       >
         <h2>
           What is Onomy Bridge?
         </h2>
         <p
-          class="sc-lmgQwP BhXWF"
+          class="sc-jJMGnK gjXsiq"
         >
           The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy Network.
         </p>
         <section
-          class="sc-iemWCZ WLZut"
+          class="sc-kfYoZR eSvgJZ"
         >
           <div>
             <h3
-              class="sc-dlMDgC jZLQwU"
+              class="sc-iwajpm lOVrh"
             >
               One Way Bridge
             </h3>
             <p
-              class="sc-lmgQwP BhXWF"
+              class="sc-jJMGnK gjXsiq"
             >
               Choose to bridge when you are ready to do so to finalize your purchase of NOM! 
               <strong>
@@ -171,16 +200,16 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
           />
         </section>
         <section
-          class="sc-iemWCZ WLZut"
+          class="sc-kfYoZR eSvgJZ"
         >
           <div>
             <h3
-              class="sc-dlMDgC jZLQwU"
+              class="sc-iwajpm lOVrh"
             >
               Why Bridge?
             </h3>
             <ol
-              class="sc-iJCRrE kFRqKf"
+              class="sc-hiKfDv iFOqtY"
             >
               <li>
                 You must hold NOM to participate in the Onomy Network. 
@@ -200,7 +229,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
             </ol>
           </div>
           <div
-            class="sc-hHEiqL gfOyyu"
+            class="sc-bCwfaz bwCvgM"
           >
             <img
               alt=""

@@ -3,54 +3,56 @@
 exports[`Given an ExchangeQuote component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jffHpj emiGjb"
+    class="sc-khIgEk kMWoji"
   >
     <strong>
       Sell NOM
     </strong>
     <div
-      class="sc-eJocfa Mqkgq"
+      class="sc-hTRkXV bNKhVO"
     >
-      <strong>
-        I'm selling
-      </strong>
       <div
-        class="sc-bTDOke cddonb"
+        class="sc-gSYDnn htDKdP"
+        style="width: 100%; padding-right: 16px;"
       >
-        <div
-          class="sc-eKYRIR ibOJZB"
-        />
+        <strong>
+          I'm selling
+        </strong>
         <input
-          class="sc-eirqVv fTWVPi"
+          class="sc-eJocfa fsZdx"
           data-testid="exchange-strong-balance-input"
           placeholder="0.00"
           type="text"
           value=""
         />
       </div>
-      NOM
-      <button
-        class="sc-hhIiOg gPZLac"
-        data-testid="max-value-button"
+      <div
+        class="sc-gSYDnn htDKdP"
       >
-        Max
-      </button>
+        NOM
+        <button
+          class="sc-iNiQyp iZyljO"
+          data-testid="max-value-button"
+        >
+          Max
+        </button>
+      </div>
     </div>
     <div
-      class="sc-oeezt cuEecL"
+      class="sc-laZMeE iTycLx"
     >
       <strong>
         You will receive
       </strong>
       <span
-        class="sc-lbVvki hTUTOI"
+        class="sc-oeezt fJVdMx"
         data-testid="exchange-weak-balance"
       >
          ETH
       </span>
     </div>
     <button
-      class="sc-gGLxEB sc-ckTSus iMrmpd giMBmg"
+      class="sc-lbVvki sc-gGLxEB eoDudu jFTELy"
     >
        Input Value 
     </button>

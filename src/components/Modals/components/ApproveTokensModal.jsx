@@ -71,10 +71,9 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
   const [count, setCount] = useState(60);
   const [delay, setDelay] = useState(1000);
   const { handleModal } = useModal();
-  const { NOMallowance, weakBalance } = useChain();
   const { approve, bidAmount, input } = useExchange();
-
   const { objDispatch, strDispatch } = useUpdateExchange();
+  const { NOMallowance, weakBalance } = useChain();
 
   const initialApproveAmount = bidAmount.minus(NOMallowance);
 

@@ -12,7 +12,7 @@ exports[`Given the SidebarConnection component when the component is rendered an
         Connection
       </strong>
       <div
-        class="sc-gKAaRy hGDlOd"
+        class="sc-gKAaRy eFHdfB"
       >
         Error
       </div>
@@ -94,7 +94,7 @@ exports[`Given the SidebarConnection component when the component is rendered ha
         Connection
       </strong>
       <div
-        class="sc-gKAaRy hGDlOd"
+        class="sc-gKAaRy eFHdfB"
       >
         Loading
       </div>

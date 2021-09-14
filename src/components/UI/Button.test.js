@@ -1,8 +1,9 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
+
 import { AccentButton, Button, InvisibleButton } from './Button';
 import { renderWithTheme } from '../../utils/testing';
-import { ThemeProvider } from 'styled-components';
-import { darkNew } from 'Theme/theme';
+import { darkNew } from 'theme/theme';
 
 const testProps = {
   width: 50,

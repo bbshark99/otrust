@@ -7,48 +7,45 @@ exports[`Given the PendingModal component when the component is rendered should 
   >
     <main>
       <h3
-        class="sc-jrsJWt lfNerq"
+        class="sc-crzoAE iXFStQ"
       >
         Transaction pending...
       </h3>
       <div
-        class="sc-gKAaRy efKcla"
+        class="sc-pNWdM gQuxhF"
       >
         <div
-          class="sc-jSFjdj jqrRlj"
+          class="sc-fujyAs dUnTtW"
         >
-          You're selling
+          You're receiving
         </div>
-        0.000000 
+        ~ 0.000000 
         <sup>
-          ETH
+          NOM
         </sup>
       </div>
       <div
-        class="sc-cBoqAE bCziML"
+        class="sc-jcwpoC bFmzA"
       >
         <span>
           Current Exchange Rate
         </span>
         <strong>
-          1 ETH = 0 NOM
+          1 ETH = NaN NOM
         </strong>
       </div>
       <div
-        class="sc-cBoqAE bCziML"
+        class="sc-jcwpoC bFmzA"
       >
         <span>
-          You're Sending
+          You're sending
         </span>
         <strong>
-          0.000000 
-          <sup>
-            NOM
-          </sup>
+          0.000000 ETH
         </strong>
       </div>
       <div
-        class="sc-cBoqAE bCziML"
+        class="sc-jcwpoC bFmzA"
       >
         <div>
           <span>
@@ -59,7 +56,7 @@ exports[`Given the PendingModal component when the component is rendered should 
           </div>
         </div>
         <div
-          class="sc-ciSkZP cgtoMT"
+          class="sc-carFqZ hUYiVE"
         >
           <svg
             viewBox="0 0 255 236.4"
@@ -154,7 +151,7 @@ exports[`Given the PendingModal component when the component is rendered should 
     </main>
     <footer>
       <div
-        class="sc-fnVZcZ iZWaix"
+        class="sc-iemWCZ dPBBmf"
       >
         <div
           class="loadingSpinner"

@@ -4,10 +4,10 @@ exports[`Given the LineChart component when the component is rendered and bondDa
 <DocumentFragment>
   <div
     data-testid="historical-line-chart"
-    style="margin-top: 1rem; height: 400px;"
+    style="margin-top: 1rem; height: 350px;"
   >
     <svg
-      class="sc-gtsrHT efQxDo"
+      class="sc-gtsrHT eNULaY"
       data-testid="historical-line-chart-svg"
     >
       <defs>
@@ -48,13 +48,22 @@ exports[`Given the LineChart component when the component is rendered and bondDa
           class="highlightRect"
         />
         <line
-          class="highlightLine"
+          class="highlightXLine"
+        />
+        <line
+          class="highlightYLine"
         />
         <rect
           class="highlightYRect"
         />
+        <rect
+          class="highlightXRect"
+        />
         <text
           class="highlightYText"
+        />
+        <text
+          class="highlightXText"
         />
         <g
           class="highlightLineGroup"
@@ -72,10 +81,10 @@ exports[`Given the LineChart component when the component is rendered and bondDa
 <DocumentFragment>
   <div
     data-testid="historical-line-chart"
-    style="margin-top: 1rem; height: 400px;"
+    style="margin-top: 1rem; height: 350px;"
   >
     <svg
-      class="sc-gtsrHT efQxDo"
+      class="sc-gtsrHT eNULaY"
       data-testid="historical-line-chart-svg"
     >
       <defs>
@@ -116,13 +125,22 @@ exports[`Given the LineChart component when the component is rendered and bondDa
           class="highlightRect"
         />
         <line
-          class="highlightLine"
+          class="highlightXLine"
+        />
+        <line
+          class="highlightYLine"
         />
         <rect
           class="highlightYRect"
         />
+        <rect
+          class="highlightXRect"
+        />
         <text
           class="highlightYText"
+        />
+        <text
+          class="highlightXText"
         />
         <g
           class="highlightLineGroup"

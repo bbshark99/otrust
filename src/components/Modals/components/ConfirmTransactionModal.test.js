@@ -30,12 +30,12 @@ describe('Given the ConfirmTransactionModal component', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it('should show all limitOptions', () => {
-      const { getByText } = renderWithContext(ConfirmTransactionModal, testProps);
-      expect(getByText('No limit')).toBeInTheDocument();
-      expect(getByText('1%')).toBeInTheDocument();
-      expect(getByText('2.5%')).toBeInTheDocument();
-      expect(getByText('5%')).toBeInTheDocument();
+    it('should not show all limitOptions', () => {
+      const { queryByText } = renderWithContext(ConfirmTransactionModal, testProps);
+      expect(queryByText('No limit')).not.toBeInTheDocument();
+      expect(queryByText('1%')).not.toBeInTheDocument();
+      expect(queryByText('2.5%')).not.toBeInTheDocument();
+      expect(queryByText('5%')).not.toBeInTheDocument();
     });
 
     it('should show all gasOptions', () => {
@@ -45,32 +45,42 @@ describe('Given the ConfirmTransactionModal component', () => {
       expect(getByText('0 (Instant)')).toBeInTheDocument();
     });
 
-    it('should show the first Option like active by default', () => {
-      const { getByText } = renderWithContext(ConfirmTransactionModal, testProps);
-      expect(getByText('No limit')).toHaveStyle('color: rgb(225, 223, 235)');
-      expect(getByText('No limit')).toHaveStyle('background-color: rgb(48, 46, 61)');
-      expect(getByText('1%')).toHaveStyle('color: rgb(152, 149, 166)');
-      expect(getByText('1%')).toHaveStyle('background-color: transparent');
-      expect(getByText('2.5%')).toHaveStyle('color: rgb(152, 149, 166)');
-      expect(getByText('2.5%')).toHaveStyle('background-color: transparent');
-      expect(getByText('5%')).toHaveStyle('color: rgb(152, 149, 166)');
-      expect(getByText('5%')).toHaveStyle('background-color: transparent');
-    });
-
-    describe('and user clicks on 5% option', () => {
-      it('should make it active and deactivate No limit option', async () => {
+    describe('and user clicks on Slippage Limit', () => {
+      it('should show Slippage Limit options with the first active defaul option', async () => {
         const { getByText } = renderWithContext(ConfirmTransactionModal, testProps);
 
-        fireEvent.click(getByText('5%'));
+        fireEvent.click(getByText('Slippage Limit'));
 
-        expect(getByText('No limit')).toHaveStyle('color: rgb(152, 149, 166)');
-        expect(getByText('No limit')).toHaveStyle('background-color: transparent');
+        expect(getByText('No limit')).toBeInTheDocument();
+        expect(getByText('1%')).toBeInTheDocument();
+        expect(getByText('2.5%')).toBeInTheDocument();
+        expect(getByText('5%')).toBeInTheDocument();
+
+        expect(getByText('No limit')).toHaveStyle('color: rgb(225, 223, 235)');
+        expect(getByText('No limit')).toHaveStyle('background-color: rgb(48, 46, 61)');
         expect(getByText('1%')).toHaveStyle('color: rgb(152, 149, 166)');
         expect(getByText('1%')).toHaveStyle('background-color: transparent');
         expect(getByText('2.5%')).toHaveStyle('color: rgb(152, 149, 166)');
         expect(getByText('2.5%')).toHaveStyle('background-color: transparent');
-        expect(getByText('5%')).toHaveStyle('color: rgb(225, 223, 235)');
-        expect(getByText('5%')).toHaveStyle('background-color: rgb(48, 46, 61)');
+        expect(getByText('5%')).toHaveStyle('color: rgb(152, 149, 166)');
+        expect(getByText('5%')).toHaveStyle('background-color: transparent');
+      });
+
+      describe('and user clicks on 5% option of Slippage Limits', () => {
+        it('should make it active and deactivate No limit option', async () => {
+          const { getByText } = renderWithContext(ConfirmTransactionModal, testProps);
+          fireEvent.click(getByText('Slippage Limit'));
+          fireEvent.click(getByText('5%'));
+
+          expect(getByText('No limit')).toHaveStyle('color: rgb(152, 149, 166)');
+          expect(getByText('No limit')).toHaveStyle('background-color: transparent');
+          expect(getByText('1%')).toHaveStyle('color: rgb(152, 149, 166)');
+          expect(getByText('1%')).toHaveStyle('background-color: transparent');
+          expect(getByText('2.5%')).toHaveStyle('color: rgb(152, 149, 166)');
+          expect(getByText('2.5%')).toHaveStyle('background-color: transparent');
+          expect(getByText('5%')).toHaveStyle('color: rgb(225, 223, 235)');
+          expect(getByText('5%')).toHaveStyle('background-color: rgb(48, 46, 61)');
+        });
       });
     });
 

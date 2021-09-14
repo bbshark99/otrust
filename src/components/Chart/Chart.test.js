@@ -6,6 +6,21 @@ import Chart from './Chart';
 describe('Given the Chart component', () => {
   describe('when the component is rendered', () => {
     afterEach(cleanup);
+    beforeEach(() => {
+      Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation(query => ({
+          matches: true,
+          media: query,
+          onchange: null,
+          addListener: jest.fn(),
+          removeListener: jest.fn(),
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+          dispatchEvent: jest.fn(),
+        })),
+      });
+    });
 
     it('should match the snapshot', () => {
       const { asFragment } = renderWithContext(Chart);
@@ -15,8 +30,8 @@ describe('Given the Chart component', () => {
     it('should have three tabs of charts', () => {
       const { getByText } = renderWithContext(Chart);
       expect(getByText('Bonding Curve Chart')).toBeInTheDocument();
-      expect(getByText('Line Chart')).toBeInTheDocument();
-      expect(getByText('Candle View')).toBeInTheDocument();
+      expect(getByText('Historical Chart')).toBeInTheDocument();
+      expect(getByText('Candles View')).toBeInTheDocument();
     });
 
     it('should have default opened bondLineChart chart', () => {
@@ -32,7 +47,7 @@ describe('Given the Chart component', () => {
       it('should show Candle chart and hide other charts', () => {
         const { getByText, queryByTestId } = renderWithContext(Chart);
 
-        fireEvent.click(getByText('Candle View'));
+        fireEvent.click(getByText('Candles View'));
 
         expect(queryByTestId('candle-chart')).toBeInTheDocument();
         expect(queryByTestId('bond-line-chart')).not.toBeInTheDocument();
@@ -40,13 +55,13 @@ describe('Given the Chart component', () => {
       });
     });
 
-    describe('and user clicks on Line Chart tab', () => {
+    describe('and user clicks on Historical Chart tab', () => {
       afterEach(cleanup);
 
-      it('should show Line chart and hide other charts', () => {
+      it('should show Historical Chart and hide other charts', () => {
         const { getByText, queryByTestId } = renderWithContext(Chart);
 
-        fireEvent.click(getByText('Line Chart'));
+        fireEvent.click(getByText('Historical Chart'));
 
         expect(queryByTestId('historical-line-chart')).toBeInTheDocument();
         expect(queryByTestId('candle-chart')).not.toBeInTheDocument();
@@ -60,7 +75,7 @@ describe('Given the Chart component', () => {
       it('should show Bonding Curve chart and hide other charts', () => {
         const { getByText, queryByTestId } = renderWithContext(Chart);
 
-        fireEvent.click(getByText('Line Chart'));
+        fireEvent.click(getByText('Historical Chart'));
         fireEvent.click(getByText('Bonding Curve Chart'));
 
         expect(queryByTestId('bond-line-chart')).toBeInTheDocument();

@@ -3,7 +3,7 @@
 exports[`Given the SidebarHeader component when the component is rendered and account is defined should match the snapshot 1`] = `
 <DocumentFragment>
   <header
-    class="sc-gtsrHT cWvxos"
+    class="sc-gtsrHT epKJQK"
   >
     <span />
     <img
@@ -42,7 +42,7 @@ exports[`Given the SidebarHeader component when the component is rendered and ac
 exports[`Given the SidebarHeader component when the component is rendered and account is null should match the snapshot 1`] = `
 <DocumentFragment>
   <header
-    class="sc-gtsrHT cWvxos"
+    class="sc-gtsrHT epKJQK"
   >
     <span />
     <img

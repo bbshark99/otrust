@@ -26,8 +26,8 @@ const testUpdateExchangeContext = {
 };
 
 const testExchangeContext = {
-  askAmount: new BigNumber(0),
-  bidAmount: new BigNumber(0),
+  askAmount: BigNumber(0),
+  bidAmount: BigNumber(0),
   bidDenom: 'strong',
   status: 'Not Approved',
   strong: 'ETH',
@@ -129,13 +129,17 @@ describe('Given the TransactionCompletedModal component', () => {
 
     describe('and user clicks on CloseIcon', () => {
       it('should call objDispatch from useUpdateExchange context with correct parameters', () => {
-        let objUpdate = new Map();
-        objUpdate.set('askAmount', new BigNumber(0));
-        objUpdate.set('bidAmount', new BigNumber(0));
+        let objUpdate = new Map([
+          ['askAmount', BigNumber(0)],
+          ['bidAmount', BigNumber(0)],
+          ['approveAmount', BigNumber(0)],
+        ]);
 
-        let strUpdate = new Map();
-        strUpdate.set('input', '');
-        strUpdate.set('output', '');
+        let strUpdate = new Map([
+          ['input', ''],
+          ['output', ''],
+          ['approve', ''],
+        ]);
 
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
@@ -166,13 +170,17 @@ describe('Given the TransactionCompletedModal component', () => {
 
     describe('and user clicks on PrimaryButton', () => {
       it('should call objDispatch from useUpdateExchange context with correct parameters', () => {
-        let objUpdate = new Map();
-        objUpdate.set('askAmount', new BigNumber(0));
-        objUpdate.set('bidAmount', new BigNumber(0));
+        let objUpdate = new Map([
+          ['askAmount', BigNumber(0)],
+          ['bidAmount', BigNumber(0)],
+          ['approveAmount', BigNumber(0)],
+        ]);
 
-        let strUpdate = new Map();
-        strUpdate.set('input', '');
-        strUpdate.set('output', '');
+        let strUpdate = new Map([
+          ['input', ''],
+          ['output', ''],
+          ['approve', ''],
+        ]);
 
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(

@@ -4,9 +4,25 @@ exports[`Given the CandleChart component when the component is rendered should m
 <DocumentFragment>
   <div
     data-testid="candle-chart"
-    style="margin-top: 1rem; height: 400px;"
+    style="margin-top: 1rem; height: 350px;"
   >
-    Candle Chart
+    <svg
+      class="sc-bdnxRM kNdflx"
+      data-testid="candle-chart-svg"
+    >
+      <g
+        class="y-axis"
+      />
+      <g
+        class="x-axis1"
+      />
+      <g
+        class="x-axis"
+      />
+      <g
+        class="candlestickGroup"
+      />
+    </svg>
   </div>
 </DocumentFragment>
 `;

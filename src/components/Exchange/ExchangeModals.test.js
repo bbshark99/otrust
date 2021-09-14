@@ -1,11 +1,7 @@
-import { cleanup, fireEvent, render, mount } from '@testing-library/react';
-import { ModalContextWrapper, renderWithContext, ThemeWrapper } from 'utils/testing';
+import { cleanup, fireEvent } from '@testing-library/react';
 
+import { renderWithContext } from 'utils/testing';
 import ExchangeModals from './ExchangeModals';
-
-const testModalContext = {
-  handleModal: jest.fn(),
-};
 
 describe('Given an ExchangeModals component', () => {
   describe('when the component is rendered', () => {
@@ -19,7 +15,7 @@ describe('Given an ExchangeModals component', () => {
 
   describe('and user clicks on ExchangeButton', () => {
     it('should open Buy NOM Modal', () => {
-      const { queryByTestId } = render(ModalContextWrapper(ThemeWrapper(ExchangeModals), testModalContext));
+      const { queryByTestId } = renderWithContext(ExchangeModals);
       fireEvent.click(queryByTestId('exchanges-modals-buy-button'));
 
       expect(queryByTestId('buy-nom-modal-info')).toBeInTheDocument();
@@ -31,7 +27,7 @@ describe('Given an ExchangeModals component', () => {
 
   describe('and user clicks on SellButton', () => {
     it('should open Sell NOM Modal', () => {
-      const { queryByTestId } = render(ModalContextWrapper(ThemeWrapper(ExchangeModals), testModalContext));
+      const { queryByTestId } = renderWithContext(ExchangeModals);
       fireEvent.click(queryByTestId('exchanges-modals-sell-button'));
 
       expect(queryByTestId('sell-nom-modal-info')).toBeInTheDocument();

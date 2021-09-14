@@ -2,7 +2,7 @@ import { cleanup, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { BigNumber } from 'bignumber.js';
 
-import { dark } from 'Theme/theme';
+import { darkNew } from 'theme/theme';
 import LineChart, { supplyToArray, labelArray, bounds } from './BondLineChart';
 import { format18 } from 'utils/math';
 import { ChainContext } from '../../context/chain/ChainContext';
@@ -51,8 +51,8 @@ describe('Given the LineChart component', () => {
 
     it('should match the snapshot with not defined bidDenom', () => {
       const { asFragment } = render(
-        <ThemeProvider theme={dark}>
-          <ChainContext.Provider value={{ supplyNOM: new BigNumber(0), theme: dark }}>
+        <ThemeProvider theme={darkNew}>
+          <ChainContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
             <ExchangeContext.Provider value={{ askAmount: 0, bidAmount: 0, bidDenom: undefined }}>
               <LineChart />
             </ExchangeContext.Provider>
@@ -64,8 +64,8 @@ describe('Given the LineChart component', () => {
 
     it('should match the snapshot with bidDenom strong', () => {
       const { asFragment } = render(
-        <ThemeProvider theme={dark}>
-          <ChainContext.Provider value={{ supplyNOM: new BigNumber(0), theme: dark }}>
+        <ThemeProvider theme={darkNew}>
+          <ChainContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
             <ExchangeContext.Provider value={{ askAmount: 0, bidAmount: 0, bidDenom: 'strong' }}>
               <LineChart />
             </ExchangeContext.Provider>
@@ -77,8 +77,8 @@ describe('Given the LineChart component', () => {
 
     it('should match the snapshot with bidDenom weak', () => {
       const { asFragment } = render(
-        <ThemeProvider theme={dark}>
-          <ChainContext.Provider value={{ supplyNOM: new BigNumber(0), theme: dark }}>
+        <ThemeProvider theme={darkNew}>
+          <ChainContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
             <ExchangeContext.Provider value={{ askAmount: 0, bidAmount: 0, bidDenom: 'weak' }}>
               <LineChart />
             </ExchangeContext.Provider>

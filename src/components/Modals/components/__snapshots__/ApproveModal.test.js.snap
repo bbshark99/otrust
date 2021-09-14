@@ -6,7 +6,7 @@ exports[`Given the ApproveModal component when the component is rendered should 
     class="sc-bdnxRM leVZfT"
   >
     <button
-      class="sc-dlnjwi cSfPnY"
+      class="sc-jSFjdj dYAyKF"
       data-testid="approve-modal-close-icon"
     >
       <svg
@@ -35,12 +35,12 @@ exports[`Given the ApproveModal component when the component is rendered should 
     </button>
     <main>
       <h3
-        class="sc-pNWdM sc-jJMGnK ipkocU bTcnrY"
+        class="sc-iqAclL sc-iTVJFM jbEKlq dyyvDF"
       >
         Step1. Onomy confirmation
       </h3>
       <div
-        class="sc-iklJeh gHPowk"
+        class="sc-carFqZ htWaeg"
       >
         Onomy blockchain requires access for selling
         <strong>
@@ -51,16 +51,16 @@ exports[`Given the ApproveModal component when the component is rendered should 
     </main>
     <footer>
       <div
-        class="sc-gtsrHT hEKbJi"
+        class="sc-hKFxyN byYxBe"
       >
         <button
-          class="sc-hKFxyN sc-eCApnc fFAwxg ijFQLa"
+          class="sc-gKAaRy sc-iCoGMd hdHHcK IkHhp"
           data-testid="approve-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-hKFxyN fFAwxg"
+          class="sc-gKAaRy hdHHcK"
           data-testid="approve-modal-primary-button"
         >
           Approve (60)

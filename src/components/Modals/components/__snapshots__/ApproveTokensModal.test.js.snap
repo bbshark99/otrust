@@ -6,7 +6,7 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
     class="sc-bdnxRM leVZfT"
   >
     <button
-      class="sc-dlnjwi cSfPnY"
+      class="sc-jSFjdj dYAyKF"
       data-testid="approve-tokens-modal-close-icon"
     >
       <svg
@@ -35,25 +35,25 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
     </button>
     <main>
       <h3
-        class="sc-pNWdM sc-jNnpgg ipkocU dFlioR"
+        class="sc-iqAclL sc-eirqVv jbEKlq bnLClA"
       >
         Approve Tokens
       </h3>
       <div
-        class="sc-cTJkRt gdnOFp"
+        class="sc-hhIiOg jvlaGd"
       >
         You want to sell 
         <strong>
-          1600 wNOM
+           wNOM
         </strong>
-        , but you approved for sale only 1000 wNOM. Would you like to approve the rest 
+        , but you approved for sale only 0 wNOM. To sell this amount, please approve 
         <strong>
-          600 (or more) wNOM
+          0 wNOM
         </strong>
-         and complete selling?
+         or more.
       </div>
       <div
-        class="sc-dPaNzc iDeOfS"
+        class="sc-lbVvki cynCWE"
       >
         <div>
           <label
@@ -64,10 +64,11 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
           <input
             placeholder="0.00"
             type="text"
+            value=""
           />
         </div>
         <button
-          class="sc-cBoqAE xgJtv"
+          class="sc-dPaNzc eosgKi"
         >
           MAX
         </button>
@@ -75,16 +76,16 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
     </main>
     <footer>
       <div
-        class="sc-gtsrHT hEKbJi"
+        class="sc-hKFxyN byYxBe"
       >
         <button
-          class="sc-hKFxyN sc-eCApnc fFAwxg ijFQLa"
+          class="sc-gKAaRy sc-iCoGMd hdHHcK IkHhp"
           data-testid="approve-tokens-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-hKFxyN fFAwxg"
+          class="sc-gKAaRy hdHHcK"
           data-testid="approve-tokens-modal-primary-button"
         >
           Approve (60)

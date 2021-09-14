@@ -37,7 +37,7 @@ exports[`Given the Button component and width is provided in the props when the 
 exports[`Given the ConnectionStatus component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iCoGMd kkpqdJ"
+    class="sc-iCoGMd cQmfat"
   />
 </DocumentFragment>
 `;

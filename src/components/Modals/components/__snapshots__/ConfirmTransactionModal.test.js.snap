@@ -6,7 +6,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
     class="sc-gtsrHT cttJaW"
   >
     <button
-      class="sc-hKFxyN cLTPxI"
+      class="sc-gKAaRy iWKTBh"
       data-testid="confirm-modal-close-icon"
     >
       <svg
@@ -35,25 +35,25 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
     </button>
     <main>
       <h3
-        class="sc-jrsJWt bjHJTa"
+        class="sc-crzoAE bGJewE"
       >
         Confirm Transaction
       </h3>
       <div
-        class="sc-iCoGMd fhYZXm"
+        class="sc-jrsJWt LgJAH"
       >
         <div
-          class="sc-gKAaRy cPQBIX"
+          class="sc-pNWdM bBCNdI"
         >
           You're receiving
         </div>
-        ~  
+        ~ 0.000000 
         <sup>
           ETH
         </sup>
       </div>
       <div
-        class="sc-iklJeh kJcUXB"
+        class="sc-carFqZ jiPzbn"
       >
         <span>
           Current Exchange Rate
@@ -63,7 +63,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
         </strong>
       </div>
       <div
-        class="sc-iklJeh kJcUXB"
+        class="sc-carFqZ jiPzbn"
       >
         <span>
           You're sending
@@ -73,7 +73,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
         </strong>
       </div>
       <div
-        class="sc-iklJeh kJcUXB"
+        class="sc-carFqZ jiPzbn"
       >
         <div>
           <span>
@@ -84,7 +84,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
           </div>
         </div>
         <div
-          class="sc-ciSkZP cgtoMT"
+          class="sc-jNnpgg dAnKov"
         >
           <svg
             viewBox="0 0 255 236.4"
@@ -178,79 +178,60 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
       </div>
     </main>
     <section
-      class="sc-jJMGnK JzxiD"
+      class="sc-iTVJFM jJOVhM"
     >
       <p
-        class="sc-hiKfDv VNUzn"
+        class="sc-iBzEeX bIjaVk"
       >
         Gas Fee
       </p>
       <div
-        class="sc-cBoqAE bSmxro"
+        class="sc-cTJkRt gLPqxh"
       >
         <button
-          class="sc-jcwpoC fufVtY"
+          class="sc-dPaNzc cetYBI"
         >
           0 (Standard)
         </button>
         <button
-          class="sc-jcwpoC fufVtY"
+          class="sc-dPaNzc cetYBI"
         >
           0 (Fast)
         </button>
         <button
-          class="sc-jcwpoC fufVtY"
+          class="sc-dPaNzc cetYBI"
         >
           0 (Instant)
         </button>
       </div>
-      <p
-        class="sc-hiKfDv VNUzn"
+      <button
+        class="sc-ksluID fyQazr"
+        data-testid="confirm-modal-slippage-button"
       >
-        Slippage Limit
-      </p>
-      <div
-        class="sc-cBoqAE bSmxro"
-      >
-        <button
-          class="sc-jcwpoC ZvOvV"
+        Slippage Limit 
+        <svg
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          No limit
-        </button>
-        <button
-          class="sc-jcwpoC fufVtY"
-        >
-          1%
-        </button>
-        <button
-          class="sc-jcwpoC fufVtY"
-        >
-          2.5%
-        </button>
-        <button
-          class="sc-jcwpoC fufVtY"
-        >
-          5%
-        </button>
-      </div>
-      <p
-        class="sc-gXfVKN bRUKru"
-      >
-        Slippage is likely in times of high demand. Quote is based on most recent block and does not reflect transactions ahead of you in the mempool
-      </p>
+          <path
+            d="M5.151 7.342a.507.507 0 01.669-.054l.058.054L10 11.546l4.122-4.204a.507.507 0 01.67-.054l.058.051a.533.533 0 01.05.686l-.051.063-4.485 4.571a.507.507 0 01-.67.051l-.058-.051-4.485-4.571a.532.532 0 010-.746z"
+            fill="#8d89a3"
+          />
+        </svg>
+      </button>
     </section>
     <footer>
       <div
-        class="sc-dlnjwi excNNS"
+        class="sc-eCApnc gcpgwi"
       >
         <button
-          class="sc-eCApnc sc-jSFjdj kclkZg hzEfXb"
+          class="sc-iCoGMd sc-fujyAs cACRqa kNiOFM"
           data-testid="confirm-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-eCApnc kclkZg"
+          class="sc-iCoGMd cACRqa"
           data-testid="confirm-modal-primary-button"
         >
           Confirm (60)
@@ -267,7 +248,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
     class="sc-gtsrHT cttJaW"
   >
     <button
-      class="sc-hKFxyN cLTPxI"
+      class="sc-gKAaRy iWKTBh"
       data-testid="confirm-modal-close-icon"
     >
       <svg
@@ -296,25 +277,25 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
     </button>
     <main>
       <h3
-        class="sc-jrsJWt bjHJTa"
+        class="sc-crzoAE bGJewE"
       >
         Confirm Transaction
       </h3>
       <div
-        class="sc-iCoGMd fhYZXm"
+        class="sc-jrsJWt LgJAH"
       >
         <div
-          class="sc-gKAaRy cPQBIX"
+          class="sc-pNWdM bBCNdI"
         >
           You're receiving
         </div>
-        ~  
+        ~ 0.000000 
         <sup>
           wNOM
         </sup>
       </div>
       <div
-        class="sc-iklJeh kJcUXB"
+        class="sc-carFqZ jiPzbn"
       >
         <span>
           Current Exchange Rate
@@ -324,7 +305,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
         </strong>
       </div>
       <div
-        class="sc-iklJeh kJcUXB"
+        class="sc-carFqZ jiPzbn"
       >
         <span>
           You're sending
@@ -334,7 +315,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
         </strong>
       </div>
       <div
-        class="sc-iklJeh kJcUXB"
+        class="sc-carFqZ jiPzbn"
       >
         <div>
           <span>
@@ -345,7 +326,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
           </div>
         </div>
         <div
-          class="sc-ciSkZP cgtoMT"
+          class="sc-jNnpgg dAnKov"
         >
           <svg
             viewBox="0 0 255 236.4"
@@ -439,79 +420,60 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
       </div>
     </main>
     <section
-      class="sc-jJMGnK JzxiD"
+      class="sc-iTVJFM jJOVhM"
     >
       <p
-        class="sc-hiKfDv VNUzn"
+        class="sc-iBzEeX bIjaVk"
       >
         Gas Fee
       </p>
       <div
-        class="sc-cBoqAE bSmxro"
+        class="sc-cTJkRt gLPqxh"
       >
         <button
-          class="sc-jcwpoC fufVtY"
+          class="sc-dPaNzc cetYBI"
         >
           0 (Standard)
         </button>
         <button
-          class="sc-jcwpoC fufVtY"
+          class="sc-dPaNzc cetYBI"
         >
           0 (Fast)
         </button>
         <button
-          class="sc-jcwpoC fufVtY"
+          class="sc-dPaNzc cetYBI"
         >
           0 (Instant)
         </button>
       </div>
-      <p
-        class="sc-hiKfDv VNUzn"
+      <button
+        class="sc-ksluID fyQazr"
+        data-testid="confirm-modal-slippage-button"
       >
-        Slippage Limit
-      </p>
-      <div
-        class="sc-cBoqAE bSmxro"
-      >
-        <button
-          class="sc-jcwpoC ZvOvV"
+        Slippage Limit 
+        <svg
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          No limit
-        </button>
-        <button
-          class="sc-jcwpoC fufVtY"
-        >
-          1%
-        </button>
-        <button
-          class="sc-jcwpoC fufVtY"
-        >
-          2.5%
-        </button>
-        <button
-          class="sc-jcwpoC fufVtY"
-        >
-          5%
-        </button>
-      </div>
-      <p
-        class="sc-gXfVKN bRUKru"
-      >
-        Slippage is likely in times of high demand. Quote is based on most recent block and does not reflect transactions ahead of you in the mempool
-      </p>
+          <path
+            d="M5.151 7.342a.507.507 0 01.669-.054l.058.054L10 11.546l4.122-4.204a.507.507 0 01.67-.054l.058.051a.533.533 0 01.05.686l-.051.063-4.485 4.571a.507.507 0 01-.67.051l-.058-.051-4.485-4.571a.532.532 0 010-.746z"
+            fill="#8d89a3"
+          />
+        </svg>
+      </button>
     </section>
     <footer>
       <div
-        class="sc-dlnjwi excNNS"
+        class="sc-eCApnc gcpgwi"
       >
         <button
-          class="sc-eCApnc sc-jSFjdj kclkZg hzEfXb"
+          class="sc-iCoGMd sc-fujyAs cACRqa kNiOFM"
           data-testid="confirm-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-eCApnc kclkZg"
+          class="sc-iCoGMd cACRqa"
           data-testid="confirm-modal-primary-button"
         >
           Confirm (60)

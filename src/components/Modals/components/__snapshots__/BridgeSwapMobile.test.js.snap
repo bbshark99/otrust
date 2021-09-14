@@ -3,7 +3,7 @@
 exports[`Given the BridgeSwapMobile component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bTDOke cOTpWT"
+    class="sc-fbIWvP gMjrsA"
   />
 </DocumentFragment>
 `;

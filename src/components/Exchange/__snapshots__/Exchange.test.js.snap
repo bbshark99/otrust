@@ -3,113 +3,141 @@
 exports[`Given an Exchange component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnxRM fdCjyu"
+    class="sc-bdnxRM fYAiQM"
   >
     <div
-      class="sc-gtsrHT cFutaZ"
+      class="sc-kHWWYL gNGEIQ"
     >
-      <strong>
-        Buy NOM
-      </strong>
-      <div
-        class="sc-dlnjwi ciFpMw"
-      >
-        <strong>
-          I'm buying
-        </strong>
-        <div
-          class="sc-bTDOke cddonb"
-        >
-          <div
-            class="sc-eKYRIR ibOJZB"
-          />
-          <input
-            class="sc-jSFjdj lkKexS"
-            data-testid="exchange-strong-balance-input"
-            placeholder="0.00"
-            type="text"
-            value=""
-          />
-        </div>
-        ETH
-        <button
-          class="sc-eCApnc liwdcO"
-          data-testid="max-value-button"
-        >
-          Max
-        </button>
-      </div>
-      <div
-        class="sc-hKFxyN jWQojY"
-      >
-        <strong>
-          You will receive
-        </strong>
-        <span
-          class="sc-gKAaRy dHKXDL"
-          data-testid="exchange-weak-balance"
-        >
-           NOM
-        </span>
-      </div>
       <button
-        class="sc-iCoGMd SknTJ"
+        class="sc-iqAclL gQfUwo"
+        data-testid="exchanges-modals-buy-button"
       >
-        Low ETH Balance
+        Buy wNOM
+      </button>
+      <button
+        class="sc-iqAclL sc-crzoAE gQfUwo dZRTZd"
+        data-testid="exchanges-modals-sell-button"
+      >
+        Sell wNOM
       </button>
     </div>
     <div
-      class="sc-gtsrHT cFutaZ"
+      id="tour-buy"
     >
-      <strong>
-        Sell NOM
-      </strong>
       <div
-        class="sc-dlnjwi ciFpMw"
+        class="sc-gtsrHT hfTecP"
       >
         <strong>
-          I'm selling
+          Buy NOM
         </strong>
         <div
-          class="sc-bTDOke cddonb"
+          class="sc-dlnjwi hyqJyT"
         >
           <div
-            class="sc-eKYRIR ibOJZB"
-          />
-          <input
-            class="sc-jSFjdj lkKexS"
-            data-testid="exchange-strong-balance-input"
-            placeholder="0.00"
-            type="text"
-            value=""
-          />
+            class="sc-eCApnc cPbuco"
+            style="width: 100%; padding-right: 16px;"
+          >
+            <strong>
+              I'm buying for
+            </strong>
+            <input
+              class="sc-fujyAs kMRocn"
+              data-testid="exchange-strong-balance-input"
+              placeholder="0.00"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="sc-eCApnc cPbuco"
+          >
+            ETH
+            <button
+              class="sc-gKAaRy kseRin"
+              data-testid="max-value-button"
+            >
+              Max
+            </button>
+          </div>
         </div>
-        NOM
-        <button
-          class="sc-eCApnc liwdcO"
-          data-testid="max-value-button"
+        <div
+          class="sc-jSFjdj cQwxlU"
         >
-          Max
+          <strong>
+            You will receive
+          </strong>
+          <span
+            class="sc-pNWdM iHufyo"
+            data-testid="exchange-weak-balance"
+          >
+             NOM
+          </span>
+        </div>
+        <button
+          class="sc-iqAclL gQfUwo"
+        >
+          Buy NOM
         </button>
       </div>
+    </div>
+    <div
+      id="tour-sell"
+    >
       <div
-        class="sc-hKFxyN jWQojY"
+        class="sc-gtsrHT hfTecP"
       >
         <strong>
-          You will receive
+          Sell NOM
         </strong>
-        <span
-          class="sc-gKAaRy dHKXDL"
-          data-testid="exchange-weak-balance"
+        <div
+          class="sc-dlnjwi hyqJyT"
         >
-           ETH
-        </span>
+          <div
+            class="sc-eCApnc cPbuco"
+            style="width: 100%; padding-right: 16px;"
+          >
+            <strong>
+              I'm selling
+            </strong>
+            <input
+              class="sc-fujyAs kMRocn"
+              data-testid="exchange-strong-balance-input"
+              placeholder="0.00"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="sc-eCApnc cPbuco"
+          >
+            NOM
+            <button
+              class="sc-gKAaRy kseRin"
+              data-testid="max-value-button"
+            >
+              Max
+            </button>
+          </div>
+        </div>
+        <div
+          class="sc-jSFjdj cQwxlU"
+        >
+          <strong>
+            You will receive
+          </strong>
+          <span
+            class="sc-pNWdM iHufyo"
+            data-testid="exchange-weak-balance"
+          >
+             ETH
+          </span>
+        </div>
+        <button
+          class="sc-iqAclL sc-crzoAE gQfUwo dZRTZd"
+        >
+           Input Value 
+        </button>
       </div>
-      <button
-        class="sc-iCoGMd sc-fujyAs SknTJ hBWDAL"
-      >
-         Input Value 
-      </button>
     </div>
   </div>
 </DocumentFragment>

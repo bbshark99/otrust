@@ -4,25 +4,28 @@ exports[`Given the Chart component when the component is rendered should match t
 <DocumentFragment>
   <div
     class="sc-eCApnc ZrkSl"
+    id="tour-chart"
   >
     <header
-      class="sc-jSFjdj eaONyz"
+      class="sc-jSFjdj iGvGop"
     >
-      <button
-        class="sc-gKAaRy iUSEvp"
-      >
-        Bonding Curve Chart
-      </button>
-      <button
-        class="sc-gKAaRy iUSEvp"
-      >
-        Line Chart
-      </button>
-      <button
-        class="sc-gKAaRy iUSEvp"
-      >
-        Candle View
-      </button>
+      <span>
+        <button
+          class="sc-gKAaRy dAPJtH"
+        >
+          Bonding Curve Chart
+        </button>
+        <button
+          class="sc-gKAaRy fLfMiR"
+        >
+          Historical Chart
+        </button>
+        <button
+          class="sc-gKAaRy fLfMiR"
+        >
+          Candles View
+        </button>
+      </span>
     </header>
     <div
       class="sc-fujyAs kYLXpp"
@@ -36,10 +39,10 @@ exports[`Given the Chart component when the component is rendered should match t
     </div>
     <div
       data-testid="bond-line-chart"
-      style="margin-top: 1rem; height: 400px;"
+      style="margin-top: 1rem; height: 350px;"
     >
       <svg
-        class="sc-gtsrHT jCXnHM"
+        class="sc-gtsrHT cXcxQq"
       >
         <defs>
           <clippath
@@ -141,6 +144,31 @@ exports[`Given the Chart component when the component is rendered should match t
             stroke="#88D1FF"
             stroke-width="0.15rem"
           />
+          <line
+            stroke="#1a1823"
+            stroke-width="0.12rem"
+            x1="90"
+            x2="-20"
+            y1="NaN"
+            y2="NaN"
+          />
+          <lineargradient
+            gradientUnits="userSpaceOnUse"
+            id="linear-gradient"
+            x1="0%"
+            x2="1%"
+            y1="81%"
+            y2="0%"
+          >
+            <stop
+              offset="0%"
+              stop-color="#1a1823"
+            />
+            <stop
+              offset="100%"
+              stop-color="#88D1FF"
+            />
+          </lineargradient>
           <line
             stroke="#1a1823"
             stroke-width="0.12rem"

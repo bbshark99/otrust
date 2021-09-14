@@ -3,10 +3,10 @@
 exports[`Given the BridgeSwapModalDisconnected component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnxRM sc-fFSPTT leVZfT jvmFKX"
+    class="sc-bdnxRM sc-hHEiqL leVZfT hziPPQ"
   >
     <button
-      class="sc-dlnjwi cSfPnY"
+      class="sc-jSFjdj dYAyKF"
     >
       <svg
         viewBox="0 0 24 24"
@@ -33,22 +33,22 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
       </svg>
     </button>
     <div
-      class="sc-cxNHIi fvYRQH"
+      class="sc-ezzafa dpYZLt"
     >
       <main>
         <h3
-          class="sc-pNWdM sc-ezzafa ipkocU jLFTFE"
+          class="sc-iqAclL sc-cBoqAE jbEKlq jjiUbU"
         >
           Onomy Bridge
         </h3>
         <div
-          class="sc-bYwzuL iwiYWN"
+          class="sc-ciSkZP cezVwi"
         >
           <div
-            class="sc-dIvrsQ etHfzy"
+            class="sc-fKgJPI dAGIdY"
           >
             <div
-              class="sc-kfYoZR dvduFO"
+              class="sc-cxNHIi ioclSA"
             >
               <img
                 alt=""
@@ -56,7 +56,7 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
               />
             </div>
             <div
-              class="sc-fKgJPI eDdDGW"
+              class="sc-lmgQwP eoJsdn"
             >
               <strong>
                 Onomy Bonding Curve
@@ -66,7 +66,7 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
               </span>
             </div>
             <div
-              class="sc-bCwfaz ihjfKQ"
+              class="sc-iJCRrE kuBHNO"
             >
               <strong>
                 wNOM Balance
@@ -77,15 +77,15 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
             </div>
           </div>
           <div
-            class="sc-iwajpm evHmlW"
+            class="sc-giAqHp hATyRz"
           >
             Onomy wallet is not connected
           </div>
           <div
-            class="sc-kLojOw kCZAEw"
+            class="sc-jcwpoC daqHEU"
           >
             <button
-              class="sc-hKFxyN sc-giAqHp fFAwxg ArcId"
+              class="sc-gKAaRy sc-gXfVKN hdHHcK fCcdEa"
             >
               Connect Onomy Wallet
             </button>
@@ -93,27 +93,27 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
         </div>
       </main>
       <aside
-        class="sc-bkbkJK bgKCAf"
+        class="sc-dlMDgC fSFXAr"
       >
         <h2>
           What is Onomy Bridge?
         </h2>
         <p
-          class="sc-lmgQwP BhXWF"
+          class="sc-jJMGnK gjXsiq"
         >
           The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy Network.
         </p>
         <section
-          class="sc-iemWCZ WLZut"
+          class="sc-kfYoZR eSvgJZ"
         >
           <div>
             <h3
-              class="sc-dlMDgC jZLQwU"
+              class="sc-iwajpm lOVrh"
             >
               One Way Bridge
             </h3>
             <p
-              class="sc-lmgQwP BhXWF"
+              class="sc-jJMGnK gjXsiq"
             >
               Choose to bridge when you are ready to do so to finalize your purchase of NOM! 
               <strong>
@@ -128,16 +128,16 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
           />
         </section>
         <section
-          class="sc-iemWCZ WLZut"
+          class="sc-kfYoZR eSvgJZ"
         >
           <div>
             <h3
-              class="sc-dlMDgC jZLQwU"
+              class="sc-iwajpm lOVrh"
             >
               Why Bridge?
             </h3>
             <ol
-              class="sc-iJCRrE kFRqKf"
+              class="sc-hiKfDv iFOqtY"
             >
               <li>
                 You must hold NOM to participate in the Onomy Network. 
@@ -157,7 +157,7 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
             </ol>
           </div>
           <div
-            class="sc-hHEiqL gfOyyu"
+            class="sc-bCwfaz bwCvgM"
           >
             <img
               alt=""

@@ -4,10 +4,10 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
 <DocumentFragment>
   <header>
     <div
-      class="sc-bdnxRM iNmwGW"
+      class="sc-bdnxRM lgwsBc"
     >
       <header
-        class="sc-pNWdM kGfYDW"
+        class="sc-pNWdM ieGsuO"
       >
         <div
           class="sc-jrsJWt lhcGWh"
@@ -18,7 +18,7 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
             src="logo.svg"
           />
           <div
-            class="sc-iqAclL qVfWC"
+            class="sc-iqAclL hTlWyJ"
           >
             <strong>
               Onomy
@@ -29,70 +29,74 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
           </div>
         </div>
         <div
-          class="sc-crzoAE bKzEsk"
+          id="tour-prices"
         >
           <div
-            class="sc-bqGGPW lkvOZP"
+            class="sc-crzoAE bKzEsk"
           >
             <div
-              class="sc-dIsUp gCyior"
+              class="sc-bqGGPW lkvOZP"
             >
-              <strong>
-                NOM / USDT
-              </strong>
               <div
-                class="sc-hBMUJo LJbir"
+                class="sc-dIsUp kuZsBn"
               >
                 <strong>
-                  $10.12
+                  NOM / USDT
                 </strong>
-                <span
-                  class="sc-fnVZcZ bnypWm"
-                  type="increase"
+                <div
+                  class="sc-hBMUJo etPjog"
                 >
-                  24.2%
-                </span>
+                  <strong>
+                    $10.12
+                  </strong>
+                  <span
+                    class="sc-fnVZcZ fQFASN"
+                    type="increase"
+                  >
+                    24.2%
+                  </span>
+                </div>
+              </div>
+              <div
+                class="sc-dIsUp kuZsBn"
+              >
+                <strong>
+                  NOM / ETH
+                </strong>
+                <div
+                  class="sc-hBMUJo etPjog"
+                >
+                  <strong>
+                    <span>
+                      Loading
+                    </span>
+                  </strong>
+                </div>
               </div>
             </div>
             <div
-              class="sc-dIsUp gCyior"
+              class="sc-ksluID eIzNUR"
             >
-              <strong>
-                NOM / ETH
-              </strong>
               <div
-                class="sc-hBMUJo LJbir"
+                class="sc-dIsUp kuZsBn"
               >
                 <strong>
-                  <span>
-                    Loading
-                  </span>
+                  NOM Issued
                 </strong>
-              </div>
-            </div>
-          </div>
-          <div
-            class="sc-ksluID hDosJx"
-          >
-            <div
-              class="sc-dIsUp gCyior"
-            >
-              <strong>
-                NOM Issued
-              </strong>
-              <div
-                class="sc-hBMUJo LJbir"
-              >
-                <strong>
-                  <span>
-                    Loading
-                  </span>
-                </strong>
-                <span
-                  class="sc-fnVZcZ gsKhaX"
+                <div
+                  class="sc-hBMUJo etPjog"
                 >
-                  / 1E8
-                </span>
+                  <strong>
+                    <span>
+                      Loading
+                    </span>
+                  </strong>
+                  <span
+                    class="sc-fnVZcZ gYUvRI"
+                  >
+                    / 1E8
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -107,10 +111,10 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
 <DocumentFragment>
   <header>
     <div
-      class="sc-bdnxRM iNmwGW"
+      class="sc-bdnxRM lgwsBc"
     >
       <header
-        class="sc-pNWdM kGfYDW"
+        class="sc-pNWdM ieGsuO"
       >
         <div
           class="sc-jrsJWt lhcGWh"
@@ -121,7 +125,7 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
             src="logo.svg"
           />
           <div
-            class="sc-iqAclL qVfWC"
+            class="sc-iqAclL hTlWyJ"
           >
             <strong>
               Onomy
@@ -132,70 +136,74 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
           </div>
         </div>
         <div
-          class="sc-crzoAE bKzEsk"
+          id="tour-prices"
         >
           <div
-            class="sc-bqGGPW lkvOZP"
+            class="sc-crzoAE bKzEsk"
           >
             <div
-              class="sc-dIsUp gCyior"
+              class="sc-bqGGPW lkvOZP"
             >
-              <strong>
-                NOM / USDT
-              </strong>
               <div
-                class="sc-hBMUJo LJbir"
+                class="sc-dIsUp kuZsBn"
               >
                 <strong>
-                  $10.12
+                  NOM / USDT
                 </strong>
-                <span
-                  class="sc-fnVZcZ bnypWm"
-                  type="increase"
+                <div
+                  class="sc-hBMUJo etPjog"
                 >
-                  24.2%
-                </span>
+                  <strong>
+                    $10.12
+                  </strong>
+                  <span
+                    class="sc-fnVZcZ fQFASN"
+                    type="increase"
+                  >
+                    24.2%
+                  </span>
+                </div>
+              </div>
+              <div
+                class="sc-dIsUp kuZsBn"
+              >
+                <strong>
+                  NOM / ETH
+                </strong>
+                <div
+                  class="sc-hBMUJo etPjog"
+                >
+                  <strong>
+                    <span>
+                      0
+                    </span>
+                  </strong>
+                </div>
               </div>
             </div>
             <div
-              class="sc-dIsUp gCyior"
+              class="sc-ksluID eIzNUR"
             >
-              <strong>
-                NOM / ETH
-              </strong>
               <div
-                class="sc-hBMUJo LJbir"
+                class="sc-dIsUp kuZsBn"
               >
                 <strong>
-                  <span>
-                    0
-                  </span>
+                  NOM Issued
                 </strong>
-              </div>
-            </div>
-          </div>
-          <div
-            class="sc-ksluID hDosJx"
-          >
-            <div
-              class="sc-dIsUp gCyior"
-            >
-              <strong>
-                NOM Issued
-              </strong>
-              <div
-                class="sc-hBMUJo LJbir"
-              >
-                <strong>
-                  <span>
-                    0
-                  </span>
-                </strong>
-                <span
-                  class="sc-fnVZcZ gsKhaX"
+                <div
+                  class="sc-hBMUJo etPjog"
                 >
-                  / 1E8
-                </span>
+                  <strong>
+                    <span>
+                      0
+                    </span>
+                  </strong>
+                  <span
+                    class="sc-fnVZcZ gYUvRI"
+                  >
+                    / 1E8
+                  </span>
+                </div>
               </div>
             </div>
           </div>

@@ -3,19 +3,19 @@
 exports[`Given the SidebarBalances component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iTVJFM fkQotX"
+    class="sc-bsatvv A-DJIP"
   >
     <div
-      class="sc-efHYUO cEyMzQ"
+      class="sc-euEtCV jiQVBw"
     >
       <div
-        class="sc-cTJkRt"
+        class="sc-fHCHyC"
       >
         <strong>
           ETH Balance
         </strong>
         <div
-          class="sc-iBzEeX iHRMjK"
+          class="sc-gIvpjk hMyYGy"
         >
           100
           <small>
@@ -24,53 +24,53 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         </div>
       </div>
       <div
-        class="sc-jNnpgg WALnu"
+        class="sc-dtLLSn iNLKxZ"
       >
         <div
-          class="sc-Arkif eJyhyt"
+          class="sc-uxdHp goaiUM"
         >
           <h5
-            class="sc-khIgEk kbtHpE"
+            class="sc-biJonm bUigkm"
           >
             ETH Balance
           </h5>
           <p
-            class="sc-hTRkXV eTMIgB"
+            class="sc-eHEENL dNGFAF"
           >
             This is your connected wallet Ether balance.
           </p>
         </div>
         <button
-          class="sc-dPaNzc dOQtbG"
+          class="sc-dkQUaI hcAYQD"
         >
           i
         </button>
       </div>
     </div>
     <div
-      class="sc-efHYUO cEyMzQ"
+      class="sc-euEtCV jiQVBw"
     >
       <div
-        class="sc-cTJkRt"
+        class="sc-fHCHyC"
       >
         <strong>
           NOM Balance
         </strong>
         <div
-          class="sc-iBzEeX gmvRsd"
+          class="sc-gIvpjk cFVtEZ"
         >
           50
           <small>
              = $16,208.04
           </small>
           <div
-            class="sc-carFqZ kfqhGh"
+            class="sc-dFRpbK Ccali"
           >
             <div
-              class="sc-jcwpoC dBdgXh"
+              class="sc-csTbgd eernYK"
             />
             <div
-              class="sc-bBjRSN duUgtb"
+              class="sc-WZYut cRvNGC"
             >
               <span>
                  approved
@@ -80,34 +80,34 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         </div>
       </div>
       <div
-        class="sc-jNnpgg WALnu"
+        class="sc-dtLLSn iNLKxZ"
       >
         <div
-          class="sc-Arkif eJyhyt"
+          class="sc-uxdHp goaiUM"
         >
           <h5
-            class="sc-khIgEk kbtHpE"
+            class="sc-biJonm bUigkm"
           >
             wNOM Balance
           </h5>
           <p
-            class="sc-hTRkXV eTMIgB"
+            class="sc-eHEENL dNGFAF"
           >
             This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling before it can be sold.
           </p>
         </div>
         <button
-          class="sc-dPaNzc dOQtbG"
+          class="sc-dkQUaI hcAYQD"
         >
           i
         </button>
       </div>
     </div>
     <div
-      class="sc-cOifOu cCTdZJ"
+      class="sc-ikXwFM csHdKt"
     >
       <button
-        class="sc-hKFxyN fFAwxg"
+        class="sc-gKAaRy hdHHcK"
         style="width: 100%;"
       >
         Withdraw wNOM

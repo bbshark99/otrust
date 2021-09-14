@@ -6,7 +6,7 @@ exports[`Given the RequestFailedModal component when the component is rendered s
     class="sc-bdnxRM leVZfT"
   >
     <button
-      class="sc-dlnjwi cSfPnY"
+      class="sc-jSFjdj dYAyKF"
       data-testid="request-failed-close-icon"
     >
       <svg
@@ -35,7 +35,7 @@ exports[`Given the RequestFailedModal component when the component is rendered s
     </button>
     <main>
       <div
-        class="sc-kEqXSa sc-iklJeh djnybU gvBDhV"
+        class="sc-dIsUp sc-carFqZ epJrcu bDAefB"
       >
         <svg
           viewBox="0 0 35.222 35.222"
@@ -59,22 +59,22 @@ exports[`Given the RequestFailedModal component when the component is rendered s
         </svg>
       </div>
       <h3
-        class="sc-pNWdM ipkocU"
+        class="sc-iqAclL jbEKlq"
       >
         Request Failed
       </h3>
       <div
-        class="sc-hiKfDv lbBVju"
+        class="sc-iBzEeX clmbdd"
       >
         Error message
       </div>
     </main>
     <footer>
       <div
-        class="sc-gtsrHT sc-jJMGnK hEKbJi jEjaAj"
+        class="sc-hKFxyN sc-iTVJFM byYxBe jNZyBy"
       >
         <button
-          class="sc-hKFxyN fFAwxg"
+          class="sc-gKAaRy hdHHcK"
           data-testid="request-failed-primary-button"
         >
           Ok 😥
