@@ -13,7 +13,7 @@ export const ExplorerButton = styled(Modal.SecondaryButton)`
   margin-top: 32px;
 `;
 
-const networks = { 1: '', 4: 'rinkeby.' };
+const networks = { 0: 'rinkeby.', 1: '', 4: 'rinkeby.' };
 
 export default function TransactionCompletedModal({ isApproving, tx }) {
   const [detailsActive, setDetailsActive] = useState(false);
