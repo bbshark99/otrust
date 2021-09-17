@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useWeb3React } from '@web3-react/core';
+
 import { Dimmer } from 'components/UI/Dimmer';
 import LoadingSpinner from 'components/UI/LoadingSpinner';
-
 import ApproveTokensBridgeModal from './ApproveTokensBridgeModal';
 import BridgeTransactionComplete from './BridgeTransactionComplete';
 import { getFirstMessage } from '../../../utils/helpers';
 import { Close } from '../Icons';
 import * as Modal from '../styles';
 import { responsive } from 'theme/constants';
-import { BridgeSending, BridgeAmountInput, BridgeMaxBtn, BridgeAddressInput } from '../../Exchange/exchangeStyles';
+import {
+  BridgeSending,
+  BridgeAmountInput,
+  BridgeMaxBtn,
+  BridgeAddressInput,
+} from '../../Exchange/exchangeStyles';
 import oneWayBridgeImg from '../assets/one-way-bridge.svg';
 import whyBridgeImg from '../assets/why-bridge.svg';
 import bridgeCurveImg from '../assets/icon-bridge-curve.svg';
@@ -52,12 +57,14 @@ const Options = styled.div`
 
 const OptionBtn = styled.button`
   padding: 12px 16px;
-  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  background-color: ${props =>
+    props.active ? props.theme.colors.bgHighlightBorder : 'transparent'};
   border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
   border-radius: 22px;
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  color: ${props =>
+    props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary};
   &:hover {
     background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
   }
@@ -91,7 +98,9 @@ export default function BridgeSwapModal({ ...props }) {
                   <Modal.ConnectionItemContent>
                     <strong>Onomy Bonding Curve</strong>
                     <span>
-                      {account ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}` : ''}
+                      {account
+                        ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}`
+                        : ''}
                     </span>
                   </Modal.ConnectionItemContent>
                   <Modal.Balance>
@@ -126,9 +135,16 @@ export default function BridgeSwapModal({ ...props }) {
                 <InputWrapper>
                   <BridgeSending error={values.errors.amountError}>
                     <strong>Swap to NOM</strong>
-                    <BridgeAmountInput type="text" value={values.amountValue} onChange={handlers.amountChangeHandler} />
+                    <BridgeAmountInput
+                      type="text"
+                      value={values.amountValue}
+                      onChange={handlers.amountChangeHandler}
+                    />
                     wNOM
-                    <BridgeMaxBtn onClick={handlers.maxBtnClickHandler} disabled={flags.isTransactionPending}>
+                    <BridgeMaxBtn
+                      onClick={handlers.maxBtnClickHandler}
+                      disabled={flags.isTransactionPending}
+                    >
                       Max
                     </BridgeMaxBtn>
                   </BridgeSending>
@@ -190,9 +206,9 @@ export default function BridgeSwapModal({ ...props }) {
             <h2>What is Onomy Bridge?</h2>
 
             <Modal.Desc>
-              The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants
-              purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy
-              Network.
+              The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved
+              by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and
+              swapping for NOM on the Onomy Network.
             </Modal.Desc>
 
             <Modal.InfoRow>
@@ -202,7 +218,8 @@ export default function BridgeSwapModal({ ...props }) {
                 <Modal.Desc>
                   Choose to bridge when you are ready to do so to finalize your purchase of NOM!{' '}
                   <strong>
-                    After bridging, you can no longer sell back to the bonding curve or bridge back for wNOM.
+                    After bridging, you can no longer sell back to the bonding curve or bridge back
+                    for wNOM.
                   </strong>{' '}
                   There are no guarantees of liquid markets.
                 </Modal.Desc>

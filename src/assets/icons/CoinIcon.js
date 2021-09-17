@@ -1,14 +1,25 @@
-import React from 'react'
+import React from 'react';
 
 export function CoinIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" margin-left='auto' margin-right='auto' display='block' viewBox="2.31 2.31 19.1 19.1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+      viewBox="2.31 2.31 19.1 19.1"
+    >
       <g id="CoinIcon" transform="translate(-407 -169) translate(407 169)">
         <g fill="#fff" stroke="#454b54" strokeWidth="2" transform="translate(2.309 2.308)">
           <circle cx="9.536" cy="9.536" r="9.536" stroke="none" />
           <circle cx="9.536" cy="9.536" r="8.536" fill="none" />
         </g>
-        <g fill="none" stroke="#f8e390" strokeWidth="2.5" transform="translate(2.309 2.308) translate(1.589 1.589)">
+        <g
+          fill="none"
+          stroke="#f8e390"
+          strokeWidth="2.5"
+          transform="translate(2.309 2.308) translate(1.589 1.589)"
+        >
           <circle cx="7.947" cy="7.947" r="7.947" stroke="none" />
           <circle cx="7.947" cy="7.947" r="6.697" />
         </g>
@@ -21,5 +32,5 @@ export function CoinIcon() {
         />
       </g>
     </svg>
-  )
+  );
 }

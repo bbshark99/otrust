@@ -1,8 +1,7 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
 
 import TransactionFailedModal from './TransactionFailedModal';
-import { renderWithContext } from '../../../utils/testing';
-import { ThemeWrapper, ModalContextWrapper } from '../../../utils/testing';
+import { renderWithContext, ThemeWrapper, ModalContextWrapper } from '../../../utils/testing';
 
 const testProps = {
   error: 'Error message',
@@ -24,7 +23,7 @@ describe('Given the TransactionFailedModal component', () => {
     describe('and user clicks on Modal CloseIcon', () => {
       it('should call handleModal function from Modal Context', async () => {
         const { queryByTestId } = render(
-          ModalContextWrapper(ThemeWrapper(TransactionFailedModal, testProps), testModalContext),
+          ModalContextWrapper(ThemeWrapper(TransactionFailedModal, testProps), testModalContext)
         );
 
         fireEvent.click(queryByTestId('failed-modal-close-icon'));
@@ -35,7 +34,7 @@ describe('Given the TransactionFailedModal component', () => {
     describe('and user clicks on Modal PrimaryButton', () => {
       it('should call handleModal function from Modal Context', async () => {
         const { queryByTestId } = render(
-          ModalContextWrapper(ThemeWrapper(TransactionFailedModal, testProps), testModalContext),
+          ModalContextWrapper(ThemeWrapper(TransactionFailedModal, testProps), testModalContext)
         );
 
         fireEvent.click(queryByTestId('failed-modal-primary-button'));

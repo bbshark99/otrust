@@ -24,10 +24,14 @@ const LoadingBar = forwardRef(
       waitingTime = 1000,
       shadow = true,
     },
-    ref,
+    ref
   ) => {
     const [localProgress, localProgressSet] = useState(0);
-    const [pressedContinuous, setPressedContinuous] = useState({ active: false, startingValue: 20, refreshRate: 1000 });
+    const [pressedContinuous, setPressedContinuous] = useState({
+      active: false,
+      startingValue: 20,
+      refreshRate: 1000,
+    });
     const [usingProps, setUsingProps] = useState(false);
 
     const [pressedStaticStart, setStaticStartPressed] = useState({ active: false, value: 20 });
@@ -46,7 +50,7 @@ const LoadingBar = forwardRef(
       height,
       background,
       zIndex: 99999999999,
-      width: 100 + '%',
+      width: `${100}%`,
     };
 
     const initialShadowStyles = {
@@ -63,66 +67,6 @@ const LoadingBar = forwardRef(
     const [loaderStyle, loaderStyleSet] = useState(initialLoaderStyle);
     const [shadowStyle, shadowStyleSet] = useState(initialShadowStyles);
 
-    useImperativeHandle(ref, () => ({
-      continuousStart(startingValue, refreshRate = 1000) {
-        if (pressedStaticStart.active) return;
-        if (usingProps) {
-          console.warn(
-            "react-top-loading-bar: You can't use both controlling by props and ref methods to control the bar!",
-          );
-          return;
-        }
-
-        const val = startingValue || randomInt(10, 20);
-        setPressedContinuous({
-          active: true,
-          refreshRate,
-          startingValue,
-        });
-        localProgressSet(val);
-        checkIfFull(val);
-      },
-      staticStart(startingValue) {
-        if (pressedContinuous.active) return;
-        if (usingProps) {
-          console.warn(
-            "react-top-loading-bar: You can't use both controlling by props and ref methods to control the bar!",
-          );
-          return;
-        }
-
-        const val = startingValue || randomInt(30, 50);
-        setStaticStartPressed({
-          active: true,
-          value: val,
-        });
-        localProgressSet(val);
-        checkIfFull(val);
-      },
-      complete() {
-        if (usingProps) {
-          console.warn(
-            "react-top-loading-bar: You can't use both controlling by props and ref methods to control the bar!",
-          );
-          return;
-        }
-        localProgressSet(100);
-        checkIfFull(100);
-      },
-    }));
-
-    useEffect(() => {
-      loaderStyleSet({
-        ...loaderStyle,
-        background: color,
-      });
-
-      shadowStyleSet({
-        ...shadowStyle,
-        boxShadow: `0 0 10px ${color}, 0 0 5px ${color}`,
-      });
-    }, [color, loaderStyle, shadowStyle]);
-
     const checkIfFull = React.useCallback(
       _progress => {
         if (_progress >= 100) {
@@ -134,7 +78,7 @@ const LoadingBar = forwardRef(
           if (shadow) {
             shadowStyleSet({
               ...shadowStyle,
-              left: _progress - 10 + '%',
+              left: `${_progress - 10}%`,
             });
           }
 
@@ -178,7 +122,7 @@ const LoadingBar = forwardRef(
           loaderStyleSet(_loaderStyle => {
             return {
               ..._loaderStyle,
-              width: _progress + '%',
+              width: `${_progress}%`,
               opacity: 1,
               transition: _progress > 0 ? `all ${loaderSpeed}ms ease` : '',
             };
@@ -187,7 +131,7 @@ const LoadingBar = forwardRef(
           if (shadow) {
             shadowStyleSet({
               ...shadowStyle,
-              left: _progress - 5.5 + '%',
+              left: `${_progress - 5.5}%`,
               transition: _progress > 0 ? `all ${loaderSpeed}ms ease` : '',
             });
           }
@@ -204,14 +148,74 @@ const LoadingBar = forwardRef(
         shadowStyle,
         transitionTime,
         waitingTime,
-      ],
+      ]
     );
+
+    useImperativeHandle(ref, () => ({
+      continuousStart(startingValue, refreshRate = 1000) {
+        if (pressedStaticStart.active) return;
+        if (usingProps) {
+          console.warn(
+            "react-top-loading-bar: You can't use both controlling by props and ref methods to control the bar!"
+          );
+          return;
+        }
+
+        const val = startingValue || randomInt(10, 20);
+        setPressedContinuous({
+          active: true,
+          refreshRate,
+          startingValue,
+        });
+        localProgressSet(val);
+        checkIfFull(val);
+      },
+      staticStart(startingValue) {
+        if (pressedContinuous.active) return;
+        if (usingProps) {
+          console.warn(
+            "react-top-loading-bar: You can't use both controlling by props and ref methods to control the bar!"
+          );
+          return;
+        }
+
+        const val = startingValue || randomInt(30, 50);
+        setStaticStartPressed({
+          active: true,
+          value: val,
+        });
+        localProgressSet(val);
+        checkIfFull(val);
+      },
+      complete() {
+        if (usingProps) {
+          console.warn(
+            "react-top-loading-bar: You can't use both controlling by props and ref methods to control the bar!"
+          );
+          return;
+        }
+        localProgressSet(100);
+        checkIfFull(100);
+      },
+    }));
+
+    useEffect(() => {
+      loaderStyleSet({
+        ...loaderStyle,
+        background: color,
+      });
+
+      shadowStyleSet({
+        ...shadowStyle,
+        boxShadow: `0 0 10px ${color}, 0 0 5px ${color}`,
+      });
+    }, [color, loaderStyle, shadowStyle]);
 
     useEffect(() => {
       if (ref) {
         if (ref && progress !== undefined) {
           console.warn(
-            'react-top-loading-bar: You can\'t use both controlling by props and ref methods to control the bar! Please use only props or only ref methods! Ref methods will override props if "ref" property is available.',
+            'react-top-loading-bar: You can\'t use both controlling by props and ref methods to control the bar! Please use only props or only ref methods! Ref methods will override props if "ref" property is available.'
           );
           return;
         }
@@ -233,7 +237,7 @@ const LoadingBar = forwardRef(
           checkIfFull(localProgress + random);
         }
       },
-      pressedContinuous.active ? pressedContinuous.refreshRate : null,
+      pressedContinuous.active ? pressedContinuous.refreshRate : null
     );
 
     return (
@@ -241,7 +245,7 @@ const LoadingBar = forwardRef(
         <div style={loaderStyle}>{shadow ? <div style={shadowStyle} /> : null}</div>
       </div>
     );
-  },
+  }
 );
 
 export default LoadingBar;

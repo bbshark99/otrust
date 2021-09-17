@@ -1,10 +1,11 @@
+import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { BigNumber } from 'bignumber.js';
 
+import { format18 } from 'utils/math';
 import { darkNew } from 'theme/theme';
 import LineChart, { supplyToArray, labelArray, bounds } from './BondLineChart';
-import { format18 } from 'utils/math';
 import { ChainContext } from '../../context/chain/ChainContext';
 import { ExchangeContext } from '../../context/exchange/ExchangeContext';
 
@@ -35,7 +36,10 @@ describe('Given the labelArray util function', () => {
 describe('Given the bounds util function', () => {
   describe('when the function is called', () => {
     it('should return correct value', () => {
-      const formatSupply = [format18(new BigNumber(10 ** 16)).toNumber(), format18(new BigNumber(10 ** 20)).toNumber()];
+      const formatSupply = [
+        format18(new BigNumber(10 ** 16)).toNumber(),
+        format18(new BigNumber(10 ** 20)).toNumber(),
+      ];
       const result = bounds(formatSupply);
       expect(result).toEqual({
         lowerBound: 0,
@@ -57,7 +61,7 @@ describe('Given the LineChart component', () => {
               <LineChart />
             </ExchangeContext.Provider>
           </ChainContext.Provider>
-        </ThemeProvider>,
+        </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
     });
@@ -70,7 +74,7 @@ describe('Given the LineChart component', () => {
               <LineChart />
             </ExchangeContext.Provider>
           </ChainContext.Provider>
-        </ThemeProvider>,
+        </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
     });
@@ -83,7 +87,7 @@ describe('Given the LineChart component', () => {
               <LineChart />
             </ExchangeContext.Provider>
           </ChainContext.Provider>
-        </ThemeProvider>,
+        </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
     });

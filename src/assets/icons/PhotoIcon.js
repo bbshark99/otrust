@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 export function PhotoIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" margin-left='auto' margin-right='auto' display='block'>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 35 35"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+    >
       <path
         fill="#a7b0c3"
         stroke="#a7b0c3"
@@ -10,5 +16,5 @@ export function PhotoIcon() {
         d="M29.709 22.867V9.296a5.015 5.015 0 00-5-5H6.852a5.015 5.015 0 00-5 5v13.571a5.015 5.015 0 005 5h17.857a5.015 5.015 0 005-5zM6.852 5.725h17.857a3.582 3.582 0 013.571 3.571v7.536l-3.393-2.929a4.275 4.275 0 00-5.75.143l-2.25 2.107-1.499-1.857a4.3 4.3 0 00-5.536-.964l-6.571 3.964v-8a3.582 3.582 0 013.571-3.571zM3.281 22.867v-3.893l7.286-4.429a2.866 2.866 0 013.714.643l9.107 11.25H6.852a3.582 3.582 0 01-3.571-3.571zm21.928 3.536l-7.428-9.143 2.321-2.214a2.847 2.847 0 013.821-.071l4.357 3.75v4.143a3.577 3.577 0 01-3.071 3.535z"
       />
     </svg>
-  )
+  );
 }

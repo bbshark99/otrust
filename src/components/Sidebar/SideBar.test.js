@@ -1,3 +1,4 @@
+import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { BigNumber } from 'bignumber.js';
@@ -25,7 +26,7 @@ describe('Given the Sidebar component and strongBalance, weakBalance are of BigN
               <Sidebar />
             </ExchangeContext.Provider>
           </ChainContext.Provider>
-        </ThemeProvider>,
+        </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
     });
@@ -40,13 +41,18 @@ describe('Given the Sidebar component and strongBalance, weakBalance are NOT of 
       const { asFragment } = render(
         <ThemeProvider theme={darkNew}>
           <ChainContext.Provider
-            value={{ blockNumber: 12345678, strongBalance: 0, weakBalance: 10, allowance: 'Loading' }}
+            value={{
+              blockNumber: 12345678,
+              strongBalance: 0,
+              weakBalance: 10,
+              allowance: 'Loading',
+            }}
           >
             <ExchangeContext.Provider value={{ strong: 'ETH', weak: 'wNOM' }}>
               <Sidebar />
             </ExchangeContext.Provider>
           </ChainContext.Provider>
-        </ThemeProvider>,
+        </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
     });

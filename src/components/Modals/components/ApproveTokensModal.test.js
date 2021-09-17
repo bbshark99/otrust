@@ -32,7 +32,11 @@ describe('Given the ApproveTokensModal component', () => {
 
     describe('and user clicks on CloseIcon', () => {
       it('should call handleModal from the useModal context', () => {
-        const { queryByTestId } = renderWithContext(ApproveTokensModal, testProps, testModalContext);
+        const { queryByTestId } = renderWithContext(
+          ApproveTokensModal,
+          testProps,
+          testModalContext
+        );
         fireEvent.click(queryByTestId('approve-tokens-modal-close-icon'));
 
         expect(testModalContext.handleModal).toHaveBeenCalled();
@@ -41,7 +45,11 @@ describe('Given the ApproveTokensModal component', () => {
 
     describe('and user clicks on SecondaryButton', () => {
       it('should call handleModal from the useModal context', () => {
-        const { queryByTestId } = renderWithContext(ApproveTokensModal, testProps, testModalContext);
+        const { queryByTestId } = renderWithContext(
+          ApproveTokensModal,
+          testProps,
+          testModalContext
+        );
         fireEvent.click(queryByTestId('approve-tokens-modal-secondary-button'));
 
         expect(testModalContext.handleModal).toHaveBeenCalled();
@@ -50,7 +58,11 @@ describe('Given the ApproveTokensModal component', () => {
 
     describe('and user clicks on PrimaryButton', () => {
       it('should call onApprove from the props', () => {
-        const { queryByTestId } = renderWithContext(ApproveTokensModal, testProps, testModalContext);
+        const { queryByTestId } = renderWithContext(
+          ApproveTokensModal,
+          testProps,
+          testModalContext
+        );
         fireEvent.click(queryByTestId('approve-tokens-modal-primary-button'));
 
         expect(testProps.onConfirmApprove).toHaveBeenCalled();

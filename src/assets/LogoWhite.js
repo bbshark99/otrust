@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export function LogoWhite({width, height}) {
+export function LogoWhite({ width, height }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 48 48">
       <path
@@ -12,5 +12,5 @@ export function LogoWhite({width, height}) {
         <path d="M27.206 20.218h-.709v14.881h4.76v-10.86a4.06 4.06 0 00-4.051-4.021z" />
       </g>
     </svg>
-  )
+  );
 }

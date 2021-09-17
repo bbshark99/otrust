@@ -2,11 +2,189 @@
 
 exports[`Given the ApproveModal component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM leVZfT"
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c1 svg {
+  fill: #656273;
+}
+
+.c1:hover svg {
+  fill: #9895a6;
+}
+
+.c1:active svg {
+  fill: #4d4b57;
+}
+
+.c6 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c6:hover {
+  background-color: #fff;
+}
+
+.c6:active {
+  background-color: #9895a6;
+}
+
+.c7 {
+  background-color: #302E3D;
+  color: #e1dfeb;
+}
+
+.c7:hover {
+  background-color: #47445a;
+}
+
+.c7:active {
+  background-color: #9895a6;
+}
+
+.c2 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c4 {
+  margin: 32px 0 0;
+  color: #9895a6;
+}
+
+.c3 {
+  text-align: left;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 {
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c6 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c6 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c2 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c4 {
+    font-size: 14px;
+  }
+}
+
+<div
+    class="c0"
   >
     <button
-      class="sc-jSFjdj dYAyKF"
+      class="c1"
       data-testid="approve-modal-close-icon"
     >
       <svg
@@ -35,12 +213,12 @@ exports[`Given the ApproveModal component when the component is rendered should 
     </button>
     <main>
       <h3
-        class="sc-iqAclL sc-iTVJFM jbEKlq dyyvDF"
+        class="c2 c3"
       >
         Step1. Onomy confirmation
       </h3>
       <div
-        class="sc-carFqZ htWaeg"
+        class="c4"
       >
         Onomy blockchain requires access for selling
         <strong>
@@ -51,16 +229,16 @@ exports[`Given the ApproveModal component when the component is rendered should 
     </main>
     <footer>
       <div
-        class="sc-hKFxyN byYxBe"
+        class="c5"
       >
         <button
-          class="sc-gKAaRy sc-iCoGMd hdHHcK IkHhp"
+          class="c6 c7"
           data-testid="approve-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-gKAaRy hdHHcK"
+          class="c6"
           data-testid="approve-modal-primary-button"
         >
           Approve (60)

@@ -58,11 +58,24 @@ export default function Sidebar() {
           <SidebarBalances
             strong={strong}
             weak={weak}
-            allowance={BigNumber.isBigNumber(NOMallowance) ? `${format18(NOMallowance)}` : 'Loading'}
-            strongBalance={BigNumber.isBigNumber(strongBalance) ? `${format18(strongBalance).toFixed(6)}` : 'Loading'}
-            weakBalance={BigNumber.isBigNumber(weakBalance) ? `${format18(weakBalance).toFixed(6)}` : 'Loading'}
+            allowance={
+              BigNumber.isBigNumber(NOMallowance) ? `${format18(NOMallowance)}` : 'Loading'
+            }
+            strongBalance={
+              BigNumber.isBigNumber(strongBalance)
+                ? `${format18(strongBalance).toFixed(6)}`
+                : 'Loading'
+            }
+            weakBalance={
+              BigNumber.isBigNumber(weakBalance) ? `${format18(weakBalance).toFixed(6)}` : 'Loading'
+            }
           />
-          <SidebarConnection active={active} error={error} chainId={chainId} blockNumber={blockNumber} />
+          <SidebarConnection
+            active={active}
+            error={error}
+            chainId={chainId}
+            blockNumber={blockNumber}
+          />
           <SidebarFooter />
         </SidebarLayout>
       </PanelLayout>

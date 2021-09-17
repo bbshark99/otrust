@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export function useMedia(queries, values, defaultValue) {
   // Array containing a media query list for each query
@@ -27,7 +27,8 @@ export function useMedia(queries, values, defaultValue) {
       // Remove listeners on cleanup
       return () => mediaQueryLists.forEach(mql => mql.removeListener(handler));
     },
-    [], // Empty array ensures effect is only run on mount and unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [] // Empty array ensures effect is only run on mount and unmount
   );
 
   return value;

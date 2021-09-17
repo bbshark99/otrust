@@ -2,8 +2,27 @@
 
 exports[`Given the AccentButton component and width is provided in the props when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="sc-gtsrHT kpLgTl"
+  .c0 {
+  height: 2.25rem;
+  width: 50px;
+  padding: 0 1.25rem;
+  border: none;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.c0:hover {
+  background-color: #5c8ddb;
+  color: #fff;
+}
+
+<button
+    class="c0"
     width="50"
   />
 </DocumentFragment>
@@ -11,16 +30,40 @@ exports[`Given the AccentButton component and width is provided in the props whe
 
 exports[`Given the Button component and width is not provided in the props when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="sc-bdnxRM gLKfsM"
+  .c0 {
+  height: 2.25rem;
+  width: auto;
+  border: none;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+<button
+    class="c0"
   />
 </DocumentFragment>
 `;
 
 exports[`Given the Button component and width is provided in the props when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="sc-bdnxRM fPQjMu"
+  .c0 {
+  height: 2.25rem;
+  width: 50px;
+  border: none;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+<button
+    class="c0"
     width="50"
   />
 </DocumentFragment>
@@ -28,8 +71,16 @@ exports[`Given the Button component and width is provided in the props when the 
 
 exports[`Given the InvisibleButton component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="sc-hKFxyN kTRXmr"
+  .c0 {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+<button
+    class="c0"
   />
 </DocumentFragment>
 `;

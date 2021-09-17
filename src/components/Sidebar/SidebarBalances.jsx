@@ -265,8 +265,8 @@ export default function SidebarBalances({ strong, weak, strongBalance, weakBalan
           <Hint>
             <TooltipCaption>wNOM Balance</TooltipCaption>
             <TooltipDesc>
-              This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling
-              before it can be sold.
+              This shows your total wNOM balance and the amount approved for selling. You must
+              approve wNOM for selling before it can be sold.
             </TooltipDesc>
           </Hint>
         </Balance>

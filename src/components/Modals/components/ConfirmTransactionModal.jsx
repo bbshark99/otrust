@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useInterval from '@use-it/interval';
 import { BigNumber } from 'bignumber.js';
-import { Close, Metamask } from 'components/Modals/Icons';
 import { useWeb3React } from '@web3-react/core';
 
+import { Close, Metamask } from 'components/Modals/Icons';
 import { Caret } from '../Icons';
 import { format18 } from 'utils/math';
 import { useModal } from 'context/modal/ModalContext';
@@ -65,12 +65,14 @@ const WalletIcon = styled.div`
 
 const OptionBtn = styled.button`
   padding: 12px 16px;
-  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  background-color: ${props =>
+    props.active ? props.theme.colors.bgHighlightBorder : 'transparent'};
   border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
   border-radius: 22px;
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  color: ${props =>
+    props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary};
   &:hover {
     background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
   }
@@ -156,9 +158,9 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
   const getGasPrices = useCallback(async () => {
     const prices = await fetch('https://www.gasnow.org/api/v3/gas/price?utm_source=onomy');
     const result = await prices.json();
-    gasOptions[0].text = (result.data.standard / 1e9).toPrecision(4) + ' (Standard)';
-    gasOptions[1].text = (result.data.fast / 1e9).toPrecision(4) + ' (Fast)';
-    gasOptions[2].text = (result.data.rapid / 1e9).toPrecision(4) + ' (Instant)';
+    gasOptions[0].text = `${(result.data.standard / 1e9).toPrecision(4)} (Standard)`;
+    gasOptions[1].text = `${(result.data.fast / 1e9).toPrecision(4)} (Fast)`;
+    gasOptions[2].text = `${(result.data.rapid / 1e9).toPrecision(4)} (Instant)`;
     gasOptions[0].gas = new BigNumber(result.data.standard.toString());
     gasOptions[1].gas = new BigNumber(result.data.fast.toString());
     gasOptions[2].gas = new BigNumber(result.data.rapid.toString());
@@ -184,7 +186,13 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
           <Modal.ExchangeResultDescription>
             {isApproving ? "You're approving" : "You're receiving"}
           </Modal.ExchangeResultDescription>
-          ~ {isApproving ? approve : BigNumber.isBigNumber(askAmount) ? format18(askAmount).toFixed(6) : ''}{' '}
+          ~ {/* eslint-disable-next-line no-nested-ternary */}
+          {isApproving
+            ? approve
+            : BigNumber.isBigNumber(askAmount)
+            ? format18(askAmount).toFixed(6)
+            : ''}{' '}
+          {/* eslint-disable-next-line no-nested-ternary */}
           <sup>{isApproving ? 'wNOM' : bidDenom === 'strong' ? 'wNOM' : 'ETH'}</sup>
         </Modal.ExchangeResult>
 
@@ -203,7 +211,8 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
         <TransactionDetailsRow>
           <span>{isApproving ? "You're approving" : "You're sending"}</span>
           <strong>
-            {isApproving ? approve : format18(bidAmount).toFixed(6)} {bidDenom === 'strong' ? strong : weak}
+            {isApproving ? approve : format18(bidAmount).toFixed(6)}{' '}
+            {bidDenom === 'strong' ? strong : weak}
           </strong>
         </TransactionDetailsRow>
         <TransactionDetailsRow>
@@ -212,6 +221,7 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
 
             <div>
               <strong>
+                {/* eslint-disable-next-line no-nested-ternary */}
                 {account === null
                   ? '-'
                   : account
@@ -265,15 +275,18 @@ export default function ConfirmTransactionModal({ isApproving, submitTrans }) {
               ))}
             </Options>
             <SlippageDesc>
-              Slippage is likely in times of high demand. Quote is based on most recent block and does not reflect
-              transactions ahead of you in the mempool
+              Slippage is likely in times of high demand. Quote is based on most recent block and
+              does not reflect transactions ahead of you in the mempool
             </SlippageDesc>
           </>
         )}
       </OptionsWrapper>
       <footer>
         <Modal.FooterControls>
-          <Modal.SecondaryButton onClick={() => handleModal()} data-testid="confirm-modal-secondary-button">
+          <Modal.SecondaryButton
+            onClick={() => handleModal()}
+            data-testid="confirm-modal-secondary-button"
+          >
             Cancel
           </Modal.SecondaryButton>
           <Modal.PrimaryButton

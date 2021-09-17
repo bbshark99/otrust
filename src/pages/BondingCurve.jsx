@@ -1,10 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
-import Sidebar from 'components/Sidebar/Sidebar';
-import Bonding from 'components/Bonding';
 import { Steps } from 'intro.js-react';
 import { useCookies } from 'react-cookie';
 import { isMobile } from 'react-device-detect';
 
+import Sidebar from 'components/Sidebar/Sidebar';
+import Bonding from 'components/Bonding';
 import { Container } from 'components/UI';
 import { responsive } from 'theme/constants';
 import welcome from 'assets/onboarding/welcome.svg';
@@ -57,7 +58,7 @@ export default function BondingCurve() {
       <BondingCurveLayout>
         {!cookies.visitedBefore && !isMobile && (
           <Steps
-            enabled={true}
+            enabled
             options={{
               showBullets: false,
               tooltipClass: 'onomyOnboarding',

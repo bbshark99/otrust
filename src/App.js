@@ -1,8 +1,9 @@
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import MainHeader from 'components/MainHeader';
-import BondingCurve from 'pages/BondingCurve';
 import { CookiesProvider } from 'react-cookie';
 
+import MainHeader from 'components/MainHeader';
+import BondingCurve from 'pages/BondingCurve';
 import { darkNew } from 'theme/theme';
 import { GlobalStyle } from 'theme/GlobalStyle';
 import { AutoLogin } from 'context/AutoLogin';

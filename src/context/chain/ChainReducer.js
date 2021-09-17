@@ -18,10 +18,10 @@ function reducerCallback(state, key, value, update) {
 }
 
 export function reducer(state, action) {
+  let update;
   switch (action.type) {
     case 'updateAll':
-      var update;
-      for (let [key, value] of action.value.entries()) {
+      for (const [key, value] of action.value.entries()) {
         if (state[key]) {
           switch (key) {
             case 'currentETHPrice':

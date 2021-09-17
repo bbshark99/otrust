@@ -2,8 +2,31 @@
 
 exports[`Given the ConnectionStatus component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM lkUsJR"
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  color: #c75a5a;
+  font-weight: 500;
+}
+
+.c0:before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+<div
+    class="c0"
   />
 </DocumentFragment>
 `;

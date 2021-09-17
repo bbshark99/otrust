@@ -9,21 +9,11 @@ export default function NOMButton({ onBid, onApprove }) {
 
   const { bidAmount, bidDenom, input, weak } = useExchange();
 
-  return (
-    <>
-      {bidDenom === 'strong' ? (
-        <SellBtn> Input Value </SellBtn>
-      ) : bidAmount.lte(weakBalance) ? (
-        input === '' ? (
-          <SellBtn> Input Value </SellBtn>
-        ) : NOMallowance.gte(bidAmount) ? (
-          <SellBtn onClick={onBid}>Sell {weak}</SellBtn>
-        ) : (
-          <SellBtn onClick={onApprove}>Approve</SellBtn>
-        )
-      ) : (
-        <SellBtn> Low {weak} Balance </SellBtn>
-      )}
-    </>
-  );
+  if (bidDenom === 'strong') return <SellBtn> Input Value </SellBtn>;
+  if (bidAmount.lte(weakBalance)) {
+    if (input === '') return <SellBtn> Input Value </SellBtn>;
+    if (NOMallowance.gte(bidAmount)) return <SellBtn onClick={onBid}>Sell {weak}</SellBtn>;
+    return <SellBtn onClick={onApprove}>Approve</SellBtn>;
+  }
+  return <SellBtn> Low {weak} Balance </SellBtn>;
 }

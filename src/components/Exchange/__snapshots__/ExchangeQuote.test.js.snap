@@ -2,24 +2,260 @@
 
 exports[`Given an ExchangeQuote component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-khIgEk kMWoji"
+  .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 0 40px;
+}
+
+.c1 > strong {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.c0 + .c0 {
+  border-left: 2px solid #302E3D;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 16px 8px 16px 16px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  border-bottom: 2px solid #1a1823;
+  color: #9895a6;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.c2 strong {
+  color: #9895a6;
+  margin-right: auto;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.c6 strong {
+  color: #656273;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.c5 {
+  padding: 15px 20px;
+  height: 54px;
+  border: none;
+  background-color: #201d2a;
+  border-radius: 7px;
+  color: #ffdda1;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.c5:hover {
+  background-color: #252130;
+}
+
+.c5:active {
+  background-color: #1b1924;
+}
+
+.c4 {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #e1dfeb;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: right;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c7 {
+  margin-left: auto;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(90deg,#5ac790,#1c7e4c);
+  border: none;
+  border-radius: 6px;
+  color: #e1dfeb;
+  text-shadow: 0 6px 3px rgba(0,0,0,0.03);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.c9 {
+  background: linear-gradient(90deg,#c75a5a,#7e1c1c);
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c1 {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 > strong {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    height: 60px;
+    padding: 16px 8px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c2 {
+    height: 55px;
+    padding: 10px 5px 10px 8px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c2 strong {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c6 strong {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c6 strong {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 {
+    height: 44px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c4 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c4 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c7 {
+    font-size: 12px;
+  }
+}
+
+<div
+    class="c0 c1"
   >
     <strong>
       Sell NOM
     </strong>
     <div
-      class="sc-hTRkXV bNKhVO"
+      class="c2"
     >
       <div
-        class="sc-gSYDnn htDKdP"
+        class="c3"
         style="width: 100%; padding-right: 16px;"
       >
         <strong>
           I'm selling
         </strong>
         <input
-          class="sc-eJocfa fsZdx"
+          class="c4"
           data-testid="exchange-strong-balance-input"
           placeholder="0.00"
           type="text"
@@ -27,11 +263,11 @@ exports[`Given an ExchangeQuote component when the component is rendered should 
         />
       </div>
       <div
-        class="sc-gSYDnn htDKdP"
+        class="c3"
       >
         NOM
         <button
-          class="sc-iNiQyp iZyljO"
+          class="c5"
           data-testid="max-value-button"
         >
           Max
@@ -39,20 +275,20 @@ exports[`Given an ExchangeQuote component when the component is rendered should 
       </div>
     </div>
     <div
-      class="sc-laZMeE iTycLx"
+      class="c6"
     >
       <strong>
         You will receive
       </strong>
       <span
-        class="sc-oeezt fJVdMx"
+        class="c7"
         data-testid="exchange-weak-balance"
       >
          ETH
       </span>
     </div>
     <button
-      class="sc-lbVvki sc-gGLxEB eoDudu jFTELy"
+      class="c8 c9"
     >
        Input Value 
     </button>

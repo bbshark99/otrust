@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 export function DotsIcon({ onClick }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" margin-left='auto' margin-right='auto' display='block' viewBox="0 0 26 26.7" onClick={onClick}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+      viewBox="0 0 26 26.7"
+      onClick={onClick}
+    >
       <g id="DotsIcon" cursor="pointer" pointerEvents="all">
         <path
           fill="#a7b0c3"
@@ -11,5 +18,5 @@ export function DotsIcon({ onClick }) {
         <rect x="0" y="0" width="100%" height="100%" fill="none" />
       </g>
     </svg>
-  )
+  );
 }

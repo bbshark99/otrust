@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 export function DonateIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" margin-left='auto' margin-right='auto' display='block' viewBox="2.44 3.12 27.63 25.95">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+      viewBox="2.44 3.12 27.63 25.95"
+    >
       <g id="DonateIcon">
         <path
           fill="#e9c49e"
@@ -61,5 +67,5 @@ export function DonateIcon() {
         />
       </g>
     </svg>
-  )
+  );
 }

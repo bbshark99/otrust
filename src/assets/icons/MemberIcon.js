@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function MemberIcon() {
   return (
@@ -17,5 +17,5 @@ export function MemberIcon() {
         </g>
       </g>
     </svg>
-  )
+  );
 }

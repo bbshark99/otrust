@@ -2,8 +2,94 @@
 
 exports[`Given the BridgeSwapMobile component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-fbIWvP gMjrsA"
+  @media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:480px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:480px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1180px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1180px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (min-width:701px) {
+  .c0 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+<div
+    class="c0"
   />
 </DocumentFragment>
 `;

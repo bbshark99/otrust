@@ -4,10 +4,10 @@ import { BigNumber } from 'bignumber.js';
 import cosmos from 'cosmos-lib';
 import { ethers } from 'ethers';
 
-import BridgeSwapMobile from './BridgeSwapMobile';
-import BridgeSwapModal from './BridgeSwapModal';
 import { useChain } from 'context/chain/ChainContext';
 import { GravityCont, NOMCont } from 'context/chain/contracts';
+import BridgeSwapMobile from './BridgeSwapMobile';
+import BridgeSwapModal from './BridgeSwapModal';
 import { contAddrs } from '../../../context/chain/contracts';
 import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
 
@@ -60,17 +60,17 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
       const fetchedGasOptions = [
         {
           id: 0,
-          text: (result.data.standard / 1e9).toPrecision(4) + ' (Standard)',
+          text: `${(result.data.standard / 1e9).toPrecision(4)} (Standard)`,
           gas: new BigNumber(result.data.standard.toString()),
         },
         {
           id: 1,
-          text: (result.data.fast / 1e9).toPrecision(4) + ' (Fast)',
+          text: `${(result.data.fast / 1e9).toPrecision(4)} (Fast)`,
           gas: new BigNumber(result.data.fast.toString()),
         },
         {
           id: 2,
-          text: (result.data.rapid / 1e9).toPrecision(4) + ' (Instant)',
+          text: `${(result.data.rapid / 1e9).toPrecision(4)} (Instant)`,
           gas: new BigNumber(result.data.rapid.toString()),
         },
       ];
@@ -91,7 +91,11 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
 
   useEffect(() => {
     mediaQuery.addListener(tabletWidthChangeHandler);
-    mediaQuery.matches ? setIsMediaMinTablet(true) : setIsMediaMinTablet(false);
+    if (mediaQuery.matches) {
+      setIsMediaMinTablet(true);
+    } else {
+      setIsMediaMinTablet(false);
+    }
     return () => {
       mediaQuery.removeListener(tabletWidthChangeHandler);
     };
@@ -115,7 +119,11 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
 
   useEffect(() => {
     mediaQuery.addListener(tabletWidthChangeHandler);
-    mediaQuery.matches ? setIsMediaMinTablet(true) : setIsMediaMinTablet(false);
+    if (mediaQuery.matches) {
+      setIsMediaMinTablet(true);
+    } else {
+      setIsMediaMinTablet(false);
+    }
     return () => {
       mediaQuery.removeListener(tabletWidthChangeHandler);
     };
@@ -126,8 +134,10 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
   };
 
   const amountChangeHandler = event => {
-    const value = event.target.value;
-    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
+    const { value } = event.target;
+    const floatRegExp = new RegExp(
+      /(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/
+    );
     if (floatRegExp.test(value)) {
       setAmountValue(value);
       const bigAmountShifted18 = BigNumber(value).shiftedBy(18);
@@ -162,6 +172,7 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
 
   const submitTransClickHandler = useCallback(
     async event => {
+      let cosmosAddressBytes32;
       event.preventDefault();
       setErrors(initialErrorsState);
       if (amountValue === '.' || !parseFloat(amountValue)) {
@@ -175,12 +186,15 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
 
       try {
         setIsDisabled(true);
-        var bytes = cosmos.address.getBytes(onomyWalletValue);
+        const bytes = cosmos.address.getBytes(onomyWalletValue);
         const ZEROS = Buffer.alloc(12);
-        var cosmosAddressBytes32 = Buffer.concat([ZEROS, bytes]);
+        cosmosAddressBytes32 = Buffer.concat([ZEROS, bytes]);
       } catch (error) {
         setErrors(prevState => {
-          return { ...prevState, onomyWalletError: NOTIFICATION_MESSAGES.error.incorrectOnomyAddressFormat };
+          return {
+            ...prevState,
+            onomyWalletError: NOTIFICATION_MESSAGES.error.incorrectOnomyAddressFormat,
+          };
         });
         setIsDisabled(false);
         return;
@@ -191,9 +205,14 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
         try {
           setShowLoader(true);
           setIsTransactionPending(true);
-          tx = await GravityContract.sendToCosmos(contAddrs.NOMERC20, cosmosAddressBytes32, string18FromAmount, {
-            gasPrice: gasPrice.toFixed(0),
-          });
+          tx = await GravityContract.sendToCosmos(
+            contAddrs.NOMERC20,
+            cosmosAddressBytes32,
+            string18FromAmount,
+            {
+              gasPrice: gasPrice.toFixed(0),
+            }
+          );
 
           tx.wait().then(() => {
             setIsDisabled(false);
@@ -201,12 +220,14 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
             setShowTransactionCompleted(true);
             setShowLoader(false);
             setIsTransactionPending(false);
-            return;
           });
         } catch (error) {
           if (error.code === 4001) {
             setErrors(prevState => {
-              return { ...prevState, transactionError: NOTIFICATION_MESSAGES.error.rejectedTransaction };
+              return {
+                ...prevState,
+                transactionError: NOTIFICATION_MESSAGES.error.rejectedTransaction,
+              };
             });
           } else {
             setErrors(prevState => {
@@ -217,14 +238,13 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
           setShowLoader(false);
           setIsDisabled(false);
           setIsTransactionPending(false);
-          return;
         }
       } else {
         setShowBridgeExchangeModal(false);
         setShowApproveModal(true);
       }
     },
-    [onomyWalletValue, amountValue, GravityContract, allowanceAmountGravity, gasPrice],
+    [onomyWalletValue, amountValue, GravityContract, allowanceAmountGravity, gasPrice]
   );
 
   const Props = {

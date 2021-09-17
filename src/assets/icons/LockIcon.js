@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function LockIcon() {
   return (
@@ -10,7 +10,7 @@ export function LockIcon() {
         />
       </g>
     </svg>
-  )
+  );
 }
 
 export function LockAltIcon() {
@@ -23,5 +23,5 @@ export function LockAltIcon() {
         />
       </g>
     </svg>
-  )
+  );
 }

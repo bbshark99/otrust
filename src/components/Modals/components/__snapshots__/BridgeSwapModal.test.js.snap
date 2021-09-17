@@ -2,14 +2,864 @@
 
 exports[`Given the BridgeSwapModal component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-kHWWYL gZHipK"
+  .c0 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 10;
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:480px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:480px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:480px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1180px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1180px) {
+
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:1440px) {
+
+}
+
+@media screen and (max-width:1180px) {
+
+}
+
+<div
+    class="c0"
   />
-  <div
-    class="sc-bdnxRM sc-hHEiqL leVZfT hziPPQ"
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c2 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c2 svg {
+  fill: #656273;
+}
+
+.c2:hover svg {
+  fill: #9895a6;
+}
+
+.c2:active svg {
+  fill: #4d4b57;
+}
+
+.c25 {
+  width: 170px;
+  height: 50px;
+  background-color: #302E3D;
+  border: none;
+  border-radius: 8px;
+  color: #656273;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c25:hover {
+  background-color: #302E3D;
+}
+
+.c25:active {
+  background-color: #302E3D;
+}
+
+.c4 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c1 {
+  width: 1300px;
+}
+
+.c27 {
+  padding: 40px;
+  border-radius: 8px;
+  background-color: #1a1823;
+}
+
+.c27 h2 {
+  margin: 0 0 20px;
+  font-family: Bebas Neue,sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.c29 {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 30px;
+  justify-items: center;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #1a1823;
+}
+
+.c32 {
+  padding: 40px 50px;
+  border-radius: 8px;
+  background-color: #201d2a;
+}
+
+.c30 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid #302E3D;
+  background-color: #201d2a;
+}
+
+.c8 img {
+  overflow: hidden;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.c9 > strong {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.c9 > span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.c10 > strong {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9895a6;
+  white-space: nowrap;
+}
+
+.c10 span {
+  font-family: Bebas Neue,sans-serif;
+  font-size: 28px;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 40px auto;
+  padding: 16px 40px;
+  position: relative;
+  border-radius: 8px;
+  background-color: #30232e;
+  color: #c75a5a;
+  white-space: nowrap;
+}
+
+.c11::before,
+.c11::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 20px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  background-color: #c75a5a;
+}
+
+.c11::after {
+  top: auto;
+  bottom: -30px;
+  background-color: #c75a5a;
+}
+
+.c3 {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+}
+
+.c3 > main {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c12 {
+  width: 100%;
+  border: 1px solid #302E3D;
+  border-radius: 8px;
+  padding: 16px 29px 16px 20px;
+  opacity: 1;
+}
+
+.c28 {
+  max-width: 600px;
+  margin-bottom: 40px;
+  color: #9895a6;
+}
+
+.c28 strong {
+  font-weight: 500;
+  color: #e1dfeb;
+}
+
+.c31 {
+  padding-left: 1em;
+  color: #9895a6;
+}
+
+.c31 li::marker {
+  color: #e1dfeb;
+}
+
+.c31 li + li {
+  margin-top: 12px;
+}
+
+.c26 {
+  width: 100%;
+  height: 52px;
+  background-color: #302E3D;
+  color: #656273;
+}
+
+.c26:hover {
+  background-color: #302E3D;
+}
+
+.c26:active {
+  background-color: #302E3D;
+}
+
+.c5 {
+  text-align: left;
+}
+
+.c6 {
+  display: grid;
+  grid-template-rows: repeat(3,auto);
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 16px 8px 16px 16px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  border-bottom: 2px solid #1a1823;
+  color: #9895a6;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.c17 strong {
+  color: #9895a6;
+  margin-right: auto;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.c18 {
+  background: transparent;
+  border: 1px solid #302E3D;
+}
+
+.c20 {
+  padding: 15px 20px;
+  height: 54px;
+  border: none;
+  background-color: #201d2a;
+  border-radius: 7px;
+  color: #ffdda1;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.c20:hover {
+  background-color: #252130;
+}
+
+.c20:active {
+  background-color: #1b1924;
+}
+
+.c21 {
+  background-color: transparent;
+}
+
+.c13 {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #e1dfeb;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: right;
+}
+
+.c13:focus {
+  outline: none;
+}
+
+.c14 {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+}
+
+.c19 {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.c16 {
+  margin: 0 0 12px;
+}
+
+.c15 {
+  padding: 32px 32px 0;
+  margin: 32px -32px 0 -36px;
+  border-top: 1px solid #302E3D;
+}
+
+.c22 {
+  margin: 0 0 12px;
+  color: #656273;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+.c24 {
+  padding: 12px 16px;
+  background-color: transparent;
+  border: 1px solid #302E3D;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c24:hover {
+  background-color: #47445a;
+}
+
+.c24:active {
+  background-color: #191820;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c25 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c25 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c4 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    width: 1010px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c27 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c27 h2 {
+    margin-bottom: 16px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c29 {
+    grid-template-columns: 1fr 150px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c29 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .c29 > img {
+    width: 230px;
+    margin: 32px auto;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c7:first-child {
+    grid-column: 1/3;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c32 {
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c30 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 > span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c10 > strong {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c10 span {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c11 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    height: 100%;
+    margin: 0;
+    padding: 24px;
+    white-space: pre-wrap;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c11::before,
+  .c11::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    grid-template-columns: 400px 1fr;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c12 {
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c6 {
+    grid-template-columns: 1fr 150px;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c17 {
+    height: 60px;
+    padding: 16px 8px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c17 {
+    height: 55px;
+    padding: 10px 5px 10px 8px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c17 strong {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c20 {
+    height: 44px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c13 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c13 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c15 {
+    margin-left: -28px;
+    margin-right: -24px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c15 {
+    margin-left: -28px;
+    margin-right: -28px;
+  }
+}
+
+<div
+    class="c0 c1"
   >
     <button
-      class="sc-jSFjdj dYAyKF"
+      class="c2"
     >
       <svg
         viewBox="0 0 24 24"
@@ -36,22 +886,22 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
       </svg>
     </button>
     <div
-      class="sc-ezzafa dpYZLt"
+      class="c3"
     >
       <main>
         <h3
-          class="sc-iqAclL sc-cBoqAE jbEKlq jjiUbU"
+          class="c4 c5"
         >
           Onomy Bridge Here
         </h3>
         <div
-          class="sc-ciSkZP cezVwi"
+          class="c6"
         >
           <div
-            class="sc-fKgJPI dAGIdY"
+            class="c7"
           >
             <div
-              class="sc-cxNHIi ioclSA"
+              class="c8"
             >
               <img
                 alt=""
@@ -59,7 +909,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
               />
             </div>
             <div
-              class="sc-lmgQwP eoJsdn"
+              class="c9"
             >
               <strong>
                 Onomy Bonding Curve
@@ -67,7 +917,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
               <span />
             </div>
             <div
-              class="sc-iJCRrE kuBHNO"
+              class="c10"
             >
               <strong>
                 wNOM Balance
@@ -78,15 +928,15 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
             </div>
           </div>
           <div
-            class="sc-giAqHp hATyRz"
+            class="c11"
           >
             Wallet Disconnected
           </div>
           <div
-            class="sc-fKgJPI dAGIdY"
+            class="c7"
           >
             <div
-              class="sc-cxNHIi ioclSA"
+              class="c8"
             >
               <img
                 alt=""
@@ -94,10 +944,10 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
               />
             </div>
             <div
-              class="sc-iklJeh bceAWz"
+              class="c12"
             >
               <input
-                class="sc-bBjRSN sc-Arkif iVvvTU qdyvg"
+                class="c13 c14"
                 placeholder="Your Onomy Wallet Address"
                 type="text"
                 value=""
@@ -106,25 +956,25 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
           </div>
         </div>
         <form
-          class="sc-dsXzNU kFqVpz"
+          class="c15"
         >
           <div
-            class="sc-hOPeYd bkxBpP"
+            class="c16"
           >
             <div
-              class="sc-iTVJFM sc-iBzEeX bAcugn zwAsw"
+              class="c17 c18"
             >
               <strong>
                 Swap to NOM
               </strong>
               <input
-                class="sc-bBjRSN sc-khIgEk iVvvTU hfJszz"
+                class="c13 c19"
                 type="text"
                 value=""
               />
               wNOM
               <button
-                class="sc-jNnpgg sc-dPaNzc gRwTxe fmXglj"
+                class="c20 c21"
               >
                 Max
               </button>
@@ -132,32 +982,32 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
           </div>
           <div>
             <p
-              class="sc-daBunf iGZrVP"
+              class="c22"
             >
               Gas Fee
             </p>
             <div
-              class="sc-jUfyBS jqSSYO"
+              class="c23"
             >
               <button
-                class="sc-jQAxuV jpnMRH"
+                class="c24"
               >
                 00.00 (Standard)
               </button>
               <button
-                class="sc-jQAxuV jpnMRH"
+                class="c24"
               >
                 00.00 (Fast)
               </button>
               <button
-                class="sc-jQAxuV jpnMRH"
+                class="c24"
               >
                 00.00 (Instant)
               </button>
             </div>
           </div>
           <button
-            class="sc-gKAaRy sc-gXfVKN tiUWj hdhsjP"
+            class="c25 c26"
             disabled=""
           >
             Swap wNOM for NOM
@@ -165,27 +1015,27 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
         </form>
       </main>
       <aside
-        class="sc-dlMDgC fSFXAr"
+        class="c27"
       >
         <h2>
           What is Onomy Bridge?
         </h2>
         <p
-          class="sc-jJMGnK gjXsiq"
+          class="c28"
         >
           The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy Network.
         </p>
         <section
-          class="sc-kfYoZR eSvgJZ"
+          class="c29"
         >
           <div>
             <h3
-              class="sc-iwajpm lOVrh"
+              class="c30"
             >
               One Way Bridge
             </h3>
             <p
-              class="sc-jJMGnK gjXsiq"
+              class="c28"
             >
               Choose to bridge when you are ready to do so to finalize your purchase of NOM! 
               <strong>
@@ -200,16 +1050,16 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
           />
         </section>
         <section
-          class="sc-kfYoZR eSvgJZ"
+          class="c29"
         >
           <div>
             <h3
-              class="sc-iwajpm lOVrh"
+              class="c30"
             >
               Why Bridge?
             </h3>
             <ol
-              class="sc-hiKfDv iFOqtY"
+              class="c31"
             >
               <li>
                 You must hold NOM to participate in the Onomy Network. 
@@ -229,7 +1079,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
             </ol>
           </div>
           <div
-            class="sc-bCwfaz bwCvgM"
+            class="c32"
           >
             <img
               alt=""

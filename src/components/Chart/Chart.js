@@ -30,7 +30,8 @@ const ChartTypeBtn = styled.button`
   height: 50px;
   padding: 16px 24px;
 
-  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  background-color: ${props =>
+    props.active ? props.theme.colors.bgHighlightBorder : 'transparent'};
   border-radius: 6px;
   border: none;
 
@@ -100,7 +101,11 @@ export default function Chart() {
 
   useEffect(() => {
     mediaQuery.addListener(smartphoneWidthChangeHandler);
-    mediaQuery.matches ? setIsMediaMinSmartphone(true) : setIsMediaMinSmartphone(false);
+    if (mediaQuery.matches) {
+      setIsMediaMinSmartphone(true);
+    } else {
+      setIsMediaMinSmartphone(false);
+    }
     return () => {
       mediaQuery.removeListener(smartphoneWidthChangeHandler);
     };
@@ -111,7 +116,13 @@ export default function Chart() {
       case 'lineChart':
         return <LineChart historicalChartType={historicalChartType} />;
       case 'candleView':
-        return <CandleChart candleHeader={candleHeader} candleHeaderId={candleHeaderId} data={tempCandlestickData} />;
+        return (
+          <CandleChart
+            candleHeader={candleHeader}
+            candleHeaderId={candleHeaderId}
+            data={tempCandlestickData}
+          />
+        );
       case 'bondingCurve':
       default:
         return <BondLineChart />;
@@ -122,13 +133,22 @@ export default function Chart() {
     <ChartWrapper id="tour-chart">
       <ChartHeader>
         <span>
-          <ChartTypeBtn onClick={() => setChartType('bondingCurve')} active={chartType === 'bondingCurve'}>
+          <ChartTypeBtn
+            onClick={() => setChartType('bondingCurve')}
+            active={chartType === 'bondingCurve'}
+          >
             Bonding Curve Chart
           </ChartTypeBtn>
-          <ChartTypeBtn onClick={() => setChartType('lineChart')} active={chartType === 'lineChart'}>
+          <ChartTypeBtn
+            onClick={() => setChartType('lineChart')}
+            active={chartType === 'lineChart'}
+          >
             Historical Chart
           </ChartTypeBtn>
-          <ChartTypeBtn onClick={() => setChartType('candleView')} active={chartType === 'candleView'}>
+          <ChartTypeBtn
+            onClick={() => setChartType('candleView')}
+            active={chartType === 'candleView'}
+          >
             Candles View
           </ChartTypeBtn>
         </span>

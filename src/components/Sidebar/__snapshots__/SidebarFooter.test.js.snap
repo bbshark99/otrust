@@ -2,21 +2,168 @@
 
 exports[`Given the SidebarFooter component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <footer
-    class="sc-bdnxRM gfThcl"
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 40px;
+  margin-top: auto;
+}
+
+.c1 {
+  display: block;
+  margin-right: auto;
+  color: #9895a6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:hover {
+  color: #e1dfeb;
+}
+
+.c1:active {
+  color: #656273;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  font-size: 20px;
+  color: #5d5b70;
+  cursor: pointer;
+}
+
+.c3 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c3:hover {
+  background-color: #47445a;
+}
+
+.c3:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c3:active {
+  background-color: #191820;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    padding: 40px 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    width: 100%;
+    gap: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 24px;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    padding: 24px 20px;
+    position: relative;
+    background-color: #1a1823;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c1 {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .c3 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c2 {
+    gap: 12px;
+  }
+}
+
+<footer
+    class="c0"
   >
     <a
-      class="sc-gtsrHT jGjvDU"
+      class="c1"
       href="https://onomy.io/"
       target="_blank"
     >
       About Onomy
     </a>
     <div
-      class="sc-hKFxyN gnkwIp"
+      class="c2"
     >
       <a
-        class="sc-dlnjwi jwUBnX"
+        class="c3"
         href="https://t.me/onomyprotocol"
         target="_blank"
       >
@@ -31,7 +178,7 @@ exports[`Given the SidebarFooter component when the component is rendered should
         </svg>
       </a>
       <a
-        class="sc-dlnjwi jwUBnX"
+        class="c3"
         href="https://medium.com/onomy-protocol"
         target="_blank"
       >
@@ -50,7 +197,7 @@ exports[`Given the SidebarFooter component when the component is rendered should
         </svg>
       </a>
       <a
-        class="sc-dlnjwi jwUBnX"
+        class="c3"
         href="https://twitter.com/onomyprotocol"
         target="_blank"
       >

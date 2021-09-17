@@ -2,8 +2,22 @@
 
 exports[`Given the Panel component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM ivapGS"
+  .c0 {
+  padding: 4px;
+  background-color: #201d2a;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+<div
+    class="c0"
   />
 </DocumentFragment>
 `;

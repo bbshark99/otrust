@@ -15,10 +15,10 @@ const StyledSVG = styled.svg`
   overflow: visible;
 `;
 export function supplyToArray([supBegin, supEnd]) {
-  var dataArray = [];
+  const dataArray = [];
   const dif = supEnd - supBegin;
   const n = 100;
-  for (var i = 0; i < n; i++) {
+  for (let i = 0; i < n; i += 1) {
     dataArray.push({
       x: parseFloat(supBegin + (dif * i) / n),
       y: priceAtSupply(supBegin + (dif * i) / n),
@@ -36,11 +36,11 @@ export function labelArray([supBegin, supEnd]) {
 }
 
 export function bounds(formatSupply) {
-  var lowerBound;
-  var upperBound;
+  let lowerBound;
+  let upperBound;
 
   try {
-    var digitsUpper = Math.floor(Math.log10(formatSupply[1]));
+    const digitsUpper = Math.floor(Math.log10(formatSupply[1]));
     // upperBound = 10**(digitsUpper + 1)
     upperBound = (Math.round(formatSupply[1] / 10 ** digitsUpper) + 1) * 10 ** digitsUpper;
     lowerBound = 0;
@@ -62,8 +62,8 @@ function LineChart({ id = 'bondingChart' }) {
   const { supplyNOM, theme } = useChain();
   const { askAmount, bidAmount, bidDenom } = useExchange();
 
-  var supplyTop = supplyNOM;
-  var supplyBot = supplyNOM;
+  let supplyTop = supplyNOM;
+  let supplyBot = supplyNOM;
 
   switch (bidDenom) {
     case 'strong':
@@ -141,9 +141,15 @@ function LineChart({ id = 'bondingChart' }) {
       .attr('x2', '1%')
       .attr('y2', '0%');
 
-    linearGradient.append('stop').attr('offset', '0%').attr('stop-color', `${theme.colors.bgDarken}`); //
+    linearGradient
+      .append('stop')
+      .attr('offset', '0%')
+      .attr('stop-color', `${theme.colors.bgDarken}`); //
 
-    linearGradient.append('stop').attr('offset', '100%').attr('stop-color', `${theme.colors.lnHighlight}`);
+    linearGradient
+      .append('stop')
+      .attr('offset', '100%')
+      .attr('stop-color', `${theme.colors.lnHighlight}`);
 
     svgContent
       .selectAll('.selectedArea')
@@ -169,7 +175,7 @@ function LineChart({ id = 'bondingChart' }) {
     const xAxis = axisBottom(xScale)
       .tickSize('15')
       .ticks(5)
-      .tickFormat(d => d / 1000000 + 'm');
+      .tickFormat(d => `${d / 1000000}m`);
 
     const xComplex = svg
       .select('.x-axis')
@@ -195,7 +201,10 @@ function LineChart({ id = 'bondingChart' }) {
       .style('color', `${theme.colors.bgHighlight}`)
       .call(xAxis1);
 
-    xComplex1.selectAll('.tick line').style('stroke-width', '0.1rem').style('color', `${theme.colors.bgHighlight}`);
+    xComplex1
+      .selectAll('.tick line')
+      .style('stroke-width', '0.1rem')
+      .style('color', `${theme.colors.bgHighlight}`);
 
     // the end tick of x-axis comes from the x-axis, not the ticks
     // To hide the x-axis horizontal line, but still make the end tick show up, we cannot just remove or hide the x-axis
@@ -224,7 +233,11 @@ function LineChart({ id = 'bondingChart' }) {
   }, [areaData, data, dimensions, labelData, theme]);
 
   return (
-    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '350px' }} data-testid="bond-line-chart">
+    <div
+      ref={wrapperRef}
+      style={{ marginTop: '1rem', height: '350px' }}
+      data-testid="bond-line-chart"
+    >
       <StyledSVG ref={svgRef}>
         <defs>
           <clipPath id={id}>

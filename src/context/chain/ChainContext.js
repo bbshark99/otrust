@@ -56,12 +56,15 @@ function ChainProvider({ theme, children }) {
             // UniSwapCont.getReserves(),
           ]).then(values => {
             let update = new Map();
-            for (let i = 0; i < values.length; i++) {
+            for (let i = 0; i < values.length; i += 1) {
               switch (i) {
                 case 0:
                   update = update.set('currentETHPrice', new BigNumber(values[0].toString()));
 
-                  update = update.set('currentNOMPrice', new BigNumber(1).div(new BigNumber(values[0].toString())));
+                  update = update.set(
+                    'currentNOMPrice',
+                    new BigNumber(1).div(new BigNumber(values[0].toString()))
+                  );
                   break;
 
                 case 1:

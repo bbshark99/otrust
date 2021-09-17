@@ -2,20 +2,334 @@
 
 exports[`Given the SidebarBalances component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bsatvv A-DJIP"
+  .c14 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c14:hover {
+  background-color: #fff;
+}
+
+.c14:active {
+  background-color: #9895a6;
+}
+
+.c11 {
+  display: none;
+  padding: 12px 24px;
+  position: absolute;
+  bottom: -48px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
+  color: #e1dfeb;
+  font-size: 14px;
+  font-family: 'Poppins',sans-serif;
+  z-index: 1;
+}
+
+.c9 {
+  position: relative;
+}
+
+.c9:hover .c10 {
+  display: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 40px;
+  border-bottom: 1px solid #302E3D;
+}
+
+.c0 strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #9895a6;
+}
+
+.c2 {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.c2 > small {
+  margin-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  color: #9895a6;
+  font-size: 11px;
+}
+
+.c8 {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.c8 > small {
+  margin-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  color: #9895a6;
+  font-size: 11px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3 {
+  position: relative;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5d5b70;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c7:hover {
+  background-color: #8d89a3;
+  color: #1a1823;
+}
+
+.c7:active {
+  background-color: #191820;
+}
+
+.c12 {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-top: 6px;
+  position: relative;
+  background-color: #2a303f;
+  border-radius: 6px;
+  color: #88d1ff;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Poppins,sans-serif;
+}
+
+.c12 svg {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.c12 svg * {
+  fill: currentColor;
+}
+
+.c13 {
+  margin-top: 20px;
+  min-width: 150px;
+}
+
+.c4 {
+  display: none;
+  width: 360px;
+  padding: 32px 40px;
+  position: absolute;
+  right: 72px;
+  top: -52px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c4:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -20px;
+  top: 42px;
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid #302E3D;
+}
+
+.c5 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.c6 {
+  color: #9895a6;
+}
+
+@media screen and (max-width:1440px) {
+  .c14 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c14 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    border: none;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c0 {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 20px;
+    gap: 0px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c7 {
+    margin-left: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c13 {
+    margin: 0 0 0 auto;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c13 {
+    padding-top: 10px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c4 {
+    width: 240px;
+    padding: 16px 40px;
+  }
+}
+
+<div
+    class="c0"
   >
     <div
-      class="sc-euEtCV jiQVBw"
+      class="c1"
     >
       <div
-        class="sc-fHCHyC"
+        class=""
       >
         <strong>
           ETH Balance
         </strong>
         <div
-          class="sc-gIvpjk hMyYGy"
+          class="c2"
         >
           100
           <small>
@@ -24,53 +338,53 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         </div>
       </div>
       <div
-        class="sc-dtLLSn iNLKxZ"
+        class="c3"
       >
         <div
-          class="sc-uxdHp goaiUM"
+          class="c4"
         >
           <h5
-            class="sc-biJonm bUigkm"
+            class="c5"
           >
             ETH Balance
           </h5>
           <p
-            class="sc-eHEENL dNGFAF"
+            class="c6"
           >
             This is your connected wallet Ether balance.
           </p>
         </div>
         <button
-          class="sc-dkQUaI hcAYQD"
+          class="c7"
         >
           i
         </button>
       </div>
     </div>
     <div
-      class="sc-euEtCV jiQVBw"
+      class="c1"
     >
       <div
-        class="sc-fHCHyC"
+        class=""
       >
         <strong>
           NOM Balance
         </strong>
         <div
-          class="sc-gIvpjk cFVtEZ"
+          class="c8"
         >
           50
           <small>
              = $16,208.04
           </small>
           <div
-            class="sc-dFRpbK Ccali"
+            class="c9"
           >
             <div
-              class="sc-csTbgd eernYK"
+              class="c10 c11"
             />
             <div
-              class="sc-WZYut cRvNGC"
+              class="c12"
             >
               <span>
                  approved
@@ -80,34 +394,34 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         </div>
       </div>
       <div
-        class="sc-dtLLSn iNLKxZ"
+        class="c3"
       >
         <div
-          class="sc-uxdHp goaiUM"
+          class="c4"
         >
           <h5
-            class="sc-biJonm bUigkm"
+            class="c5"
           >
             wNOM Balance
           </h5>
           <p
-            class="sc-eHEENL dNGFAF"
+            class="c6"
           >
             This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling before it can be sold.
           </p>
         </div>
         <button
-          class="sc-dkQUaI hcAYQD"
+          class="c7"
         >
           i
         </button>
       </div>
     </div>
     <div
-      class="sc-ikXwFM csHdKt"
+      class="c13"
     >
       <button
-        class="sc-gKAaRy hdHHcK"
+        class="c14"
         style="width: 100%;"
       >
         Withdraw wNOM

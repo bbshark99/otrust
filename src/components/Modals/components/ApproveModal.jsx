@@ -72,7 +72,10 @@ export default function ApproveModal({ onApprove }) {
       </main>
       <footer>
         <Modal.FooterControls>
-          <Modal.SecondaryButton onClick={() => handleModal()} data-testid="approve-modal-secondary-button">
+          <Modal.SecondaryButton
+            onClick={() => handleModal()}
+            data-testid="approve-modal-secondary-button"
+          >
             Cancel
           </Modal.SecondaryButton>
           <Modal.PrimaryButton onClick={onApprove} data-testid="approve-modal-primary-button">

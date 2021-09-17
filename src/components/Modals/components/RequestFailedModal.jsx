@@ -58,7 +58,10 @@ export default function RequestFailedModal({ error }) {
       </main>
       <footer>
         <FooterControls>
-          <Modal.PrimaryButton onClick={() => handleModal()} data-testid="request-failed-primary-button">
+          <Modal.PrimaryButton
+            onClick={() => handleModal()}
+            data-testid="request-failed-primary-button"
+          >
             Ok &#x1f625;
           </Modal.PrimaryButton>
         </FooterControls>

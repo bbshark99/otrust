@@ -47,10 +47,10 @@ describe('Given the TransactionCompletedModal component', () => {
         UpdateExchangeContextWrapper(
           ExchangeContextWrapper(
             ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps)),
-            testExchangeContext,
+            testExchangeContext
           ),
-          testUpdateExchangeContext,
-        ),
+          testUpdateExchangeContext
+        )
       );
       expect(asFragment()).toMatchSnapshot();
     });
@@ -62,11 +62,13 @@ describe('Given the TransactionCompletedModal component', () => {
         const { asFragment } = render(
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
-              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testPropsConfirmationOne)),
-              testExchangeContext,
+              ModalContextWrapper(
+                ThemeWrapper(TransactionCompletedModal, testPropsConfirmationOne)
+              ),
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
-          ),
+            testUpdateExchangeContext
+          )
         );
         expect(asFragment()).toMatchSnapshot();
       });
@@ -78,10 +80,10 @@ describe('Given the TransactionCompletedModal component', () => {
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
               ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps)),
-              testExchangeContext,
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
-          ),
+            testUpdateExchangeContext
+          )
         );
 
         expect(queryByTestId('completed-modal-exchange-result')).toBeInTheDocument();
@@ -95,12 +97,15 @@ describe('Given the TransactionCompletedModal component', () => {
       it('should show ExchangeResult, ExchangeRateWrapper sections and do not show ExchangeApproveText', () => {
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
-            ExchangeContextWrapper(ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps)), {
-              ...testExchangeContext,
-              bidDenom: 'weak',
-            }),
-            testUpdateExchangeContext,
-          ),
+            ExchangeContextWrapper(
+              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps)),
+              {
+                ...testExchangeContext,
+                bidDenom: 'weak',
+              }
+            ),
+            testUpdateExchangeContext
+          )
         );
 
         expect(queryByTestId('completed-modal-exchange-result')).toBeInTheDocument();
@@ -113,12 +118,15 @@ describe('Given the TransactionCompletedModal component', () => {
       it('should NOT show ExchangeResult, ExchangeRateWrapper, FooterDetails and show ExchangeApproveText', () => {
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
-            ExchangeContextWrapper(ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps)), {
-              ...testExchangeContext,
-              status: 'APPROVE',
-            }),
-            testUpdateExchangeContext,
-          ),
+            ExchangeContextWrapper(
+              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps)),
+              {
+                ...testExchangeContext,
+                status: 'APPROVE',
+              }
+            ),
+            testUpdateExchangeContext
+          )
         );
         expect(queryByTestId('completed-modal-exchange-result')).not.toBeInTheDocument();
         expect(queryByTestId('completed-modal-exchange-rate')).not.toBeInTheDocument();
@@ -129,13 +137,13 @@ describe('Given the TransactionCompletedModal component', () => {
 
     describe('and user clicks on CloseIcon', () => {
       it('should call objDispatch from useUpdateExchange context with correct parameters', () => {
-        let objUpdate = new Map([
+        const objUpdate = new Map([
           ['askAmount', BigNumber(0)],
           ['bidAmount', BigNumber(0)],
           ['approveAmount', BigNumber(0)],
         ]);
 
-        let strUpdate = new Map([
+        const strUpdate = new Map([
           ['input', ''],
           ['output', ''],
           ['approve', ''],
@@ -144,11 +152,14 @@ describe('Given the TransactionCompletedModal component', () => {
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
-              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps), testModalContext),
-              testExchangeContext,
+              ModalContextWrapper(
+                ThemeWrapper(TransactionCompletedModal, testProps),
+                testModalContext
+              ),
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
-          ),
+            testUpdateExchangeContext
+          )
         );
         fireEvent.click(queryByTestId('completed-modal-close-icon'));
 
@@ -170,13 +181,13 @@ describe('Given the TransactionCompletedModal component', () => {
 
     describe('and user clicks on PrimaryButton', () => {
       it('should call objDispatch from useUpdateExchange context with correct parameters', () => {
-        let objUpdate = new Map([
+        const objUpdate = new Map([
           ['askAmount', BigNumber(0)],
           ['bidAmount', BigNumber(0)],
           ['approveAmount', BigNumber(0)],
         ]);
 
-        let strUpdate = new Map([
+        const strUpdate = new Map([
           ['input', ''],
           ['output', ''],
           ['approve', ''],
@@ -185,11 +196,14 @@ describe('Given the TransactionCompletedModal component', () => {
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
-              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps), testModalContext),
-              testExchangeContext,
+              ModalContextWrapper(
+                ThemeWrapper(TransactionCompletedModal, testProps),
+                testModalContext
+              ),
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
-          ),
+            testUpdateExchangeContext
+          )
         );
         fireEvent.click(queryByTestId('completed-modal-close-icon'));
 
@@ -214,11 +228,14 @@ describe('Given the TransactionCompletedModal component', () => {
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
-              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps), testModalContext),
-              testExchangeContext,
+              ModalContextWrapper(
+                ThemeWrapper(TransactionCompletedModal, testProps),
+                testModalContext
+              ),
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
-          ),
+            testUpdateExchangeContext
+          )
         );
         fireEvent.click(queryByTestId('completed-modal-details-button'));
         expect(queryByTestId('completed-modal-footer-details')).toBeInTheDocument();
@@ -231,11 +248,14 @@ describe('Given the TransactionCompletedModal component', () => {
         const { queryByTestId } = render(
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
-              ModalContextWrapper(ThemeWrapper(TransactionCompletedModal, testProps), testModalContext),
-              testExchangeContext,
+              ModalContextWrapper(
+                ThemeWrapper(TransactionCompletedModal, testProps),
+                testModalContext
+              ),
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
-          ),
+            testUpdateExchangeContext
+          )
         );
         fireEvent.click(queryByTestId('completed-modal-details-button'));
         fireEvent.click(queryByTestId('completed-model-explorer-button'));

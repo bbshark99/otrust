@@ -34,8 +34,10 @@ const MenuWrapper = styled.div`
 
 const MenuHeader = styled.header`
   font-size: 0.7rem;
-  color: ${props => (props.isClicked ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
-  background: ${props => (props.isClicked ? props.theme.colors.bgHighlight : props.theme.colors.bgDarken)};
+  color: ${props =>
+    props.isClicked ? props.theme.colors.textPrimary : props.theme.colors.textSecondary};
+  background: ${props =>
+    props.isClicked ? props.theme.colors.bgHighlight : props.theme.colors.bgDarken};
   text-align: center;
   vertical-align: middle;
   border-radius: ${adjustedRadius};
@@ -47,7 +49,11 @@ export default function MenuButtons({ onButtonChange, menuButtons }) {
     e.preventDefault();
     const clickedId = e.target.id;
     menuButtons.forEach((button, i) => {
-      i === parseInt(clickedId) - 1 ? (button.status = true) : (button.status = false);
+      if (i === parseInt(clickedId, 10) - 1) {
+        button.status = true;
+      } else {
+        button.status = false;
+      }
     });
     onButtonChange(menuButtons, clickedId);
   };

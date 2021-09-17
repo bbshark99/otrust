@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, { useContext, useRef } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { BigNumber } from 'bignumber.js';
@@ -19,9 +20,12 @@ import {
   interpolate,
 } from 'd3';
 
-import { useResizeObserver } from './utils';
 import { ChainContext } from 'context/chain/ChainContext';
-import { HISTORICAL_CHART_TYPE_FILTER, HISTORICAL_CHART_TYMESTAMPS } from '../../constants/ChartSelections';
+import { useResizeObserver } from './utils';
+import {
+  HISTORICAL_CHART_TYPE_FILTER,
+  HISTORICAL_CHART_TYMESTAMPS,
+} from '../../constants/ChartSelections';
 
 const StyledSVG = styled.svg`
   display: block;
@@ -78,7 +82,7 @@ const LineChart = React.memo(props => {
     //define data, change timestamp to date format and build y_var
     let data = bondDataPrimary.wnomhistoricalFrames.concat(bondDataSecondary.wnomhistoricalFrames);
     const secondsTimeStampNow = Math.floor(new Date().getTime() / 1000).toString();
-    let lastElement = data.slice(-1)[0];
+    const lastElement = data.slice(-1)[0];
     if (data.length) {
       data = data.concat([
         {
@@ -126,15 +130,17 @@ const LineChart = React.memo(props => {
     const x_ticks = tick_count[time_period];
     const x_format = time_formats[time_period];
     //set other constants.
-    const width = dimensions.width;
-    const height = dimensions.height;
+    const { width } = dimensions;
+    const { height } = dimensions;
     const numberFormat = format('.6s');
     const svg = select(svgRef.current);
     const svgContent = svg.select('.content');
 
+    // eslint-disable-next-line no-inner-declarations
     function xValue(d) {
       return d[x_var];
     } // accessors
+    // eslint-disable-next-line no-inner-declarations
     function yValue(d) {
       return d[y_var];
     }
@@ -153,7 +159,7 @@ const LineChart = React.memo(props => {
       .y(d => yScale(d[y_var]));
 
     //highlited line and highlited area with linearGradient
-    const linearGradient = select('#' + lineGradient)
+    const linearGradient = select(`#${lineGradient}`)
       .attr('gradientUnits', 'userSpaceOnUse')
       .attr('x1', '0%')
       .attr('y1', '0%')
@@ -162,15 +168,18 @@ const LineChart = React.memo(props => {
 
     linearGradient.append('stop').attr('offset', '0%').attr('stop-color', theme.colors.bgDarken); //
 
-    linearGradient.append('stop').attr('offset', '20%').attr('stop-color', theme.colors.highlightYellow); //
+    linearGradient
+      .append('stop')
+      .attr('offset', '20%')
+      .attr('stop-color', theme.colors.highlightYellow); //
 
-    linearGradient.append('stop').attr('offset', '100%').attr('stop-color', theme.colors.highlightYellow);
+    linearGradient
+      .append('stop')
+      .attr('offset', '100%')
+      .attr('stop-color', theme.colors.highlightYellow);
 
     //mouse move rect position
-    select('#' + id)
-      .select('rect')
-      .style('height', height)
-      .style('width', width);
+    select(`#${id}`).select('rect').style('height', height).style('width', width);
     //mouse move objects (start hidden)
 
     //highlight Rect (defined in render) - rect behind dot which moves
@@ -257,13 +266,13 @@ const LineChart = React.memo(props => {
       .attr('fill', theme.colors.textPrimary)
       .attr('stroke', theme.colors.bgNormal)
       .attr('stroke-width', 3)
-      .attr('transform', 'translate(' + xScale(data[0][x_var]) + ',' + yScale(data[0][y_var]) + ')')
+      .attr('transform', `translate(${xScale(data[0][x_var])},${yScale(data[0][y_var])})`)
       .attr('r', 4)
       .style('cursor', 'crosshair');
 
     //data dependents
     //background baseLine - all values
-    var baseline = svgContent
+    const baseline = svgContent
       .select('.baselineGroup')
       .selectAll('.baseLine')
       .data([data])
@@ -293,8 +302,8 @@ const LineChart = React.memo(props => {
       .data([data])
       .join('path')
       .attr('class', 'linePath')
-      .attr('stroke', 'url(#' + lineGradient + ')')
-      .attr('stroke-dasharray', pathLength + ' ' + pathLength)
+      .attr('stroke', `url(#${lineGradient})`)
+      .attr('stroke-dasharray', `${pathLength} ${pathLength}`)
       .attr('stroke-dashoffset', pathLength)
       .attr('stroke-width', 3)
       .attr('fill', 'none')
@@ -326,7 +335,10 @@ const LineChart = React.memo(props => {
       .style('color', `${theme.colors.textThirdly}`)
       .style('font-size', '0.7rem');
 
-    xComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`).style('cursor', 'crosshair');
+    xComplex
+      .selectAll('.tick line')
+      .style('color', `${theme.colors.bgNormal}`)
+      .style('cursor', 'crosshair');
 
     //x Axis minor - copied from BondLineChart
     const xAxis1 = axisBottom(xScale).tickSize('10').ticks(25).tickFormat([]);
@@ -337,7 +349,10 @@ const LineChart = React.memo(props => {
       .style('color', `${theme.colors.bgHighlight}`)
       .call(xAxis1);
 
-    xComplex1.selectAll('.tick line').style('stroke-width', '0.1rem').style('color', `${theme.colors.bgHighlight}`);
+    xComplex1
+      .selectAll('.tick line')
+      .style('stroke-width', '0.1rem')
+      .style('color', `${theme.colors.bgHighlight}`);
 
     // y Axis and gridlines
     const gridYlinesSize = width - margin.right - margin.left;
@@ -350,7 +365,10 @@ const LineChart = React.memo(props => {
 
     yComplex.selectAll('.tick text').style('color', `${theme.colors.txtThirdly}`);
 
-    yComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`).style('cursor', 'crosshair');
+    yComplex
+      .selectAll('.tick line')
+      .style('color', `${theme.colors.bgNormal}`)
+      .style('cursor', 'crosshair');
 
     //hover rect mouseover functionality.
     // can simplify, move to external function once functionality fixed...
@@ -358,31 +376,31 @@ const LineChart = React.memo(props => {
       .attr('width', width - margin.left - margin.right)
       .attr('height', height - margin.top - margin.bottom)
       .attr('fill', 'transparent')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+      .attr('transform', `translate(${margin.left},${margin.top})`)
       .style('cursor', 'crosshair')
       .on('mouseover', function (event) {
         //get current index - need to switch to a constant - easier if chart only called when needed
-        var mouse_date = xScale.invert(event.offsetX);
+        const mouse_date = xScale.invert(event.offsetX);
         //filter data to current position or less
-        var filtered = data.filter(f => f[x_var] <= mouse_date);
-        var filtered_last = filtered.length - 1;
+        const filtered = data.filter(f => f[x_var] <= mouse_date);
+        let filtered_last = filtered.length - 1;
         //work out whether left or right is closer
-        var left = filtered_last === data.length - 1 ? filtered_last - 1 : filtered_last;
-        var right = filtered_last === data.length - 1 ? filtered_last : filtered_last + 1;
-        var count_left = timeMinute.count(data[left][x_var], mouse_date);
-        var count_right = timeMinute.count(mouse_date, data[right][x_var]);
+        const left = filtered_last === data.length - 1 ? filtered_last - 1 : filtered_last;
+        const right = filtered_last === data.length - 1 ? filtered_last : filtered_last + 1;
+        const count_left = timeMinute.count(data[left][x_var], mouse_date);
+        const count_right = timeMinute.count(mouse_date, data[right][x_var]);
         if (count_left > count_right && count_right > 0) {
           filtered_last += 1;
         }
         //if the position needs to change
         if (dot_index !== filtered_last) {
           //filter data
-          var lowest = Math.min(dot_index, filtered_last);
-          var highest = Math.max(dot_index, filtered_last);
+          const lowest = Math.min(dot_index, filtered_last);
+          let highest = Math.max(dot_index, filtered_last);
           // var difference = highest - lowest;
           // var transitionTime = 500 + 2 * difference;
-          var transitionTime = 500;
-          var tween_data = data.filter((f, i) => i >= lowest && i <= highest);
+          const transitionTime = 500;
+          let tween_data = data.filter((f, i) => i >= lowest && i <= highest);
           if (dot_index > filtered_last) {
             //moving backwards - flip data and set highest to lowest
             tween_data = tween_data.sort((a, b) => descending(a[x_var], b[x_var]));
@@ -399,8 +417,8 @@ const LineChart = React.memo(props => {
             .attr('d', lineGenerator);
 
           //interpolate circle along path
-          var length = tweenPath.node().getTotalLength();
-          var interpolator = interpolate(0, length);
+          const length = tweenPath.node().getTotalLength();
+          const interpolator = interpolate(0, length);
           select('.mouseDot')
             .attr('visibility', 'visible')
             .interrupt()
@@ -408,13 +426,13 @@ const LineChart = React.memo(props => {
             .duration(transitionTime)
             .attrTween('transform', function () {
               return function (t) {
-                var point = tweenPath.node().getPointAtLength(interpolator(t));
-                return 'translate(' + point.x + ',' + point.y + ')';
+                const point = tweenPath.node().getPointAtLength(interpolator(t));
+                return `translate(${point.x},${point.y})`;
               };
             });
 
           //move other items
-          var pathInvisible = svgContent
+          const pathInvisible = svgContent
             .selectAll('.linePathInvisible')
             .data([data.filter((f, i) => i <= highest)])
             .join('path')
@@ -489,7 +507,11 @@ const LineChart = React.memo(props => {
   }
 
   return (
-    <div ref={wrapperRef} style={{ marginTop: '1rem', height: '350px' }} data-testid="historical-line-chart">
+    <div
+      ref={wrapperRef}
+      style={{ marginTop: '1rem', height: '350px' }}
+      data-testid="historical-line-chart"
+    >
       <StyledSVG ref={svgRef} data-testid="historical-line-chart-svg">
         <defs>
           <clipPath id={id}>

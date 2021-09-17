@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, { useContext, useRef } from 'react';
 import styled from 'styled-components';
 import {
@@ -29,19 +30,22 @@ function CandleChart(props) {
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
   const { theme } = useContext(ChainContext);
+  const { data } = props;
 
   //temporary check to stop errors when svg/wrapper/data isn't loaded yet
-  if (svgRef.current !== undefined && wrapperRef.current !== undefined && props.data !== undefined) {
-    let data = props.data;
-    data.map(m => (m.timestamp = String(m.timestamp).length === 10 ? new Date(+m.timestamp * 1000) : m.timestamp));
+  if (svgRef.current !== undefined && wrapperRef.current !== undefined && data !== undefined) {
+    data.map(m => {
+      m.timestamp = String(m.timestamp).length === 10 ? new Date(+m.timestamp * 1000) : m.timestamp;
+      return m.timestamp;
+    });
     const time_period = props.candleHeader[props.candleHeaderId].id;
     const tick_count = { Week: 7, '1H': 12 };
     const time_formats = { Week: '%a', '1H': '%I:%M' };
     const x_ticks = tick_count[time_period];
     const x_format = time_formats[time_period];
     //set other constants.
-    const width = dimensions.width;
-    const height = dimensions.height;
+    const { width } = dimensions;
+    const { height } = dimensions;
     const numberFormat = format('.6s');
     const svg = select(svgRef.current);
 
@@ -49,6 +53,7 @@ function CandleChart(props) {
     const minVar = 'low';
     const maxVar = 'high';
 
+    // eslint-disable-next-line no-inner-declarations
     function xValue(d) {
       return d[x_var];
     } // accessors
@@ -62,8 +67,8 @@ function CandleChart(props) {
     if (rectWidth > 10) {
       rectWidth = 10;
     }
-    var yMin = min(data, d => d[minVar]);
-    var yMax = max(data, d => d[maxVar]);
+    const yMin = min(data, d => d[minVar]);
+    const yMax = max(data, d => d[maxVar]);
 
     const yScale = scaleLinear()
       .domain([yMin, yMax])
@@ -103,7 +108,10 @@ function CandleChart(props) {
       .style('color', `${theme.colors.bgHighlight}`)
       .call(xAxis1);
 
-    xComplex1.selectAll('.tick line').style('stroke-width', '0.1rem').style('color', `${theme.colors.bgHighlight}`);
+    xComplex1
+      .selectAll('.tick line')
+      .style('stroke-width', '0.1rem')
+      .style('color', `${theme.colors.bgHighlight}`);
 
     // y Axis and gridlines
     const gridlinesSize = width - margin.right - margin.left;
@@ -118,12 +126,12 @@ function CandleChart(props) {
 
     yComplex.selectAll('.tick line').style('color', `${theme.colors.bgNormal}`);
 
-    var candleElements = svg
+    const candleElements = svg
       .select('.candlestickGroup')
       .selectAll('.candlestickElements')
       .data(data)
       .join(function (group) {
-        var enter = group.append('g').attr('class', 'candlestickElements');
+        const enter = group.append('g').attr('class', 'candlestickElements');
         enter.append('line').attr('class', 'candlestickRect');
         enter.append('line').attr('class', 'candlestickLine');
         return enter;
@@ -131,7 +139,10 @@ function CandleChart(props) {
 
     candleElements
       .select('.candlestickLine')
-      .attr('stroke', d => (d.open > d.close ? schemeSet1[0] : d.close > d.open ? schemeSet1[2] : schemeSet1[8]))
+      .attr('stroke', d =>
+        // eslint-disable-next-line no-nested-ternary
+        d.open > d.close ? schemeSet1[0] : d.close > d.open ? schemeSet1[2] : schemeSet1[8]
+      )
       .attr('stroke-width', 1)
       .attr('x1', d => xScale(d[x_var]))
       .attr('x2', d => xScale(d[x_var]))
@@ -142,7 +153,10 @@ function CandleChart(props) {
       .select('.candlestickRect')
       .attr('stroke-linecap', 'round')
       .attr('stroke-width', rectWidth)
-      .attr('stroke', d => (d.open > d.close ? schemeSet1[0] : d.close > d.open ? schemeSet1[2] : schemeSet1[8]))
+      .attr('stroke', d =>
+        // eslint-disable-next-line no-nested-ternary
+        d.open > d.close ? schemeSet1[0] : d.close > d.open ? schemeSet1[2] : schemeSet1[8]
+      )
       .attr('x1', d => xScale(d[x_var]))
       .attr('x2', d => xScale(d[x_var]))
       .attr('y1', d => yScale(d.open))

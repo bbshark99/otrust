@@ -3,9 +3,9 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { dark, light } from 'theme/theme';
 import { GlobalStyle } from 'theme/GlobalStyle';
-import { FullBackgroundContainer } from '../../components/UI/Container';
 import landingImg from 'assets/images/landing.svg';
 import hLogo from 'assets/images/hlogo.svg';
+import { FullBackgroundContainer } from '../../components/UI/Container';
 
 const ButtonDiv = styled.div`
   display: flex;
@@ -16,14 +16,15 @@ const ButtonDiv = styled.div`
 export function ThemePage({ setTheme }) {
   return (
     <FullBackgroundContainer img={landingImg}>
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <img src={hLogo} />
       <div style={{ marginTop: 40 }}>Welcome to Haven Social</div>
       <div style={{ margin: 10 }}>Please choose light or dark setting</div>
       <ButtonDiv>
-        <button style={{ marginRight: 10 }} onClick={() => setTheme('light')}>
+        <button type="button" style={{ marginRight: 10 }} onClick={() => setTheme('light')}>
           light
         </button>
-        <button style={{ marginLeft: 10 }} onClick={() => setTheme('dark')}>
+        <button type="button" style={{ marginLeft: 10 }} onClick={() => setTheme('dark')}>
           dark
         </button>
       </ButtonDiv>
@@ -35,9 +36,9 @@ export function HavenTheme({ children }) {
   const [theme, updateTheme] = useState();
   const [trigger, updateTrigger] = useState(false);
 
-  const setTheme = theme => {
-    localStorage.setItem('theme', theme);
-    if (theme == 'dark') {
+  const setTheme = newTheme => {
+    localStorage.setItem('theme', newTheme);
+    if (newTheme === 'dark') {
       updateTheme(dark);
     } else {
       updateTheme(light);
@@ -45,10 +46,10 @@ export function HavenTheme({ children }) {
   };
 
   useEffect(() => {
-    let themeStorage = localStorage.getItem('theme');
+    const themeStorage = localStorage.getItem('theme');
 
     if (themeStorage) {
-      if (themeStorage == 'dark') {
+      if (themeStorage === 'dark') {
         updateTheme(dark);
       } else {
         updateTheme(light);
@@ -56,12 +57,18 @@ export function HavenTheme({ children }) {
     } else updateTrigger(true);
   }, []);
 
-  return theme ? (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-    </ThemeProvider>
-  ) : trigger ? (
-    <ThemePage setTheme={setTheme} trigger={trigger} data-testid="theme-page" />
-  ) : null;
+  if (theme) {
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {children}
+      </ThemeProvider>
+    );
+  }
+
+  if (trigger) {
+    return <ThemePage setTheme={setTheme} trigger={trigger} data-testid="theme-page" />;
+  }
+
+  return null;
 }

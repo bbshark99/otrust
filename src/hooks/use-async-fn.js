@@ -19,16 +19,16 @@ export function useAsyncFn(fn) {
           error: null,
           isWorking: false,
         });
-      } catch (error) {
+      } catch (err) {
         setState({
-          error,
+          error: err,
           isWorking: false,
         });
-        throw error;
+        throw err;
       }
       return result;
     },
-    [fn],
+    [fn]
   );
 
   return [cb, isWorking, error];

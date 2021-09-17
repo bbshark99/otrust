@@ -5,7 +5,9 @@ const BondingContractJSON = require('./BondingNOM.json');
 const UniswapContractJSON = require('./UniSwap.json');
 const GravityContractJSON = require('./Gravity.json');
 
+// eslint-disable-next-line global-require
 export const contAddrs = require('./NOMAddrs.json');
+
 const uniswapUsdcAddress = '0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc';
 /**
  * NOM ERC20 Contract instance

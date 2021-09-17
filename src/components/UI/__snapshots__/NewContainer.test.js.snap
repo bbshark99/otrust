@@ -2,8 +2,33 @@
 
 exports[`Given the NewContainer component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM lgwsBc"
+  .c0 {
+  max-width: 100%;
+  width: 1600px;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c0 {
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    padding: 0;
+  }
+}
+
+<div
+    class="c0"
   />
 </DocumentFragment>
 `;

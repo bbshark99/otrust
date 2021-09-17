@@ -8,7 +8,7 @@ import {
 export function exchStringReducer(state, action) {
   console.log('Exchange String Reducer State: ', state);
   console.log('Exchange String Reducer Action: ', action);
-  var update = state;
+  let update = state;
   switch (action.type) {
     case 'bidDenom':
       try {
@@ -56,7 +56,7 @@ export function exchStringReducer(state, action) {
       }
       break;
     case 'update':
-      for (let [key, value] of action.value.entries()) {
+      for (const [key, value] of action.value.entries()) {
         switch (key) {
           case 'bidDenom':
             try {
@@ -129,7 +129,7 @@ export function exchStringReducer(state, action) {
 export function exchObjReducer(state, action) {
   // console.log("Exchange Obj Reducer State: ", state)
   // console.log("Exchange Obj Reducer State Action: ", action)
-  var update = state;
+  let update = state;
 
   switch (action.type) {
     case 'askAmount':
@@ -175,7 +175,7 @@ export function exchObjReducer(state, action) {
       }
       break;
     case 'update':
-      for (let [key, value] of action.value.entries()) {
+      for (const [key, value] of action.value.entries()) {
         if (state[key]) {
           switch (key) {
             case 'askAmount':

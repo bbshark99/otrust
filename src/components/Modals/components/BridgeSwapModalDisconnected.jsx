@@ -50,7 +50,9 @@ export default function BridgeSwapModalDisconnected() {
               </Modal.Balance>
             </Modal.ConnectionItem>
 
-            <Modal.ConnectionStatus disconnected>Onomy wallet is not connected</Modal.ConnectionStatus>
+            <Modal.ConnectionStatus disconnected>
+              Onomy wallet is not connected
+            </Modal.ConnectionStatus>
 
             <ConnectWalletWrapper>
               <Modal.FullWidthButton>Connect Onomy Wallet</Modal.FullWidthButton>
@@ -61,8 +63,9 @@ export default function BridgeSwapModalDisconnected() {
           <h2>What is Onomy Bridge?</h2>
 
           <Modal.Desc>
-            The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants
-            purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy Network.
+            The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved
+            by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and
+            swapping for NOM on the Onomy Network.
           </Modal.Desc>
 
           <Modal.InfoRow>
@@ -72,7 +75,8 @@ export default function BridgeSwapModalDisconnected() {
               <Modal.Desc>
                 Choose to bridge when you are ready to do so to finalize your purchase of NOM!{' '}
                 <strong>
-                  After bridging, you can no longer sell back to the bonding curve or bridge back for wNOM.
+                  After bridging, you can no longer sell back to the bonding curve or bridge back
+                  for wNOM.
                 </strong>{' '}
                 There are no guarantees of liquid markets.
               </Modal.Desc>

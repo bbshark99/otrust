@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 
 import { AccentButton } from 'components/UI/Button';
+import { responsive } from 'theme/constants';
 import logo from '../assets/images/onomy.png';
 import rightCursor from '../assets/images/rightCursor.png';
 import metamask from '../assets/images/metamask.png';
@@ -10,7 +11,6 @@ import ledger from '../assets/images/ledger.png';
 import coinbase from '../assets/images/coinbase.png';
 import walletConnect from '../assets/images/walletConnect.png';
 import { SUPPORTED_WALLETS } from '../connectors';
-import { responsive } from 'theme/constants';
 
 export const wallets = [
   { title: 'Metamask', img: metamask },
@@ -159,10 +159,10 @@ export default function Landing({ connectWallet }) {
     Object.values(SUPPORTED_WALLETS).forEach(sWallet => {
       if (sWallet.name === wallet.title) {
         if (isMobile && wallet.title === 'Metamask' && window.ethereum === undefined) {
-          let url = window.location.href;
-          let arr = url.split('/');
+          const url = window.location.href;
+          const arr = url.split('/');
           arr[2] = arr[2].replaceAll('/', '');
-          let newurl = 'https://metamask.app.link/dapp/' + arr[2];
+          const newurl = `https://metamask.app.link/dapp/${arr[2]}`;
           window.location.href = newurl;
         } else {
           window.localStorage.setItem('connectorId', sWallet.name);
@@ -192,7 +192,8 @@ export default function Landing({ connectWallet }) {
           <StyledMiddlePart>
             <BottomTitleText>Connect Your Wallet</BottomTitleText>
             <BottomDescriptionText>
-              To participate bonding curve process and buy NOM tokens you need to connect your Eth wallet
+              To participate bonding curve process and buy NOM tokens you need to connect your Eth
+              wallet
             </BottomDescriptionText>
           </StyledMiddlePart>
           <StyledBottomPart>

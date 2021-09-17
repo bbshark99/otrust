@@ -30,7 +30,10 @@ export default function BridgeTransactionComplete({ closeModalHandler, amountVal
       </main>
       <footer>
         <Modal.BridgeFooterControl>
-          <Modal.PrimaryButton onClick={() => closeModalHandler()} data-testid="completed-modal-primary-button">
+          <Modal.PrimaryButton
+            onClick={() => closeModalHandler()}
+            data-testid="completed-modal-primary-button"
+          >
             Done
           </Modal.PrimaryButton>
         </Modal.BridgeFooterControl>

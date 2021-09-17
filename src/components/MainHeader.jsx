@@ -207,7 +207,9 @@ export default function MainHeader() {
                   <HeaderInfoItemValue>
                     <strong>
                       <span>
-                        {BigNumber.isBigNumber(supplyNOM) ? `${Math.round(format18(supplyNOM).toNumber())}` : 'Loading'}
+                        {BigNumber.isBigNumber(supplyNOM)
+                          ? `${Math.round(format18(supplyNOM).toNumber())}`
+                          : 'Loading'}
                       </span>
                     </strong>
                     <Details>/ 1E8</Details>

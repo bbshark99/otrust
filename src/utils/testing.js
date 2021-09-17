@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/client';
@@ -6,9 +7,8 @@ import { BigNumber } from 'bignumber.js';
 
 import { darkNew } from 'theme/theme';
 import { ChainContext } from '../context/chain/ChainContext';
-import { ExchangeContext } from '../context/exchange/ExchangeContext';
+import { ExchangeContext, UpdateExchangeContext } from '../context/exchange/ExchangeContext';
 import { ModalContext } from '../context/modal/ModalContext';
-import { UpdateExchangeContext } from '../context/exchange/ExchangeContext';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
@@ -20,13 +20,13 @@ export const renderWithTheme = (Component, props, children) => {
     return render(
       <ThemeProvider theme={darkNew}>
         <Component {...props}>{children}</Component>
-      </ThemeProvider>,
+      </ThemeProvider>
     );
   }
   return render(
     <ThemeProvider theme={darkNew}>
       <Component {...props} />
-    </ThemeProvider>,
+    </ThemeProvider>
   );
 };
 
@@ -79,7 +79,12 @@ export const ExchangeContextWrapper = (children, contextProps) => {
 export const UpdateExchangeContextWrapper = (children, contextProps) => {
   return (
     <UpdateExchangeContext.Provider
-      value={{ objDispatch: () => {}, strDispatch: () => {}, setInputPending: false, ...contextProps }}
+      value={{
+        objDispatch: () => {},
+        strDispatch: () => {},
+        setInputPending: false,
+        ...contextProps,
+      }}
     >
       {children}
     </UpdateExchangeContext.Provider>
@@ -89,7 +94,12 @@ export const UpdateExchangeContextWrapper = (children, contextProps) => {
 export const ModalContextWrapper = (children, contextProps) => {
   return (
     <ModalContext.Provider
-      value={{ handleModal: () => {}, modal: false, modalContent: 'Modal Content', ...contextProps }}
+      value={{
+        handleModal: () => {},
+        modal: false,
+        modalContent: 'Modal Content',
+        ...contextProps,
+      }}
     >
       {children}
     </ModalContext.Provider>
@@ -114,7 +124,12 @@ export const renderWithContext = (Component, props, contextValues) => {
           }}
         >
           <UpdateExchangeContext.Provider
-            value={{ objDispatch: jest.fn(), strDispatch: jest.fn(), setInputPending: false, ...contextValues }}
+            value={{
+              objDispatch: jest.fn(),
+              strDispatch: jest.fn(),
+              setInputPending: false,
+              ...contextValues,
+            }}
           >
             <ExchangeContext.Provider
               value={{
@@ -128,7 +143,12 @@ export const renderWithContext = (Component, props, contextValues) => {
               }}
             >
               <ModalContext.Provider
-                value={{ handleModal: jest.fn(), modal: false, modalContent: 'Modal Content', ...contextValues }}
+                value={{
+                  handleModal: jest.fn(),
+                  modal: false,
+                  modalContent: 'Modal Content',
+                  ...contextValues,
+                }}
               >
                 <Component {...props} />
               </ModalContext.Provider>
@@ -136,6 +156,6 @@ export const renderWithContext = (Component, props, contextValues) => {
           </UpdateExchangeContext.Provider>
         </ChainContext.Provider>
       </ApolloProvider>
-    </ThemeProvider>,
+    </ThemeProvider>
   );
 };

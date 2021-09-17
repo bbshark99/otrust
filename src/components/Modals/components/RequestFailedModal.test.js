@@ -23,7 +23,7 @@ describe('Given the RequestFailedModal component', () => {
     describe('and user clicks on CloseIcon', () => {
       it('should call handleModal from the useModal context', () => {
         const { queryByTestId } = render(
-          ModalContextWrapper(ThemeWrapper(RequestFailedModal, testProps), testModalContext),
+          ModalContextWrapper(ThemeWrapper(RequestFailedModal, testProps), testModalContext)
         );
         fireEvent.click(queryByTestId('request-failed-close-icon'));
 
@@ -34,7 +34,7 @@ describe('Given the RequestFailedModal component', () => {
     describe('and user clicks on PrimaryButton', () => {
       it('should call handleModal from the useModal context', () => {
         const { queryByTestId } = render(
-          ModalContextWrapper(ThemeWrapper(RequestFailedModal, testProps), testModalContext),
+          ModalContextWrapper(ThemeWrapper(RequestFailedModal, testProps), testModalContext)
         );
         fireEvent.click(queryByTestId('request-failed-primary-button'));
 

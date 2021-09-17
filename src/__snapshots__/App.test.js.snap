@@ -1,3 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given an App component when the component is rendered should match the snapshot 1`] = `<div />`;
+exports[`Given an App component when the component is rendered should match the snapshot 1`] = `
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+@media screen and (max-width:700px) {
+
+}
+
+<div />
+`;

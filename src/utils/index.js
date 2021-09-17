@@ -1,4 +1,5 @@
 import ERC20ABI from '../abi/ERC20.abi.json';
+
 export const Networks = {
   MainNet: 1,
   Ropsten: 3,
@@ -42,7 +43,7 @@ export const TOKENS_BY_NETWORK = {
     },
   ],
 };
-export const shorter = str => (str?.length > 8 ? str.slice(0, 6) + '...' + str.slice(-4) : str);
+export const shorter = str => (str?.length > 8 ? `${str.slice(0, 6)}...${str.slice(-4)}` : str);
 
 // export const fetcher = (library: Web3Provider, abi?: any) => (...args) => {
 //   const [arg1, arg2, ...params] = args

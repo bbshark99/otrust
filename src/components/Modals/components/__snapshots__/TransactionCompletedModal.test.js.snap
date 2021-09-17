@@ -2,11 +2,319 @@
 
 exports[`Given the TransactionCompletedModal component when the component is rendered and confirmations > 0 should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM leVZfT"
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c1 svg {
+  fill: #656273;
+}
+
+.c1:hover svg {
+  fill: #9895a6;
+}
+
+.c1:active svg {
+  fill: #4d4b57;
+}
+
+.c9 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c9:hover {
+  background-color: #fff;
+}
+
+.c9:active {
+  background-color: #9895a6;
+}
+
+.c4 {
+  padding: 24px;
+  margin: 32px 0 24px;
+  background-color: #1a1823;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c4 sup {
+  font-size: 14px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.c6 span {
+  font-weight: 400;
+  color: #656273;
+}
+
+.c6 strong {
+  font-weight: 500;
+}
+
+.c3 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 88px;
+  width: 88px;
+  margin: 0 auto 16px;
+  background-color: #7cf9ba;
+  border-radius: 50%;
+  border: 6px solid #324946;
+}
+
+.c2 svg {
+  width: 35px;
+  height: 35px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #9895a6;
+  font-size: 14px;
+}
+
+.c8 svg {
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
+}
+
+.c8:hover {
+  color: #e1dfeb;
+}
+
+.c8:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c8:active {
+  color: #938fa1;
+}
+
+.c8:active svg * {
+  fill: #938fa1;
+}
+
+.c5 {
+  color: #656273;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 {
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c9 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 {
+    padding: 24px;
+    margin: 24px 0 20px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 sup {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c8 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+<div
+    class="c0"
   >
     <button
-      class="sc-jSFjdj dYAyKF"
+      class="c1"
       data-testid="completed-modal-close-icon"
     >
       <svg
@@ -35,7 +343,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
     </button>
     <main>
       <div
-        class="sc-dIsUp epJrcu"
+        class="c2"
       >
         <svg
           viewBox="0 0 35.222 35.222"
@@ -48,12 +356,12 @@ exports[`Given the TransactionCompletedModal component when the component is ren
         </svg>
       </div>
       <h3
-        class="sc-iqAclL jbEKlq"
+        class="c3"
       >
         Transaction Completed!
       </h3>
       <div
-        class="sc-pNWdM gQuxhF"
+        class="c4"
         data-testid="completed-modal-exchange-result"
       >
         + 0.00000000 
@@ -61,7 +369,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           NOM
         </sup>
         <div
-          class="sc-ksluID eVNYYf"
+          class="c5"
         >
           - 0.00000000 
           <sup>
@@ -70,7 +378,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
         </div>
       </div>
       <div
-        class="sc-jrsJWt bOdDGs"
+        class="c6"
         data-testid="completed-modal-exchange-rate"
       >
         <span>
@@ -83,10 +391,10 @@ exports[`Given the TransactionCompletedModal component when the component is ren
     </main>
     <footer>
       <div
-        class="sc-hKFxyN byYxBe"
+        class="c7"
       >
         <button
-          class="sc-bqGGPW clqWzj"
+          class="c8"
           data-testid="completed-modal-details-button"
         >
           View Details 
@@ -101,7 +409,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           </svg>
         </button>
         <button
-          class="sc-gKAaRy hdHHcK"
+          class="c9"
           data-testid="completed-modal-primary-button"
         >
           Done
@@ -114,11 +422,319 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 
 exports[`Given the TransactionCompletedModal component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM leVZfT"
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c1 svg {
+  fill: #656273;
+}
+
+.c1:hover svg {
+  fill: #9895a6;
+}
+
+.c1:active svg {
+  fill: #4d4b57;
+}
+
+.c9 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c9:hover {
+  background-color: #fff;
+}
+
+.c9:active {
+  background-color: #9895a6;
+}
+
+.c4 {
+  padding: 24px;
+  margin: 32px 0 24px;
+  background-color: #1a1823;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c4 sup {
+  font-size: 14px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.c6 span {
+  font-weight: 400;
+  color: #656273;
+}
+
+.c6 strong {
+  font-weight: 500;
+}
+
+.c3 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 88px;
+  width: 88px;
+  margin: 0 auto 16px;
+  background-color: #7cf9ba;
+  border-radius: 50%;
+  border: 6px solid #324946;
+}
+
+.c2 svg {
+  width: 35px;
+  height: 35px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #9895a6;
+  font-size: 14px;
+}
+
+.c8 svg {
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
+}
+
+.c8:hover {
+  color: #e1dfeb;
+}
+
+.c8:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c8:active {
+  color: #938fa1;
+}
+
+.c8:active svg * {
+  fill: #938fa1;
+}
+
+.c5 {
+  color: #656273;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 {
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c9 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 {
+    padding: 24px;
+    margin: 24px 0 20px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 sup {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c8 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+<div
+    class="c0"
   >
     <button
-      class="sc-jSFjdj dYAyKF"
+      class="c1"
       data-testid="completed-modal-close-icon"
     >
       <svg
@@ -147,7 +763,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
     </button>
     <main>
       <div
-        class="sc-dIsUp epJrcu"
+        class="c2"
       >
         <svg
           viewBox="0 0 35.222 35.222"
@@ -160,12 +776,12 @@ exports[`Given the TransactionCompletedModal component when the component is ren
         </svg>
       </div>
       <h3
-        class="sc-iqAclL jbEKlq"
+        class="c3"
       >
         Transaction Completed!
       </h3>
       <div
-        class="sc-pNWdM gQuxhF"
+        class="c4"
         data-testid="completed-modal-exchange-result"
       >
         + 0.00000000 
@@ -173,7 +789,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           NOM
         </sup>
         <div
-          class="sc-ksluID eVNYYf"
+          class="c5"
         >
           - 0.00000000 
           <sup>
@@ -182,7 +798,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
         </div>
       </div>
       <div
-        class="sc-jrsJWt bOdDGs"
+        class="c6"
         data-testid="completed-modal-exchange-rate"
       >
         <span>
@@ -195,10 +811,10 @@ exports[`Given the TransactionCompletedModal component when the component is ren
     </main>
     <footer>
       <div
-        class="sc-hKFxyN byYxBe"
+        class="c7"
       >
         <button
-          class="sc-bqGGPW clqWzj"
+          class="c8"
           data-testid="completed-modal-details-button"
         >
           View Details 
@@ -213,7 +829,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           </svg>
         </button>
         <button
-          class="sc-gKAaRy hdHHcK"
+          class="c9"
           data-testid="completed-modal-primary-button"
         >
           Done

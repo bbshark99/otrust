@@ -1,14 +1,15 @@
+/* eslint-disable no-nested-ternary */
 import React, { useCallback, useRef } from 'react';
 import { BigNumber } from 'bignumber.js';
+import { useWeb3React } from '@web3-react/core';
+import _ from 'lodash';
+
 import ConfirmTransactionModal from 'components/Modals/components/ConfirmTransactionModal';
 import PendingModal from 'components/Modals/components/PendingModal';
 import ApproveTokensModal from 'components/Modals/components/ApproveTokensModal';
 import RequestFailedModal from 'components/Modals/components/RequestFailedModal';
 import TransactionCompletedModal from 'components/Modals/components/TransactionCompletedModal';
 import TransactionFailedModal from 'components/Modals/components/TransactionFailedModal';
-import { useWeb3React } from '@web3-react/core';
-import _ from 'lodash';
-
 import { useChain } from 'context/chain/ChainContext';
 import { BondingCont, NOMCont } from 'context/chain/contracts';
 import { useExchange, useUpdateExchange } from 'context/exchange/ExchangeContext';
@@ -35,7 +36,8 @@ export default function ExchangeQuote({ strength }) {
   const bondContract = BondingCont(library);
   const NOMcontract = NOMCont(library);
 
-  const { askAmount, bidAmount, approveAmount, bidDenom, input, output, strong, weak } = useExchange();
+  const { askAmount, bidAmount, approveAmount, bidDenom, input, output, strong, weak } =
+    useExchange();
   const { NOMallowance } = useChain();
   const { objDispatch, strDispatch } = useUpdateExchange();
   const isBuying = strength === 'strong';
@@ -45,7 +47,7 @@ export default function ExchangeQuote({ strength }) {
 
   const getAskAmount = useCallback(
     async (askAmountState, bidAmountUpdate, textStrength) => {
-      var askAmountUpdate = askAmountState;
+      let askAmountUpdate = askAmountState;
 
       switch (textStrength) {
         case 'strong':
@@ -64,7 +66,7 @@ export default function ExchangeQuote({ strength }) {
       }
       return new BigNumber(askAmountUpdate.toString());
     },
-    [bondContract],
+    [bondContract]
   );
 
   const submitTrans = useCallback(
@@ -75,16 +77,20 @@ export default function ExchangeQuote({ strength }) {
         if (!approveAmount) return;
 
         try {
-          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveRef.current.toFixed(0), {
-            gasPrice: gasPrice.toFixed(0),
-          });
+          const tx = await NOMcontract.increaseAllowance(
+            bondContract.address,
+            approveRef.current.toFixed(0),
+            {
+              gasPrice: gasPrice.toFixed(0),
+            }
+          );
 
           tx.wait().then(() => {
             handleModal(<TransactionCompletedModal isApproving tx={tx} />);
           });
         } catch (e) {
           console.log(e);
-          handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+          handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }
       } else {
         if (!bidAmount || !askAmount) return;
@@ -97,20 +103,33 @@ export default function ExchangeQuote({ strength }) {
               // Preparing for many tokens / coins
               switch (strong) {
                 case 'ETH':
-                  const gasFeeRaw = await bondContract.estimateGas.buyNOM(askAmount.toFixed(0), slippage.toFixed(0), {
-                    value: bidAmount.toFixed(0),
-                  });
+                  // eslint-disable-next-line no-case-declarations
+                  const gasFeeRaw = await bondContract.estimateGas.buyNOM(
+                    askAmount.toFixed(0),
+                    slippage.toFixed(0),
+                    {
+                      value: bidAmount.toFixed(0),
+                    }
+                  );
 
                   gasFee = new BigNumber(gasFeeRaw.toString());
 
+                  // eslint-disable-next-line no-case-declarations
                   const gas = gasFee.times(gasPrice);
                   if (bidAmount.lt(gas)) {
-                    handleModal(<TransactionFailedModal error={NOTIFICATION_MESSAGES.error.lowBid} />);
+                    handleModal(
+                      <TransactionFailedModal error={NOTIFICATION_MESSAGES.error.lowBid} />
+                    );
                     return;
                   }
 
+                  // eslint-disable-next-line no-case-declarations
                   const bidAmountUpdate = bidAmount.minus(gasFee.times(gasPrice));
-                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed());
+                  // eslint-disable-next-line no-case-declarations
+                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(
+                    bidAmountUpdate.toFixed()
+                  );
+                  // eslint-disable-next-line no-case-declarations
                   const askAmountUpdate = new BigNumber(askAmountUpdateRaw.toString());
 
                   tx = await bondContract.buyNOM(askAmountUpdate.toFixed(0), slippage.toFixed(0), {
@@ -125,6 +144,7 @@ export default function ExchangeQuote({ strength }) {
 
                   break;
                 default: {
+                  break;
                 }
               }
               break;
@@ -132,15 +152,21 @@ export default function ExchangeQuote({ strength }) {
             case 'weak':
               switch (weak) {
                 case 'wNOM':
-                  tx = await bondContract.sellNOM(bidAmount.toFixed(0), askAmount.toFixed(0), slippage.toFixed(0), {
-                    gasPrice: gasPrice.toFixed(0),
-                  });
+                  tx = await bondContract.sellNOM(
+                    bidAmount.toFixed(0),
+                    askAmount.toFixed(0),
+                    slippage.toFixed(0),
+                    {
+                      gasPrice: gasPrice.toFixed(0),
+                    }
+                  );
 
                   tx.wait().then(() => {
                     handleModal(<TransactionCompletedModal tx={tx} />);
                   });
                   break;
                 default: {
+                  break;
                 }
               }
               break;
@@ -152,18 +178,28 @@ export default function ExchangeQuote({ strength }) {
           // eslint-disable-next-line no-console
           console.error(e.code, e.message.message);
           // alert(e.message)
-          handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+          handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }
       }
     },
-    [askAmount, bidAmount, approveAmount, bidDenom, NOMcontract, bondContract, handleModal, strong, weak],
+    [
+      askAmount,
+      bidAmount,
+      approveAmount,
+      bidDenom,
+      NOMcontract,
+      bondContract,
+      handleModal,
+      strong,
+      weak,
+    ]
   );
 
   const onConfirmApprove = () => {
     try {
       handleModal(<ConfirmTransactionModal isApproving submitTrans={submitTrans} />);
     } catch (e) {
-      handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+      handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
     }
   };
 
@@ -198,7 +234,7 @@ export default function ExchangeQuote({ strength }) {
   const onMax = async () => {
     let strUpdate = new Map();
     strUpdate.set('bidDenom', strength);
-    let bidMaxValue = strength === 'strong' ? strongBalance : weakBalance;
+    const bidMaxValue = strength === 'strong' ? strongBalance : weakBalance;
 
     strUpdate.set('input', format18(bidMaxValue).toFixed());
 
@@ -247,7 +283,7 @@ export default function ExchangeQuote({ strength }) {
           return;
         }
 
-        var askAmountUpdate;
+        let askAmountUpdate;
 
         try {
           const bidAmountUpdate = parse18(new BigNumber(parseFloat(evt.target.value).toString()));
@@ -258,7 +294,10 @@ export default function ExchangeQuote({ strength }) {
           let strUpdate = new Map();
 
           objUpdate = objUpdate.set('askAmount', new BigNumber(askAmountUpdate.toString()));
-          strUpdate = strUpdate.set('output', format18(new BigNumber(askAmountUpdate.toString())).toFixed(8));
+          strUpdate = strUpdate.set(
+            'output',
+            format18(new BigNumber(askAmountUpdate.toString())).toFixed(8)
+          );
 
           objDispatch({
             type: 'update',
@@ -275,7 +314,9 @@ export default function ExchangeQuote({ strength }) {
         }
       }, 500);
 
-      const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$)/);
+      const floatRegExp = new RegExp(
+        /(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d+?\.$)|(^\+?(?!0\d+)$)/
+      );
       switch (true) {
         case evt.target.value === '' || evt.target.value === '.': {
           let objUpdate = new Map();
@@ -349,15 +390,27 @@ export default function ExchangeQuote({ strength }) {
           handleModal(<RequestFailedModal error="Please enter numbers only. Thank you!" />);
       }
     },
-    [askAmount, bidDenom, NOMallowance, getAskAmount, handleModal, input, objDispatch, strDispatch, strength],
+    [
+      askAmount,
+      bidDenom,
+      NOMallowance,
+      getAskAmount,
+      handleModal,
+      input,
+      objDispatch,
+      strDispatch,
+      strength,
+    ]
   );
 
   return (
     <ExchangeItem>
-      <strong>{isBuying ? 'Buy ' + weak : 'Sell ' + weak}</strong>
+      <strong>{isBuying ? `Buy ${weak}` : `Sell ${weak}`}</strong>
       <Sending>
         <SendingBox style={{ width: '100%', paddingRight: 16 }}>
-          {(bidDenom !== strength || !input) && <strong>{isBuying ? "I'm buying for" : "I'm selling"}</strong>}
+          {(bidDenom !== strength || !input) && (
+            <strong>{isBuying ? "I'm buying for" : "I'm selling"}</strong>
+          )}
           <ExchangeInput
             type="text"
             data-testid="exchange-strong-balance-input"
@@ -386,7 +439,9 @@ export default function ExchangeQuote({ strength }) {
           input === '' ? (
             <ExchangeButton>Input Value</ExchangeButton>
           ) : (
-            <ExchangeButton onClick={onBid}>Buy {strength === 'strong' ? weak : strong}</ExchangeButton>
+            <ExchangeButton onClick={onBid}>
+              Buy {strength === 'strong' ? weak : strong}
+            </ExchangeButton>
           )
         ) : (
           <ExchangeButton>Low {strong} Balance</ExchangeButton>

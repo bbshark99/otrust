@@ -8,11 +8,11 @@ export const useModal = () => useContext(ModalContext);
 export const UpdateModalContext = createContext();
 export const useUpdateModal = () => useContext(UpdateModalContext);
 
-let ModalProvider = ({ children }) => {
-  let [modal, updateModal] = useState(false);
-  let [modalContent, updateModalContent] = useState("I'm the Modal Content");
+const ModalProvider = ({ children }) => {
+  const [modal, updateModal] = useState(false);
+  const [modalContent, updateModalContent] = useState("I'm the Modal Content");
 
-  let handleModal = (content = false) => {
+  const handleModal = (content = false) => {
     updateModal(!modal);
     if (content) {
       updateModalContent(content);

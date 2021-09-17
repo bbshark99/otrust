@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
   height: 2.25rem;
-  width: ${p => (p.width ? p.width + 'px' : 'auto')};
+  width: ${p => (p.width ? `${p.width}px` : 'auto')};
 
   background-color: ${props => props.theme.colors.bgLight};
   border: none;
@@ -25,7 +25,7 @@ const StyledButton = styled.button`
 
 export const AccentButton = styled.button`
   height: 2.25rem;
-  width: ${p => (p.width ? p.width + 'px' : 'auto')};
+  width: ${p => (p.width ? `${p.width}px` : 'auto')};
   padding: 0 1.25rem;
 
   background-color: ${props => props.theme.colors.primary};

@@ -2,26 +2,855 @@
 
 exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of BigNumber type when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
+  .c0 {
+  padding: 4px;
+  background-color: #201d2a;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  color: #c75a5a;
+  font-weight: 500;
+}
+
+.c24:before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.c18 {
+  display: none;
+  padding: 12px 24px;
+  position: absolute;
+  bottom: -48px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
+  color: #e1dfeb;
+  font-size: 14px;
+  font-family: 'Poppins',sans-serif;
+  z-index: 1;
+}
+
+.c16 {
+  position: relative;
+}
+
+.c16:hover .c17 {
+  display: block;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  background-color: #1a1823;
+  border: 1px solid #302E3D;
+  border-radius: 8px;
+  color: #8d89a3;
+  cursor: pointer;
+}
+
+.c5 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c5:hover {
+  background-color: #252130;
+}
+
+.c5:active {
+  background-color: #1b1924;
+}
+
+.c3 {
+  display: grid;
+  grid-template-columns: 44px 72px 44px;
+  grid-template-rows: auto auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 32px 60px;
+  height: 200px;
+  padding: 24px 48px;
+  background-color: #1a1823;
+  border-radius: 4px;
+}
+
+.c4 {
+  height: 72px;
+  width: 72px;
+  border-radius: 12px;
+  border: 3px solid #302E3D;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  grid-column: 1/4;
+}
+
+.c6 span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c21 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c21:hover {
+  background-color: #fff;
+}
+
+.c21:active {
+  background-color: #9895a6;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 40px;
+  border-bottom: 1px solid #302E3D;
+}
+
+.c7 strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #9895a6;
+}
+
+.c9 {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.c9 > small {
+  margin-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  color: #9895a6;
+  font-size: 11px;
+}
+
+.c15 {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.c15 > small {
+  margin-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  color: #9895a6;
+  font-size: 11px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c10 {
+  position: relative;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5d5b70;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c14:hover {
+  background-color: #8d89a3;
+  color: #1a1823;
+}
+
+.c14:active {
+  background-color: #191820;
+}
+
+.c19 {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-top: 6px;
+  position: relative;
+  background-color: #2a303f;
+  border-radius: 6px;
+  color: #88d1ff;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Poppins,sans-serif;
+}
+
+.c19 svg {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.c19 svg * {
+  fill: currentColor;
+}
+
+.c20 {
+  margin-top: 20px;
+  min-width: 150px;
+}
+
+.c11 {
+  display: none;
+  width: 360px;
+  padding: 32px 40px;
+  position: absolute;
+  right: 72px;
+  top: -52px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c11:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -20px;
+  top: 42px;
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid #302E3D;
+}
+
+.c12 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.c13 {
+  color: #9895a6;
+}
+
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 40px;
+  margin-top: auto;
+}
+
+.c26 {
+  display: block;
+  margin-right: auto;
+  color: #9895a6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c26:hover {
+  color: #e1dfeb;
+}
+
+.c26:active {
+  color: #656273;
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  font-size: 20px;
+  color: #5d5b70;
+  cursor: pointer;
+}
+
+.c28 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c28:hover {
+  background-color: #47445a;
+}
+
+.c28:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c28:active {
+  background-color: #191820;
+}
+
+.c27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.c22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c23 > strong {
+  font-weight: 400;
+  color: #9895a6;
+  white-space: nowrap;
+}
+
+.c23 > span {
+  font-weight: 500;
+}
+
+.c1 {
+  height: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 {
+    width: 32px;
+    height: 32px;
+  }
+
+  .c5 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c5:first-child {
+    grid-column: 3/4;
+  }
+
+  .c5:nth-child(3) {
+    grid-column: 4/5;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c5 {
+    width: 44px;
+    height: 44px;
+  }
+
+  .c5 svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px 32px;
+    height: 180px;
+    padding: 24px 48px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c3 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c3 {
+    grid-template-rows: none;
+    grid-template-columns: 56px 250px 32px 32px;
+    justify-items: start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    gap: 10px;
+    height: 100px;
+    background-color: #201d2a;
+    border-bottom: 1px solid #302E3D;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c3 {
+    grid-template-columns: 56px 150px 32px 32px;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c3 {
+    grid-template-columns: 56px 1fr 44px 44px;
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c3 {
+    grid-column: 1fr 44px 44px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 {
+    height: 56px;
+    width: 56px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c4 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c4 {
+    grid-column: none;
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c6 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-left: 14px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c6 {
+    grid-column: 1/2;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c6 span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c21 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c21 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c7 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    border: none;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c7 {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c7 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 20px;
+    gap: 0px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c15 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c14 {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c14 {
+    margin-left: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c20 {
+    margin: 0 0 0 auto;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c20 {
+    padding-top: 10px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c11 {
+    width: 240px;
+    padding: 16px 40px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c25 {
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    padding: 40px 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c25 {
+    width: 100%;
+    gap: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 24px;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c25 {
+    padding: 24px 20px;
+    position: relative;
+    background-color: #1a1823;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c26 {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c26 {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c28 {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .c28 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c27 {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c22 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c22 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 40px;
+    border-bottom: 1px solid #302E3D;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c22 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c23 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c2 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 100px 100px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:700px) {
+  .c2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+<div
     id="tour-sidebar"
   >
     <div
-      class="sc-gtsrHT sc-fmdNqN kNGwHP ljYvwI"
+      class="c0 c1"
     >
       <div
-        class="sc-ljsmAU dxkdqO"
+        class="c2"
       >
         <header
-          class="sc-jrsJWt gbudSW"
+          class="c3"
         >
           <span />
           <img
             alt=""
-            class="sc-kEqXSa fFzArm"
+            class="c4"
             src="https://picsum.photos/72"
           />
           <a
-            class="sc-pNWdM bKOwNW"
+            class="c5"
           >
             <svg
               viewBox="0 0 20 20"
@@ -35,7 +864,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
             </svg>
           </a>
           <div
-            class="sc-iqAclL deOhEw"
+            class="c6"
           >
             <p>
               My Account
@@ -44,19 +873,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
           </div>
         </header>
         <div
-          class="sc-dtLLSn gvXBiy"
+          class="c7"
         >
           <div
-            class="sc-WZYut dwCNYl"
+            class="c8"
           >
             <div
-              class="sc-ikXwFM"
+              class=""
             >
               <strong>
                 ETH Balance
               </strong>
               <div
-                class="sc-dkQUaI lnxBdg"
+                class="c9"
               >
                 Loading
                 <small>
@@ -65,55 +894,55 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </div>
             </div>
             <div
-              class="sc-uxdHp iQOJDV"
+              class="c10"
             >
               <div
-                class="sc-kYPZxB gKafRb"
+                class="c11"
               >
                 <h5
-                  class="sc-xGAEC dbfkiH"
+                  class="c12"
                 >
                   ETH Balance
                 </h5>
                 <p
-                  class="sc-dWBRfb icEJQN"
+                  class="c13"
                 >
                   This is your connected wallet Ether balance.
                 </p>
               </div>
               <button
-                class="sc-biJonm cgepEd"
+                class="c14"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="sc-WZYut dwCNYl"
+            class="c8"
           >
             <div
-              class="sc-ikXwFM"
+              class=""
             >
               <strong>
                 wNOM Balance
               </strong>
               <div
-                class="sc-dkQUaI hEJgP"
+                class="c15"
               >
                 Loading
                 <small>
                    = $16,208.04
                 </small>
                 <div
-                  class="sc-fujyAs fSykkk"
+                  class="c16"
                 >
                   <div
-                    class="sc-iCoGMd kgVWck"
+                    class="c17 c18"
                   >
                     Loading
                   </div>
                   <div
-                    class="sc-eHEENL eCnyHI"
+                    class="c19"
                   >
                     <span>
                       Loading approved
@@ -123,34 +952,34 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </div>
             </div>
             <div
-              class="sc-uxdHp iQOJDV"
+              class="c10"
             >
               <div
-                class="sc-kYPZxB gKafRb"
+                class="c11"
               >
                 <h5
-                  class="sc-xGAEC dbfkiH"
+                  class="c12"
                 >
                   wNOM Balance
                 </h5>
                 <p
-                  class="sc-dWBRfb icEJQN"
+                  class="c13"
                 >
                   This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling before it can be sold.
                 </p>
               </div>
               <button
-                class="sc-biJonm cgepEd"
+                class="c14"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="sc-hzUIXc fsYLki"
+            class="c20"
           >
             <button
-              class="sc-fFSPTT gLuNlm"
+              class="c21"
               style="width: 100%;"
             >
               Withdraw wNOM
@@ -158,22 +987,22 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
           </div>
         </div>
         <div
-          class="sc-jXcxbT cMtsZV"
+          class="c22"
         >
           <div
-            class="sc-eEVmNe eZkyNG"
+            class="c23"
           >
             <strong>
               Connection
             </strong>
             <div
-              class="sc-gKAaRy eFHdfB"
+              class="c24"
             >
               Loading
             </div>
           </div>
           <div
-            class="sc-eEVmNe eZkyNG"
+            class="c23"
           >
             <strong>
               Chain Id
@@ -181,7 +1010,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
             <span />
           </div>
           <div
-            class="sc-eEVmNe eZkyNG"
+            class="c23"
           >
             <strong>
               Block Number
@@ -192,20 +1021,20 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
           </div>
         </div>
         <footer
-          class="sc-jHcXXw jzrdRo"
+          class="c25"
         >
           <a
-            class="sc-bQCEYZ datDoY"
+            class="c26"
             href="https://onomy.io/"
             target="_blank"
           >
             About Onomy
           </a>
           <div
-            class="sc-EZqKI kpxuIj"
+            class="c27"
           >
             <a
-              class="sc-fXgAZx bHdyGT"
+              class="c28"
               href="https://t.me/onomyprotocol"
               target="_blank"
             >
@@ -220,7 +1049,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </svg>
             </a>
             <a
-              class="sc-fXgAZx bHdyGT"
+              class="c28"
               href="https://medium.com/onomy-protocol"
               target="_blank"
             >
@@ -239,7 +1068,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </svg>
             </a>
             <a
-              class="sc-fXgAZx bHdyGT"
+              class="c28"
               href="https://twitter.com/onomyprotocol"
               target="_blank"
             >
@@ -264,26 +1093,855 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 
 exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNumber type when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
+  .c0 {
+  padding: 4px;
+  background-color: #201d2a;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  color: #c75a5a;
+  font-weight: 500;
+}
+
+.c24:before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.c18 {
+  display: none;
+  padding: 12px 24px;
+  position: absolute;
+  bottom: -48px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
+  color: #e1dfeb;
+  font-size: 14px;
+  font-family: 'Poppins',sans-serif;
+  z-index: 1;
+}
+
+.c16 {
+  position: relative;
+}
+
+.c16:hover .c17 {
+  display: block;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  background-color: #1a1823;
+  border: 1px solid #302E3D;
+  border-radius: 8px;
+  color: #8d89a3;
+  cursor: pointer;
+}
+
+.c5 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c5:hover {
+  background-color: #252130;
+}
+
+.c5:active {
+  background-color: #1b1924;
+}
+
+.c3 {
+  display: grid;
+  grid-template-columns: 44px 72px 44px;
+  grid-template-rows: auto auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 32px 60px;
+  height: 200px;
+  padding: 24px 48px;
+  background-color: #1a1823;
+  border-radius: 4px;
+}
+
+.c4 {
+  height: 72px;
+  width: 72px;
+  border-radius: 12px;
+  border: 3px solid #302E3D;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  grid-column: 1/4;
+}
+
+.c6 span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c21 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c21:hover {
+  background-color: #fff;
+}
+
+.c21:active {
+  background-color: #9895a6;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 40px;
+  border-bottom: 1px solid #302E3D;
+}
+
+.c7 strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #9895a6;
+}
+
+.c9 {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.c9 > small {
+  margin-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  color: #9895a6;
+  font-size: 11px;
+}
+
+.c15 {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.c15 > small {
+  margin-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  color: #9895a6;
+  font-size: 11px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c10 {
+  position: relative;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5d5b70;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c14:hover {
+  background-color: #8d89a3;
+  color: #1a1823;
+}
+
+.c14:active {
+  background-color: #191820;
+}
+
+.c19 {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-top: 6px;
+  position: relative;
+  background-color: #2a303f;
+  border-radius: 6px;
+  color: #88d1ff;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Poppins,sans-serif;
+}
+
+.c19 svg {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.c19 svg * {
+  fill: currentColor;
+}
+
+.c20 {
+  margin-top: 20px;
+  min-width: 150px;
+}
+
+.c11 {
+  display: none;
+  width: 360px;
+  padding: 32px 40px;
+  position: absolute;
+  right: 72px;
+  top: -52px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c11:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -20px;
+  top: 42px;
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid #302E3D;
+}
+
+.c12 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.c13 {
+  color: #9895a6;
+}
+
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 40px;
+  margin-top: auto;
+}
+
+.c26 {
+  display: block;
+  margin-right: auto;
+  color: #9895a6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c26:hover {
+  color: #e1dfeb;
+}
+
+.c26:active {
+  color: #656273;
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  font-size: 20px;
+  color: #5d5b70;
+  cursor: pointer;
+}
+
+.c28 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c28:hover {
+  background-color: #47445a;
+}
+
+.c28:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c28:active {
+  background-color: #191820;
+}
+
+.c27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.c22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c23 > strong {
+  font-weight: 400;
+  color: #9895a6;
+  white-space: nowrap;
+}
+
+.c23 > span {
+  font-weight: 500;
+}
+
+.c1 {
+  height: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 {
+    width: 32px;
+    height: 32px;
+  }
+
+  .c5 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c5:first-child {
+    grid-column: 3/4;
+  }
+
+  .c5:nth-child(3) {
+    grid-column: 4/5;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c5 {
+    width: 44px;
+    height: 44px;
+  }
+
+  .c5 svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px 32px;
+    height: 180px;
+    padding: 24px 48px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c3 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c3 {
+    grid-template-rows: none;
+    grid-template-columns: 56px 250px 32px 32px;
+    justify-items: start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    gap: 10px;
+    height: 100px;
+    background-color: #201d2a;
+    border-bottom: 1px solid #302E3D;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c3 {
+    grid-template-columns: 56px 150px 32px 32px;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c3 {
+    grid-template-columns: 56px 1fr 44px 44px;
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c3 {
+    grid-column: 1fr 44px 44px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 {
+    height: 56px;
+    width: 56px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c4 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c4 {
+    grid-column: none;
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c6 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-left: 14px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c6 {
+    grid-column: 1/2;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c6 span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c21 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c21 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c7 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    border: none;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c7 {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c7 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 20px;
+    gap: 0px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c15 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c14 {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c14 {
+    margin-left: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c20 {
+    margin: 0 0 0 auto;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c20 {
+    padding-top: 10px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c11 {
+    width: 240px;
+    padding: 16px 40px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c25 {
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    padding: 40px 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c25 {
+    width: 100%;
+    gap: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 24px;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c25 {
+    padding: 24px 20px;
+    position: relative;
+    background-color: #1a1823;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c26 {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c26 {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c28 {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .c28 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c27 {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c22 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c22 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 40px;
+    border-bottom: 1px solid #302E3D;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c22 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c23 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c2 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 100px 100px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:834px) {
+
+}
+
+@media screen and (max-width:700px) {
+  .c2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+<div
     id="tour-sidebar"
   >
     <div
-      class="sc-gtsrHT sc-fmdNqN kNGwHP ljYvwI"
+      class="c0 c1"
     >
       <div
-        class="sc-ljsmAU dxkdqO"
+        class="c2"
       >
         <header
-          class="sc-jrsJWt gbudSW"
+          class="c3"
         >
           <span />
           <img
             alt=""
-            class="sc-kEqXSa fFzArm"
+            class="c4"
             src="https://picsum.photos/72"
           />
           <a
-            class="sc-pNWdM bKOwNW"
+            class="c5"
           >
             <svg
               viewBox="0 0 20 20"
@@ -297,7 +1955,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
             </svg>
           </a>
           <div
-            class="sc-iqAclL deOhEw"
+            class="c6"
           >
             <p>
               My Account
@@ -306,19 +1964,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
           </div>
         </header>
         <div
-          class="sc-dtLLSn gvXBiy"
+          class="c7"
         >
           <div
-            class="sc-WZYut dwCNYl"
+            class="c8"
           >
             <div
-              class="sc-ikXwFM"
+              class=""
             >
               <strong>
                 ETH Balance
               </strong>
               <div
-                class="sc-dkQUaI lnxBdg"
+                class="c9"
               >
                 0.000000
                 <small>
@@ -327,55 +1985,55 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </div>
             </div>
             <div
-              class="sc-uxdHp iQOJDV"
+              class="c10"
             >
               <div
-                class="sc-kYPZxB gKafRb"
+                class="c11"
               >
                 <h5
-                  class="sc-xGAEC dbfkiH"
+                  class="c12"
                 >
                   ETH Balance
                 </h5>
                 <p
-                  class="sc-dWBRfb icEJQN"
+                  class="c13"
                 >
                   This is your connected wallet Ether balance.
                 </p>
               </div>
               <button
-                class="sc-biJonm cgepEd"
+                class="c14"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="sc-WZYut dwCNYl"
+            class="c8"
           >
             <div
-              class="sc-ikXwFM"
+              class=""
             >
               <strong>
                 wNOM Balance
               </strong>
               <div
-                class="sc-dkQUaI hEJgP"
+                class="c15"
               >
                 0.000000
                 <small>
                    = $16,208.04
                 </small>
                 <div
-                  class="sc-fujyAs fSykkk"
+                  class="c16"
                 >
                   <div
-                    class="sc-iCoGMd kgVWck"
+                    class="c17 c18"
                   >
                     Loading
                   </div>
                   <div
-                    class="sc-eHEENL eCnyHI"
+                    class="c19"
                   >
                     <span>
                       Loading approved
@@ -385,34 +2043,34 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </div>
             </div>
             <div
-              class="sc-uxdHp iQOJDV"
+              class="c10"
             >
               <div
-                class="sc-kYPZxB gKafRb"
+                class="c11"
               >
                 <h5
-                  class="sc-xGAEC dbfkiH"
+                  class="c12"
                 >
                   wNOM Balance
                 </h5>
                 <p
-                  class="sc-dWBRfb icEJQN"
+                  class="c13"
                 >
                   This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling before it can be sold.
                 </p>
               </div>
               <button
-                class="sc-biJonm cgepEd"
+                class="c14"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="sc-hzUIXc fsYLki"
+            class="c20"
           >
             <button
-              class="sc-fFSPTT gLuNlm"
+              class="c21"
               style="width: 100%;"
             >
               Withdraw wNOM
@@ -420,22 +2078,22 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
           </div>
         </div>
         <div
-          class="sc-jXcxbT cMtsZV"
+          class="c22"
         >
           <div
-            class="sc-eEVmNe eZkyNG"
+            class="c23"
           >
             <strong>
               Connection
             </strong>
             <div
-              class="sc-gKAaRy eFHdfB"
+              class="c24"
             >
               Loading
             </div>
           </div>
           <div
-            class="sc-eEVmNe eZkyNG"
+            class="c23"
           >
             <strong>
               Chain Id
@@ -443,7 +2101,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
             <span />
           </div>
           <div
-            class="sc-eEVmNe eZkyNG"
+            class="c23"
           >
             <strong>
               Block Number
@@ -454,20 +2112,20 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
           </div>
         </div>
         <footer
-          class="sc-jHcXXw jzrdRo"
+          class="c25"
         >
           <a
-            class="sc-bQCEYZ datDoY"
+            class="c26"
             href="https://onomy.io/"
             target="_blank"
           >
             About Onomy
           </a>
           <div
-            class="sc-EZqKI kpxuIj"
+            class="c27"
           >
             <a
-              class="sc-fXgAZx bHdyGT"
+              class="c28"
               href="https://t.me/onomyprotocol"
               target="_blank"
             >
@@ -482,7 +2140,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </svg>
             </a>
             <a
-              class="sc-fXgAZx bHdyGT"
+              class="c28"
               href="https://medium.com/onomy-protocol"
               target="_blank"
             >
@@ -501,7 +2159,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </svg>
             </a>
             <a
-              class="sc-fXgAZx bHdyGT"
+              class="c28"
               href="https://twitter.com/onomyprotocol"
               target="_blank"
             >

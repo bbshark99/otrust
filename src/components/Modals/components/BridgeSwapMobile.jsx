@@ -4,13 +4,18 @@ import styled from 'styled-components';
 import { useWeb3React } from '@web3-react/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import LoadingSpinner from 'components/UI/LoadingSpinner';
 
+import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { responsive } from 'theme/constants';
 import ApproveTokensBridgeModal from './ApproveTokensBridgeModal';
 import BridgeTransactionComplete from './BridgeTransactionComplete';
 import { getFirstMessage } from '../../../utils/helpers';
-import { BridgeMaxBtn, BridgeAddressInput, BridgeSending, BridgeAmountInput } from '../../Exchange/exchangeStyles';
+import {
+  BridgeMaxBtn,
+  BridgeAddressInput,
+  BridgeSending,
+  BridgeAmountInput,
+} from '../../Exchange/exchangeStyles';
 import { ConnectionStatus } from '../../UI/ConnectionStatus';
 import * as Modal from '../styles';
 import oneWayBridgeImg from '../assets/one-way-bridge.svg';
@@ -145,12 +150,14 @@ const Options = styled.div`
 
 const OptionBtn = styled.button`
   padding: 12px 16px;
-  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  background-color: ${props =>
+    props.active ? props.theme.colors.bgHighlightBorder : 'transparent'};
   border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
   border-radius: 22px;
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  color: ${props =>
+    props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary};
   &:hover {
     background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
   }
@@ -181,7 +188,11 @@ export default function BridgeSwapMobile({ ...props }) {
 
   return (
     <BridgeSwapModalWrapper>
-      <ReactModal isOpen={flags.showApproveModal} style={modalOverride} data-testid="bridge-mobile-approve-modal">
+      <ReactModal
+        isOpen={flags.showApproveModal}
+        style={modalOverride}
+        data-testid="bridge-mobile-approve-modal"
+      >
         <BridgeSwapModal>
           <ModalInfo>
             <ApproveTokensBridgeModal
@@ -232,9 +243,9 @@ export default function BridgeSwapMobile({ ...props }) {
               <h2>What is Onomy Bridge?</h2>
 
               <Modal.Desc>
-                The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants
-                purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy
-                Network.
+                The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is
+                achieved by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum
+                Network, and swapping for NOM on the Onomy Network.
               </Modal.Desc>
 
               <Modal.InfoRow>
@@ -244,7 +255,8 @@ export default function BridgeSwapMobile({ ...props }) {
                   <Modal.Desc>
                     Choose to bridge when you are ready to do so to finalize your purchase of NOM!{' '}
                     <strong>
-                      After bridging, you can no longer sell back to the bonding curve or bridge back for wNOM.
+                      After bridging, you can no longer sell back to the bonding curve or bridge
+                      back for wNOM.
                     </strong>{' '}
                     There are no guarantees of liquid markets.
                   </Modal.Desc>
@@ -260,7 +272,9 @@ export default function BridgeSwapMobile({ ...props }) {
                   <Modal.List>
                     <li>You must hold NOM to participate in the Onomy Network. </li>
                     <li>Early stakers of NOM take advantage of larger staking yield. </li>
-                    <li>NOM is used for governance, staking, and collateral to mint stablecoins.</li>
+                    <li>
+                      NOM is used for governance, staking, and collateral to mint stablecoins.
+                    </li>
                     <li>All bridged wNOM is burned from the bonding curve supply. </li>
                     <li>NOM would be listed on exchanges rather than wNOM. </li>
                   </Modal.List>
@@ -282,7 +296,10 @@ export default function BridgeSwapMobile({ ...props }) {
       >
         <BridgeSwapModal>
           <ModalHeader>
-            <ModalBtn onClick={() => handlers.closeModalClickHandler()} data-testid="bridge-mobile-header-button">
+            <ModalBtn
+              onClick={() => handlers.closeModalClickHandler()}
+              data-testid="bridge-mobile-header-button"
+            >
               <FontAwesomeIcon icon={faChevronLeft} />
             </ModalBtn>
             <h6>Onomy Bridge</h6>
@@ -295,10 +312,12 @@ export default function BridgeSwapMobile({ ...props }) {
                 <strong>{`${values.formattedWeakBalance.toFixed(6)}`}</strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
-            <HeaderInfoItem align={'flex-end'}>
+            <HeaderInfoItem align="flex-end">
               <strong>Bridge</strong>
               <HeaderInfoItemValue>
-                <ConnectionStatus active={active}>{active ? 'Connected' : 'Wallet Disconnected'}</ConnectionStatus>
+                <ConnectionStatus active={active}>
+                  {active ? 'Connected' : 'Wallet Disconnected'}
+                </ConnectionStatus>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
             <Modal.CosmosInputSection error={values.errors.onomyWalletError}>
@@ -319,9 +338,16 @@ export default function BridgeSwapMobile({ ...props }) {
             )}
             <BridgeSending error={values.errors.amountError}>
               <strong>Swap to NOM</strong>
-              <BridgeAmountInput type="text" value={values.amountValue} onChange={handlers.amountChangeHandler} />
+              <BridgeAmountInput
+                type="text"
+                value={values.amountValue}
+                onChange={handlers.amountChangeHandler}
+              />
               wNOM
-              <BridgeMaxBtn onClick={handlers.maxBtnClickHandler} disabled={flags.isTransactionPending}>
+              <BridgeMaxBtn
+                onClick={handlers.maxBtnClickHandler}
+                disabled={flags.isTransactionPending}
+              >
                 Max
               </BridgeMaxBtn>
             </BridgeSending>
@@ -345,7 +371,10 @@ export default function BridgeSwapMobile({ ...props }) {
                 ))}
               </Options>
             </div>
-            <Modal.FullWidthButton onClick={handlers.submitTransClickHandler} disabled={flags.isDisabled || !active}>
+            <Modal.FullWidthButton
+              onClick={handlers.submitTransClickHandler}
+              disabled={flags.isDisabled || !active}
+            >
               Swap wNOM for NOM
             </Modal.FullWidthButton>
             <Modal.SecondaryButton

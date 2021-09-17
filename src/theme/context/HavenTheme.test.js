@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent } from '@testing-library/react';
 
 import { HavenTheme, ThemePage } from './HavenTheme';
 import { renderWithTheme } from '../../utils/testing';

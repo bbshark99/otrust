@@ -25,11 +25,11 @@ export default function TransactionCompletedModal({ isApproving, tx }) {
   const { handleModal } = useModal();
 
   const shortten = addr => {
-    return addr.slice(0, 15) + '...' + addr.slice(addr.length - 3);
+    return `${addr.slice(0, 15)}...${addr.slice(addr.length - 3)}`;
   };
 
   const onExplore = () => {
-    window.open('https://' + networks[tx.chainId] + 'etherscan.io/tx/' + tx.hash, '_blank');
+    window.open(`https://${networks[tx.chainId]}etherscan.io/tx/${tx.hash}`, '_blank');
   };
 
   const closeModal = () => {
@@ -82,9 +82,11 @@ export default function TransactionCompletedModal({ isApproving, tx }) {
                 </>
               ) : (
                 <>
-                  + {format18(askAmount).toFixed(8)} <sup>{bidDenom === 'strong' ? weak : strong}</sup>
+                  + {format18(askAmount).toFixed(8)}{' '}
+                  <sup>{bidDenom === 'strong' ? weak : strong}</sup>
                   <Modal.Spent>
-                    - {format18(bidAmount).toFixed(8)} <sup>{bidDenom === 'strong' ? strong : weak}</sup>
+                    - {format18(bidAmount).toFixed(8)}{' '}
+                    <sup>{bidDenom === 'strong' ? strong : weak}</sup>
                   </Modal.Spent>
                 </>
               )}
@@ -97,7 +99,9 @@ export default function TransactionCompletedModal({ isApproving, tx }) {
                 {bidDenom && (
                   <>
                     1 {bidDenom === 'strong' ? strong : weak} ={' '}
-                    {BigNumber.isBigNumber(bidAmount) ? askAmount.div(bidAmount).toFixed(6) : 'Loading'}
+                    {BigNumber.isBigNumber(bidAmount)
+                      ? askAmount.div(bidAmount).toFixed(6)
+                      : 'Loading'}
                   </>
                 )}{' '}
                 {bidDenom === 'strong' ? weak : strong}
@@ -119,7 +123,10 @@ export default function TransactionCompletedModal({ isApproving, tx }) {
           >
             View Details <Caret />
           </Modal.DetailsButton>
-          <Modal.PrimaryButton onClick={() => closeModal()} data-testid="completed-modal-primary-button">
+          <Modal.PrimaryButton
+            onClick={() => closeModal()}
+            data-testid="completed-modal-primary-button"
+          >
             Done
           </Modal.PrimaryButton>
         </Modal.FooterControls>
@@ -136,10 +143,14 @@ export default function TransactionCompletedModal({ isApproving, tx }) {
               <span>TxID</span> <strong>{shortten(tx.hash)}</strong>
             </Modal.FooterDetailsRow>
             <Modal.FooterDetailsRow>
-              <span>Network Confirmations</span> <strong>{tx.confirmations > 0 ? tx.confirmations : 1}</strong>
+              <span>Network Confirmations</span>{' '}
+              <strong>{tx.confirmations > 0 ? tx.confirmations : 1}</strong>
             </Modal.FooterDetailsRow>
 
-            <ExplorerButton onClick={() => onExplore()} data-testid="completed-model-explorer-button">
+            <ExplorerButton
+              onClick={() => onExplore()}
+              data-testid="completed-model-explorer-button"
+            >
               View in Explorer
             </ExplorerButton>
           </Modal.FooterDetails>

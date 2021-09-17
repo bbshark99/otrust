@@ -158,6 +158,7 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
 
         <ApproveTokensWrapper>
           <div>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="">Approve tokens (wNOM)</label>
             <input type="text" placeholder="0.00" value={approve} onChange={onTextChange} />
           </div>
@@ -166,10 +167,16 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
       </main>
       <footer>
         <Modal.FooterControls>
-          <Modal.SecondaryButton onClick={() => handleModal()} data-testid="approve-tokens-modal-secondary-button">
+          <Modal.SecondaryButton
+            onClick={() => handleModal()}
+            data-testid="approve-tokens-modal-secondary-button"
+          >
             Cancel
           </Modal.SecondaryButton>
-          <Modal.PrimaryButton onClick={onConfirmApprove} data-testid="approve-tokens-modal-primary-button">
+          <Modal.PrimaryButton
+            onClick={onConfirmApprove}
+            data-testid="approve-tokens-modal-primary-button"
+          >
             Approve ({count})
           </Modal.PrimaryButton>
         </Modal.FooterControls>

@@ -1,4 +1,5 @@
 import { cleanup } from '@testing-library/react';
+
 import { ConnectionStatus } from './ConnectionStatus';
 import { renderWithTheme } from '../../utils/testing';
 

@@ -2,135 +2,364 @@
 
 exports[`Given the Landing component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-eCApnc fLcWfp"
+  .c10 {
+  height: 2.25rem;
+  width: auto;
+  padding: 0 1.25rem;
+  border: none;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.c10:hover {
+  background-color: #5c8ddb;
+  color: #fff;
+}
+
+.c0 {
+  text-align: center;
+}
+
+.c1 {
+  background-image: linear-gradient(to bottom,#16161f,#06060f);
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 20vh;
+  background-color: #1a1823;
+  width: 100%;
+}
+
+.c4 {
+  width: 64px;
+  height: 51.2px;
+  margin-bottom: 20px;
+}
+
+.c5 {
+  text-align: left;
+  font: normal normal bold 28px/21px 'Bebas Neue';
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  color: #e1dfeb;
+  opacity: 1;
+}
+
+.c6 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Poppins;
+  margin: 20px 0;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  text-align: center;
+  font: normal normal medium 16px/30px Poppins;
+  font-size: 16px;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  color: #E1DFEB;
+}
+
+.c8 {
+  font: normal normal normal 12px/20px Poppins;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  color: #9895A6;
+  width: 300px;
+  margin-top: 12px;
+}
+
+.c11 {
+  width: 385px;
+  height: 75px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #1a1823;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.c2 {
+  width: 433px;
+  height: auto;
+  padding: 4px 4px 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #201d2a;
+  margin: 36px auto;
+  border-radius: 8px;
+  box-shadow: 0 13px 26px 0 rgba(0,0,0,0.16);
+}
+
+.c12 {
+  width: 43px;
+}
+
+.c13 {
+  height: 27px;
+}
+
+.c14 {
+  font: normal normal normal 16px/25px 'Poppins';
+  line-height: 1.56;
+  color: #E1DFEB;
+}
+
+.c15 {
+  width: 24px;
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    background-image: none;
+    background-color: #06060f;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c3 {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c11 {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c2 {
+    width: 100%;
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+<div
+    class="c0"
   >
     <header
-      class="sc-jSFjdj jeLrjV"
+      class="c1"
     >
       <div
-        class="sc-dIsUp jftpxE"
+        class="c2"
       >
         <div
-          class="sc-gKAaRy evzmUv"
+          class="c3"
         >
           <img
             alt="logo"
-            class="sc-iCoGMd fFugP"
+            class="c4"
             src="onomy.png"
           />
           <span
-            class="sc-fujyAs bqOJws"
+            class="c5"
           >
             ONOMY
           </span>
         </div>
         <div
-          class="sc-pNWdM kftQyc"
+          class="c6"
         >
           <span
-            class="sc-kEqXSa jNqdPC"
+            class="c7"
           >
             Connect Your Wallet
           </span>
           <span
-            class="sc-iqAclL dsGHkl"
+            class="c8"
           >
             To participate bonding curve process and buy NOM tokens you need to connect your Eth wallet
           </span>
         </div>
         <div
-          class="sc-jrsJWt BfeSo"
+          class="c9"
         >
           <button
-            class="sc-gtsrHT sc-crzoAE cyZncv fedzh"
+            class="c10 c11"
           >
             <div
-              class="sc-bqGGPW ZhIBg"
+              class="c12"
             >
               <img
                 alt="Metamask Icon"
-                class="sc-ksluID XAOwP"
+                class="c13"
                 src="metamask.png"
               />
             </div>
             <span
-              class="sc-hBMUJo cRAPGq"
+              class="c14"
             >
               Metamask
             </span>
             <img
               alt="Right Cursor"
-              class="sc-fnVZcZ fWhDXg"
+              class="c15"
               src="rightCursor.png"
             />
           </button>
           <button
-            class="sc-gtsrHT sc-crzoAE cyZncv fedzh"
+            class="c10 c11"
           >
             <div
-              class="sc-bqGGPW ZhIBg"
+              class="c12"
             >
               <img
                 alt="Ledger Icon"
-                class="sc-ksluID XAOwP"
+                class="c13"
                 src="ledger.png"
               />
             </div>
             <span
-              class="sc-hBMUJo cRAPGq"
+              class="c14"
             >
               Ledger
             </span>
             <img
               alt="Right Cursor"
-              class="sc-fnVZcZ fWhDXg"
+              class="c15"
               src="rightCursor.png"
             />
           </button>
           <button
-            class="sc-gtsrHT sc-crzoAE cyZncv fedzh"
+            class="c10 c11"
           >
             <div
-              class="sc-bqGGPW ZhIBg"
+              class="c12"
             >
               <img
                 alt="Wallet Connect Icon"
-                class="sc-ksluID XAOwP"
+                class="c13"
                 src="walletConnect.png"
               />
             </div>
             <span
-              class="sc-hBMUJo cRAPGq"
+              class="c14"
             >
               Wallet Connect
             </span>
             <img
               alt="Right Cursor"
-              class="sc-fnVZcZ fWhDXg"
+              class="c15"
               src="rightCursor.png"
             />
           </button>
           <button
-            class="sc-gtsrHT sc-crzoAE cyZncv fedzh"
+            class="c10 c11"
           >
             <div
-              class="sc-bqGGPW ZhIBg"
+              class="c12"
             >
               <img
                 alt="Coinbase Wallet Icon"
-                class="sc-ksluID XAOwP"
+                class="c13"
                 src="coinbase.png"
               />
             </div>
             <span
-              class="sc-hBMUJo cRAPGq"
+              class="c14"
             >
               Coinbase Wallet
             </span>
             <img
               alt="Right Cursor"
-              class="sc-fnVZcZ fWhDXg"
+              class="c15"
               src="rightCursor.png"
             />
           </button>

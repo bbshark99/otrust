@@ -1,7 +1,6 @@
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import BigNumber from 'bignumber.js';
 
-import ExchangeQuote from './ExchangeQuote';
 import {
   ThemeWrapper,
   ExchangeContextWrapper,
@@ -10,6 +9,7 @@ import {
   renderWithContext,
   ModalContextWrapper,
 } from 'utils/testing';
+import ExchangeQuote from './ExchangeQuote';
 
 const testProps = {
   strength: '10',
@@ -67,12 +67,12 @@ describe('Given an ExchangeQuote component', () => {
           UpdateExchangeContextWrapper(
             ExchangeContextWrapper(
               ModalContextWrapper(ThemeWrapper(ExchangeQuote, testProps), testModalContext),
-              testExchangeContext,
+              testExchangeContext
             ),
-            testUpdateExchangeContext,
+            testUpdateExchangeContext
           ),
-          testChainContext,
-        ),
+          testChainContext
+        )
       );
       const receivingValue = queryByTestId('exchange-weak-balance');
 

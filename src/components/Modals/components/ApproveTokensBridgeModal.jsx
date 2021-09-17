@@ -5,9 +5,9 @@ import { useWeb3React } from '@web3-react/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BigNumber } from 'bignumber.js';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { ethers } from 'ethers';
 
+import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { NOMCont } from 'context/chain/contracts';
 import * as Modal from '../styles';
 import { contAddrs } from '../../../context/chain/contracts';
@@ -99,12 +99,14 @@ const Options = styled.div`
 
 const OptionBtn = styled.button`
   padding: 12px 16px;
-  background-color: ${props => (props.active ? props.theme.colors.bgHighlightBorder : 'transparent')};
+  background-color: ${props =>
+    props.active ? props.theme.colors.bgHighlightBorder : 'transparent'};
   border: 1px solid ${props => props.theme.colors.bgHighlightBorder};
   border-radius: 22px;
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  color: ${props =>
+    props.active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary};
   &:hover {
     background-color: ${props => props.theme.colors.bgHighlightBorder_lighten};
   }
@@ -140,7 +142,9 @@ export default function ApproveTokensBridgeModal({
   useEffect(() => {
     if (amountValue && allowanceAmountGravity) {
       const string18FromAmount = BigNumber(amountValue).shiftedBy(18).toString(10);
-      const approveAmount = ethers.BigNumber.from(string18FromAmount).sub(allowanceAmountGravity).toString();
+      const approveAmount = ethers.BigNumber.from(string18FromAmount)
+        .sub(allowanceAmountGravity)
+        .toString();
       const formattedApproveAmount = BigNumber(approveAmount).shiftedBy(-18).toString(10);
       setCalculatedApproveValue(formattedApproveAmount);
       setApproveAmountInputValue(formattedApproveAmount);
@@ -150,8 +154,10 @@ export default function ApproveTokensBridgeModal({
   }, [amountValue, allowanceAmountGravity]);
 
   const handleApproveAmountInputChange = event => {
-    const value = event.target.value;
-    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
+    const { value } = event.target;
+    const floatRegExp = new RegExp(
+      /(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/
+    );
     if (floatRegExp.test(value)) {
       setApproveAmountInputValue(value);
     }
@@ -172,7 +178,7 @@ export default function ApproveTokensBridgeModal({
     event.preventDefault();
     if (formattedWeakBalance) {
       const maxApprovementFormattedAmount = BigNumber(
-        ethers.BigNumber.from(weakBalance.toString(10)).sub(allowanceAmountGravity).toString(),
+        ethers.BigNumber.from(weakBalance.toString(10)).sub(allowanceAmountGravity).toString()
       )
         .shiftedBy(-18)
         .toString(10);
@@ -200,11 +206,13 @@ export default function ApproveTokensBridgeModal({
           BigNumber(approveAmountInputValue).shiftedBy(18).toString(10),
           {
             gasPrice: gasPrice.toFixed(0),
-          },
+          }
         );
 
         tx.wait().then(() => {
-          setSuccessMessage(NOTIFICATION_MESSAGES.success.approvedBridgeTokens(approveAmountInputValue));
+          setSuccessMessage(
+            NOTIFICATION_MESSAGES.success.approvedBridgeTokens(approveAmountInputValue)
+          );
           setShowLoader(false);
           setIsBtnDisabled(false);
           setIsTransactionCompleted(true);
@@ -217,16 +225,19 @@ export default function ApproveTokensBridgeModal({
         }
         setIsBtnDisabled(false);
         setShowLoader(false);
-        return;
       }
     },
-    [NOMContract, approveAmountInputValue, gasPrice],
+    [NOMContract, approveAmountInputValue, gasPrice]
   );
 
   return (
     <Modal.BridgeSectionWrapper>
       <header>
-        <ModalBtn onClick={onCancelHandler} disabled={isBtnDisabled} data-testid="bridge-mobile-info-modal-button">
+        <ModalBtn
+          onClick={onCancelHandler}
+          disabled={isBtnDisabled}
+          data-testid="bridge-mobile-info-modal-button"
+        >
           <FontAwesomeIcon icon={faChevronLeft} />
         </ModalBtn>
         <Caption>Approve Tokens</Caption>
@@ -235,11 +246,14 @@ export default function ApproveTokensBridgeModal({
       <main>
         <Message>
           You want to sell <strong>{amountValue} wNOM</strong>, but you approved for sale only{' '}
-          {allowanceAmountGravity && BigNumber(allowanceAmountGravity.toString()).shiftedBy(-18).toString(10)} wNOM. To
-          sell this amount, please approve <strong>{calculatedApproveValue} wNOM</strong> or more.
+          {allowanceAmountGravity &&
+            BigNumber(allowanceAmountGravity.toString()).shiftedBy(-18).toString(10)}{' '}
+          wNOM. To sell this amount, please approve <strong>{calculatedApproveValue} wNOM</strong>{' '}
+          or more.
         </Message>
         <ApproveTokensWrapper>
           <div>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="">Approve tokens (wNOM)</label>
             <input
               type="text"

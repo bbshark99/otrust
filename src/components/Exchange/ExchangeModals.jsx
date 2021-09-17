@@ -2,25 +2,33 @@ import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react'
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
+import { useWeb3React } from '@web3-react/core';
+import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
+
 import ConfirmTransactionModal from 'components/Modals/components/ConfirmTransactionModal';
 import PendingModal from 'components/Modals/components/PendingModal';
 import ApproveTokensModal from 'components/Modals/components/ApproveTokensModal';
 import RequestFailedModal from 'components/Modals/components/RequestFailedModal';
 import TransactionCompletedModal from 'components/Modals/components/TransactionCompletedModal';
 import TransactionFailedModal from 'components/Modals/components/TransactionFailedModal';
-import { useWeb3React } from '@web3-react/core';
-import _ from 'lodash';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
-
 import { responsive } from 'theme/constants';
-import { SellBtn, ExchangeButton, Sending, ExchangeInput, MaxBtn, Receiving, ReceivingValue } from './exchangeStyles';
+import {
+  SellBtn,
+  ExchangeButton,
+  Sending,
+  ExchangeInput,
+  MaxBtn,
+  Receiving,
+  ReceivingValue,
+  SendingBox,
+} from './exchangeStyles';
 import { useChain } from 'context/chain/ChainContext';
 import { BondingCont, NOMCont } from 'context/chain/contracts';
 import { useExchange, useUpdateExchange } from 'context/exchange/ExchangeContext';
 import { useModal } from 'context/modal/ModalContext';
 import { format18 } from 'utils/math';
-import { SendingBox } from './exchangeStyles';
 import { NOTIFICATION_MESSAGES } from 'constants/NotificationMessages';
 
 const ModalTrigger = styled.div`
@@ -182,27 +190,37 @@ export default function ExchangeModals() {
     () =>
       _.debounce(async value => {
         let askAmountUpdate;
-        let strUpdate = new Map();
-        let objUpdate = new Map();
+        const strUpdate = new Map();
+        const objUpdate = new Map();
         if (value === '.' || value === '') {
           setCalculatedAmount('');
           return BigNumber(0);
         }
         try {
           if (buyModalOpen) {
-            askAmountUpdate = await bondContract.buyQuoteETH(BigNumber(value).shiftedBy(18).toString(10));
+            askAmountUpdate = await bondContract.buyQuoteETH(
+              BigNumber(value).shiftedBy(18).toString(10)
+            );
             setCalculatedAmount(prevState => {
               return {
                 ...prevState,
-                WNOMCalcValue: BigNumber(askAmountUpdate.toString()).shiftedBy(-18).toFixed(8).toString(10),
+                WNOMCalcValue: BigNumber(askAmountUpdate.toString())
+                  .shiftedBy(-18)
+                  .toFixed(8)
+                  .toString(10),
               };
             });
           } else if (sellModalOpen) {
-            askAmountUpdate = await bondContract.sellQuoteNOM(BigNumber(value).shiftedBy(18).toString(10));
+            askAmountUpdate = await bondContract.sellQuoteNOM(
+              BigNumber(value).shiftedBy(18).toString(10)
+            );
             setCalculatedAmount(prevState => {
               return {
                 ...prevState,
-                ETHCalcValue: BigNumber(askAmountUpdate.toString()).shiftedBy(-18).toFixed(8).toString(10),
+                ETHCalcValue: BigNumber(askAmountUpdate.toString())
+                  .shiftedBy(-18)
+                  .toFixed(8)
+                  .toString(10),
               };
             });
           }
@@ -221,19 +239,21 @@ export default function ExchangeModals() {
           value: strUpdate,
         });
       }, 300),
-    [buyModalOpen, sellModalOpen, bondContract, strDispatch, objDispatch],
+    [buyModalOpen, sellModalOpen, bondContract, strDispatch, objDispatch]
   );
 
   const handleChange = async event => {
-    const value = event.target.value;
-    const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/);
+    const { value } = event.target;
+    const floatRegExp = new RegExp(
+      /(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d{1,18})?$)|(^\d+?\.$)|(^\+?(?!0\d+)$|(^$)|(^\.$))/
+    );
     if (floatRegExp.test(value)) {
       setSellAmount(prevState => {
         return { ...prevState, [event.target.name]: value };
       });
       calculateReceivingAmount(value);
-      let strUpdate = new Map();
-      let objUpdate = new Map();
+      const strUpdate = new Map();
+      const objUpdate = new Map();
       const bidAmountUpdate = BigNumber(value.toString()).shiftedBy(18);
 
       objUpdate.set('bidAmount', bidAmountUpdate);
@@ -268,9 +288,9 @@ export default function ExchangeModals() {
   const handleMaxBtn = async event => {
     event.preventDefault();
     let maxValue;
-    let objUpdate = new Map();
-    let strUpdate = new Map();
-    let bidMaxValue = isStrongOrWeak === 'strong' ? strongBalance : weakBalance;
+    const objUpdate = new Map();
+    const strUpdate = new Map();
+    const bidMaxValue = isStrongOrWeak === 'strong' ? strongBalance : weakBalance;
 
     if (event.target.name === 'ETHValue') {
       maxValue = strongBalance.shiftedBy(-18).toString(10);
@@ -315,9 +335,13 @@ export default function ExchangeModals() {
         if (!approveAmount) return;
 
         try {
-          let tx = await NOMcontract.increaseAllowance(bondContract.address, approveRef.current.toFixed(0), {
-            gasPrice: gasPrice.toFixed(0),
-          });
+          const tx = await NOMcontract.increaseAllowance(
+            bondContract.address,
+            approveRef.current.toFixed(0),
+            {
+              gasPrice: gasPrice.toFixed(0),
+            }
+          );
 
           tx.wait().then(() => {
             setCalculatedAmount('');
@@ -326,7 +350,7 @@ export default function ExchangeModals() {
           });
         } catch (e) {
           console.log(e);
-          handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+          handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }
       } else {
         if (!bidAmount || !askAmount) return;
@@ -339,20 +363,33 @@ export default function ExchangeModals() {
               // Preparing for many tokens / coins
               switch (strong) {
                 case 'ETH':
-                  const gasFeeRaw = await bondContract.estimateGas.buyNOM(askAmount.toFixed(0), slippage.toFixed(0), {
-                    value: bidAmount.toFixed(0),
-                  });
+                  // eslint-disable-next-line no-case-declarations
+                  const gasFeeRaw = await bondContract.estimateGas.buyNOM(
+                    askAmount.toFixed(0),
+                    slippage.toFixed(0),
+                    {
+                      value: bidAmount.toFixed(0),
+                    }
+                  );
 
                   gasFee = new BigNumber(gasFeeRaw.toString());
 
+                  // eslint-disable-next-line no-case-declarations
                   const gas = gasFee.times(gasPrice);
                   if (bidAmount.lt(gas)) {
-                    handleModal(<TransactionFailedModal error={NOTIFICATION_MESSAGES.error.lowBid} />);
+                    handleModal(
+                      <TransactionFailedModal error={NOTIFICATION_MESSAGES.error.lowBid} />
+                    );
                     return;
                   }
 
+                  // eslint-disable-next-line no-case-declarations
                   const bidAmountUpdate = bidAmount.minus(gasFee.times(gasPrice));
-                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed());
+                  // eslint-disable-next-line no-case-declarations
+                  const askAmountUpdateRaw = await bondContract.buyQuoteETH(
+                    bidAmountUpdate.toFixed()
+                  );
+                  // eslint-disable-next-line no-case-declarations
                   const askAmountUpdate = new BigNumber(askAmountUpdateRaw.toString());
 
                   tx = await bondContract.buyNOM(askAmountUpdate.toFixed(0), slippage.toFixed(0), {
@@ -369,6 +406,7 @@ export default function ExchangeModals() {
 
                   break;
                 default: {
+                  break;
                 }
               }
               break;
@@ -376,9 +414,14 @@ export default function ExchangeModals() {
             case 'weak':
               switch (weak) {
                 case 'wNOM':
-                  tx = await bondContract.sellNOM(bidAmount.toFixed(0), askAmount.toFixed(0), slippage.toFixed(0), {
-                    gasPrice: gasPrice.toFixed(0),
-                  });
+                  tx = await bondContract.sellNOM(
+                    bidAmount.toFixed(0),
+                    askAmount.toFixed(0),
+                    slippage.toFixed(0),
+                    {
+                      gasPrice: gasPrice.toFixed(0),
+                    }
+                  );
 
                   tx.wait().then(() => {
                     setCalculatedAmount('');
@@ -387,6 +430,7 @@ export default function ExchangeModals() {
                   });
                   break;
                 default: {
+                  break;
                 }
               }
               break;
@@ -396,11 +440,21 @@ export default function ExchangeModals() {
           }
         } catch (e) {
           console.error(e.code, e.message.message);
-          handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+          handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }
       }
     },
-    [askAmount, bidAmount, approveAmount, bidDenom, NOMcontract, bondContract, handleModal, strong, weak],
+    [
+      askAmount,
+      bidAmount,
+      approveAmount,
+      bidDenom,
+      NOMcontract,
+      bondContract,
+      handleModal,
+      strong,
+      weak,
+    ]
   );
 
   const onBuyNomHandler = () => {
@@ -415,7 +469,7 @@ export default function ExchangeModals() {
     try {
       handleModal(<ConfirmTransactionModal isApproving submitTrans={submitTrans} />);
     } catch (e) {
-      handleModal(<TransactionFailedModal error={e.code + '\n' + e.message.slice(0, 80) + '...'} />);
+      handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
     }
   };
 
@@ -434,7 +488,10 @@ export default function ExchangeModals() {
 
   return (
     <ModalTrigger>
-      <ExchangeButton data-testid="exchanges-modals-buy-button" onClick={() => setBuyModalOpen(true)}>
+      <ExchangeButton
+        data-testid="exchanges-modals-buy-button"
+        onClick={() => setBuyModalOpen(true)}
+      >
         Buy wNOM
       </ExchangeButton>
 
@@ -469,7 +526,9 @@ export default function ExchangeModals() {
               <strong>Eth Balance</strong>
               <HeaderInfoItemValue>
                 <strong>
-                  {BigNumber.isBigNumber(strongBalance) ? `${format18(strongBalance).toFixed(6)}` : 'Loading'}
+                  {BigNumber.isBigNumber(strongBalance)
+                    ? `${format18(strongBalance).toFixed(6)}`
+                    : 'Loading'}
                 </strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
@@ -477,7 +536,9 @@ export default function ExchangeModals() {
               <strong>wNOM Balance</strong>
               <HeaderInfoItemValue>
                 <strong>
-                  {BigNumber.isBigNumber(weakBalance) ? `${format18(weakBalance).toFixed(6)}` : 'Loading'}
+                  {BigNumber.isBigNumber(weakBalance)
+                    ? `${format18(weakBalance).toFixed(6)}`
+                    : 'Loading'}
                 </strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
@@ -502,7 +563,7 @@ export default function ExchangeModals() {
           <FormWrapper data-testid="buy-nom-modal-results">
             <strong>Buy wNOM</strong>
             <Sending>
-              <strong>I'm buying for</strong>
+              <strong>I&apos;m buying for</strong>
               <ExchangeInput
                 type="text"
                 name="ETHValue"
@@ -558,7 +619,9 @@ export default function ExchangeModals() {
               <strong>Eth Balance</strong>
               <HeaderInfoItemValue>
                 <strong>
-                  {BigNumber.isBigNumber(strongBalance) ? `${format18(strongBalance).toFixed(6)}` : 'Loading'}
+                  {BigNumber.isBigNumber(strongBalance)
+                    ? `${format18(strongBalance).toFixed(6)}`
+                    : 'Loading'}
                 </strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
@@ -566,7 +629,9 @@ export default function ExchangeModals() {
               <strong>wNOM Balance</strong>
               <HeaderInfoItemValue>
                 <strong>
-                  {BigNumber.isBigNumber(weakBalance) ? `${format18(weakBalance).toFixed(6)}` : 'Loading'}
+                  {BigNumber.isBigNumber(weakBalance)
+                    ? `${format18(weakBalance).toFixed(6)}`
+                    : 'Loading'}
                 </strong>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
@@ -591,7 +656,7 @@ export default function ExchangeModals() {
           <FormWrapper data-testid="sell-nom-modal-results">
             <strong>Sell wNOM</strong>
             <Sending>
-              <strong>I'm selling</strong>
+              <strong>I&apos;m selling</strong>
               <ExchangeInput
                 type="text"
                 name="WNOMValue"

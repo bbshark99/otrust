@@ -2,17 +2,235 @@
 
 exports[`Given the SidebarHeader component when the component is rendered and account is defined should match the snapshot 1`] = `
 <DocumentFragment>
-  <header
-    class="sc-gtsrHT epKJQK"
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  background-color: #1a1823;
+  border: 1px solid #302E3D;
+  border-radius: 8px;
+  color: #8d89a3;
+  cursor: pointer;
+}
+
+.c2 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c2:hover {
+  background-color: #252130;
+}
+
+.c2:active {
+  background-color: #1b1924;
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: 44px 72px 44px;
+  grid-template-rows: auto auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 32px 60px;
+  height: 200px;
+  padding: 24px 48px;
+  background-color: #1a1823;
+  border-radius: 4px;
+}
+
+.c1 {
+  height: 72px;
+  width: 72px;
+  border-radius: 12px;
+  border: 3px solid #302E3D;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  grid-column: 1/4;
+}
+
+.c3 span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    width: 32px;
+    height: 32px;
+  }
+
+  .c2 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c2:first-child {
+    grid-column: 3/4;
+  }
+
+  .c2:nth-child(3) {
+    grid-column: 4/5;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c2 {
+    width: 44px;
+    height: 44px;
+  }
+
+  .c2 svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px 32px;
+    height: 180px;
+    padding: 24px 48px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c0 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    grid-template-rows: none;
+    grid-template-columns: 56px 250px 32px 32px;
+    justify-items: start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    gap: 10px;
+    height: 100px;
+    background-color: #201d2a;
+    border-bottom: 1px solid #302E3D;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c0 {
+    grid-template-columns: 56px 150px 32px 32px;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    grid-template-columns: 56px 1fr 44px 44px;
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c0 {
+    grid-column: 1fr 44px 44px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    height: 56px;
+    width: 56px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c1 {
+    grid-column: none;
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c3 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-left: 14px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c3 {
+    grid-column: 1/2;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 span {
+    font-size: 14px;
+  }
+}
+
+<header
+    class="c0"
   >
     <span />
     <img
       alt=""
-      class="sc-dlnjwi gppAIF"
+      class="c1"
       src="https://picsum.photos/72"
     />
     <a
-      class="sc-bdnxRM fDEryd"
+      class="c2"
     >
       <svg
         viewBox="0 0 20 20"
@@ -26,7 +244,7 @@ exports[`Given the SidebarHeader component when the component is rendered and ac
       </svg>
     </a>
     <div
-      class="sc-hKFxyN dqEzzQ"
+      class="c3"
     >
       <p>
         My Account
@@ -41,17 +259,235 @@ exports[`Given the SidebarHeader component when the component is rendered and ac
 
 exports[`Given the SidebarHeader component when the component is rendered and account is null should match the snapshot 1`] = `
 <DocumentFragment>
-  <header
-    class="sc-gtsrHT epKJQK"
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  background-color: #1a1823;
+  border: 1px solid #302E3D;
+  border-radius: 8px;
+  color: #8d89a3;
+  cursor: pointer;
+}
+
+.c2 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c2:hover {
+  background-color: #252130;
+}
+
+.c2:active {
+  background-color: #1b1924;
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: 44px 72px 44px;
+  grid-template-rows: auto auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 32px 60px;
+  height: 200px;
+  padding: 24px 48px;
+  background-color: #1a1823;
+  border-radius: 4px;
+}
+
+.c1 {
+  height: 72px;
+  width: 72px;
+  border-radius: 12px;
+  border: 3px solid #302E3D;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  grid-column: 1/4;
+}
+
+.c3 span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    width: 32px;
+    height: 32px;
+  }
+
+  .c2 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c2:first-child {
+    grid-column: 3/4;
+  }
+
+  .c2:nth-child(3) {
+    grid-column: 4/5;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c2 {
+    width: 44px;
+    height: 44px;
+  }
+
+  .c2 svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px 32px;
+    height: 180px;
+    padding: 24px 48px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c0 {
+    grid-template-columns: 32px 56px 32px;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    grid-template-rows: none;
+    grid-template-columns: 56px 250px 32px 32px;
+    justify-items: start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    gap: 10px;
+    height: 100px;
+    background-color: #201d2a;
+    border-bottom: 1px solid #302E3D;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c0 {
+    grid-template-columns: 56px 150px 32px 32px;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    grid-template-columns: 56px 1fr 44px 44px;
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c0 {
+    grid-column: 1fr 44px 44px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    height: 56px;
+    width: 56px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c1 {
+    grid-column: none;
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c3 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-left: 14px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .c3 {
+    grid-column: 1/2;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 span {
+    font-size: 14px;
+  }
+}
+
+<header
+    class="c0"
   >
     <span />
     <img
       alt=""
-      class="sc-dlnjwi gppAIF"
+      class="c1"
       src="https://picsum.photos/72"
     />
     <a
-      class="sc-bdnxRM fDEryd"
+      class="c2"
     >
       <svg
         viewBox="0 0 20 20"
@@ -65,7 +501,7 @@ exports[`Given the SidebarHeader component when the component is rendered and ac
       </svg>
     </a>
     <div
-      class="sc-hKFxyN dqEzzQ"
+      class="c3"
     >
       <p>
         My Account

@@ -1,6 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
-import Exchange from 'components/Exchange/Exchange';
 
+import Exchange from 'components/Exchange/Exchange';
 import { responsive } from 'theme/constants';
 import { Panel } from 'components/UI';
 import Chart from 'components/Chart/Chart';

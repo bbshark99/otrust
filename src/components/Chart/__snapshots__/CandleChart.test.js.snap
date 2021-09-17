@@ -2,12 +2,18 @@
 
 exports[`Given the CandleChart component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
+  .c0 {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+<div
     data-testid="candle-chart"
     style="margin-top: 1rem; height: 350px;"
   >
     <svg
-      class="sc-bdnxRM kNdflx"
+      class="c0"
       data-testid="candle-chart-svg"
     >
       <g

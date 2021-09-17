@@ -2,7 +2,12 @@ import { cleanup, fireEvent, render, act } from '@testing-library/react';
 import { BigNumber } from 'bignumber.js';
 
 import ConfirmTransactionModal from './ConfirmTransactionModal';
-import { ThemeWrapper, ExchangeContextWrapper, ModalContextWrapper, renderWithContext } from '../../../utils/testing';
+import {
+  ThemeWrapper,
+  ExchangeContextWrapper,
+  ModalContextWrapper,
+  renderWithContext,
+} from '../../../utils/testing';
 
 const testProps = {
   submitTrans: jest.fn(),
@@ -89,8 +94,8 @@ describe('Given the ConfirmTransactionModal component', () => {
         const { queryByTestId } = render(
           ExchangeContextWrapper(
             ModalContextWrapper(ThemeWrapper(ConfirmTransactionModal, testProps), testModalContext),
-            testExchangeContext,
-          ),
+            testExchangeContext
+          )
         );
 
         fireEvent.click(queryByTestId('confirm-modal-close-icon'));
@@ -103,8 +108,8 @@ describe('Given the ConfirmTransactionModal component', () => {
         const { queryByTestId } = render(
           ExchangeContextWrapper(
             ModalContextWrapper(ThemeWrapper(ConfirmTransactionModal, testProps), testModalContext),
-            testExchangeContext,
-          ),
+            testExchangeContext
+          )
         );
 
         fireEvent.click(queryByTestId('confirm-modal-secondary-button'));
@@ -127,8 +132,8 @@ describe('Given the ConfirmTransactionModal component', () => {
       const { asFragment } = render(
         ExchangeContextWrapper(
           ModalContextWrapper(ThemeWrapper(ConfirmTransactionModal, testProps), testModalContext),
-          { ...testExchangeContext, bidDenom: 'weak' },
-        ),
+          { ...testExchangeContext, bidDenom: 'weak' }
+        )
       );
       expect(asFragment()).toMatchSnapshot();
     });
@@ -140,8 +145,8 @@ describe('Given the ConfirmTransactionModal component', () => {
       const { asFragment } = render(
         ExchangeContextWrapper(
           ModalContextWrapper(ThemeWrapper(ConfirmTransactionModal, testProps), testModalContext),
-          { ...testExchangeContext, bidDenom: 'weak', askAmount: 0, bidAmount: 0 },
-        ),
+          { ...testExchangeContext, bidDenom: 'weak', askAmount: 0, bidAmount: 0 }
+        )
       );
       expect(asFragment()).toMatchSnapshot();
     });
@@ -166,7 +171,7 @@ describe('Given the ConfirmTransactionModal  component', () => {
                 timestamp: 1625307668406,
               },
             }),
-        }),
+        })
       );
     });
 
@@ -180,7 +185,9 @@ describe('Given the ConfirmTransactionModal  component', () => {
       await act(async () => {
         renderWithContext(ConfirmTransactionModal, testProps);
       });
-      expect(global.fetch).toHaveBeenCalledWith('https://www.gasnow.org/api/v3/gas/price?utm_source=onomy');
+      expect(global.fetch).toHaveBeenCalledWith(
+        'https://www.gasnow.org/api/v3/gas/price?utm_source=onomy'
+      );
     });
   });
 });

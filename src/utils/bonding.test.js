@@ -49,7 +49,11 @@ describe('Given ETHtoNOM util function', () => {
       const result1 = ETHtoNOM(100000000, 100000000);
       const result2 = ETHtoNOM(0, 0);
       const result3 = ETHtoNOM(100.5, 2000);
-      expect(result1).toEqual({ diff: 58440020.60450177, supplyBot: 100498756.2112089, supplyTop: 158938776.81571066 });
+      expect(result1).toEqual({
+        diff: 58440020.60450177,
+        supplyBot: 100498756.2112089,
+        supplyTop: 158938776.81571066,
+      });
       expect(result2).toEqual({ diff: 0, supplyBot: 0, supplyTop: 0 });
       expect(result3).toEqual({
         diff: 1442639.3506066913,

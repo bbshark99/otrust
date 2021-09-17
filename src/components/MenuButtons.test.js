@@ -31,7 +31,7 @@ describe('Given the MenuButtons component', () => {
     describe('and user clicks on button', () => {
       it('should call onButtonChange function and change status of clicked button', async () => {
         const { getByText } = renderWithTheme(MenuButtons, testProps);
-        let updatedMenuButtons = testProps.menuButtons.slice();
+        const updatedMenuButtons = testProps.menuButtons.slice();
         updatedMenuButtons[2].status = true;
 
         fireEvent.click(getByText(testProps.menuButtons[2].text));

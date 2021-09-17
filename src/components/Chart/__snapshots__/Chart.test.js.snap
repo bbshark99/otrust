@@ -2,38 +2,127 @@
 
 exports[`Given the Chart component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-eCApnc ZrkSl"
+  .c6 {
+  display: block;
+  width: 100%;
+  height: 350px;
+  overflow: visible;
+}
+
+.c0 {
+  padding: 20px;
+  position: relative;
+  background-color: #1a1823;
+  border-radius: 4px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  height: 50px;
+  padding: 16px 24px;
+  background-color: #302E3D;
+  border-radius: 6px;
+  border: none;
+  color: #e1dfeb;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.c3 {
+  height: 50px;
+  padding: 16px 24px;
+  background-color: transparent;
+  border-radius: 6px;
+  border: none;
+  color: #e1dfeb;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.c5 {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  color: #e1dfeb;
+  font-size: 11px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c4 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #e1dfeb;
+  font-size: 11px;
+  -webkit-transform: translateY(-50%) rotate(-90deg);
+  -ms-transform: translateY(-50%) rotate(-90deg);
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    height: 44px;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    height: 44px;
+    padding: 12px 16px;
+  }
+}
+
+<div
+    class="c0"
     id="tour-chart"
   >
     <header
-      class="sc-jSFjdj iGvGop"
+      class="c1"
     >
       <span>
         <button
-          class="sc-gKAaRy dAPJtH"
+          class="c2"
         >
           Bonding Curve Chart
         </button>
         <button
-          class="sc-gKAaRy fLfMiR"
+          class="c3"
         >
           Historical Chart
         </button>
         <button
-          class="sc-gKAaRy fLfMiR"
+          class="c3"
         >
           Candles View
         </button>
       </span>
     </header>
     <div
-      class="sc-fujyAs kYLXpp"
+      class="c4"
     >
       Price (ETH)
     </div>
     <div
-      class="sc-iCoGMd inuUW"
+      class="c5"
     >
       NOM supply
     </div>
@@ -42,7 +131,7 @@ exports[`Given the Chart component when the component is rendered should match t
       style="margin-top: 1rem; height: 350px;"
     >
       <svg
-        class="sc-gtsrHT cXcxQq"
+        class="c6"
       >
         <defs>
           <clippath

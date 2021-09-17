@@ -2,11 +2,361 @@
 
 exports[`Given the ConfirmTransactionModal component and bidDenom is weak should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-gtsrHT cttJaW"
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c1 svg {
+  fill: #656273;
+}
+
+.c1:hover svg {
+  fill: #9895a6;
+}
+
+.c1:active svg {
+  fill: #4d4b57;
+}
+
+.c14 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c14:hover {
+  background-color: #fff;
+}
+
+.c14:active {
+  background-color: #9895a6;
+}
+
+.c15 {
+  background-color: #302E3D;
+  color: #e1dfeb;
+}
+
+.c15:hover {
+  background-color: #47445a;
+}
+
+.c15:active {
+  background-color: #9895a6;
+}
+
+.c4 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #656273;
+}
+
+.c3 {
+  padding: 24px;
+  margin: 32px 0 24px;
+  background-color: #1a1823;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c3 sup {
+  font-size: 14px;
+}
+
+.c2 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #9895a6;
+  font-size: 14px;
+}
+
+.c12 svg {
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
+}
+
+.c12:hover {
+  color: #e1dfeb;
+}
+
+.c12:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c12:active {
+  color: #938fa1;
+}
+
+.c12:active svg * {
+  fill: #938fa1;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c5 + .c5 {
+  margin-top: 16px;
+}
+
+.c6 span {
+  font-weight: 400;
+  color: #656273;
+}
+
+.c6 strong {
+  font-weight: 500;
+}
+
+.c8 {
+  padding: 32px 32px;
+  border-top: 1px solid #302E3D;
+}
+
+.c9 {
+  margin: 0 0 12px;
+  color: #656273;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+.c7 {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1a1823;
+}
+
+.c7 svg {
+  width: 24px;
+  height: 24px;
+}
+
+.c11 {
+  padding: 12px 16px;
+  background-color: transparent;
+  border: 1px solid #302E3D;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c11:hover {
+  background-color: #47445a;
+}
+
+.c11:active {
+  background-color: #191820;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c13 {
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c14 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c14 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    padding: 24px;
+    margin: 24px 0 20px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 sup {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c2 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c12 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c12 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c12 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+<div
+    class="c0"
   >
     <button
-      class="sc-gKAaRy iWKTBh"
+      class="c1"
       data-testid="confirm-modal-close-icon"
     >
       <svg
@@ -35,15 +385,15 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
     </button>
     <main>
       <h3
-        class="sc-crzoAE bGJewE"
+        class="c2"
       >
         Confirm Transaction
       </h3>
       <div
-        class="sc-jrsJWt LgJAH"
+        class="c3"
       >
         <div
-          class="sc-pNWdM bBCNdI"
+          class="c4"
         >
           You're receiving
         </div>
@@ -53,7 +403,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
         </sup>
       </div>
       <div
-        class="sc-carFqZ jiPzbn"
+        class="c5 c6"
       >
         <span>
           Current Exchange Rate
@@ -63,7 +413,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
         </strong>
       </div>
       <div
-        class="sc-carFqZ jiPzbn"
+        class="c5 c6"
       >
         <span>
           You're sending
@@ -73,7 +423,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
         </strong>
       </div>
       <div
-        class="sc-carFqZ jiPzbn"
+        class="c5 c6"
       >
         <div>
           <span>
@@ -84,7 +434,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
           </div>
         </div>
         <div
-          class="sc-jNnpgg dAnKov"
+          class="c7"
         >
           <svg
             viewBox="0 0 255 236.4"
@@ -178,34 +528,34 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
       </div>
     </main>
     <section
-      class="sc-iTVJFM jJOVhM"
+      class="c8"
     >
       <p
-        class="sc-iBzEeX bIjaVk"
+        class="c9"
       >
         Gas Fee
       </p>
       <div
-        class="sc-cTJkRt gLPqxh"
+        class="c10"
       >
         <button
-          class="sc-dPaNzc cetYBI"
+          class="c11"
         >
           0 (Standard)
         </button>
         <button
-          class="sc-dPaNzc cetYBI"
+          class="c11"
         >
           0 (Fast)
         </button>
         <button
-          class="sc-dPaNzc cetYBI"
+          class="c11"
         >
           0 (Instant)
         </button>
       </div>
       <button
-        class="sc-ksluID fyQazr"
+        class="c12"
         data-testid="confirm-modal-slippage-button"
       >
         Slippage Limit 
@@ -222,16 +572,16 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
     </section>
     <footer>
       <div
-        class="sc-eCApnc gcpgwi"
+        class="c13"
       >
         <button
-          class="sc-iCoGMd sc-fujyAs cACRqa kNiOFM"
+          class="c14 c15"
           data-testid="confirm-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-iCoGMd cACRqa"
+          class="c14"
           data-testid="confirm-modal-primary-button"
         >
           Confirm (60)
@@ -244,11 +594,361 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
 
 exports[`Given the ConfirmTransactionModal component when the component is rendered with bidDenom strong and askAmount, bidAmount are BigNumber should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-gtsrHT cttJaW"
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c1 svg {
+  fill: #656273;
+}
+
+.c1:hover svg {
+  fill: #9895a6;
+}
+
+.c1:active svg {
+  fill: #4d4b57;
+}
+
+.c14 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c14:hover {
+  background-color: #fff;
+}
+
+.c14:active {
+  background-color: #9895a6;
+}
+
+.c15 {
+  background-color: #302E3D;
+  color: #e1dfeb;
+}
+
+.c15:hover {
+  background-color: #47445a;
+}
+
+.c15:active {
+  background-color: #9895a6;
+}
+
+.c4 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #656273;
+}
+
+.c3 {
+  padding: 24px;
+  margin: 32px 0 24px;
+  background-color: #1a1823;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c3 sup {
+  font-size: 14px;
+}
+
+.c2 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #9895a6;
+  font-size: 14px;
+}
+
+.c12 svg {
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
+}
+
+.c12:hover {
+  color: #e1dfeb;
+}
+
+.c12:hover svg * {
+  fill: #e1dfeb;
+}
+
+.c12:active {
+  color: #938fa1;
+}
+
+.c12:active svg * {
+  fill: #938fa1;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c5 + .c5 {
+  margin-top: 16px;
+}
+
+.c6 span {
+  font-weight: 400;
+  color: #656273;
+}
+
+.c6 strong {
+  font-weight: 500;
+}
+
+.c8 {
+  padding: 32px 32px;
+  border-top: 1px solid #302E3D;
+}
+
+.c9 {
+  margin: 0 0 12px;
+  color: #656273;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+.c7 {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1a1823;
+}
+
+.c7 svg {
+  width: 24px;
+  height: 24px;
+}
+
+.c11 {
+  padding: 12px 16px;
+  background-color: transparent;
+  border: 1px solid #302E3D;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c11:hover {
+  background-color: #47445a;
+}
+
+.c11:active {
+  background-color: #191820;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c13 {
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c14 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c14 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    padding: 24px;
+    margin: 24px 0 20px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 sup {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c2 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c12 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c12 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c12 svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+<div
+    class="c0"
   >
     <button
-      class="sc-gKAaRy iWKTBh"
+      class="c1"
       data-testid="confirm-modal-close-icon"
     >
       <svg
@@ -277,15 +977,15 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
     </button>
     <main>
       <h3
-        class="sc-crzoAE bGJewE"
+        class="c2"
       >
         Confirm Transaction
       </h3>
       <div
-        class="sc-jrsJWt LgJAH"
+        class="c3"
       >
         <div
-          class="sc-pNWdM bBCNdI"
+          class="c4"
         >
           You're receiving
         </div>
@@ -295,7 +995,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
         </sup>
       </div>
       <div
-        class="sc-carFqZ jiPzbn"
+        class="c5 c6"
       >
         <span>
           Current Exchange Rate
@@ -305,7 +1005,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
         </strong>
       </div>
       <div
-        class="sc-carFqZ jiPzbn"
+        class="c5 c6"
       >
         <span>
           You're sending
@@ -315,7 +1015,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
         </strong>
       </div>
       <div
-        class="sc-carFqZ jiPzbn"
+        class="c5 c6"
       >
         <div>
           <span>
@@ -326,7 +1026,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
           </div>
         </div>
         <div
-          class="sc-jNnpgg dAnKov"
+          class="c7"
         >
           <svg
             viewBox="0 0 255 236.4"
@@ -420,34 +1120,34 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
       </div>
     </main>
     <section
-      class="sc-iTVJFM jJOVhM"
+      class="c8"
     >
       <p
-        class="sc-iBzEeX bIjaVk"
+        class="c9"
       >
         Gas Fee
       </p>
       <div
-        class="sc-cTJkRt gLPqxh"
+        class="c10"
       >
         <button
-          class="sc-dPaNzc cetYBI"
+          class="c11"
         >
           0 (Standard)
         </button>
         <button
-          class="sc-dPaNzc cetYBI"
+          class="c11"
         >
           0 (Fast)
         </button>
         <button
-          class="sc-dPaNzc cetYBI"
+          class="c11"
         >
           0 (Instant)
         </button>
       </div>
       <button
-        class="sc-ksluID fyQazr"
+        class="c12"
         data-testid="confirm-modal-slippage-button"
       >
         Slippage Limit 
@@ -464,16 +1164,16 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
     </section>
     <footer>
       <div
-        class="sc-eCApnc gcpgwi"
+        class="c13"
       >
         <button
-          class="sc-iCoGMd sc-fujyAs cACRqa kNiOFM"
+          class="c14 c15"
           data-testid="confirm-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="sc-iCoGMd cACRqa"
+          class="c14"
           data-testid="confirm-modal-primary-button"
         >
           Confirm (60)

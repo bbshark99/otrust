@@ -2,23 +2,116 @@
 
 exports[`Given the SidebarConnection component when the component is rendered and active is false, error is true should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-pNWdM ckaNGe"
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  color: #c75a5a;
+  font-weight: 500;
+}
+
+.c2:before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 > strong {
+  font-weight: 400;
+  color: #9895a6;
+  white-space: nowrap;
+}
+
+.c1 > span {
+  font-weight: 500;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 40px;
+    border-bottom: 1px solid #302E3D;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+<div
+    class="c0"
   >
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Connection
       </strong>
       <div
-        class="sc-gKAaRy eFHdfB"
+        class="c2"
       >
         Error
       </div>
     </div>
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Chain Id
@@ -28,7 +121,7 @@ exports[`Given the SidebarConnection component when the component is rendered an
       </span>
     </div>
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Block Number
@@ -43,23 +136,116 @@ exports[`Given the SidebarConnection component when the component is rendered an
 
 exports[`Given the SidebarConnection component when the component is rendered and active property is true should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-pNWdM ckaNGe"
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  color: #7cf9ba;
+  font-weight: 500;
+}
+
+.c2:before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 > strong {
+  font-weight: 400;
+  color: #9895a6;
+  white-space: nowrap;
+}
+
+.c1 > span {
+  font-weight: 500;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 40px;
+    border-bottom: 1px solid #302E3D;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+<div
+    class="c0"
   >
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Connection
       </strong>
       <div
-        class="sc-gKAaRy hGDlOd"
+        class="c2"
       >
         Connected
       </div>
     </div>
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Chain Id
@@ -69,7 +255,7 @@ exports[`Given the SidebarConnection component when the component is rendered an
       </span>
     </div>
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Block Number
@@ -84,23 +270,116 @@ exports[`Given the SidebarConnection component when the component is rendered an
 
 exports[`Given the SidebarConnection component when the component is rendered has inactive state and has no errors should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-pNWdM ckaNGe"
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  color: #c75a5a;
+  font-weight: 500;
+}
+
+.c2:before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 > strong {
+  font-weight: 400;
+  color: #9895a6;
+  white-space: nowrap;
+}
+
+.c1 > span {
+  font-weight: 500;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c0 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 40px;
+    border-bottom: 1px solid #302E3D;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+<div
+    class="c0"
   >
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Connection
       </strong>
       <div
-        class="sc-gKAaRy eFHdfB"
+        class="c2"
       >
         Loading
       </div>
     </div>
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Chain Id
@@ -108,7 +387,7 @@ exports[`Given the SidebarConnection component when the component is rendered ha
       <span />
     </div>
     <div
-      class="sc-jrsJWt fEoKU"
+      class="c1"
     >
       <strong>
         Block Number

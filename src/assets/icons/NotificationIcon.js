@@ -1,12 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 export function NotificationIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" margin-left='auto' margin-right='auto' display='block' viewBox="4 2 28 29">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+      viewBox="4 2 28 29"
+    >
       <g id="NotificationIcon" fill="#a7b0c3">
         <path d="M21.413 25.594a3.3 3.3 0 11-6.31 1.28l5.487-2.406a3.279 3.279 0 01.823 1.126z" />
         <path d="M4.469 16.87c-1.546-3.89-.758-7.6 1.556-10.031a2.931 2.931 0 01-.264-.45 3.3 3.3 0 016.04-2.646 3.008 3.008 0 01.148.484 9.687 9.687 0 018.678 5.632s2.649 6.083 5.559 6.567c.09 0 1.65.044 2.127 1.181.449 1.076-.475 2.516-2.083 3.208l-17.408 7.5c-1.606.692-3.38.415-3.759-.686a2.441 2.441 0 01.526-2.185c1.642-2.523-1.12-8.574-1.12-8.574z" />
       </g>
     </svg>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function CrossIcon() {
   return (
@@ -10,5 +10,5 @@ export function CrossIcon() {
         />
       </g>
     </svg>
-  )
+  );
 }

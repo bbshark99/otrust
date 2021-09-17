@@ -183,7 +183,7 @@ const AccountNumber = styled.div`
 export default function SidebarHeader({ account, onLogout }) {
   return (
     <Header>
-      <span></span>
+      <span />
       <Avatar src="https://picsum.photos/72" alt="" />
       <PrimaryIcon onClick={onLogout}>
         <LogoutIcon />
@@ -191,6 +191,7 @@ export default function SidebarHeader({ account, onLogout }) {
       <AccountNumber>
         <p>My Account</p>
         <span>
+          {/* eslint-disable-next-line no-nested-ternary */}
           {account === null
             ? '-'
             : account

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function CogIcon() {
   return (
@@ -8,5 +8,5 @@ export function CogIcon() {
         <path d="M15.999 10.989A5.011 5.011 0 1021.01 16a5.01 5.01 0 00-5.011-5.011zm0 7.516A2.505 2.505 0 1118.504 16a2.513 2.513 0 01-2.505 2.505z" />
       </g>
     </svg>
-  )
+  );
 }

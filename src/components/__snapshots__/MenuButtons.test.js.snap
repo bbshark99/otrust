@@ -2,23 +2,52 @@
 
 exports[`Given the MenuButtons component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-bdnxRM ebueYo"
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0.25rem;
+}
+
+.c1 {
+  font-size: 0.7rem;
+  color: #9895a6;
+  background: #1a1823;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+  padding: 0.7rem 0.9rem;
+}
+
+<div
+    class="c0"
   >
     <header
-      class="sc-gtsrHT cemMKt"
+      class="c1"
       id="1"
     >
       button1
     </header>
     <header
-      class="sc-gtsrHT cemMKt"
+      class="c1"
       id="2"
     >
       button2
     </header>
     <header
-      class="sc-gtsrHT cemMKt"
+      class="c1"
       id="3"
     >
       button3

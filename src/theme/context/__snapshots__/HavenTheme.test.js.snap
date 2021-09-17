@@ -8,8 +8,47 @@ exports[`Given the HavenTheme component when the component is rendered and local
 
 exports[`Given the ThemePage component when the component is rendered should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-gtsrHT cVUesm"
+  .c0 {
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+  background-image: url(landing.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div
+    class="c0"
   >
     <img
       src="hlogo.svg"
@@ -25,15 +64,17 @@ exports[`Given the ThemePage component when the component is rendered should mat
       Please choose light or dark setting
     </div>
     <div
-      class="sc-dlnjwi kKURHi"
+      class="c1"
     >
       <button
         style="margin-right: 10px;"
+        type="button"
       >
         light
       </button>
       <button
         style="margin-left: 10px;"
+        type="button"
       >
         dark
       </button>

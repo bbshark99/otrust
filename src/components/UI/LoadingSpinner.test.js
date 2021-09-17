@@ -1,4 +1,5 @@
 import { cleanup } from '@testing-library/react';
+
 import LoadingSpinner from './LoadingSpinner';
 import { renderWithTheme } from '../../utils/testing';
 

@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 export function ShareIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" margin-left='auto' margin-right='auto' display='block' viewBox="1 3.71 29.94 24.5">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+      viewBox="1 3.71 29.94 24.5"
+    >
       <path
         id="ShareIcon"
         fill="#a7b0c3"
@@ -10,5 +16,5 @@ export function ShareIcon() {
         d="M1.689 28.206a.629.629 0 01-.624-.574c-.16-1.876-.354-8.358 3.817-12.894 2.655-2.887 6.552-4.401 11.591-4.487V4.299a.589.589 0 01.958-.459l13.3 11.077a.589.589 0 010 .9l-13.29 11.076a.589.589 0 01-.973-.459v-6.057a.07.07 0 00-.06-.07c-1.776-.319-8.064-.719-14.211 7.624a.629.629 0 01-.509.274zM17.322 11.09a.5.5 0 01-.354.145c-4.99 0-8.807 1.4-11.352 4.176-3.349 3.64-3.683 8.673-3.616 11.14 6.3-7.984 12.724-7.565 14.585-7.225a1.068 1.068 0 01.883 1.048v5.197l12.245-10.2L17.466 5.168v5.569a.5.5 0 01-.144.353z"
       />
     </svg>
-  )
+  );
 }

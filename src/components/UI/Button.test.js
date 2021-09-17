@@ -1,9 +1,10 @@
+import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
+import { darkNew } from 'theme/theme';
 import { AccentButton, Button, InvisibleButton } from './Button';
 import { renderWithTheme } from '../../utils/testing';
-import { darkNew } from 'theme/theme';
 
 const testProps = {
   width: 50,
@@ -24,7 +25,7 @@ describe('Given the AccentButton component and width is provided in the props', 
       const { getByRole } = render(
         <ThemeProvider theme={darkNew}>
           <AccentButton onClick={clickFN} />
-        </ThemeProvider>,
+        </ThemeProvider>
       );
 
       const button = getByRole('button');
@@ -48,7 +49,7 @@ describe('Given the Button component and width is provided in the props', () => 
       const { getByRole } = render(
         <ThemeProvider theme={darkNew}>
           <Button onClick={clickFN} />
-        </ThemeProvider>,
+        </ThemeProvider>
       );
 
       const button = getByRole('button');
@@ -72,7 +73,7 @@ describe('Given the Button component and width is not provided in the props', ()
       const { getByRole } = render(
         <ThemeProvider theme={darkNew}>
           <Button onClick={clickFN} />
-        </ThemeProvider>,
+        </ThemeProvider>
       );
 
       const button = getByRole('button');
@@ -96,7 +97,7 @@ describe('Given the InvisibleButton component', () => {
       const { getByRole } = render(
         <ThemeProvider theme={darkNew}>
           <InvisibleButton onClick={clickFN} />
-        </ThemeProvider>,
+        </ThemeProvider>
       );
 
       const button = getByRole('button');

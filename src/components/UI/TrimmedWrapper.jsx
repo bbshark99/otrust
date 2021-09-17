@@ -45,13 +45,14 @@ const formatDecimals = value => {
 };
 
 export const withTrimmedWrapper = WrappedComponent => {
-  return props => {
-    const value = formatDecimals(props.value);
+  return function WithTrimmedWrapper(props) {
+    const { value } = props;
+    const formattedValue = formatDecimals(value);
 
     return (
-      <Wrapper hasValue={!!value}>
-        <Tooltip>{props.value}</Tooltip>
-        <WrappedComponent {...props} value={value} />
+      <Wrapper hasValue={!!formattedValue}>
+        <Tooltip>{value}</Tooltip>
+        <WrappedComponent {...props} value={formattedValue} />
       </Wrapper>
     );
   };

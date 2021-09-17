@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function SoundIcon() {
   return (
@@ -9,5 +9,5 @@ export function SoundIcon() {
         <path d="M9.646 0v1.806a6.14 6.14 0 010 11.764v1.81a7.886 7.886 0 000-15.38z" />
       </g>
     </svg>
-  )
+  );
 }

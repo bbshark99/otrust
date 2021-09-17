@@ -1,4 +1,5 @@
 import { cleanup } from '@testing-library/react';
+
 import { Panel } from './Panel';
 import { renderWithTheme } from '../../utils/testing';
 

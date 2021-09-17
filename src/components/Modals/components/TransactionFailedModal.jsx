@@ -58,7 +58,10 @@ export default function TransactionFailedModal({ error }) {
       </main>
       <footer>
         <FooterControls>
-          <Modal.PrimaryButton onClick={() => handleModal()} data-testid="failed-modal-primary-button">
+          <Modal.PrimaryButton
+            onClick={() => handleModal()}
+            data-testid="failed-modal-primary-button"
+          >
             Ok &#x1f625;
           </Modal.PrimaryButton>
         </FooterControls>

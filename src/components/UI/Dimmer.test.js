@@ -1,4 +1,5 @@
 import { cleanup } from '@testing-library/react';
+
 import { Dimmer } from './Dimmer';
 import { renderWithTheme } from '../../utils/testing';
 

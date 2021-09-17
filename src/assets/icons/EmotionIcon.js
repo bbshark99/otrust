@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 export function EmotionIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" margin-left='auto' margin-right='auto' display='block'>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 35 35"
+      margin-left="auto"
+      margin-right="auto"
+      display="block"
+    >
       <path
         fill="#a7b0c3"
         stroke="#a7b0c3"
@@ -22,5 +28,5 @@ export function EmotionIcon() {
         d="M22.538 20.217a.784.784 0 00-.638-1.286.879.879 0 00-.665.423 6.061 6.061 0 01-9.782 0 .879.879 0 00-.665-.423.784.784 0 00-.638 1.286 7.595 7.595 0 0012.389 0z"
       />
     </svg>
-  )
+  );
 }

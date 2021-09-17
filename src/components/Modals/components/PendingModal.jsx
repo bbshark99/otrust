@@ -1,9 +1,10 @@
+import React from 'react';
 import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
+
 import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { Metamask } from 'components/Modals/Icons';
-
 import { useExchange } from 'context/exchange/ExchangeContext';
 import { format18 } from 'utils/math';
 import * as Modal from '../styles';
@@ -102,6 +103,7 @@ export default function PendingModal({ isApproving }) {
 
             <div>
               <strong>
+                {/* eslint-disable-next-line no-nested-ternary */}
                 {account === null
                   ? '-'
                   : account
