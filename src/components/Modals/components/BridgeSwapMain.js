@@ -51,7 +51,7 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
   const GravityContract = useMemo(() => GravityCont(library), [library]);
   const NOMContract = useMemo(() => NOMCont(library), [library]);
 
-  const mediaQuery = window.matchMedia('(min-width: 1025px)');
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
 
   useEffect(() => {
     const getGasPrices = async () => {

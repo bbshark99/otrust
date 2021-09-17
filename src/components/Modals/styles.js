@@ -398,6 +398,14 @@ export const BridgeModalWrapper = styled(Wrapper)`
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
     display: none;
   }
+
+  @media screen and (max-width: ${responsive.laptopSmall}) {
+    width: 600px;
+    top: 50px;
+    transform: translate(-50%, 0);
+    max-height: calc(100% - 100px);
+    overflow-y: scroll;
+  }
 `;
 
 export const Info = styled.aside`
@@ -629,6 +637,10 @@ export const BridgeLayout = styled.div`
 
   @media screen and (max-width: ${responsive.laptop}) {
     grid-template-columns: 400px 1fr;
+  }
+
+  @media screen and (max-width: ${responsive.laptopSmall}) {
+    grid-template-columns: none;
   }
 
   & > main {
