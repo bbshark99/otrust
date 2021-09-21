@@ -132,6 +132,8 @@ const ModalInfo = styled.div`
   padding: 32px 20px;
 
   background-color: ${props => props.theme.colors.bgNormal};
+
+  overflow-x: scroll;
 `;
 
 const ModalBtn = styled.button`
@@ -563,7 +565,7 @@ export default function ExchangeModals() {
           <FormWrapper data-testid="buy-nom-modal-results">
             <strong>Buy wNOM</strong>
             <Sending>
-              <strong>I&apos;m buying for</strong>
+              {sellAmount.ETHValue === '' && <strong>I&apos;m buying for</strong>}
               <ExchangeInput
                 type="text"
                 name="ETHValue"
@@ -656,7 +658,7 @@ export default function ExchangeModals() {
           <FormWrapper data-testid="sell-nom-modal-results">
             <strong>Sell wNOM</strong>
             <Sending>
-              <strong>I&apos;m selling</strong>
+              {sellAmount.ETHValue === '' && <strong>I&apos;m selling</strong>}
               <ExchangeInput
                 type="text"
                 name="WNOMValue"
