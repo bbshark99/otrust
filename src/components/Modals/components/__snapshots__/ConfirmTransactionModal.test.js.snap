@@ -266,7 +266,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   .c0 {
     width: 100%;
     border-radius: 0;
-    top: 0;
+    top: 5%;
     left: 0;
     bottom: 0;
     -webkit-transform: none;
@@ -858,7 +858,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   .c0 {
     width: 100%;
     border-radius: 0;
-    top: 0;
+    top: 5%;
     left: 0;
     bottom: 0;
     -webkit-transform: none;

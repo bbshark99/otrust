@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     width: 100%;
     border-radius: 0;
 
-    top: 0;
+    top: 5%;
     left: 0;
     bottom: 0;
 

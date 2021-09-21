@@ -190,7 +190,7 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
   .c0 {
     width: 100%;
     border-radius: 0;
-    top: 0;
+    top: 5%;
     left: 0;
     bottom: 0;
     -webkit-transform: none;
