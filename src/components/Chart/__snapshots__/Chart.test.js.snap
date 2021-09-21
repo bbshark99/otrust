@@ -25,6 +25,7 @@ exports[`Given the Chart component when the component is rendered should match t
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  min-height: 35px;
 }
 
 .c2 {
@@ -35,6 +36,7 @@ exports[`Given the Chart component when the component is rendered should match t
   border: none;
   color: #e1dfeb;
   font-size: 12px;
+  font-family: 'Poppins',sans-serif;
   cursor: pointer;
 }
 
@@ -46,6 +48,7 @@ exports[`Given the Chart component when the component is rendered should match t
   border: none;
   color: #e1dfeb;
   font-size: 12px;
+  font-family: 'Poppins',sans-serif;
   cursor: pointer;
 }
 
@@ -69,12 +72,6 @@ exports[`Given the Chart component when the component is rendered should match t
   -webkit-transform: translateY(-50%) rotate(-90deg);
   -ms-transform: translateY(-50%) rotate(-90deg);
   transform: translateY(-50%) rotate(-90deg);
-}
-
-@media screen and (max-width:700px) {
-  .c1 {
-    display: none;
-  }
 }
 
 @media screen and (max-width:1440px) {

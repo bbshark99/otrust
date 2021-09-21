@@ -395,6 +395,18 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
   }
 }
 
+@media screen and (max-width:1180px) {
+  .c1 {
+    width: 600px;
+    top: 50px;
+    -webkit-transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    max-height: calc(100% - 100px);
+    overflow-y: scroll;
+  }
+}
+
 @media screen and (max-width:1440px) {
   .c15 {
     padding: 24px;
@@ -507,6 +519,12 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
 @media screen and (max-width:1440px) {
   .c3 {
     grid-template-columns: 400px 1fr;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c3 {
+    grid-template-columns: none;
   }
 }
 

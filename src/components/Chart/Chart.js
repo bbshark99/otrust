@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { responsive } from 'theme/constants';
 import BondLineChart from 'components/Chart/BondLineChart';
+import DropDown from 'components/DropDown/DropDown';
 import LineChart from 'components/Chart/HistoricalLineChart';
 import CandleChart from 'components/Chart/CandleChart';
 import { candleHeaderDefault, tempCandlestickData } from 'components/Chart/defaultChartData';
@@ -20,10 +21,7 @@ const ChartWrapper = styled.div`
 const ChartHeader = styled.header`
   display: flex;
   justify-content: space-between;
-
-  @media screen and (max-width: ${responsive.smartphoneLarge}) {
-    display: none;
-  }
+  min-height: 35px;
 `;
 
 const ChartTypeBtn = styled.button`
@@ -37,6 +35,7 @@ const ChartTypeBtn = styled.button`
 
   color: ${props => props.theme.colors.textPrimary};
   font-size: 12px;
+  font-family: 'Poppins', sans-serif;
 
   cursor: pointer;
 
@@ -74,6 +73,32 @@ const axisLabels = {
   bondingCurve: { x: 'NOM supply', y: 'Price (ETH)' },
 };
 
+const ChartSelectorWrapper = styled.div`
+  width: 200px;
+  position: absolute;
+  left: 15px;
+`;
+
+const LineChartSelectorWrapper = styled.div`
+  position: absolute;
+  right: 15px;
+`;
+
+const periods = [
+  { key: HISTORICAL_CHART_TYPE.DAY, value: 'Day' },
+  { key: HISTORICAL_CHART_TYPE.WEEK, value: 'Week' },
+  { key: HISTORICAL_CHART_TYPE.MONTH, value: 'Month' },
+  { key: HISTORICAL_CHART_TYPE.QUARTAL, value: 'Quartal' },
+  { key: HISTORICAL_CHART_TYPE.YEAR, value: 'Year' },
+  { key: HISTORICAL_CHART_TYPE.ALL_TIME, value: 'All Time' },
+];
+
+const chartTypes = [
+  { key: 'bondingCurve', value: 'Bonding Curve Chart' },
+  { key: 'lineChart', value: 'Historical Chart' },
+  { key: 'candleView', value: 'Candles View' },
+];
+
 export default function Chart() {
   const [chartType, setChartType] = useState('bondingCurve');
   const [historicalChartType, setHistoricalChartType] = useState(HISTORICAL_CHART_TYPE.DAY);
@@ -98,6 +123,14 @@ export default function Chart() {
       setIsMediaMinSmartphone(false);
     }
   }, []);
+
+  const selectPeriodHandler = selectKeyValue => {
+    setHistoricalChartType(selectKeyValue);
+  };
+
+  const selectChartTypeHandler = selectKeyValue => {
+    setChartType(selectKeyValue);
+  };
 
   useEffect(() => {
     mediaQuery.addListener(smartphoneWidthChangeHandler);
@@ -132,83 +165,36 @@ export default function Chart() {
   return (
     <ChartWrapper id="tour-chart">
       <ChartHeader>
-        <span>
-          <ChartTypeBtn
-            onClick={() => setChartType('bondingCurve')}
-            active={chartType === 'bondingCurve'}
-          >
-            Bonding Curve Chart
-          </ChartTypeBtn>
-          <ChartTypeBtn
-            onClick={() => setChartType('lineChart')}
-            active={chartType === 'lineChart'}
-          >
-            Historical Chart
-          </ChartTypeBtn>
-          <ChartTypeBtn
-            onClick={() => setChartType('candleView')}
-            active={chartType === 'candleView'}
-          >
-            Candles View
-          </ChartTypeBtn>
-        </span>
-        {chartType === 'lineChart' && (
+        {isMediaMinSmarthone === true ? (
           <span>
             <ChartTypeBtn
-              onClick={event => {
-                event.stopPropagation();
-                setHistoricalChartType(HISTORICAL_CHART_TYPE.DAY);
-              }}
-              active={historicalChartType === HISTORICAL_CHART_TYPE.DAY}
+              onClick={() => setChartType('bondingCurve')}
+              active={chartType === 'bondingCurve'}
             >
-              Day
+              Bonding Curve Chart
             </ChartTypeBtn>
             <ChartTypeBtn
-              onClick={event => {
-                event.stopPropagation();
-                setHistoricalChartType(HISTORICAL_CHART_TYPE.WEEK);
-              }}
-              active={historicalChartType === HISTORICAL_CHART_TYPE.WEEK}
+              onClick={() => setChartType('lineChart')}
+              active={chartType === 'lineChart'}
             >
-              Week
+              Historical Chart
             </ChartTypeBtn>
             <ChartTypeBtn
-              onClick={event => {
-                event.stopPropagation();
-                setHistoricalChartType(HISTORICAL_CHART_TYPE.MONTH);
-              }}
-              active={historicalChartType === HISTORICAL_CHART_TYPE.MONTH}
+              onClick={() => setChartType('candleView')}
+              active={chartType === 'candleView'}
             >
-              Month
-            </ChartTypeBtn>
-            <ChartTypeBtn
-              onClick={event => {
-                event.stopPropagation();
-                setHistoricalChartType(HISTORICAL_CHART_TYPE.QUARTAL);
-              }}
-              active={historicalChartType === HISTORICAL_CHART_TYPE.QUARTAL}
-            >
-              Quartal
-            </ChartTypeBtn>
-            <ChartTypeBtn
-              onClick={event => {
-                event.stopPropagation();
-                setHistoricalChartType(HISTORICAL_CHART_TYPE.YEAR);
-              }}
-              active={historicalChartType === HISTORICAL_CHART_TYPE.YEAR}
-            >
-              Year
-            </ChartTypeBtn>
-            <ChartTypeBtn
-              onClick={event => {
-                event.stopPropagation();
-                setHistoricalChartType(HISTORICAL_CHART_TYPE.ALL_TIME);
-              }}
-              active={historicalChartType === HISTORICAL_CHART_TYPE.ALL_TIME}
-            >
-              All Time
+              Candles View
             </ChartTypeBtn>
           </span>
+        ) : (
+          <ChartSelectorWrapper>
+            <DropDown selectItems={chartTypes} selectHandler={selectChartTypeHandler} />
+          </ChartSelectorWrapper>
+        )}
+        {chartType === 'lineChart' && (
+          <LineChartSelectorWrapper>
+            <DropDown selectItems={periods} selectHandler={selectPeriodHandler} />
+          </LineChartSelectorWrapper>
         )}
       </ChartHeader>
 

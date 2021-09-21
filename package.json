@@ -69,9 +69,9 @@
     "web3": "^1.5.2"
   },
   "scripts": {
-    "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
+    "lint": "eslint src --ext js,jsx,ts,tsx --quiet --fix",
     "tsc": "tsc",
-    "verify": "npm run tsc && npm run lint && CI=1 npm run test",
+    "verify": "npm run tsc && npm run lint && npm test -- --watchAll=false",
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
     "verified-build": "npm run verify && npm run build",
