@@ -292,8 +292,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   width: 360px;
   padding: 32px 40px;
   position: absolute;
-  right: 72px;
-  top: -52px;
+  right: 65px;
+  top: -35px;
   background-color: #302E3D;
   border-radius: 8px;
   box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
@@ -306,7 +306,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   display: block;
   position: absolute;
   right: -20px;
-  top: 42px;
+  top: 25px;
   width: 0;
   height: 0;
   border-top: 30px solid transparent;
@@ -316,7 +316,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 
 .c12 {
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -693,10 +693,39 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   }
 }
 
+@media screen and (max-width:1024px) {
+  .c11 {
+    width: 300px;
+    padding: 24px;
+    right: -135px;
+    top: 50px;
+  }
+
+  .c11:after {
+    right: 130px;
+    top: -35px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid #302E3D;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+}
+
 @media screen and (max-width:700px) {
   .c11 {
     width: 240px;
-    padding: 16px 40px;
+    padding: 16px 24px;
+    right: 50px;
+    top: -55px;
+  }
+
+  .c11:after {
+    right: -30px;
+    top: 50px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #302E3D;
+    border-right: 20px solid transparent;
   }
 }
 
@@ -1383,8 +1412,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   width: 360px;
   padding: 32px 40px;
   position: absolute;
-  right: 72px;
-  top: -52px;
+  right: 65px;
+  top: -35px;
   background-color: #302E3D;
   border-radius: 8px;
   box-shadow: 0 5px 50px 0 rgba(0,0,0,0.36);
@@ -1397,7 +1426,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   display: block;
   position: absolute;
   right: -20px;
-  top: 42px;
+  top: 25px;
   width: 0;
   height: 0;
   border-top: 30px solid transparent;
@@ -1407,7 +1436,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 
 .c12 {
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -1784,10 +1813,39 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   }
 }
 
+@media screen and (max-width:1024px) {
+  .c11 {
+    width: 300px;
+    padding: 24px;
+    right: -135px;
+    top: 50px;
+  }
+
+  .c11:after {
+    right: 130px;
+    top: -35px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid #302E3D;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+}
+
 @media screen and (max-width:700px) {
   .c11 {
     width: 240px;
-    padding: 16px 40px;
+    padding: 16px 24px;
+    right: 50px;
+    top: -55px;
+  }
+
+  .c11:after {
+    right: -30px;
+    top: 50px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #302E3D;
+    border-right: 20px solid transparent;
   }
 }
 

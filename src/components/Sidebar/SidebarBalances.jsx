@@ -172,14 +172,10 @@ const TooltipWrapper = styled.div`
 
   width: 360px;
   padding: 32px 40px;
-  @media screen and (max-width: ${responsive.smartphoneLarge}) {
-    width: 240px;
-    padding: 16px 40px;
-  }
 
   position: absolute;
-  right: 72px;
-  top: -52px;
+  right: 65px;
+  top: -35px;
 
   background-color: ${props => props.theme.colors.bgHighlightBorder};
   border-radius: 8px;
@@ -194,7 +190,7 @@ const TooltipWrapper = styled.div`
 
     position: absolute;
     right: -20px;
-    top: 42px;
+    top: 25px;
 
     width: 0;
     height: 0;
@@ -203,12 +199,48 @@ const TooltipWrapper = styled.div`
 
     border-left: 30px solid ${props => props.theme.colors.bgHighlightBorder};
   }
+
+  @media screen and (max-width: ${responsive.tablet}) {
+    width: 300px;
+    padding: 24px;
+
+    right: -135px;
+    top: 50px;
+
+    &:after {
+      right: 130px;
+      top: -35px;
+
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid ${props => props.theme.colors.bgHighlightBorder};
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+    }
+  }
+
+  @media screen and (max-width: ${responsive.smartphoneLarge}) {
+    width: 240px;
+    padding: 16px 24px;
+
+    right: 50px;
+    top: -55px;
+
+    &:after {
+      right: -30px;
+      top: 50px;
+
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 20px solid ${props => props.theme.colors.bgHighlightBorder};
+      border-right: 20px solid transparent;
+    }
+  }
 `;
 
 const TooltipCaption = styled.h5`
   margin-bottom: 16px;
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 `;
 
