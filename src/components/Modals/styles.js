@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     width: 100%;
     border-radius: 0;
 
-    top: 5%;
+    top: unset;
     left: 0;
     bottom: 0;
 
@@ -401,10 +401,8 @@ export const BridgeModalWrapper = styled(Wrapper)`
 
   @media screen and (max-width: ${responsive.laptopSmall}) {
     width: 600px;
-    top: 50px;
+    top: 20px;
     transform: translate(-50%, 0);
-    max-height: calc(100% - 100px);
-    overflow-y: scroll;
   }
 `;
 

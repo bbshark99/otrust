@@ -31,7 +31,7 @@ const testProps = {
     maxBtnClickHandler: jest.fn(),
     submitTransClickHandler: jest.fn(),
     onCancelClickHandler: jest.fn(),
-    closeModalClickHandler: jest.fn(),
+    closeModal: jest.fn(),
     setGasPriceChoice: jest.fn(),
     setGasPrice: jest.fn(),
   },

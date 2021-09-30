@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 
 import { responsive } from 'theme/constants';
 import BondLineChart from 'components/Chart/BondLineChart';
-import DropDown from 'components/DropDown/DropDown';
+import Dropdown from 'components/Dropdown/Dropdown';
 import LineChart from 'components/Chart/HistoricalLineChart';
 import CandleChart from 'components/Chart/CandleChart';
 import { candleHeaderDefault, tempCandlestickData } from 'components/Chart/defaultChartData';
@@ -21,6 +22,7 @@ const ChartWrapper = styled.div`
 const ChartHeader = styled.header`
   display: flex;
   justify-content: space-between;
+
   min-height: 35px;
 `;
 
@@ -94,35 +96,26 @@ const periods = [
 ];
 
 const chartTypes = [
-  { key: 'bondingCurve', value: 'Bonding Curve Chart' },
   { key: 'lineChart', value: 'Historical Chart' },
+  { key: 'bondingCurve', value: 'Bonding Curve Chart' },
   { key: 'candleView', value: 'Candles View' },
 ];
 
 export default function Chart() {
   const [chartType, setChartType] = useState('bondingCurve');
   const [historicalChartType, setHistoricalChartType] = useState(HISTORICAL_CHART_TYPE.DAY);
-  const [isMediaMinSmarthone, setIsMediaMinSmartphone] = useState(undefined);
   const [candleHeaderId] = useState('1');
   const [candleHeader] = useState(candleHeaderDefault);
 
-  const mediaQuery = window.matchMedia('(min-width: 700px)');
+  const isBigScreen = useMediaQuery({ minWidth: responsive.smartphoneLarge });
 
   useEffect(() => {
-    if (isMediaMinSmarthone === false) {
+    if (isBigScreen === false) {
       setChartType('lineChart');
-    } else if (isMediaMinSmarthone === true) {
+    } else {
       setChartType('bondingCurve');
     }
-  }, [isMediaMinSmarthone]);
-
-  const smartphoneWidthChangeHandler = useCallback(event => {
-    if (event.matches) {
-      setIsMediaMinSmartphone(true);
-    } else {
-      setIsMediaMinSmartphone(false);
-    }
-  }, []);
+  }, [isBigScreen]);
 
   const selectPeriodHandler = selectKeyValue => {
     setHistoricalChartType(selectKeyValue);
@@ -131,18 +124,6 @@ export default function Chart() {
   const selectChartTypeHandler = selectKeyValue => {
     setChartType(selectKeyValue);
   };
-
-  useEffect(() => {
-    mediaQuery.addListener(smartphoneWidthChangeHandler);
-    if (mediaQuery.matches) {
-      setIsMediaMinSmartphone(true);
-    } else {
-      setIsMediaMinSmartphone(false);
-    }
-    return () => {
-      mediaQuery.removeListener(smartphoneWidthChangeHandler);
-    };
-  }, [smartphoneWidthChangeHandler, mediaQuery]);
 
   const renderChart = type => {
     switch (type) {
@@ -165,7 +146,7 @@ export default function Chart() {
   return (
     <ChartWrapper id="tour-chart">
       <ChartHeader>
-        {isMediaMinSmarthone === true ? (
+        {isBigScreen === true ? (
           <span>
             <ChartTypeBtn
               onClick={() => setChartType('bondingCurve')}
@@ -188,12 +169,12 @@ export default function Chart() {
           </span>
         ) : (
           <ChartSelectorWrapper>
-            <DropDown selectItems={chartTypes} selectHandler={selectChartTypeHandler} />
+            <Dropdown selectItems={chartTypes} selectHandler={selectChartTypeHandler} />
           </ChartSelectorWrapper>
         )}
         {chartType === 'lineChart' && (
           <LineChartSelectorWrapper>
-            <DropDown selectItems={periods} selectHandler={selectPeriodHandler} />
+            <Dropdown selectItems={periods} selectHandler={selectPeriodHandler} />
           </LineChartSelectorWrapper>
         )}
       </ChartHeader>

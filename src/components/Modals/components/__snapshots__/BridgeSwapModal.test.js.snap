@@ -251,7 +251,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
   font-weight: 300;
 }
 
-.c29 {
+.c30 {
   display: grid;
   grid-template-columns: 1fr 180px;
   gap: 30px;
@@ -278,13 +278,13 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
   background-color: #1a1823;
 }
 
-.c32 {
+.c33 {
   padding: 40px 50px;
   border-radius: 8px;
   background-color: #201d2a;
 }
 
-.c30 {
+.c31 {
   margin: 0 0 12px;
   font-size: 16px;
   font-weight: 500;
@@ -428,27 +428,27 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
   opacity: 1;
 }
 
-.c28 {
+.c29 {
   max-width: 600px;
   margin-bottom: 40px;
   color: #9895a6;
 }
 
-.c28 strong {
+.c29 strong {
   font-weight: 500;
   color: #e1dfeb;
 }
 
-.c31 {
+.c32 {
   padding-left: 1em;
   color: #9895a6;
 }
 
-.c31 li::marker {
+.c32 li::marker {
   color: #e1dfeb;
 }
 
-.c31 li + li {
+.c32 li + li {
   margin-top: 12px;
 }
 
@@ -612,6 +612,13 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
   background-color: #191820;
 }
 
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @media screen and (max-width:1440px) {
   .c0 {
     width: 400px;
@@ -622,7 +629,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
   .c0 {
     width: 100%;
     border-radius: 0;
-    top: 5%;
+    top: unset;
     left: 0;
     bottom: 0;
     -webkit-transform: none;
@@ -684,12 +691,10 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
 @media screen and (max-width:1180px) {
   .c1 {
     width: 600px;
-    top: 50px;
+    top: 20px;
     -webkit-transform: translate(-50%,0);
     -ms-transform: translate(-50%,0);
     transform: translate(-50%,0);
-    max-height: calc(100% - 100px);
-    overflow-y: scroll;
   }
 }
 
@@ -707,13 +712,13 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
 }
 
 @media screen and (max-width:1440px) {
-  .c29 {
+  .c30 {
     grid-template-columns: 1fr 150px;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c29 {
+  .c30 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -727,7 +732,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
     align-items: center;
   }
 
-  .c29 > img {
+  .c30 > img {
     width: 230px;
     margin: 32px auto;
   }
@@ -746,13 +751,13 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
 }
 
 @media screen and (max-width:1440px) {
-  .c32 {
+  .c33 {
     padding: 40px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c30 {
+  .c31 {
     font-size: 14px;
   }
 }
@@ -1043,25 +1048,29 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
       <aside
         class="c27"
       >
-        <h2>
-          What is Onomy Bridge?
-        </h2>
-        <p
+        <header
           class="c28"
+        >
+          <h2>
+            What is Onomy Bridge?
+          </h2>
+        </header>
+        <p
+          class="c29"
         >
           The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping for NOM on the Onomy Network.
         </p>
         <section
-          class="c29"
+          class="c30"
         >
           <div>
             <h3
-              class="c30"
+              class="c31"
             >
               One Way Bridge
             </h3>
             <p
-              class="c28"
+              class="c29"
             >
               Choose to bridge when you are ready to do so to finalize your purchase of NOM! 
               <strong>
@@ -1076,16 +1085,16 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
           />
         </section>
         <section
-          class="c29"
+          class="c30"
         >
           <div>
             <h3
-              class="c30"
+              class="c31"
             >
               Why Bridge?
             </h3>
             <ol
-              class="c31"
+              class="c32"
             >
               <li>
                 You must hold NOM to participate in the Onomy Network. 
@@ -1105,7 +1114,7 @@ exports[`Given the BridgeSwapModal component when the component is rendered shou
             </ol>
           </div>
           <div
-            class="c32"
+            class="c33"
           >
             <img
               alt=""

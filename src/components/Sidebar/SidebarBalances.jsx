@@ -308,7 +308,7 @@ export default function SidebarBalances({ strong, weak, strongBalance, weakBalan
           </PrimaryButton>
         </WithdrawBtnWrapper>
       </Balances>
-      {showBridge && <BridgeSwapMain closeModalClickHandler={() => setShowBridge(false)} />}
+      {showBridge && <BridgeSwapMain closeBridgeModal={() => setShowBridge(false)} />}
     </>
   );
 }

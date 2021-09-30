@@ -10,6 +10,7 @@ import { AutoLogin } from 'context/AutoLogin';
 import ChainProvider from 'context/chain/ChainContext';
 import ExchangeProvider from 'context/exchange/ExchangeContext';
 import ModalProvider from 'context/modal/ModalContext';
+import './assets/font-faces.css';
 
 function App() {
   return (

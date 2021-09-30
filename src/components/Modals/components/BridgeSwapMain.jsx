@@ -3,6 +3,7 @@ import { useWeb3React } from '@web3-react/core';
 import { BigNumber } from 'bignumber.js';
 import cosmos from 'cosmos-lib';
 import { ethers } from 'ethers';
+import { useMediaQuery } from 'react-responsive';
 
 import { useChain } from 'context/chain/ChainContext';
 import { GravityCont, NOMCont } from 'context/chain/contracts';
@@ -10,6 +11,7 @@ import BridgeSwapMobile from './BridgeSwapMobile';
 import BridgeSwapModal from './BridgeSwapModal';
 import { contAddrs } from '../../../context/chain/contracts';
 import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
+import { responsive } from 'theme/constants';
 
 export const initialErrorsState = { amountError: '', onomyWalletError: '', transactionError: '' };
 
@@ -28,7 +30,7 @@ export const initialGasOptions = [
   },
 ];
 
-export default function BridgeSwapMain({ closeModalClickHandler }) {
+export default function BridgeSwapMain({ closeBridgeModal }) {
   const [onomyWalletValue, setOnomyWalletValue] = useState('');
   const [amountValue, setAmountValue] = useState('');
   const [errors, setErrors] = useState(initialErrorsState);
@@ -38,20 +40,19 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
   const [formattedWeakBalance, setFormattedWeakBalance] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
   const [isTransactionPending, setIsTransactionPending] = useState(false);
-  const [isMediaMinTablet, setIsMediaMinTablet] = useState(undefined);
   const [allowanceAmountGravity, setAllowanceAmountGravity] = useState(0);
   const [showBridgeExchangeModal, setShowBridgeExchangeModal] = useState(true);
   const [showApproveModal, setShowApproveModal] = useState(false);
   const [showTransactionCompleted, setShowTransactionCompleted] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
 
+  const standardBrigdeBreakpoint = useMediaQuery({ minWidth: responsive.smartphoneLarge });
+
   const { account, library } = useWeb3React();
   const { weakBalance } = useChain();
 
   const GravityContract = useMemo(() => GravityCont(library), [library]);
   const NOMContract = useMemo(() => NOMCont(library), [library]);
-
-  const mediaQuery = window.matchMedia('(min-width: 768px)');
 
   useEffect(() => {
     const getGasPrices = async () => {
@@ -81,26 +82,6 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gasPriceChoice, showApproveModal]);
 
-  const tabletWidthChangeHandler = useCallback(event => {
-    if (event.matches) {
-      setIsMediaMinTablet(true);
-    } else {
-      setIsMediaMinTablet(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    mediaQuery.addListener(tabletWidthChangeHandler);
-    if (mediaQuery.matches) {
-      setIsMediaMinTablet(true);
-    } else {
-      setIsMediaMinTablet(false);
-    }
-    return () => {
-      mediaQuery.removeListener(tabletWidthChangeHandler);
-    };
-  }, [tabletWidthChangeHandler, mediaQuery]);
-
   useEffect(() => {
     setFormattedWeakBalance(weakBalance.shiftedBy(-18));
   }, [weakBalance]);
@@ -116,18 +97,6 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
       updateAllowanceAmount();
     }
   }, [NOMContract, account, allowanceAmountGravity, updateAllowanceAmount]);
-
-  useEffect(() => {
-    mediaQuery.addListener(tabletWidthChangeHandler);
-    if (mediaQuery.matches) {
-      setIsMediaMinTablet(true);
-    } else {
-      setIsMediaMinTablet(false);
-    }
-    return () => {
-      mediaQuery.removeListener(tabletWidthChangeHandler);
-    };
-  }, [tabletWidthChangeHandler, mediaQuery]);
 
   const walletChangeHandler = event => {
     setOnomyWalletValue(event.target.value);
@@ -168,6 +137,12 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
     setShowBridgeExchangeModal(true);
     setIsDisabled(false);
     updateAllowanceAmount();
+  };
+
+  const closeModal = () => {
+    if (!isTransactionPending) {
+      closeBridgeModal();
+    }
   };
 
   const submitTransClickHandler = useCallback(
@@ -273,7 +248,7 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
       maxBtnClickHandler,
       submitTransClickHandler,
       onCancelClickHandler,
-      closeModalClickHandler,
+      closeModal,
       setGasPriceChoice,
       setGasPrice,
     },
@@ -281,8 +256,7 @@ export default function BridgeSwapMain({ closeModalClickHandler }) {
 
   return (
     <>
-      {isMediaMinTablet === true && <BridgeSwapModal {...Props} />}
-      {isMediaMinTablet === false && <BridgeSwapMobile {...Props} />}
+      {standardBrigdeBreakpoint ? <BridgeSwapModal {...Props} /> : <BridgeSwapMobile {...Props} />}
     </>
   );
 }

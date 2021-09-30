@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  font-weight: 300;
+  src: url('./fonts/BebasNeueBook.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-weight: 400;
+  src: url('./fonts/BebasNeueRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-weight: 600;
+  src: url('./fonts/BebasNeueBold.ttf') format('truetype');
+}

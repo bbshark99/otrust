@@ -238,31 +238,6 @@ exports[`Given the Chart component when the component is rendered should match t
             y1="NaN"
             y2="NaN"
           />
-          <lineargradient
-            gradientUnits="userSpaceOnUse"
-            id="linear-gradient"
-            x1="0%"
-            x2="1%"
-            y1="81%"
-            y2="0%"
-          >
-            <stop
-              offset="0%"
-              stop-color="#1a1823"
-            />
-            <stop
-              offset="100%"
-              stop-color="#88D1FF"
-            />
-          </lineargradient>
-          <line
-            stroke="#1a1823"
-            stroke-width="0.12rem"
-            x1="90"
-            x2="-20"
-            y1="NaN"
-            y2="NaN"
-          />
         </g>
       </svg>
     </div>

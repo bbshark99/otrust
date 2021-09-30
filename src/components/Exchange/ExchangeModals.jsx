@@ -132,8 +132,6 @@ const ModalInfo = styled.div`
   padding: 32px 20px;
 
   background-color: ${props => props.theme.colors.bgNormal};
-
-  overflow-x: scroll;
 `;
 
 const ModalBtn = styled.button`

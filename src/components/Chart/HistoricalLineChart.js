@@ -41,7 +41,7 @@ let dot_index = 0;
 const WNOM_HISTORICAL_DATA_QUERY = gql`
   query transactions($filter: String!, $skipped: Int!) {
     wnomhistoricalFrames(
-      first: 150
+      first: 1000
       skip: $skipped
       where: { type: $filter }
       orderBy: startTime
@@ -61,7 +61,7 @@ const LineChart = React.memo(props => {
   });
 
   const { data: bondDataSecondary } = useQuery(WNOM_HISTORICAL_DATA_QUERY, {
-    variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType], skipped: 150 },
+    variables: { filter: HISTORICAL_CHART_TYPE_FILTER[historicalChartType], skipped: 1000 },
   });
 
   const id = 'historicalChart';

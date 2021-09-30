@@ -1,25 +1,16 @@
 import { cleanup, fireEvent } from '@testing-library/react';
+import { useMediaQuery } from 'react-responsive';
 
 import { renderWithContext } from '../../utils/testing';
 import Chart from './Chart';
+
+jest.mock('react-responsive');
 
 describe('Given the Chart component', () => {
   describe('when the component is rendered', () => {
     afterEach(cleanup);
     beforeEach(() => {
-      Object.defineProperty(window, 'matchMedia', {
-        writable: true,
-        value: jest.fn().mockImplementation(query => ({
-          matches: true,
-          media: query,
-          onchange: null,
-          addListener: jest.fn(),
-          removeListener: jest.fn(),
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-          dispatchEvent: jest.fn(),
-        })),
-      });
+      useMediaQuery.mockImplementation(() => true);
     });
 
     it('should match the snapshot', () => {

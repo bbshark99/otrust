@@ -1,8 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import BebasNeueBold from 'assets/fonts/BebasNeueBold.ttf';
-import BebasNeueBook from 'assets/fonts/BebasNeueBook.ttf';
-import BebasNeueRegular from 'assets/fonts/BebasNeueRegular.ttf';
 import { responsive } from './constants';
 
 export const GlobalStyle = createGlobalStyle`
@@ -36,24 +33,6 @@ export const GlobalStyle = createGlobalStyle`
     &:focus {
       outline: none;
     }
-  }
-
-  @font-face {
-    font-family: 'Bebas Neue';
-    font-weight: 300;
-    src: url('${BebasNeueBook}') format("truetype");
-  }
-
-  @font-face {
-    font-family: 'Bebas Neue';
-    font-weight: 400;
-    src: url('${BebasNeueRegular}') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Bebas Neue';
-    font-weight: 600;
-    src: url('${BebasNeueBold}') format("truetype");
   }
 
   body {

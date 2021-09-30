@@ -150,7 +150,7 @@ exports[`Given the TransactionFailedModal component when the component is render
   .c0 {
     width: 100%;
     border-radius: 0;
-    top: 5%;
+    top: unset;
     left: 0;
     bottom: 0;
     -webkit-transform: none;

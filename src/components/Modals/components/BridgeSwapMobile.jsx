@@ -20,6 +20,7 @@ import { ConnectionStatus } from '../../UI/ConnectionStatus';
 import * as Modal from '../styles';
 import oneWayBridgeImg from '../assets/one-way-bridge.svg';
 import whyBridgeImg from '../assets/why-bridge.svg';
+import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
 
 const BridgeSwapModalWrapper = styled.div`
   @media screen and (min-width: 701px) {
@@ -186,6 +187,8 @@ export default function BridgeSwapMobile({ ...props }) {
 
   const [infoModal, setInfoModal] = useState(false);
 
+  useLockBodyScroll();
+
   return (
     <BridgeSwapModalWrapper>
       <ReactModal
@@ -218,7 +221,7 @@ export default function BridgeSwapMobile({ ...props }) {
         <BridgeSwapModal>
           <ModalInfo>
             <BridgeTransactionComplete
-              closeModalHandler={handlers.closeModalClickHandler}
+              closeModalHandler={handlers.closeModal}
               amountValue={values.amountValue}
             />
           </ModalInfo>
@@ -292,12 +295,12 @@ export default function BridgeSwapMobile({ ...props }) {
         isOpen={flags.showBridgeExchangeModal && !infoModal}
         style={modalOverride}
         data-testid="bridge-mobile-swap-modal"
-        onRequestClose={() => handlers.closeModalClickHandler()}
+        onRequestClose={() => handlers.closeModal()}
       >
         <BridgeSwapModal>
           <ModalHeader>
             <ModalBtn
-              onClick={() => handlers.closeModalClickHandler()}
+              onClick={() => handlers.closeModal()}
               data-testid="bridge-mobile-header-button"
             >
               <FontAwesomeIcon icon={faChevronLeft} />
@@ -378,7 +381,7 @@ export default function BridgeSwapMobile({ ...props }) {
               Swap wNOM for NOM
             </Modal.FullWidthButton>
             <Modal.SecondaryButton
-              style={{ width: '100%' }}
+              style={{ width: '100%', height: 52 }}
               onClick={() => {
                 setInfoModal(true);
               }}

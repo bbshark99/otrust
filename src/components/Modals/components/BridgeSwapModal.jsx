@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useWeb3React } from '@web3-react/core';
+import { useMediaQuery } from 'react-responsive';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { Dimmer } from 'components/UI/Dimmer';
 import LoadingSpinner from 'components/UI/LoadingSpinner';
@@ -73,111 +76,206 @@ const OptionBtn = styled.button`
   }
 `;
 
+const ModalHeader = styled.header`
+  display: flex;
+
+  h2 {
+    margin: ${props => (props.collapsedInfoBreakpoint ? '8px auto' : '')};
+  }
+`;
+
+const ModalBtn = styled.button`
+  width: 40px;
+  height: 40px;
+
+  border-radius: 8px;
+  border: none;
+  background-color: ${props => props.theme.colors.bgHighlightBorder};
+
+  color: #84809a;
+
+  cursor: pointer;
+`;
+
+function BridgeSwapModalInfo({ closeModal }) {
+  const collapsedInfoBreakpoint = useMediaQuery({ maxWidth: responsive.laptopSmall });
+
+  return (
+    <Modal.Info>
+      <ModalHeader collapsedInfoBreakpoint={collapsedInfoBreakpoint}>
+        {collapsedInfoBreakpoint && (
+          <ModalBtn onClick={closeModal}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </ModalBtn>
+        )}
+        <h2>What is Onomy Bridge?</h2>
+      </ModalHeader>
+
+      <Modal.Desc>
+        The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by
+        participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping
+        for NOM on the Onomy Network.
+      </Modal.Desc>
+
+      <Modal.InfoRow>
+        <div>
+          <Modal.InfoSubCaption>One Way Bridge</Modal.InfoSubCaption>
+
+          <Modal.Desc>
+            Choose to bridge when you are ready to do so to finalize your purchase of NOM!{' '}
+            <strong>
+              After bridging, you can no longer sell back to the bonding curve or bridge back for
+              wNOM.
+            </strong>{' '}
+            There are no guarantees of liquid markets.
+          </Modal.Desc>
+        </div>
+
+        <img src={oneWayBridgeImg} alt="" />
+      </Modal.InfoRow>
+
+      <Modal.InfoRow>
+        <div>
+          <Modal.InfoSubCaption>Why Bridge?</Modal.InfoSubCaption>
+
+          <Modal.List>
+            <li>You must hold NOM to participate in the Onomy Network. </li>
+            <li>Early stakers of NOM take advantage of larger staking yield. </li>
+            <li>NOM is used for governance, staking, and collateral to mint stablecoins.</li>
+            <li>All bridged wNOM is burned from the bonding curve supply. </li>
+            <li>NOM would be listed on exchanges rather than wNOM. </li>
+          </Modal.List>
+        </div>
+
+        <Modal.InfoImgWrapper>
+          <img src={whyBridgeImg} alt="" />
+        </Modal.InfoImgWrapper>
+      </Modal.InfoRow>
+    </Modal.Info>
+  );
+}
+
 export default function BridgeSwapModal({ ...props }) {
   const { active, account } = useWeb3React();
   const { values, flags, handlers } = { ...props };
+  const [showInfoModal, setShowInfoModal] = useState(false);
+
+  const collapsedInfoBreakpoint = useMediaQuery({
+    query: `(max-width: ${responsive.laptopSmall})`,
+  });
 
   return (
     <>
-      <Dimmer onClick={() => handlers.closeModalClickHandler()} />
+      <Dimmer onClick={() => handlers.closeModal()} />
       <Modal.BridgeModalWrapper>
-        <Modal.CloseIcon onClick={() => handlers.closeModalClickHandler()}>
+        <Modal.CloseIcon onClick={() => handlers.closeModal()}>
           <Close />
         </Modal.CloseIcon>
 
         <Modal.BridgeLayout>
-          {flags.showBridgeExchangeModal && (
-            <main>
-              <Modal.CaptionLeft>Onomy Bridge Here</Modal.CaptionLeft>
+          {flags.showBridgeExchangeModal &&
+            (!collapsedInfoBreakpoint || (collapsedInfoBreakpoint && !showInfoModal)) && (
+              <main>
+                <Modal.CaptionLeft>Onomy Bridge Here</Modal.CaptionLeft>
 
-              <Modal.BridgeContent>
-                <Modal.ConnectionItem>
-                  <Modal.ConnectionItemIcon>
-                    <img src={bridgeCurveImg} alt="" />
-                  </Modal.ConnectionItemIcon>
-                  <Modal.ConnectionItemContent>
-                    <strong>Onomy Bonding Curve</strong>
-                    <span>
-                      {account
-                        ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}`
-                        : ''}
-                    </span>
-                  </Modal.ConnectionItemContent>
-                  <Modal.Balance>
-                    <strong>wNOM Balance</strong>
-                    <span>{`${values.formattedWeakBalance.toFixed(6)}`}</span>
-                  </Modal.Balance>
-                </Modal.ConnectionItem>
-                <Modal.ConnectionStatus active={active}>
-                  {active ? 'Bridge Connected' : 'Wallet Disconnected'}
-                </Modal.ConnectionStatus>
+                <Modal.BridgeContent>
+                  <Modal.ConnectionItem>
+                    <Modal.ConnectionItemIcon>
+                      <img src={bridgeCurveImg} alt="" />
+                    </Modal.ConnectionItemIcon>
+                    <Modal.ConnectionItemContent>
+                      <strong>Onomy Bonding Curve</strong>
+                      <span>
+                        {account
+                          ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}`
+                          : ''}
+                      </span>
+                    </Modal.ConnectionItemContent>
+                    <Modal.Balance>
+                      <strong>wNOM Balance</strong>
+                      <span>{`${values.formattedWeakBalance.toFixed(6)}`}</span>
+                    </Modal.Balance>
+                  </Modal.ConnectionItem>
+                  <Modal.ConnectionStatus active={active}>
+                    {active ? 'Bridge Connected' : 'Wallet Disconnected'}
+                  </Modal.ConnectionStatus>
 
-                <Modal.ConnectionItem>
-                  <Modal.ConnectionItemIcon>
-                    <img src={walletImg} alt="" />
-                  </Modal.ConnectionItemIcon>
-                  <Modal.CosmosInputSection error={values.errors.onomyWalletError}>
-                    <BridgeAddressInput
-                      type="text"
-                      placeholder="Your Onomy Wallet Address"
-                      value={values.onomyWalletValue}
-                      onChange={handlers.walletChangeHandler}
-                    />
-                  </Modal.CosmosInputSection>
-                </Modal.ConnectionItem>
-              </Modal.BridgeContent>
-              <FormWrapper>
-                {flags.showLoader && (
-                  <Modal.LoadingWrapper>
-                    <LoadingSpinner />
-                  </Modal.LoadingWrapper>
-                )}
-                <InputWrapper>
-                  <BridgeSending error={values.errors.amountError}>
-                    <strong>Swap to NOM</strong>
-                    <BridgeAmountInput
-                      type="text"
-                      value={values.amountValue}
-                      onChange={handlers.amountChangeHandler}
-                    />
-                    wNOM
-                    <BridgeMaxBtn
-                      onClick={handlers.maxBtnClickHandler}
-                      disabled={flags.isTransactionPending}
-                    >
-                      Max
-                    </BridgeMaxBtn>
-                  </BridgeSending>
-                </InputWrapper>
-                {getFirstMessage(values.errors) && (
-                  <Modal.ErrorSection>{getFirstMessage(values.errors)}</Modal.ErrorSection>
-                )}
-                <div>
-                  <OptionCaption>Gas Fee</OptionCaption>
-                  <Options>
-                    {values.gasOptions.map(gasPriceOption => (
-                      <OptionBtn
-                        active={values.gasPriceChoice === gasPriceOption.id}
-                        key={gasPriceOption.id}
-                        onClick={e => {
-                          e.preventDefault();
-                          handlers.setGasPriceChoice(gasPriceOption.id);
-                        }}
+                  <Modal.ConnectionItem>
+                    <Modal.ConnectionItemIcon>
+                      <img src={walletImg} alt="" />
+                    </Modal.ConnectionItemIcon>
+                    <Modal.CosmosInputSection error={values.errors.onomyWalletError}>
+                      <BridgeAddressInput
+                        type="text"
+                        placeholder="Your Onomy Wallet Address"
+                        value={values.onomyWalletValue}
+                        onChange={handlers.walletChangeHandler}
+                      />
+                    </Modal.CosmosInputSection>
+                  </Modal.ConnectionItem>
+                </Modal.BridgeContent>
+                <FormWrapper>
+                  {flags.showLoader && (
+                    <Modal.LoadingWrapper>
+                      <LoadingSpinner />
+                    </Modal.LoadingWrapper>
+                  )}
+                  <InputWrapper>
+                    <BridgeSending error={values.errors.amountError}>
+                      <strong>Swap to NOM</strong>
+                      <BridgeAmountInput
+                        type="text"
+                        value={values.amountValue}
+                        onChange={handlers.amountChangeHandler}
+                      />
+                      wNOM
+                      <BridgeMaxBtn
+                        onClick={handlers.maxBtnClickHandler}
+                        disabled={flags.isTransactionPending}
                       >
-                        {gasPriceOption.text}
-                      </OptionBtn>
-                    ))}
-                  </Options>
-                </div>
-                <Modal.FullWidthButton
-                  onClick={handlers.submitTransClickHandler}
-                  disabled={flags.isDisabled || !active}
-                >
-                  Swap wNOM for NOM
-                </Modal.FullWidthButton>
-              </FormWrapper>
-            </main>
-          )}
+                        Max
+                      </BridgeMaxBtn>
+                    </BridgeSending>
+                  </InputWrapper>
+                  {getFirstMessage(values.errors) && (
+                    <Modal.ErrorSection>{getFirstMessage(values.errors)}</Modal.ErrorSection>
+                  )}
+                  <div>
+                    <OptionCaption>Gas Fee</OptionCaption>
+                    <Options>
+                      {values.gasOptions.map(gasPriceOption => (
+                        <OptionBtn
+                          active={values.gasPriceChoice === gasPriceOption.id}
+                          key={gasPriceOption.id}
+                          onClick={e => {
+                            e.preventDefault();
+                            handlers.setGasPriceChoice(gasPriceOption.id);
+                          }}
+                        >
+                          {gasPriceOption.text}
+                        </OptionBtn>
+                      ))}
+                    </Options>
+                  </div>
+                  <Modal.FullWidthButton
+                    onClick={handlers.submitTransClickHandler}
+                    disabled={flags.isDisabled || !active}
+                  >
+                    Swap wNOM for NOM
+                  </Modal.FullWidthButton>
+                  {collapsedInfoBreakpoint && (
+                    <Modal.SecondaryButton
+                      style={{ width: '100%', height: 52, marginTop: '15px' }}
+                      onClick={() => {
+                        setShowInfoModal(true);
+                      }}
+                    >
+                      What is Onomy Bridge?
+                    </Modal.SecondaryButton>
+                  )}
+                </FormWrapper>
+              </main>
+            )}
           {flags.showApproveModal && (
             <main>
               <ApproveTokensBridgeModal
@@ -197,55 +295,14 @@ export default function BridgeSwapModal({ ...props }) {
           {flags.showTransactionCompleted && (
             <main>
               <BridgeTransactionComplete
-                closeModalHandler={handlers.closeModalClickHandler}
+                closeModalHandler={handlers.closeModal}
                 amountValue={values.amountValue}
               />
             </main>
           )}
-          <Modal.Info>
-            <h2>What is Onomy Bridge?</h2>
-
-            <Modal.Desc>
-              The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved
-              by participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and
-              swapping for NOM on the Onomy Network.
-            </Modal.Desc>
-
-            <Modal.InfoRow>
-              <div>
-                <Modal.InfoSubCaption>One Way Bridge</Modal.InfoSubCaption>
-
-                <Modal.Desc>
-                  Choose to bridge when you are ready to do so to finalize your purchase of NOM!{' '}
-                  <strong>
-                    After bridging, you can no longer sell back to the bonding curve or bridge back
-                    for wNOM.
-                  </strong>{' '}
-                  There are no guarantees of liquid markets.
-                </Modal.Desc>
-              </div>
-
-              <img src={oneWayBridgeImg} alt="" />
-            </Modal.InfoRow>
-
-            <Modal.InfoRow>
-              <div>
-                <Modal.InfoSubCaption>Why Bridge?</Modal.InfoSubCaption>
-
-                <Modal.List>
-                  <li>You must hold NOM to participate in the Onomy Network. </li>
-                  <li>Early stakers of NOM take advantage of larger staking yield. </li>
-                  <li>NOM is used for governance, staking, and collateral to mint stablecoins.</li>
-                  <li>All bridged wNOM is burned from the bonding curve supply. </li>
-                  <li>NOM would be listed on exchanges rather than wNOM. </li>
-                </Modal.List>
-              </div>
-
-              <Modal.InfoImgWrapper>
-                <img src={whyBridgeImg} alt="" />
-              </Modal.InfoImgWrapper>
-            </Modal.InfoRow>
-          </Modal.Info>
+          {(showInfoModal || !collapsedInfoBreakpoint) && (
+            <BridgeSwapModalInfo closeModal={() => setShowInfoModal(false)} />
+          )}
         </Modal.BridgeLayout>
       </Modal.BridgeModalWrapper>
     </>

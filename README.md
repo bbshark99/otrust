@@ -8,15 +8,20 @@ wNOM will be continuously distributed through a bonding curve until all 100,000,
 2. Truffle https://www.trufflesuite.com/docs/truffle/getting-started/installation
 3. Metamask https://metamask.io/
 
-## Installing packages
-
-To install a new package simply use `npm install PACKAGE_NAME` as usual, but if you cloned the project and need to install deps from `package.json` use `npm ci` instead of `npm install`.
-
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install --global yarn`
+
+Yarn installation on your system globally (if you haven't installed it before)
+
+### `yarn`
+
+(Delete node_modules folder and yarn.lock file before running this command)
+Installation node modules for libraries from package.json file
+
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -24,16 +29,34 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `yarn verify`
+
+Run's dependency audit, type checks, lint and tests to verify the project
+
+### `yarn dep-audit`
+
+Runs dependency audit using https://github.com/djfdyuruiry/improved-yarn-audit
+
+See .iyarc for exclusions
+
+### `yarn tsc`
+
+Run typescript type checks
+
+### `yarn lint`
+
+Run eslint/prettier checks fixing any auto-fixable problems
+
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm test --coverage --watchAll=false`
+### `yarn test --coverage --watchAll=false`
 
 will generate coverage folder of unit tests
 
-### `npm run build`
+### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -43,7 +66,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -79,6 +102,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

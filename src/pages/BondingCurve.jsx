@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Steps } from 'intro.js-react';
 import { useCookies } from 'react-cookie';
-import { isMobile } from 'react-device-detect';
+import { useMediaQuery } from 'react-responsive';
 
 import Sidebar from 'components/Sidebar/Sidebar';
 import Bonding from 'components/Bonding';
@@ -52,11 +52,12 @@ const BondingCurveLayout = styled.div`
 
 export default function BondingCurve() {
   const [cookies, setCookie] = useCookies(['visitedBefore']);
+  const onboardingBreakpoint = useMediaQuery({ minWidth: responsive.laptopSmall });
 
   return (
     <BondingCurveContainer>
       <BondingCurveLayout>
-        {!cookies.visitedBefore && !isMobile && (
+        {!cookies.visitedBefore && onboardingBreakpoint && (
           <Steps
             enabled
             options={{
