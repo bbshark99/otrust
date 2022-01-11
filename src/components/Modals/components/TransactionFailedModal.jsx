@@ -39,8 +39,13 @@ const Message = styled.div`
   }
 `;
 
-export default function TransactionFailedModal({ error }) {
+export default function TransactionFailedModal({ error: errorProp }) {
   const { handleModal } = useModal();
+  let error = errorProp;
+
+  if (/UNPREDICTABLE_GAS_LIMIT/.test(error.toString())) {
+    error = 'Insufficient ETH to pay gas fee.';
+  }
 
   return (
     <Modal.Wrapper>

@@ -60,6 +60,11 @@ export const GlobalStyle = createGlobalStyle`
 
       box-sizing: border-box;
 
+      a {
+        color: #fff;
+        font-weight: 500;
+      }
+
       &.introjs-left {
         transform: translateX(-20px);
       }
@@ -129,9 +134,13 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       p {
+        margin-bottom: 1em;
+        
         font-family: "Poppins", sans-serif;
         color: #9895a6;
       }
+
+      a { color: #fff;}
     }
 
     .introjs-tooltiptext {

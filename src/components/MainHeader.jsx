@@ -5,6 +5,7 @@ import { BigNumber } from 'bignumber.js';
 import logo from 'assets/logo.svg';
 import { Container } from './UI';
 import { responsive } from 'theme/constants';
+import { EquivalentValue } from './EquivalentValue';
 import { format18 } from 'utils/math';
 import { useChain } from 'context/chain/ChainContext';
 
@@ -182,19 +183,23 @@ export default function MainHeader() {
             <HeaderInfo>
               <ExchangeRate>
                 <HeaderInfoItem>
-                  <strong>NOM / USDT</strong>
+                  <strong>wNOM / USDT</strong>
                   <HeaderInfoItemValue>
-                    <strong>$10.12</strong>
-                    <Details type="increase">24.2%</Details>
+                    <strong>
+                      <EquivalentValue amount={1} asset="NOM" prefix="$" />
+                    </strong>
+                    {/*<Details type="increase">24.2%</Details>*/}
                   </HeaderInfoItemValue>
                 </HeaderInfoItem>
                 <HeaderInfoItem>
-                  <strong>NOM / ETH</strong>
+                  <strong>wNOM / ETH</strong>
                   <HeaderInfoItemValue>
                     <strong>
                       <span>
                         {BigNumber.isBigNumber(currentETHPrice)
-                          ? `${Math.round(format18(currentETHPrice).toNumber())}`
+                          ? `${Math.round(format18(currentETHPrice).toNumber()).toLocaleString(
+                              'en-US'
+                            )}`
                           : 'Loading'}
                       </span>
                     </strong>
@@ -203,16 +208,16 @@ export default function MainHeader() {
               </ExchangeRate>
               <Issued>
                 <HeaderInfoItem>
-                  <strong>NOM Issued</strong>
+                  <strong>wNOM Issued</strong>
                   <HeaderInfoItemValue>
                     <strong>
                       <span>
                         {BigNumber.isBigNumber(supplyNOM)
-                          ? `${Math.round(format18(supplyNOM).toNumber())}`
+                          ? `${Math.round(format18(supplyNOM).toNumber()).toLocaleString('en-US')}`
                           : 'Loading'}
                       </span>
                     </strong>
-                    <Details>/ 1E8</Details>
+                    <Details>/ 100,000,000</Details>
                   </HeaderInfoItemValue>
                 </HeaderInfoItem>
               </Issued>

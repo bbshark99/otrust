@@ -19,9 +19,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "typeRoots": [
+      "./src/types"
+    ]
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "public",
+    "src/charting_library"
   ]
 }

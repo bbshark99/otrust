@@ -33,7 +33,7 @@ exports[`Given an Exchange component when the component is rendered should match
   border-left: 2px solid #302E3D;
 }
 
-.c6 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57,14 +57,14 @@ exports[`Given an Exchange component when the component is rendered should match
   font-weight: 500;
 }
 
-.c6 strong {
+.c8 strong {
   color: #9895a6;
   margin-right: auto;
   font-weight: 500;
   white-space: nowrap;
 }
 
-.c7 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -76,7 +76,7 @@ exports[`Given an Exchange component when the component is rendered should match
   gap: 16px;
 }
 
-.c10 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -90,13 +90,13 @@ exports[`Given an Exchange component when the component is rendered should match
   margin-bottom: 12px;
 }
 
-.c10 strong {
+.c12 strong {
   color: #656273;
   margin-right: auto;
   font-weight: 500;
 }
 
-.c9 {
+.c11 {
   padding: 15px 20px;
   height: 54px;
   border: none;
@@ -109,15 +109,15 @@ exports[`Given an Exchange component when the component is rendered should match
   cursor: pointer;
 }
 
-.c9:hover {
+.c11:hover {
   background-color: #252130;
 }
 
-.c9:active {
+.c11:active {
   background-color: #1b1924;
 }
 
-.c8 {
+.c10 {
   width: 100%;
   background: none;
   border: none;
@@ -127,11 +127,11 @@ exports[`Given an Exchange component when the component is rendered should match
   text-align: right;
 }
 
-.c8:focus {
+.c10:focus {
   outline: none;
 }
 
-.c11 {
+.c13 {
   margin-left: auto;
   font-weight: 500;
   color: #9895a6;
@@ -163,6 +163,21 @@ exports[`Given an Exchange component when the component is rendered should match
 
 .c3 {
   background: linear-gradient(90deg,#c75a5a,#7e1c1c);
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c7 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: right;
 }
 
 .c1 {
@@ -202,14 +217,14 @@ exports[`Given an Exchange component when the component is rendered should match
 }
 
 @media screen and (max-width:1440px) {
-  .c6 {
+  .c8 {
     height: 60px;
     padding: 16px 8px;
   }
 }
 
 @media screen and (max-width:1180px) {
-  .c6 {
+  .c8 {
     height: 55px;
     padding: 10px 5px 10px 8px;
     font-size: 12px;
@@ -217,43 +232,43 @@ exports[`Given an Exchange component when the component is rendered should match
 }
 
 @media screen and (max-width:834px) {
-  .c6 strong {
+  .c8 strong {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:1180px) {
-  .c10 strong {
+  .c12 strong {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:834px) {
-  .c10 strong {
+  .c12 strong {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c9 {
+  .c11 {
     height: 44px;
   }
 }
 
 @media screen and (max-width:1180px) {
-  .c8 {
+  .c10 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:834px) {
-  .c8 {
+  .c10 {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:834px) {
-  .c11 {
+  .c13 {
     font-size: 12px;
   }
 }
@@ -291,21 +306,30 @@ exports[`Given an Exchange component when the component is rendered should match
       <div
         class="c4 c5"
       >
-        <strong>
-          Buy NOM
-        </strong>
         <div
           class="c6"
         >
-          <div
+          <strong>
+            Buy NOM
+          </strong>
+          <strong
             class="c7"
+          >
+            Available: 0.000000 ETH
+          </strong>
+        </div>
+        <div
+          class="c8"
+        >
+          <div
+            class="c9"
             style="width: 100%; padding-right: 16px;"
           >
             <strong>
-              I'm buying for
+              Amount
             </strong>
             <input
-              class="c8"
+              class="c10"
               data-testid="exchange-strong-balance-input"
               placeholder="0.00"
               type="text"
@@ -313,11 +337,11 @@ exports[`Given an Exchange component when the component is rendered should match
             />
           </div>
           <div
-            class="c7"
+            class="c9"
           >
             ETH
             <button
-              class="c9"
+              class="c11"
               data-testid="max-value-button"
             >
               Max
@@ -325,13 +349,13 @@ exports[`Given an Exchange component when the component is rendered should match
           </div>
         </div>
         <div
-          class="c10"
+          class="c12"
         >
           <strong>
             You will receive
           </strong>
           <span
-            class="c11"
+            class="c13"
             data-testid="exchange-weak-balance"
           >
              NOM
@@ -350,21 +374,30 @@ exports[`Given an Exchange component when the component is rendered should match
       <div
         class="c4 c5"
       >
-        <strong>
-          Sell NOM
-        </strong>
         <div
           class="c6"
         >
-          <div
+          <strong>
+            Sell NOM
+          </strong>
+          <strong
             class="c7"
+          >
+            Available: 0.000000 NOM
+          </strong>
+        </div>
+        <div
+          class="c8"
+        >
+          <div
+            class="c9"
             style="width: 100%; padding-right: 16px;"
           >
             <strong>
-              I'm selling
+              Amount
             </strong>
             <input
-              class="c8"
+              class="c10"
               data-testid="exchange-strong-balance-input"
               placeholder="0.00"
               type="text"
@@ -372,11 +405,11 @@ exports[`Given an Exchange component when the component is rendered should match
             />
           </div>
           <div
-            class="c7"
+            class="c9"
           >
             NOM
             <button
-              class="c9"
+              class="c11"
               data-testid="max-value-button"
             >
               Max
@@ -384,13 +417,13 @@ exports[`Given an Exchange component when the component is rendered should match
           </div>
         </div>
         <div
-          class="c10"
+          class="c12"
         >
           <strong>
             You will receive
           </strong>
           <span
-            class="c11"
+            class="c13"
             data-testid="exchange-weak-balance"
           >
              ETH
@@ -399,7 +432,7 @@ exports[`Given an Exchange component when the component is rendered should match
         <button
           class="c2 c3"
         >
-           Input Value 
+          Sell NOM
         </button>
       </div>
     </div>

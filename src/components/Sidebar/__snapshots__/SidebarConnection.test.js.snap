@@ -58,6 +58,10 @@ exports[`Given the SidebarConnection component when the component is rendered an
   font-weight: 500;
 }
 
+.c1 a {
+  color: #9895a6;
+}
+
 @media screen and (max-width:1440px) {
   .c0 {
     padding: 24px;
@@ -130,6 +134,22 @@ exports[`Given the SidebarConnection component when the component is rendered an
         123456
       </span>
     </div>
+    <div
+      class="c1"
+    >
+      <strong>
+        Contract Address
+      </strong>
+      <span>
+        <a
+          href="https://etherscan.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Etherscan
+        </a>
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -190,6 +210,10 @@ exports[`Given the SidebarConnection component when the component is rendered an
 
 .c1 > span {
   font-weight: 500;
+}
+
+.c1 a {
+  color: #9895a6;
 }
 
 @media screen and (max-width:1440px) {
@@ -264,6 +288,22 @@ exports[`Given the SidebarConnection component when the component is rendered an
         123456
       </span>
     </div>
+    <div
+      class="c1"
+    >
+      <strong>
+        Contract Address
+      </strong>
+      <span>
+        <a
+          href="https://etherscan.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Etherscan
+        </a>
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -324,6 +364,10 @@ exports[`Given the SidebarConnection component when the component is rendered ha
 
 .c1 > span {
   font-weight: 500;
+}
+
+.c1 a {
+  color: #9895a6;
 }
 
 @media screen and (max-width:1440px) {
@@ -393,6 +437,22 @@ exports[`Given the SidebarConnection component when the component is rendered ha
         Block Number
       </strong>
       <span />
+    </div>
+    <div
+      class="c1"
+    >
+      <strong>
+        Contract Address
+      </strong>
+      <span>
+        <a
+          href="https://etherscan.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Etherscan
+        </a>
+      </span>
     </div>
   </div>
 </DocumentFragment>

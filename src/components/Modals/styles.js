@@ -154,6 +154,10 @@ export const PrimaryButton = styled.button`
   &:active {
     background-color: ${props => (props.disabled ? props.theme.colors.bgHighlight : props.theme.colors.textSecondary)};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
@@ -625,7 +629,7 @@ export const ConnectionStatus = styled.div`
     bottom: -30px;
 
     background-color: ${props =>
-      props.active ? props.theme.colors.highlightGreen : props.theme.colors.highlightRed};
+    props.active ? props.theme.colors.highlightGreen : props.theme.colors.highlightRed};
   }
 `;
 

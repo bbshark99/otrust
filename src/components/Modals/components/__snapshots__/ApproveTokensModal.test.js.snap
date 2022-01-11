@@ -82,6 +82,10 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
   background-color: #9895a6;
 }
 
+.c8:disabled {
+  cursor: not-allowed;
+}
+
 .c9 {
   background-color: #302E3D;
   color: #e1dfeb;
@@ -295,15 +299,19 @@ exports[`Given the ApproveTokensModal component when the component is rendered s
       <div
         class="c4"
       >
-        You want to sell 
+        You have approved the Bonding Curve to sell up to 
         <strong>
-           wNOM
+          0.000000 wNOM
         </strong>
-        , but you approved for sale only 0 wNOM. To sell this amount, please approve 
+        . To sell 
         <strong>
-          0 wNOM
+          0.000000 wNOM
         </strong>
-         or more.
+        , you must approve at least an additional 
+        <strong>
+          0.000000 wNOM
+        </strong>
+        .
       </div>
       <div
         class="c5"

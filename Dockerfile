@@ -4,6 +4,9 @@ RUN apk --no-cache add git
 WORKDIR /app
 
 COPY . ./
+ARG ENV_FILE=devnet.env
+RUN cp $ENV_FILE .env
+RUN cat .env
 RUN yarn
 RUN yarn verified-build
 

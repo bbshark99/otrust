@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { useCallback, useRef } from 'react';
+import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
 import _ from 'lodash';
@@ -28,6 +29,15 @@ import NOMButton from 'components/Exchange/NOMButton';
 import { format18, parse18 } from 'utils/math';
 import { NOTIFICATION_MESSAGES } from 'constants/NotificationMessages';
 
+const FlexDiv = styled.div`
+  display: flex;
+`;
+
+const AvailableDiv = styled.strong`
+  flex-grow: 1;
+  text-align: right;
+`;
+
 export default function ExchangeQuote({ strength }) {
   const { strongBalance, weakBalance } = useChain();
   const { handleModal } = useModal();
@@ -51,17 +61,18 @@ export default function ExchangeQuote({ strength }) {
 
       switch (textStrength) {
         case 'strong':
-          console.log('Strong: ', bidAmountUpdate.toFixed(0));
+          // console.log('Strong: ', bidAmountUpdate.toFixed(0));
           askAmountUpdate = await bondContract.buyQuoteETH(bidAmountUpdate.toFixed(0));
-          console.log('Pull Strong Ask Amount', askAmountUpdate);
+          // console.log('Pull Strong Ask Amount', askAmountUpdate);
           break;
 
         case 'weak':
           askAmountUpdate = await bondContract.sellQuoteNOM(bidAmountUpdate.toFixed(0));
-          console.log('Pull Weak Ask Amount', askAmountUpdate);
+          // console.log('Pull Weak Ask Amount', askAmountUpdate);
           break;
 
         default:
+          // eslint-disable-next-line no-console
           console.error('Denom not set');
       }
       return new BigNumber(askAmountUpdate.toString());
@@ -89,7 +100,8 @@ export default function ExchangeQuote({ strength }) {
             handleModal(<TransactionCompletedModal isApproving tx={tx} />);
           });
         } catch (e) {
-          console.log(e);
+          // eslint-disable-next-line no-console
+          console.error(e);
           handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }
       } else {
@@ -172,7 +184,7 @@ export default function ExchangeQuote({ strength }) {
               break;
 
             default:
-              console.log();
+              break;
           }
         } catch (e) {
           // eslint-disable-next-line no-console
@@ -241,7 +253,7 @@ export default function ExchangeQuote({ strength }) {
     let askAmountUpdate;
 
     try {
-      console.log('calling here:', askAmount, bidMaxValue, strength);
+      // console.log('calling here:', askAmount, bidMaxValue, strength);
       askAmountUpdate = await getAskAmount(askAmount, bidMaxValue, strength);
     } catch (err) {
       if (err) {
@@ -309,6 +321,7 @@ export default function ExchangeQuote({ strength }) {
             value: strUpdate,
           });
         } catch (err) {
+          // eslint-disable-next-line no-console
           console.error(err);
           // err && handleModal(<RequestFailedModal error={err.error.message} />);
         }
@@ -405,12 +418,17 @@ export default function ExchangeQuote({ strength }) {
 
   return (
     <ExchangeItem>
-      <strong>{isBuying ? `Buy ${weak}` : `Sell ${weak}`}</strong>
+      <FlexDiv>
+        <strong>{isBuying ? `Buy ${weak}` : `Sell ${weak}`}</strong>
+        <AvailableDiv>
+          {isBuying
+            ? `Available: ${format18(strongBalance).toFixed(6)} ${strong}`
+            : `Available: ${format18(weakBalance).toFixed(6)} ${weak}`}
+        </AvailableDiv>
+      </FlexDiv>
       <Sending>
         <SendingBox style={{ width: '100%', paddingRight: 16 }}>
-          {(bidDenom !== strength || !input) && (
-            <strong>{isBuying ? "I'm buying for" : "I'm selling"}</strong>
-          )}
+          {(bidDenom !== strength || !input) && <strong>Amount</strong>}
           <ExchangeInput
             type="text"
             data-testid="exchange-strong-balance-input"
@@ -429,15 +447,16 @@ export default function ExchangeQuote({ strength }) {
       <Receiving>
         <strong>You will receive</strong>
         <ReceivingValue data-testid="exchange-weak-balance">
-          {strength === bidDenom ? output : ''} {strength === 'strong' ? weak : strong}
+          {strength === bidDenom && output ? `~${output}` : ''}{' '}
+          {strength === 'strong' ? weak : strong}
         </ReceivingValue>
       </Receiving>
       {strength === 'strong' ? (
         bidDenom === 'weak' ? (
-          <ExchangeButton>Input Value</ExchangeButton>
+          <ExchangeButton>Buy {strength === 'strong' ? weak : strong}</ExchangeButton>
         ) : bidAmount.lte(strongBalance) ? (
           input === '' ? (
-            <ExchangeButton>Input Value</ExchangeButton>
+            <ExchangeButton>Buy {strength === 'strong' ? weak : strong}</ExchangeButton>
           ) : (
             <ExchangeButton onClick={onBid}>
               Buy {strength === 'strong' ? weak : strong}

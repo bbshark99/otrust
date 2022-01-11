@@ -22,7 +22,7 @@ export function boolReducerCallback(state, key, value, update) {
     case value:
       return update;
     default:
-      console.log('Update Bool');
+      // console.log('Update Bool');
       update = {
         ...update,
         [key]: value,

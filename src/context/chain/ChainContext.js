@@ -3,8 +3,11 @@ import { useWeb3React } from '@web3-react/core';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { BigNumber } from 'bignumber.js';
 
-import { BondingCont, NOMCont, contAddrs } from 'context/chain/contracts';
+import { BondingCont, NOMCont } from 'context/chain/contracts';
 import { reducer } from 'context/chain/ChainReducer';
+import { REACT_APP_BONDING_NOM_CONTRACT_ADDRESS, REACT_APP_GRAPHQL_ENDPOINT } from 'constants/env';
+// eslint-disable-next-line import/no-cycle
+import { OnomyProvider } from './OnomyContext';
 
 export const ChainContext = createContext();
 export const useChain = () => useContext(ChainContext);
@@ -26,25 +29,21 @@ function ChainProvider({ theme, children }) {
     weakBalance: new BigNumber(0),
   });
 
-  if (!process.env.REACT_APP_GRAPHQL_ENDPOINT) {
-    throw new Error('REACT_APP_GRAPHQL_ENDPOINT environment variable not defined');
-  }
-
   const client = new ApolloClient({
-    uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
+    uri: REACT_APP_GRAPHQL_ENDPOINT,
     cache: new InMemoryCache(),
   });
 
   useEffect(() => {
     // listen for changes on an Ethereum address
-    library.on('block', async number => {
+    async function onBlock(number) {
       if (state.blocknumber !== number) {
         try {
           await Promise.all([
             // Current ETH Price & Current NOM Price
             bondContract.buyQuoteETH((10 ** 18).toString()),
             // NOM Allowance
-            NOMContract.allowance(account, contAddrs.BondingNOM),
+            NOMContract.allowance(account, REACT_APP_BONDING_NOM_CONTRACT_ADDRESS),
             // Strong Balance
             library.getBalance(account),
             // Supply NOM
@@ -92,27 +91,35 @@ function ChainProvider({ theme, children }) {
             }
             dispatch({ type: 'updateAll', value: update });
           });
-        } catch {
-          console.log('Failed Chain Promise');
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error('Failed Chain Promise', e);
         }
       }
-    });
+    }
+
+    library.on('block', onBlock);
     // remove listener when the component is unmounted
     return () => {
-      library.removeAllListeners('block');
+      library.removeListener('block', onBlock);
     };
     // trigger the effect only on component mount
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const contextValue = {
     ...state,
+    client,
+    library,
     theme,
   };
 
   return (
     <ApolloProvider client={client}>
       <UpdateChainContext.Provider value={dispatch}>
-        <ChainContext.Provider value={contextValue}>{children}</ChainContext.Provider>
+        <ChainContext.Provider value={contextValue}>
+          <OnomyProvider>{children}</OnomyProvider>
+        </ChainContext.Provider>
       </UpdateChainContext.Provider>
     </ApolloProvider>
   );

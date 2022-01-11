@@ -31,7 +31,7 @@ const SidebarLayout = styled.div`
   }
 
   @media screen and (max-width: ${responsive.tabletSmall}) {
-    // grid-template-columns: 1fr 250px;
+    /* grid-template-columns: 1fr 250px; */
   }
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
@@ -54,7 +54,7 @@ export default function Sidebar() {
     <div id="tour-sidebar">
       <PanelLayout>
         <SidebarLayout>
-          <SidebarHeader account={account} onLogout={handleLogout} />
+          <SidebarHeader account={account} />
           <SidebarBalances
             strong={strong}
             weak={weak}
@@ -76,7 +76,7 @@ export default function Sidebar() {
             chainId={chainId}
             blockNumber={blockNumber}
           />
-          <SidebarFooter />
+          <SidebarFooter onLogout={handleLogout} />
         </SidebarLayout>
       </PanelLayout>
     </div>

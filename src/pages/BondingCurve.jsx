@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Steps } from 'intro.js-react';
 import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
 
+import { PrimaryButton } from 'components/Modals/styles';
 import Sidebar from 'components/Sidebar/Sidebar';
 import Bonding from 'components/Bonding';
-import { Container } from 'components/UI';
+import { Container, Dimmer } from 'components/UI';
 import { responsive } from 'theme/constants';
 import welcome from 'assets/onboarding/welcome.svg';
 import panel from 'assets/onboarding/panel.svg';
@@ -50,16 +51,118 @@ const BondingCurveLayout = styled.div`
   }
 `;
 
+const Modal = styled.div`
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  background-color: #201d2a;
+  border-radius: 8px;
+
+  transform: translate(-50%, -50%);
+
+  @media screen and (max-width: ${responsive.smartphoneLarge}) {
+    top: 50px;
+    left: 20px;
+    position: relative;
+
+    transform: none;
+  }
+
+  @media screen and (max-width: ${responsive.smartphone}) {
+    width: calc(100% - 40px);
+    margin: 20px;
+
+    top: 0;
+    left: 0;
+  }
+`;
+
+const Checkbox = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 40px 0 20px;
+
+  line-height: 1.2;
+
+  user-select: none;
+`;
+
 export default function BondingCurve() {
   const [cookies, setCookie] = useCookies(['visitedBefore']);
+  const [accepted, setAccepted] = useState(false);
+  const [disclosuresModal, setDisclosureModal] = useState(true);
   const onboardingBreakpoint = useMediaQuery({ minWidth: responsive.laptopSmall });
+
+  const showOnboardingGuide =
+    !cookies.visitedBefore && accepted && onboardingBreakpoint && !disclosuresModal;
 
   return (
     <BondingCurveContainer>
       <BondingCurveLayout>
-        {!cookies.visitedBefore && onboardingBreakpoint && (
+        {disclosuresModal && !cookies.visitedBefore && (
+          <>
+            <Dimmer>
+              <Modal>
+                <div className="img-wrapper">
+                  <img src={welcome} alt="" />
+                </div>
+                <div className="content">
+                  <h4>Welcome to the Onomy Bonding Curve Offering</h4>
+                  <p>The BCO is your gateway to the Onomy Network and the NOM token.</p>
+
+                  <p>
+                    Use the Bonding Curve Platform to buy and sell wNOM, and bridge for NOM to use
+                    on the Onomy Network for staking, collateral, governance, and rewards.
+                  </p>
+
+                  <p>
+                    By continuing, you have read our documentation and agree to our disclosures{' '}
+                    <a
+                      href="https://docs.onomy.io/nom-distribution/bonding-curve-offering"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      here
+                    </a>
+                    .
+                  </p>
+
+                  <Checkbox>
+                    <input
+                      type="checkbox"
+                      defaultChecked={accepted}
+                      onChange={() => setAccepted(!accepted)}
+                    />
+                    I&apos;ve read the documentation and agreed to disclosures
+                  </Checkbox>
+                  <PrimaryButton
+                    type="button"
+                    disabled={!accepted}
+                    style={{ marginLeft: 'auto', width: '100%' }}
+                    onClick={() => accepted && setDisclosureModal(false)}
+                  >
+                    Continue
+                  </PrimaryButton>
+                </div>
+              </Modal>
+            </Dimmer>
+          </>
+        )}
+
+        {showOnboardingGuide && (
           <Steps
             enabled
+            onExit={() => {
+              setCookie('visitedBefore', true);
+            }}
             options={{
               showBullets: false,
               tooltipClass: 'onomyOnboarding',
@@ -69,24 +172,10 @@ export default function BondingCurve() {
             steps={[
               {
                 intro: `
-                <div class="img-wrapper"><img src=${welcome} alt=""/></div>
-                <div class="content">
-                  <h4>Welcome to Onomy Bonding Curve</h4>
-                  <p>
-                    Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel. Fat make met can must form into gate. Me we offending prevailed discovery.
-                  </p>
-
-                  <p>
-                    Of friendship on inhabiting diminution discovered as. Did friendly eat breeding building few nor.
-                  </p>
-                </div>`,
-              },
-              {
-                intro: `
                 <div class="img-wrapper"><img src=${panel} alt=""/></div>
                 <div class="content">
                   <h4>Account Panel</h4>
-                  <p>Here you can view your ETH and wNOM balances. You also can <strong>Withdraw wNOM</strong> to your Onomy wallet (and create one) from here.</p>
+                  <p>Here you can view your ETH and wNOM balances. You also can bridge wNOM to your Onomy wallet (and create one) from here.</p>
                 </div>`,
                 element: '#tour-sidebar',
               },
@@ -95,7 +184,7 @@ export default function BondingCurve() {
                 <div class="img-wrapper"><img src=${prices} alt=""/></div>
                 <div class="content">
                   <h4>Prices / Stats</h4>
-                  <p>The current price of NOM and the amount of NOM that has been issued can be viewed here.</p>
+                  <p>The current price of wNOM and the amount of wNOM that has been issued can be viewed here.</p>
                 </div>`,
                 element: '#tour-prices',
               },
@@ -103,7 +192,7 @@ export default function BondingCurve() {
                 intro: `
                 <div class="content">
                   <h4>Buying wNOM</h4>
-                  <p>Enter the amount of ETH you would like to use to purchase NOM here. A 1% fee will be applied per trade.</p>
+                  <p>Enter the amount of ETH you would like to use to purchase wNOM here. A 1% fee will be applied per trade.</p>
                 </div>
               `,
                 element: '#tour-buy',
@@ -112,7 +201,7 @@ export default function BondingCurve() {
                 intro: `
                 <div class="content">
                   <h4>Selling wNOM</h4>
-                  Enter the amount of NOM you would like to sell here. A 1% fee will be applied per trade.
+                  Enter the amount of wNOM you would like to sell here. A 1% fee will be applied per trade.
                 </div>`,
                 element: '#tour-sell',
               },
@@ -121,17 +210,12 @@ export default function BondingCurve() {
                 <div class="img-wrapper"><img src=${bondingCurve} alt=""/></div>
                 <div class="content">
                   <h4>Bonding Curve Chart</h4>
-                  <p>Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel. Fat make met can must form into gate. Me we offending prevailed discovery.</p> 
-
-                  <p>Of friendship on inhabiting diminution discovered as. Did friendly eat breeding building few nor.</p>
+                  <p>Choose between viewing the Bonding Curve chart and using TradingView to monitor price action and issuance of wNOM.</p>
                 </div>`,
                 element: '#tour-chart',
               },
             ]}
             initialStep={0}
-            onExit={() => {
-              setCookie('visitedBefore', true);
-            }}
           />
         )}
         <Bonding />

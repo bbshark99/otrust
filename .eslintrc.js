@@ -47,7 +47,7 @@ module.exports = {
     "no-shadow": ["warn", { "builtinGlobals": false, "hoist": "functions", "allow": [] }],
     "no-underscore-dangle": "off",
     "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }],
-    "no-console": "off",
+    "no-console": "warn",
     "no-debugger": "error",
     "object-shorthand": "off",
     "spaced-comment": "off",

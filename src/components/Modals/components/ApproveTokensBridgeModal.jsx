@@ -10,10 +10,10 @@ import { ethers } from 'ethers';
 import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { NOMCont } from 'context/chain/contracts';
 import * as Modal from '../styles';
-import { contAddrs } from '../../../context/chain/contracts';
 import { responsive } from 'theme/constants';
 import { MaxBtn } from 'components/Exchange/exchangeStyles';
 import { NOTIFICATION_MESSAGES } from '../../../constants/NotificationMessages';
+import { REACT_APP_GRAVITY_CONTRACT_ADDRESS } from 'constants/env';
 
 const Message = styled.div`
   margin: 32px 0 0;
@@ -202,7 +202,7 @@ export default function ApproveTokensBridgeModal({
         setDelay(null);
         setShowLoader(true);
         tx = await NOMContract.increaseAllowance(
-          contAddrs.Gravity,
+          REACT_APP_GRAVITY_CONTRACT_ADDRESS,
           BigNumber(approveAmountInputValue).shiftedBy(18).toString(10),
           {
             gasPrice: gasPrice.toFixed(0),
@@ -230,6 +230,9 @@ export default function ApproveTokensBridgeModal({
     [NOMContract, approveAmountInputValue, gasPrice]
   );
 
+  const amountDisplay = parseFloat(amountValue || 0).toFixed(6);
+  const calculatedDisplay = parseFloat(calculatedApproveValue || 0).toFixed(6);
+
   return (
     <Modal.BridgeSectionWrapper>
       <header>
@@ -245,11 +248,11 @@ export default function ApproveTokensBridgeModal({
 
       <main>
         <Message>
-          You want to sell <strong>{amountValue} wNOM</strong>, but you approved for sale only{' '}
+          You want to sell <strong>{amountDisplay} wNOM</strong>, but you approved for sale only{' '}
           {allowanceAmountGravity &&
-            BigNumber(allowanceAmountGravity.toString()).shiftedBy(-18).toString(10)}{' '}
-          wNOM. To sell this amount, please approve <strong>{calculatedApproveValue} wNOM</strong>{' '}
-          or more.
+            BigNumber(allowanceAmountGravity.toString()).shiftedBy(-18).toFixed(6)}{' '}
+          wNOM. To sell this amount, please approve <strong>{calculatedDisplay} wNOM</strong> or
+          more.
         </Message>
         <ApproveTokensWrapper>
           <div>

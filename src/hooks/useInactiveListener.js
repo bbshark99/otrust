@@ -13,7 +13,7 @@ export function useInactiveListener(suppress = false) {
     const { ethereum } = window;
     if (ethereum && ethereum.on && !active && !error) {
       const handleConnect = () => {
-        console.log("Handling 'connect' event");
+        // console.log("Handling 'connect' event");
         activate(injected);
       };
 

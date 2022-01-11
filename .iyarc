@@ -1,3 +1,4 @@
-# https://www.npmjs.com/advisories/877
+# https://github.com/advisories/GHSA-27v7-qhfv-rqq8
+# https://www.npmjs.com/advisories/1004982
 # This web3 vulnerability is ignored because there is no fix
-877
+1004982

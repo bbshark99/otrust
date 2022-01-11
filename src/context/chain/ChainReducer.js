@@ -21,66 +21,43 @@ export function reducer(state, action) {
   let update;
   switch (action.type) {
     case 'updateAll':
+      // eslint-disable-next-line no-restricted-syntax
       for (const [key, value] of action.value.entries()) {
         if (state[key]) {
-          switch (key) {
-            case 'currentETHPrice':
-              try {
+          try {
+            switch (key) {
+              case 'currentETHPrice':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-
-            case 'currentNOMPrice':
-              try {
+                break;
+              case 'currentNOMPrice':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'NOMallowance':
-              try {
+                break;
+              case 'NOMallowance':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              console.log('Update NOM Allowance: ', update);
-              break;
-            case 'strongBalance':
-              try {
+                // console.log('Update NOM Allowance: ', update);
+                break;
+              case 'strongBalance':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'supplyNOM':
-              try {
+                break;
+              case 'supplyNOM':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'weakBalance':
-              try {
+                break;
+              case 'weakBalance':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'blockNumber':
-              try {
+                break;
+              case 'blockNumber':
                 update = reducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            default:
-              throw new Error();
+                break;
+              default:
+                throw new Error('Unexpected default case');
+            }
+          } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
           }
         }
       }
-      console.log('ChainReducer Update: ', update);
+      // console.log('ChainReducer Update: ', update);
       if (update) {
         return {
           ...update,

@@ -48,6 +48,10 @@ const ConnectionRow = styled.div`
   > span {
     font-weight: 500;
   }
+
+  a {
+    color: ${props => props.theme.colors.textSecondary};
+  }
 `;
 
 export default function SidebarConnection({ active, error, chainId, blockNumber }) {
@@ -67,6 +71,14 @@ export default function SidebarConnection({ active, error, chainId, blockNumber 
       <ConnectionRow>
         <strong>Block Number</strong>
         <span>{blockNumber ? blockNumber.toFixed(0) : ''}</span>
+      </ConnectionRow>
+      <ConnectionRow>
+        <strong>Contract Address</strong>
+        <span>
+          <a href="https://etherscan.com" target="_blank" rel="noreferrer">
+            Etherscan
+          </a>
+        </span>
       </ConnectionRow>
     </ConnectionWrapper>
   );

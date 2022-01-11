@@ -192,8 +192,7 @@ export default function Landing({ connectWallet }) {
           <StyledMiddlePart>
             <BottomTitleText>Connect Your Wallet</BottomTitleText>
             <BottomDescriptionText>
-              To participate bonding curve process and buy NOM tokens you need to connect your Eth
-              wallet
+              To participate in the Bonding Curve Platform, you must connect your Ethereum wallet.
             </BottomDescriptionText>
           </StyledMiddlePart>
           <StyledBottomPart>

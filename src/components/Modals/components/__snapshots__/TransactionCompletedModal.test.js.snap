@@ -25,7 +25,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   background-color: #1a1823;
 }
 
-.c7 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -63,7 +63,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   fill: #4d4b57;
 }
 
-.c9 {
+.c4 {
   width: 170px;
   height: 50px;
   background-color: #e1dfeb;
@@ -74,15 +74,32 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   font-size: 14px;
 }
 
-.c9:hover {
+.c4:hover {
   background-color: #fff;
 }
 
-.c9:active {
+.c4:active {
   background-color: #9895a6;
 }
 
-.c4 {
+.c4:disabled {
+  cursor: not-allowed;
+}
+
+.c5 {
+  background-color: #302E3D;
+  color: #e1dfeb;
+}
+
+.c5:hover {
+  background-color: #47445a;
+}
+
+.c5:active {
+  background-color: #9895a6;
+}
+
+.c7 {
   padding: 24px;
   margin: 32px 0 24px;
   background-color: #1a1823;
@@ -92,11 +109,11 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   text-align: center;
 }
 
-.c4 sup {
+.c7 sup {
   font-size: 14px;
 }
 
-.c6 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -112,12 +129,12 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   padding-bottom: 16px;
 }
 
-.c6 span {
+.c9 span {
   font-weight: 400;
   color: #656273;
 }
 
-.c6 strong {
+.c9 strong {
   font-weight: 500;
 }
 
@@ -154,7 +171,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   height: 35px;
 }
 
-.c8 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -170,7 +187,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   font-size: 14px;
 }
 
-.c8 svg {
+.c11 svg {
   width: 20px;
   height: 20px;
   -webkit-transform: rotate(0deg);
@@ -180,24 +197,29 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   transition: 0.1s ease;
 }
 
-.c8:hover {
+.c11:hover {
   color: #e1dfeb;
 }
 
-.c8:hover svg * {
+.c11:hover svg * {
   fill: #e1dfeb;
 }
 
-.c8:active {
+.c11:active {
   color: #938fa1;
 }
 
-.c8:active svg * {
+.c11:active svg * {
   fill: #938fa1;
 }
 
-.c5 {
+.c8 {
   color: #656273;
+}
+
+.c6 {
+  width: 100%;
+  margin-top: 32px;
 }
 
 @media screen and (max-width:1440px) {
@@ -232,13 +254,13 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:1440px) {
-  .c7 {
+  .c10 {
     padding-bottom: 24px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c9 {
+  .c4 {
     width: 135px;
     height: 40px;
     font-size: 12px;
@@ -246,13 +268,13 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:480px) {
-  .c9 {
+  .c4 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c4 {
+  .c7 {
     padding: 24px;
     margin: 24px 0 20px;
     font-size: 24px;
@@ -260,7 +282,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:1440px) {
-  .c4 sup {
+  .c7 sup {
     font-size: 12px;
   }
 }
@@ -292,19 +314,19 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:1440px) {
-  .c8 {
+  .c11 {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:480px) {
-  .c8 {
+  .c11 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c8 svg {
+  .c11 svg {
     width: 16px;
     height: 16px;
   }
@@ -358,10 +380,15 @@ exports[`Given the TransactionCompletedModal component when the component is ren
       <h3
         class="c3"
       >
-        Transaction Completed!
+        Transaction Confirmed
       </h3>
+      <button
+        class="c4 c5 c6"
+      >
+        View in Etherscan
+      </button>
       <div
-        class="c4"
+        class="c7"
         data-testid="completed-modal-exchange-result"
       >
         + 0.00000000 
@@ -369,7 +396,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           NOM
         </sup>
         <div
-          class="c5"
+          class="c8"
         >
           - 0.00000000 
           <sup>
@@ -378,7 +405,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
         </div>
       </div>
       <div
-        class="c6"
+        class="c9"
         data-testid="completed-modal-exchange-rate"
       >
         <span>
@@ -391,10 +418,10 @@ exports[`Given the TransactionCompletedModal component when the component is ren
     </main>
     <footer>
       <div
-        class="c7"
+        class="c10"
       >
         <button
-          class="c8"
+          class="c11"
           data-testid="completed-modal-details-button"
         >
           View Details 
@@ -409,7 +436,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           </svg>
         </button>
         <button
-          class="c9"
+          class="c4"
           data-testid="completed-modal-primary-button"
         >
           Done
@@ -445,7 +472,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   background-color: #1a1823;
 }
 
-.c7 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -483,7 +510,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   fill: #4d4b57;
 }
 
-.c9 {
+.c4 {
   width: 170px;
   height: 50px;
   background-color: #e1dfeb;
@@ -494,15 +521,32 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   font-size: 14px;
 }
 
-.c9:hover {
+.c4:hover {
   background-color: #fff;
 }
 
-.c9:active {
+.c4:active {
   background-color: #9895a6;
 }
 
-.c4 {
+.c4:disabled {
+  cursor: not-allowed;
+}
+
+.c5 {
+  background-color: #302E3D;
+  color: #e1dfeb;
+}
+
+.c5:hover {
+  background-color: #47445a;
+}
+
+.c5:active {
+  background-color: #9895a6;
+}
+
+.c7 {
   padding: 24px;
   margin: 32px 0 24px;
   background-color: #1a1823;
@@ -512,11 +556,11 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   text-align: center;
 }
 
-.c4 sup {
+.c7 sup {
   font-size: 14px;
 }
 
-.c6 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -532,12 +576,12 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   padding-bottom: 16px;
 }
 
-.c6 span {
+.c9 span {
   font-weight: 400;
   color: #656273;
 }
 
-.c6 strong {
+.c9 strong {
   font-weight: 500;
 }
 
@@ -574,7 +618,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   height: 35px;
 }
 
-.c8 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -590,7 +634,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   font-size: 14px;
 }
 
-.c8 svg {
+.c11 svg {
   width: 20px;
   height: 20px;
   -webkit-transform: rotate(0deg);
@@ -600,24 +644,29 @@ exports[`Given the TransactionCompletedModal component when the component is ren
   transition: 0.1s ease;
 }
 
-.c8:hover {
+.c11:hover {
   color: #e1dfeb;
 }
 
-.c8:hover svg * {
+.c11:hover svg * {
   fill: #e1dfeb;
 }
 
-.c8:active {
+.c11:active {
   color: #938fa1;
 }
 
-.c8:active svg * {
+.c11:active svg * {
   fill: #938fa1;
 }
 
-.c5 {
+.c8 {
   color: #656273;
+}
+
+.c6 {
+  width: 100%;
+  margin-top: 32px;
 }
 
 @media screen and (max-width:1440px) {
@@ -652,13 +701,13 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:1440px) {
-  .c7 {
+  .c10 {
     padding-bottom: 24px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c9 {
+  .c4 {
     width: 135px;
     height: 40px;
     font-size: 12px;
@@ -666,13 +715,13 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:480px) {
-  .c9 {
+  .c4 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c4 {
+  .c7 {
     padding: 24px;
     margin: 24px 0 20px;
     font-size: 24px;
@@ -680,7 +729,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:1440px) {
-  .c4 sup {
+  .c7 sup {
     font-size: 12px;
   }
 }
@@ -712,19 +761,19 @@ exports[`Given the TransactionCompletedModal component when the component is ren
 }
 
 @media screen and (max-width:1440px) {
-  .c8 {
+  .c11 {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:480px) {
-  .c8 {
+  .c11 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c8 svg {
+  .c11 svg {
     width: 16px;
     height: 16px;
   }
@@ -778,10 +827,15 @@ exports[`Given the TransactionCompletedModal component when the component is ren
       <h3
         class="c3"
       >
-        Transaction Completed!
+        Transaction Confirmed
       </h3>
+      <button
+        class="c4 c5 c6"
+      >
+        View in Etherscan
+      </button>
       <div
-        class="c4"
+        class="c7"
         data-testid="completed-modal-exchange-result"
       >
         + 0.00000000 
@@ -789,7 +843,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           NOM
         </sup>
         <div
-          class="c5"
+          class="c8"
         >
           - 0.00000000 
           <sup>
@@ -798,7 +852,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
         </div>
       </div>
       <div
-        class="c6"
+        class="c9"
         data-testid="completed-modal-exchange-rate"
       >
         <span>
@@ -811,10 +865,10 @@ exports[`Given the TransactionCompletedModal component when the component is ren
     </main>
     <footer>
       <div
-        class="c7"
+        class="c10"
       >
         <button
-          class="c8"
+          class="c11"
           data-testid="completed-modal-details-button"
         >
           View Details 
@@ -829,7 +883,7 @@ exports[`Given the TransactionCompletedModal component when the component is ren
           </svg>
         </button>
         <button
-          class="c9"
+          class="c4"
           data-testid="completed-modal-primary-button"
         >
           Done

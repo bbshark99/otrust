@@ -59,7 +59,7 @@ export default function PendingModal({ isApproving }) {
   return (
     <Modal.Wrapper>
       <main>
-        <Modal.PendingCaption>Transaction pending...</Modal.PendingCaption>
+        <Modal.PendingCaption>Waiting for Wallet Confirmation</Modal.PendingCaption>
 
         <Modal.ExchangeResult>
           <Modal.ExchangeResultDescription>

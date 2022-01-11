@@ -82,6 +82,10 @@ exports[`Given the ApproveModal component when the component is rendered should 
   background-color: #9895a6;
 }
 
+.c6:disabled {
+  cursor: not-allowed;
+}
+
 .c7 {
   background-color: #302E3D;
   color: #e1dfeb;

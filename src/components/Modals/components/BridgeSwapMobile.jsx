@@ -340,7 +340,7 @@ export default function BridgeSwapMobile({ ...props }) {
               </Modal.LoadingWrapper>
             )}
             <BridgeSending error={values.errors.amountError}>
-              <strong>Swap to NOM</strong>
+              <strong>Bridge to NOM</strong>
               <BridgeAmountInput
                 type="text"
                 value={values.amountValue}
@@ -378,7 +378,7 @@ export default function BridgeSwapMobile({ ...props }) {
               onClick={handlers.submitTransClickHandler}
               disabled={flags.isDisabled || !active}
             >
-              Swap wNOM for NOM
+              Bridge wNOM to NOM
             </Modal.FullWidthButton>
             <Modal.SecondaryButton
               style={{ width: '100%', height: 52 }}

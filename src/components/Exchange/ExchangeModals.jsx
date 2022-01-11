@@ -225,6 +225,7 @@ export default function ExchangeModals() {
             });
           }
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.log(error.message);
         }
         objUpdate.set('askAmount', BigNumber(askAmountUpdate.toString()));
@@ -349,7 +350,8 @@ export default function ExchangeModals() {
             handleModal(<TransactionCompletedModal isApproving tx={tx} />);
           });
         } catch (e) {
-          console.log(e);
+          // eslint-disable-next-line no-console
+          console.error(e);
           handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }
       } else {
@@ -436,9 +438,10 @@ export default function ExchangeModals() {
               break;
 
             default:
-              console.log();
+              break;
           }
         } catch (e) {
+          // eslint-disable-next-line no-console
           console.error(e.code, e.message.message);
           handleModal(<TransactionFailedModal error={`${e.code}\n${e.message.slice(0, 80)}...`} />);
         }

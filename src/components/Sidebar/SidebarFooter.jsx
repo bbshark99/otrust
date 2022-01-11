@@ -2,32 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { responsive } from 'theme/constants';
-import { TelegramIcon, MediumIcon, TwitterIcon } from './SidebarIcons';
+import { TelegramIcon, MediumIcon, TwitterIcon, SiteIcon, DiscordIcon } from './SidebarIcons';
 
 const SidebarFooterWrapper = styled.footer`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 16px;
 
   padding: 24px 40px;
   margin-top: auto;
 
   @media screen and (max-width: ${responsive.laptop}) {
-    flex-direction: column-reverse;
-    padding: 40px 24px;
+    padding: 20px 24px;
   }
 
   @media screen and (max-width: ${responsive.tablet}) {
-    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 12px;
+
+    width: 100%;
+    padding: 40px 24px;
 
     position: absolute;
     bottom: 0;
     left: 0;
-
-    padding: 10px 24px;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
   @media screen and (max-width: ${responsive.smartphoneLarge}) {
@@ -39,9 +40,12 @@ const SidebarFooterWrapper = styled.footer`
   }
 `;
 
-const Link = styled.a`
+const Logout = styled.button`
   display: block;
-  margin-right: auto;
+  margin-top: 10px;
+
+  background: transparent;
+  border: none;
 
   color: ${props => props.theme.colors.textSecondary};
   text-decoration: none;
@@ -52,10 +56,6 @@ const Link = styled.a`
 
   &:active {
     color: ${props => props.theme.colors.textThirdly};
-  }
-
-  @media screen and (max-width: ${responsive.laptop}) {
-    margin: 0 auto;
   }
 
   @media screen and (max-width: ${responsive.tablet}) {
@@ -120,14 +120,16 @@ const IconsWrapper = styled.div`
   }
 `;
 
-export default function SidebarFooter() {
+export default function SidebarFooter({ onLogout }) {
   return (
     <SidebarFooterWrapper>
-      <Link href="https://onomy.io/" target="_blank">
-        About Onomy
-      </Link>
-
       <IconsWrapper>
+        <SecondaryIcon href="https://onomy.io/" target="_blank">
+          <SiteIcon />
+        </SecondaryIcon>
+        <SecondaryIcon href="https://discord.gg/27r73SYAkQ" target="_blank">
+          <DiscordIcon />
+        </SecondaryIcon>
         <SecondaryIcon href="https://t.me/onomyprotocol" target="_blank">
           <TelegramIcon />
         </SecondaryIcon>
@@ -140,6 +142,8 @@ export default function SidebarFooter() {
           <TwitterIcon />
         </SecondaryIcon>
       </IconsWrapper>
+
+      <Logout onClick={onLogout}>Logout</Logout>
     </SidebarFooterWrapper>
   );
 }

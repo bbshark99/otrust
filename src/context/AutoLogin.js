@@ -18,6 +18,7 @@ export function AutoLogin({ children }) {
         }
       });
     } catch (error) {
+      // eslint-disable-next-line no-alert
       alert('Failed to connect.');
     }
   };
@@ -37,11 +38,11 @@ export function AutoLogin({ children }) {
 
   /**
     const connectKeplr = async () => {
-      const chainId = "ochain-testnet";
+      const chainId = "onomy-testnet";
       if(window.keplr) {
         await window.keplr.experimentalSuggestChain({
           // Chain-id of the Cosmos SDK chain.
-          chainId: "ochain-testnet",
+          chainId: "onomy-testnet",
           // The name of the chain to be displayed to the user.
           chainName: "Onomy",
           // RPC endpoint of the chain.

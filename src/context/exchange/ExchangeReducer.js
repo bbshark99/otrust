@@ -6,120 +6,77 @@ import {
 } from 'context/reducerCallback';
 
 export function exchStringReducer(state, action) {
-  console.log('Exchange String Reducer State: ', state);
-  console.log('Exchange String Reducer Action: ', action);
+  // console.log('Exchange String Reducer State: ', state);
+  // console.log('Exchange String Reducer Action: ', action);
   let update = state;
-  switch (action.type) {
-    case 'bidDenom':
-      try {
+  try {
+    switch (action.type) {
+      case 'bidDenom':
         update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'input':
-      update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      break;
-    case 'output':
-      try {
+        break;
+      case 'input':
         update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'approve':
-      try {
+        break;
+      case 'output':
         update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'status':
-      try {
+        break;
+      case 'approve':
         update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'strong':
-      try {
+        break;
+      case 'status':
         update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'weak':
-      try {
+        break;
+      case 'strong':
         update = stringReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'update':
-      for (const [key, value] of action.value.entries()) {
-        switch (key) {
-          case 'bidDenom':
-            try {
-              update = stringReducerCallback(state[key], key, value, update);
-            } catch (e) {
-              console.log(e);
+        break;
+      case 'weak':
+        update = stringReducerCallback(state[action.type], action.type, action.value, update);
+        break;
+      case 'update':
+        // eslint-disable-next-line no-restricted-syntax
+        for (const [key, value] of action.value.entries()) {
+          try {
+            switch (key) {
+              case 'bidDenom':
+                update = stringReducerCallback(state[key], key, value, update);
+                break;
+              case 'input':
+                update = stringReducerCallback(state[key], key, value.toString(), update);
+                break;
+              case 'output':
+                update = stringReducerCallback(state[key], key, value, update);
+                break;
+              case 'approve':
+                update = stringReducerCallback(state[key], key, value, update);
+                break;
+              case 'status':
+                update = stringReducerCallback(state[key], key, value, update);
+                break;
+              case 'strong':
+                update = stringReducerCallback(state[key], key, value, update);
+                break;
+              case 'weak':
+                update = stringReducerCallback(state[key], key, value, update);
+                break;
+              default:
+                throw new Error('Unexpected default case');
             }
-            break;
-
-          case 'input':
-            try {
-              update = stringReducerCallback(state[key], key, value.toString(), update);
-            } catch (e) {
-              console.log(e);
-            }
-            break;
-
-          case 'output':
-            try {
-              update = stringReducerCallback(state[key], key, value, update);
-            } catch (e) {
-              console.log(e);
-            }
-            break;
-
-          case 'approve':
-            try {
-              update = stringReducerCallback(state[key], key, value, update);
-            } catch (e) {
-              console.log(e);
-            }
-            break;
-          case 'status':
-            try {
-              update = stringReducerCallback(state[key], key, value, update);
-            } catch (e) {
-              console.log(e);
-            }
-            break;
-          case 'strong':
-            try {
-              update = stringReducerCallback(state[key], key, value, update);
-            } catch (e) {
-              console.log(e);
-            }
-            break;
-          case 'weak':
-            try {
-              update = stringReducerCallback(state[key], key, value, update);
-            } catch (e) {
-              console.log(e);
-            }
-            break;
-          default:
-            throw new Error();
+          } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
+          }
         }
-      }
-      break;
-    default:
-      throw new Error();
+        break;
+      default:
+        throw new Error('Unexpected default case');
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
   }
+
   if (update) {
-    console.log('Exchange String Update: ', update);
+    // console.log('Exchange String Update: ', update);
     return {
       ...update,
     };
@@ -131,109 +88,71 @@ export function exchObjReducer(state, action) {
   // console.log("Exchange Obj Reducer State Action: ", action)
   let update = state;
 
-  switch (action.type) {
-    case 'askAmount':
-      try {
+  try {
+    switch (action.type) {
+      case 'askAmount':
         update = bnReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'bidAmount':
-      try {
+        break;
+      case 'bidAmount':
         update = bnReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'approveAmount':
-      try {
+        break;
+      case 'approveAmount':
         update = bnReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'pendingTx':
-      try {
+        break;
+      case 'pendingTx':
         update = objReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'slippage':
-      try {
+        break;
+      case 'slippage':
         update = bnReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'txPending':
-      try {
+        break;
+      case 'txPending':
         update = boolReducerCallback(state[action.type], action.type, action.value, update);
-      } catch (e) {
-        console.log(e);
-      }
-      break;
-    case 'update':
-      for (const [key, value] of action.value.entries()) {
-        if (state[key]) {
-          switch (key) {
-            case 'askAmount':
-              try {
-                update = bnReducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
+        break;
+      case 'update':
+        // eslint-disable-next-line no-restricted-syntax
+        for (const [key, value] of action.value.entries()) {
+          try {
+            if (state[key]) {
+              switch (key) {
+                case 'askAmount':
+                  update = bnReducerCallback(state[key], key, value, update);
+                  break;
+                case 'bidAmount':
+                  update = bnReducerCallback(state[key], key, value, update);
+                  break;
+                case 'approveAmount':
+                  update = bnReducerCallback(state[key], key, value, update);
+                  break;
+                case 'pendingTx':
+                  update = objReducerCallback(state[key], key, value, update);
+                  // console.log('Pending Tx Update: ', update);
+                  break;
+                case 'slippage':
+                  update = bnReducerCallback(state[key], key, value, update);
+                  break;
+                case 'txPending':
+                  update = boolReducerCallback(state[key], key, value, update);
+                  break;
+                default:
+                  throw new Error('Unexpected default case');
               }
-              break;
-
-            case 'bidAmount':
-              try {
-                update = bnReducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'approveAmount':
-              try {
-                update = bnReducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'pendingTx':
-              try {
-                update = objReducerCallback(state[key], key, value, update);
-                console.log('Pending Tx Update: ', update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            case 'slippage':
-              try {
-                update = bnReducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
-            default:
-              throw new Error();
-            case 'txPending':
-              try {
-                update = boolReducerCallback(state[key], key, value, update);
-              } catch (e) {
-                console.log(e);
-              }
-              break;
+            }
+          } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
           }
         }
-      }
-      break;
-    default:
-      throw new Error();
+        break;
+      default:
+        throw new Error('Unexpected default case');
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
   }
 
   if (update) {
-    console.log('Exchange Obj Reducer Update: ', update);
+    // console.log('Exchange Obj Reducer Update: ', update);
     return {
       ...update,
     };

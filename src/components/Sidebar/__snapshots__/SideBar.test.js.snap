@@ -9,7 +9,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   box-sizing: border-box;
 }
 
-.c24 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23,7 +23,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   font-weight: 500;
 }
 
-.c24:before {
+.c22:before {
   content: '';
   display: block;
   width: 12px;
@@ -32,7 +32,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   border-radius: 50%;
 }
 
-.c18 {
+.c16 {
   display: none;
   padding: 12px 24px;
   position: absolute;
@@ -46,15 +46,15 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   z-index: 1;
 }
 
-.c16 {
+.c14 {
   position: relative;
 }
 
-.c16:hover .c17 {
+.c14:hover .c15 {
   display: block;
 }
 
-.c5 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -67,55 +67,14 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 44px;
-  width: 44px;
-  background-color: #1a1823;
-  border: 1px solid #302E3D;
-  border-radius: 8px;
-  color: #8d89a3;
-  cursor: pointer;
-}
-
-.c5 svg {
-  width: 20px;
-  height: 20px;
-}
-
-.c5:hover {
-  background-color: #252130;
-}
-
-.c5:active {
-  background-color: #1b1924;
-}
-
-.c3 {
-  display: grid;
-  grid-template-columns: 44px 72px 44px;
-  grid-template-rows: auto auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  gap: 32px 60px;
-  height: 200px;
+  gap: 32px;
+  height: 100px;
   padding: 24px 48px;
   background-color: #1a1823;
   border-radius: 4px;
 }
 
 .c4 {
-  height: 72px;
-  width: 72px;
-  border-radius: 12px;
-  border: 3px solid #302E3D;
-}
-
-.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,13 +90,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   grid-column: 1/4;
 }
 
-.c6 span {
+.c4 span {
   font-size: 16px;
   font-weight: 500;
   color: #9895a6;
 }
 
-.c21 {
+.c19 {
   width: 170px;
   height: 50px;
   background-color: #e1dfeb;
@@ -148,15 +107,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   font-size: 14px;
 }
 
-.c21:hover {
+.c19:hover {
   background-color: #fff;
 }
 
-.c21:active {
+.c19:active {
   background-color: #9895a6;
 }
 
-.c7 {
+.c19:disabled {
+  cursor: not-allowed;
+}
+
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -169,40 +132,40 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   border-bottom: 1px solid #302E3D;
 }
 
-.c7 strong {
+.c5 strong {
   display: block;
   margin-bottom: 10px;
   font-weight: 400;
   color: #9895a6;
 }
 
-.c9 {
+.c7 {
   font-family: 'Bebas Neue',sans-serif;
   font-size: 28px;
   font-weight: 400;
 }
 
-.c9 > small {
+.c7 > small {
   margin-left: 5px;
   font-family: 'Poppins',sans-serif;
   color: #9895a6;
   font-size: 11px;
 }
 
-.c15 {
+.c13 {
   font-family: 'Bebas Neue',sans-serif;
   font-size: 28px;
   font-weight: 700;
 }
 
-.c15 > small {
+.c13 > small {
   margin-left: 5px;
   font-family: 'Poppins',sans-serif;
   color: #9895a6;
   font-size: 11px;
 }
 
-.c8 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -217,11 +180,11 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   justify-content: space-between;
 }
 
-.c10 {
+.c8 {
   position: relative;
 }
 
-.c14 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -249,16 +212,16 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   user-select: none;
 }
 
-.c14:hover {
+.c12:hover {
   background-color: #8d89a3;
   color: #1a1823;
 }
 
-.c14:active {
+.c12:active {
   background-color: #191820;
 }
 
-.c19 {
+.c17 {
   display: inline-block;
   padding: 4px 8px;
   margin-top: 6px;
@@ -271,23 +234,23 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   font-family: Poppins,sans-serif;
 }
 
-.c19 svg {
+.c17 svg {
   position: absolute;
   right: 4px;
   top: 2px;
   cursor: pointer;
 }
 
-.c19 svg * {
+.c17 svg * {
   fill: currentColor;
 }
 
-.c20 {
+.c18 {
   margin-top: 20px;
   min-width: 150px;
 }
 
-.c11 {
+.c9 {
   display: none;
   width: 360px;
   padding: 32px 40px;
@@ -301,7 +264,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   cursor: pointer;
 }
 
-.c11:after {
+.c9:after {
   content: '';
   display: block;
   position: absolute;
@@ -314,25 +277,28 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   border-left: 30px solid #302E3D;
 }
 
-.c12 {
+.c10 {
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
 }
 
-.c13 {
+.c11 {
   color: #9895a6;
 }
 
-.c25 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
   gap: 16px;
   padding: 24px 40px;
   margin-top: auto;
@@ -340,7 +306,9 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 
 .c26 {
   display: block;
-  margin-right: auto;
+  margin-top: 10px;
+  background: transparent;
+  border: none;
   color: #9895a6;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -354,7 +322,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   color: #656273;
 }
 
-.c28 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -376,24 +344,24 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   cursor: pointer;
 }
 
-.c28 svg {
+.c25 svg {
   width: 20px;
   height: 20px;
 }
 
-.c28:hover {
+.c25:hover {
   background-color: #47445a;
 }
 
-.c28:hover svg * {
+.c25:hover svg * {
   fill: #e1dfeb;
 }
 
-.c28:active {
+.c25:active {
   background-color: #191820;
 }
 
-.c27 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -405,7 +373,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   gap: 16px;
 }
 
-.c22 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -417,7 +385,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   padding: 40px;
 }
 
-.c23 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -428,14 +396,18 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   justify-content: space-between;
 }
 
-.c23 > strong {
+.c21 > strong {
   font-weight: 400;
   color: #9895a6;
   white-space: nowrap;
 }
 
-.c23 > span {
+.c21 > span {
   font-weight: 500;
+}
+
+.c21 a {
+  color: #9895a6;
 }
 
 .c1 {
@@ -461,44 +433,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:1440px) {
-  .c5 {
-    width: 32px;
-    height: 32px;
-  }
-
-  .c5 svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-@media screen and (max-width:1024px) {
-  .c5:first-child {
-    grid-column: 3/4;
-  }
-
-  .c5:nth-child(3) {
-    grid-column: 4/5;
-  }
-}
-
-@media screen and (max-width:700px) {
-  .c5 {
-    width: 44px;
-    height: 44px;
-  }
-
-  .c5 svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media screen and (max-width:1440px) {
   .c3 {
-    grid-template-columns: 32px 56px 32px;
-    gap: 24px 32px;
-    height: 180px;
+    gap: 24px;
     padding: 24px 48px;
   }
 }
@@ -549,29 +485,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
   }
 }
 
-@media screen and (max-width:1440px) {
-  .c4 {
-    height: 56px;
-    width: 56px;
-  }
-}
-
 @media screen and (max-width:1024px) {
   .c4 {
-    grid-column: 1/2;
-    grid-row: 1/2;
-  }
-}
-
-@media screen and (max-width:375px) {
-  .c4 {
-    grid-column: none;
-    display: none;
-  }
-}
-
-@media screen and (max-width:1024px) {
-  .c6 {
     -webkit-align-items: flex-start;
     -webkit-box-align: flex-start;
     -ms-flex-align: flex-start;
@@ -583,20 +498,20 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:375px) {
-  .c6 {
+  .c4 {
     grid-column: 1/2;
     padding: 0;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c6 span {
+  .c4 span {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c21 {
+  .c19 {
     width: 135px;
     height: 40px;
     font-size: 12px;
@@ -604,19 +519,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:480px) {
-  .c21 {
+  .c19 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c7 {
+  .c5 {
     padding: 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c7 {
+  .c5 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -631,13 +546,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:834px) {
-  .c7 {
+  .c5 {
     gap: 40px;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c7 {
+  .c5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -655,19 +570,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:1440px) {
-  .c9 {
+  .c7 {
     font-size: 20px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c15 {
+  .c13 {
     font-size: 20px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c14 {
+  .c12 {
     width: 32px;
     height: 32px;
     font-size: 14px;
@@ -675,33 +590,33 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:1024px) {
-  .c14 {
+  .c12 {
     margin-left: 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c20 {
+  .c18 {
     margin: 0 0 0 auto;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c20 {
+  .c18 {
     padding-top: 10px;
     margin: 0;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c11 {
+  .c9 {
     width: 300px;
     padding: 24px;
     right: -135px;
     top: 50px;
   }
 
-  .c11:after {
+  .c9:after {
     right: 130px;
     top: -35px;
     border-top: 20px solid transparent;
@@ -712,14 +627,14 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:700px) {
-  .c11 {
+  .c9 {
     width: 240px;
     padding: 16px 24px;
     right: 50px;
     top: -55px;
   }
 
-  .c11:after {
+  .c9:after {
     right: -30px;
     top: 50px;
     border-top: 20px solid transparent;
@@ -730,22 +645,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:1440px) {
-  .c25 {
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    padding: 40px 24px;
+  .c23 {
+    padding: 20px 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c25 {
-    width: 100%;
-    gap: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 10px 24px;
+  .c23 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -753,20 +659,24 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 40px 24px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c25 {
+  .c23 {
     padding: 24px 20px;
     position: relative;
     background-color: #1a1823;
-  }
-}
-
-@media screen and (max-width:1440px) {
-  .c26 {
-    margin: 0 auto;
   }
 }
 
@@ -777,32 +687,32 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:1440px) {
-  .c28 {
+  .c25 {
     width: 32px;
     height: 32px;
     font-size: 14px;
   }
 
-  .c28 svg {
+  .c25 svg {
     width: 16px;
     height: 16px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c27 {
+  .c24 {
     gap: 12px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c22 {
+  .c20 {
     padding: 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c22 {
+  .c20 {
     grid-column: 2/3;
     grid-row: 1/2;
     -webkit-flex-direction: row;
@@ -814,13 +724,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
 }
 
 @media screen and (max-width:700px) {
-  .c22 {
+  .c20 {
     display: none;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c23 {
+  .c21 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -872,28 +782,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
         <header
           class="c3"
         >
-          <span />
-          <img
-            alt=""
-            class="c4"
-            src="https://picsum.photos/72"
-          />
-          <a
-            class="c5"
-          >
-            <svg
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18.643 10.674l-3.367 3.3a.987.987 0 01-1.4-1.392l1.137-1.129c.259-.257.173-.465-.192-.465H10.3a.984.984 0 110-1.968h4.525c.363 0 .451-.208.192-.466L13.88 7.425a.987.987 0 011.4-1.392l3.359 3.262a.957.957 0 01.004 1.379zM5.365 14.936h1.977a.987.987 0 110 1.974H4.379a1.317 1.317 0 01-1.314-1.316V4.41a1.317 1.317 0 011.314-1.316h2.963a.987.987 0 110 1.974H5.365a.327.327 0 00-.33.328v9.214a.329.329 0 00.33.326z"
-                fill="#8d89a3"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </a>
           <div
-            class="c6"
+            class="c4"
           >
             <p>
               My Account
@@ -902,10 +792,10 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
           </div>
         </header>
         <div
-          class="c7"
+          class="c5"
         >
           <div
-            class="c8"
+            class="c6"
           >
             <div
               class=""
@@ -914,40 +804,38 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
                 ETH Balance
               </strong>
               <div
-                class="c9"
+                class="c7"
               >
                 Loading
-                <small>
-                   = $16,208.04
-                </small>
+                <small />
               </div>
             </div>
             <div
-              class="c10"
+              class="c8"
             >
               <div
-                class="c11"
+                class="c9"
               >
                 <h5
-                  class="c12"
+                  class="c10"
                 >
                   ETH Balance
                 </h5>
                 <p
-                  class="c13"
+                  class="c11"
                 >
                   This is your connected wallet Ether balance.
                 </p>
               </div>
               <button
-                class="c14"
+                class="c12"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="c8"
+            class="c6"
           >
             <div
               class=""
@@ -956,22 +844,20 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
                 wNOM Balance
               </strong>
               <div
-                class="c15"
+                class="c13"
               >
                 Loading
-                <small>
-                   = $16,208.04
-                </small>
+                <small />
                 <div
-                  class="c16"
+                  class="c14"
                 >
                   <div
-                    class="c17 c18"
+                    class="c15 c16"
                   >
                     Loading
                   </div>
                   <div
-                    class="c19"
+                    class="c17"
                   >
                     <span>
                       Loading approved
@@ -981,57 +867,57 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </div>
             </div>
             <div
-              class="c10"
+              class="c8"
             >
               <div
-                class="c11"
+                class="c9"
               >
                 <h5
-                  class="c12"
+                  class="c10"
                 >
-                  wNOM Balance
+                  NOM Balance
                 </h5>
                 <p
-                  class="c13"
+                  class="c11"
                 >
                   This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling before it can be sold.
                 </p>
               </div>
               <button
-                class="c14"
+                class="c12"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="c20"
+            class="c18"
           >
             <button
-              class="c21"
+              class="c19"
               style="width: 100%;"
             >
-              Withdraw wNOM
+              Bridge wNOM to NOM
             </button>
           </div>
         </div>
         <div
-          class="c22"
+          class="c20"
         >
           <div
-            class="c23"
+            class="c21"
           >
             <strong>
               Connection
             </strong>
             <div
-              class="c24"
+              class="c22"
             >
               Loading
             </div>
           </div>
           <div
-            class="c23"
+            class="c21"
           >
             <strong>
               Chain Id
@@ -1039,7 +925,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
             <span />
           </div>
           <div
-            class="c23"
+            class="c21"
           >
             <strong>
               Block Number
@@ -1048,22 +934,62 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               12345678
             </span>
           </div>
+          <div
+            class="c21"
+          >
+            <strong>
+              Contract Address
+            </strong>
+            <span>
+              <a
+                href="https://etherscan.com"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Etherscan
+              </a>
+            </span>
+          </div>
         </div>
         <footer
-          class="c25"
+          class="c23"
         >
-          <a
-            class="c26"
-            href="https://onomy.io/"
-            target="_blank"
-          >
-            About Onomy
-          </a>
           <div
-            class="c27"
+            class="c24"
           >
             <a
-              class="c28"
+              class="c25"
+              href="https://onomy.io/"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.778 20.012a4.057 4.057 0 01-4.2-4.2v-6.24a4.077 4.077 0 014.03-4.38h2.9a.547.547 0 01.07 1.088h-2.8a2.969 2.969 0 00-3.1 3.118v6.234a2.986 2.986 0 002.939 3.283h6.609a2.965 2.965 0 003.1-3.112v-3.111a.547.547 0 011.09-.074l.005.074v2.94a4.073 4.073 0 01-4.03 4.377h-.171zm2.962-7.781a.785.785 0 01.1-1.033l.085-.088 4.694-4.378-2.041-.066a.692.692 0 01-.663-.613v-.1a.693.693 0 01.608-.668h.1l3.72.117a.692.692 0 01.666.615v.1l-.131 3.72a.693.693 0 01-1.382.051v-.1l.075-2.039-4.699 4.375a1.024 1.024 0 01-.681.289.6.6 0 01-.451-.182z"
+                  data-name="Edit Square"
+                  fill="#5e5b70"
+                />
+              </svg>
+            </a>
+            <a
+              class="c25"
+              href="https://discord.gg/27r73SYAkQ"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 20.001 15.237"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.932 1.266A16.658 16.658 0 0012.859.001c-.027 0-.053 0-.064.032a10.981 10.981 0 00-.507 1.041 15.282 15.282 0 00-4.575 0A7.37 7.37 0 007.179.033a.065.065 0 00-.064-.032 20.026 20.026 0 00-4.057 1.265.035.035 0 00-.027.021A16.59 16.59 0 00.095 12.658a.085.085 0 00.027.053 16.206 16.206 0 005 2.525c.027 0 .053 0 .069-.021a12.01 12.01 0 001.025-1.666.061.061 0 00-.037-.085 12 12 0 01-1.568-.745.062.062 0 010-.107c.107-.08.214-.16.31-.24a.068.068 0 01.064-.011 11.791 11.791 0 0010.036 0 .067.067 0 01.064.005c.1.085.2.165.31.246a.068.068 0 010 .107 10.532 10.532 0 01-1.564.747.061.061 0 00-.032.091 13.174 13.174 0 001.014 1.655.058.058 0 00.069.021 16.676 16.676 0 005.007-2.525.059.059 0 00.027-.053A16.716 16.716 0 0016.96 1.282c0-.011-.016-.021-.027-.021zm-10.25 9.129a2.041 2.041 0 111.815-2.029 1.923 1.923 0 01-1.815 2.029zm6.673 0a2.041 2.041 0 111.815-2.029 1.923 1.923 0 01-1.815 2.029z"
+                  fill="#5e5b70"
+                />
+              </svg>
+            </a>
+            <a
+              class="c25"
               href="https://t.me/onomyprotocol"
               target="_blank"
             >
@@ -1078,26 +1004,37 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </svg>
             </a>
             <a
-              class="c28"
+              class="c25"
               href="https://medium.com/onomy-protocol"
               target="_blank"
             >
               <svg
-                viewBox="0 0 20 20"
+                viewBox="0 0 195 195"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <defs />
                 <g
-                  opacity="0.5"
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
                 >
-                  <path
-                    d="M11.281 9.979A5.641 5.641 0 115.641 4.3a5.66 5.66 0 015.641 5.679m6.188 0c0 2.952-1.263 5.347-2.82 5.347s-2.82-2.394-2.82-5.347 1.261-5.346 2.818-5.346 2.82 2.394 2.82 5.347m2.531 0c0 2.645-.444 4.79-.992 4.79s-.992-2.145-.992-4.79.445-4.79.993-4.79S20 7.334 20 9.979"
-                    fill="#8d89a3"
-                  />
+                  <g
+                    fill-rule="nonzero"
+                    id="Monogram"
+                  >
+                    <path
+                      d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"
+                      fill="#5e5b70"
+                      id="Shape"
+                    />
+                  </g>
                 </g>
               </svg>
             </a>
             <a
-              class="c28"
+              class="c25"
               href="https://twitter.com/onomyprotocol"
               target="_blank"
             >
@@ -1113,6 +1050,11 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
               </svg>
             </a>
           </div>
+          <button
+            class="c26"
+          >
+            Logout
+          </button>
         </footer>
       </div>
     </div>
@@ -1129,7 +1071,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   box-sizing: border-box;
 }
 
-.c24 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1143,7 +1085,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   font-weight: 500;
 }
 
-.c24:before {
+.c22:before {
   content: '';
   display: block;
   width: 12px;
@@ -1152,7 +1094,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   border-radius: 50%;
 }
 
-.c18 {
+.c16 {
   display: none;
   padding: 12px 24px;
   position: absolute;
@@ -1166,15 +1108,15 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   z-index: 1;
 }
 
-.c16 {
+.c14 {
   position: relative;
 }
 
-.c16:hover .c17 {
+.c14:hover .c15 {
   display: block;
 }
 
-.c5 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1187,55 +1129,14 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 44px;
-  width: 44px;
-  background-color: #1a1823;
-  border: 1px solid #302E3D;
-  border-radius: 8px;
-  color: #8d89a3;
-  cursor: pointer;
-}
-
-.c5 svg {
-  width: 20px;
-  height: 20px;
-}
-
-.c5:hover {
-  background-color: #252130;
-}
-
-.c5:active {
-  background-color: #1b1924;
-}
-
-.c3 {
-  display: grid;
-  grid-template-columns: 44px 72px 44px;
-  grid-template-rows: auto auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  gap: 32px 60px;
-  height: 200px;
+  gap: 32px;
+  height: 100px;
   padding: 24px 48px;
   background-color: #1a1823;
   border-radius: 4px;
 }
 
 .c4 {
-  height: 72px;
-  width: 72px;
-  border-radius: 12px;
-  border: 3px solid #302E3D;
-}
-
-.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1251,13 +1152,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   grid-column: 1/4;
 }
 
-.c6 span {
+.c4 span {
   font-size: 16px;
   font-weight: 500;
   color: #9895a6;
 }
 
-.c21 {
+.c19 {
   width: 170px;
   height: 50px;
   background-color: #e1dfeb;
@@ -1268,15 +1169,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   font-size: 14px;
 }
 
-.c21:hover {
+.c19:hover {
   background-color: #fff;
 }
 
-.c21:active {
+.c19:active {
   background-color: #9895a6;
 }
 
-.c7 {
+.c19:disabled {
+  cursor: not-allowed;
+}
+
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1289,40 +1194,40 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   border-bottom: 1px solid #302E3D;
 }
 
-.c7 strong {
+.c5 strong {
   display: block;
   margin-bottom: 10px;
   font-weight: 400;
   color: #9895a6;
 }
 
-.c9 {
+.c7 {
   font-family: 'Bebas Neue',sans-serif;
   font-size: 28px;
   font-weight: 400;
 }
 
-.c9 > small {
+.c7 > small {
   margin-left: 5px;
   font-family: 'Poppins',sans-serif;
   color: #9895a6;
   font-size: 11px;
 }
 
-.c15 {
+.c13 {
   font-family: 'Bebas Neue',sans-serif;
   font-size: 28px;
   font-weight: 700;
 }
 
-.c15 > small {
+.c13 > small {
   margin-left: 5px;
   font-family: 'Poppins',sans-serif;
   color: #9895a6;
   font-size: 11px;
 }
 
-.c8 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1337,11 +1242,11 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   justify-content: space-between;
 }
 
-.c10 {
+.c8 {
   position: relative;
 }
 
-.c14 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1369,16 +1274,16 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   user-select: none;
 }
 
-.c14:hover {
+.c12:hover {
   background-color: #8d89a3;
   color: #1a1823;
 }
 
-.c14:active {
+.c12:active {
   background-color: #191820;
 }
 
-.c19 {
+.c17 {
   display: inline-block;
   padding: 4px 8px;
   margin-top: 6px;
@@ -1391,23 +1296,23 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   font-family: Poppins,sans-serif;
 }
 
-.c19 svg {
+.c17 svg {
   position: absolute;
   right: 4px;
   top: 2px;
   cursor: pointer;
 }
 
-.c19 svg * {
+.c17 svg * {
   fill: currentColor;
 }
 
-.c20 {
+.c18 {
   margin-top: 20px;
   min-width: 150px;
 }
 
-.c11 {
+.c9 {
   display: none;
   width: 360px;
   padding: 32px 40px;
@@ -1421,7 +1326,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   cursor: pointer;
 }
 
-.c11:after {
+.c9:after {
   content: '';
   display: block;
   position: absolute;
@@ -1434,25 +1339,28 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   border-left: 30px solid #302E3D;
 }
 
-.c12 {
+.c10 {
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
 }
 
-.c13 {
+.c11 {
   color: #9895a6;
 }
 
-.c25 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
   gap: 16px;
   padding: 24px 40px;
   margin-top: auto;
@@ -1460,7 +1368,9 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 
 .c26 {
   display: block;
-  margin-right: auto;
+  margin-top: 10px;
+  background: transparent;
+  border: none;
   color: #9895a6;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -1474,7 +1384,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   color: #656273;
 }
 
-.c28 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1496,24 +1406,24 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   cursor: pointer;
 }
 
-.c28 svg {
+.c25 svg {
   width: 20px;
   height: 20px;
 }
 
-.c28:hover {
+.c25:hover {
   background-color: #47445a;
 }
 
-.c28:hover svg * {
+.c25:hover svg * {
   fill: #e1dfeb;
 }
 
-.c28:active {
+.c25:active {
   background-color: #191820;
 }
 
-.c27 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1525,7 +1435,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   gap: 16px;
 }
 
-.c22 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1537,7 +1447,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   padding: 40px;
 }
 
-.c23 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1548,14 +1458,18 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   justify-content: space-between;
 }
 
-.c23 > strong {
+.c21 > strong {
   font-weight: 400;
   color: #9895a6;
   white-space: nowrap;
 }
 
-.c23 > span {
+.c21 > span {
   font-weight: 500;
+}
+
+.c21 a {
+  color: #9895a6;
 }
 
 .c1 {
@@ -1581,44 +1495,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:1440px) {
-  .c5 {
-    width: 32px;
-    height: 32px;
-  }
-
-  .c5 svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-@media screen and (max-width:1024px) {
-  .c5:first-child {
-    grid-column: 3/4;
-  }
-
-  .c5:nth-child(3) {
-    grid-column: 4/5;
-  }
-}
-
-@media screen and (max-width:700px) {
-  .c5 {
-    width: 44px;
-    height: 44px;
-  }
-
-  .c5 svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media screen and (max-width:1440px) {
   .c3 {
-    grid-template-columns: 32px 56px 32px;
-    gap: 24px 32px;
-    height: 180px;
+    gap: 24px;
     padding: 24px 48px;
   }
 }
@@ -1669,29 +1547,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
   }
 }
 
-@media screen and (max-width:1440px) {
-  .c4 {
-    height: 56px;
-    width: 56px;
-  }
-}
-
 @media screen and (max-width:1024px) {
   .c4 {
-    grid-column: 1/2;
-    grid-row: 1/2;
-  }
-}
-
-@media screen and (max-width:375px) {
-  .c4 {
-    grid-column: none;
-    display: none;
-  }
-}
-
-@media screen and (max-width:1024px) {
-  .c6 {
     -webkit-align-items: flex-start;
     -webkit-box-align: flex-start;
     -ms-flex-align: flex-start;
@@ -1703,20 +1560,20 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:375px) {
-  .c6 {
+  .c4 {
     grid-column: 1/2;
     padding: 0;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c6 span {
+  .c4 span {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c21 {
+  .c19 {
     width: 135px;
     height: 40px;
     font-size: 12px;
@@ -1724,19 +1581,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:480px) {
-  .c21 {
+  .c19 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c7 {
+  .c5 {
     padding: 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c7 {
+  .c5 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -1751,13 +1608,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:834px) {
-  .c7 {
+  .c5 {
     gap: 40px;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c7 {
+  .c5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1775,19 +1632,19 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:1440px) {
-  .c9 {
+  .c7 {
     font-size: 20px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c15 {
+  .c13 {
     font-size: 20px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c14 {
+  .c12 {
     width: 32px;
     height: 32px;
     font-size: 14px;
@@ -1795,33 +1652,33 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:1024px) {
-  .c14 {
+  .c12 {
     margin-left: 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c20 {
+  .c18 {
     margin: 0 0 0 auto;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c20 {
+  .c18 {
     padding-top: 10px;
     margin: 0;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c11 {
+  .c9 {
     width: 300px;
     padding: 24px;
     right: -135px;
     top: 50px;
   }
 
-  .c11:after {
+  .c9:after {
     right: 130px;
     top: -35px;
     border-top: 20px solid transparent;
@@ -1832,14 +1689,14 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:700px) {
-  .c11 {
+  .c9 {
     width: 240px;
     padding: 16px 24px;
     right: 50px;
     top: -55px;
   }
 
-  .c11:after {
+  .c9:after {
     right: -30px;
     top: 50px;
     border-top: 20px solid transparent;
@@ -1850,22 +1707,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:1440px) {
-  .c25 {
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    padding: 40px 24px;
+  .c23 {
+    padding: 20px 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c25 {
-    width: 100%;
-    gap: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 10px 24px;
+  .c23 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -1873,20 +1721,24 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 40px 24px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c25 {
+  .c23 {
     padding: 24px 20px;
     position: relative;
     background-color: #1a1823;
-  }
-}
-
-@media screen and (max-width:1440px) {
-  .c26 {
-    margin: 0 auto;
   }
 }
 
@@ -1897,32 +1749,32 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:1440px) {
-  .c28 {
+  .c25 {
     width: 32px;
     height: 32px;
     font-size: 14px;
   }
 
-  .c28 svg {
+  .c25 svg {
     width: 16px;
     height: 16px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c27 {
+  .c24 {
     gap: 12px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c22 {
+  .c20 {
     padding: 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c22 {
+  .c20 {
     grid-column: 2/3;
     grid-row: 1/2;
     -webkit-flex-direction: row;
@@ -1934,13 +1786,13 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
 }
 
 @media screen and (max-width:700px) {
-  .c22 {
+  .c20 {
     display: none;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c23 {
+  .c21 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -1992,28 +1844,8 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
         <header
           class="c3"
         >
-          <span />
-          <img
-            alt=""
-            class="c4"
-            src="https://picsum.photos/72"
-          />
-          <a
-            class="c5"
-          >
-            <svg
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18.643 10.674l-3.367 3.3a.987.987 0 01-1.4-1.392l1.137-1.129c.259-.257.173-.465-.192-.465H10.3a.984.984 0 110-1.968h4.525c.363 0 .451-.208.192-.466L13.88 7.425a.987.987 0 011.4-1.392l3.359 3.262a.957.957 0 01.004 1.379zM5.365 14.936h1.977a.987.987 0 110 1.974H4.379a1.317 1.317 0 01-1.314-1.316V4.41a1.317 1.317 0 011.314-1.316h2.963a.987.987 0 110 1.974H5.365a.327.327 0 00-.33.328v9.214a.329.329 0 00.33.326z"
-                fill="#8d89a3"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </a>
           <div
-            class="c6"
+            class="c4"
           >
             <p>
               My Account
@@ -2022,10 +1854,10 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
           </div>
         </header>
         <div
-          class="c7"
+          class="c5"
         >
           <div
-            class="c8"
+            class="c6"
           >
             <div
               class=""
@@ -2034,40 +1866,40 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
                 ETH Balance
               </strong>
               <div
-                class="c9"
+                class="c7"
               >
                 0.000000
                 <small>
-                   = $16,208.04
+                   = $0
                 </small>
               </div>
             </div>
             <div
-              class="c10"
+              class="c8"
             >
               <div
-                class="c11"
+                class="c9"
               >
                 <h5
-                  class="c12"
+                  class="c10"
                 >
                   ETH Balance
                 </h5>
                 <p
-                  class="c13"
+                  class="c11"
                 >
                   This is your connected wallet Ether balance.
                 </p>
               </div>
               <button
-                class="c14"
+                class="c12"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="c8"
+            class="c6"
           >
             <div
               class=""
@@ -2076,22 +1908,20 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
                 wNOM Balance
               </strong>
               <div
-                class="c15"
+                class="c13"
               >
                 0.000000
-                <small>
-                   = $16,208.04
-                </small>
+                <small />
                 <div
-                  class="c16"
+                  class="c14"
                 >
                   <div
-                    class="c17 c18"
+                    class="c15 c16"
                   >
                     Loading
                   </div>
                   <div
-                    class="c19"
+                    class="c17"
                   >
                     <span>
                       Loading approved
@@ -2101,57 +1931,57 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </div>
             </div>
             <div
-              class="c10"
+              class="c8"
             >
               <div
-                class="c11"
+                class="c9"
               >
                 <h5
-                  class="c12"
+                  class="c10"
                 >
-                  wNOM Balance
+                  NOM Balance
                 </h5>
                 <p
-                  class="c13"
+                  class="c11"
                 >
                   This shows your total wNOM balance and the amount approved for selling. You must approve wNOM for selling before it can be sold.
                 </p>
               </div>
               <button
-                class="c14"
+                class="c12"
               >
                 i
               </button>
             </div>
           </div>
           <div
-            class="c20"
+            class="c18"
           >
             <button
-              class="c21"
+              class="c19"
               style="width: 100%;"
             >
-              Withdraw wNOM
+              Bridge wNOM to NOM
             </button>
           </div>
         </div>
         <div
-          class="c22"
+          class="c20"
         >
           <div
-            class="c23"
+            class="c21"
           >
             <strong>
               Connection
             </strong>
             <div
-              class="c24"
+              class="c22"
             >
               Loading
             </div>
           </div>
           <div
-            class="c23"
+            class="c21"
           >
             <strong>
               Chain Id
@@ -2159,7 +1989,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
             <span />
           </div>
           <div
-            class="c23"
+            class="c21"
           >
             <strong>
               Block Number
@@ -2168,22 +1998,62 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               12345678
             </span>
           </div>
+          <div
+            class="c21"
+          >
+            <strong>
+              Contract Address
+            </strong>
+            <span>
+              <a
+                href="https://etherscan.com"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Etherscan
+              </a>
+            </span>
+          </div>
         </div>
         <footer
-          class="c25"
+          class="c23"
         >
-          <a
-            class="c26"
-            href="https://onomy.io/"
-            target="_blank"
-          >
-            About Onomy
-          </a>
           <div
-            class="c27"
+            class="c24"
           >
             <a
-              class="c28"
+              class="c25"
+              href="https://onomy.io/"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.778 20.012a4.057 4.057 0 01-4.2-4.2v-6.24a4.077 4.077 0 014.03-4.38h2.9a.547.547 0 01.07 1.088h-2.8a2.969 2.969 0 00-3.1 3.118v6.234a2.986 2.986 0 002.939 3.283h6.609a2.965 2.965 0 003.1-3.112v-3.111a.547.547 0 011.09-.074l.005.074v2.94a4.073 4.073 0 01-4.03 4.377h-.171zm2.962-7.781a.785.785 0 01.1-1.033l.085-.088 4.694-4.378-2.041-.066a.692.692 0 01-.663-.613v-.1a.693.693 0 01.608-.668h.1l3.72.117a.692.692 0 01.666.615v.1l-.131 3.72a.693.693 0 01-1.382.051v-.1l.075-2.039-4.699 4.375a1.024 1.024 0 01-.681.289.6.6 0 01-.451-.182z"
+                  data-name="Edit Square"
+                  fill="#5e5b70"
+                />
+              </svg>
+            </a>
+            <a
+              class="c25"
+              href="https://discord.gg/27r73SYAkQ"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 20.001 15.237"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.932 1.266A16.658 16.658 0 0012.859.001c-.027 0-.053 0-.064.032a10.981 10.981 0 00-.507 1.041 15.282 15.282 0 00-4.575 0A7.37 7.37 0 007.179.033a.065.065 0 00-.064-.032 20.026 20.026 0 00-4.057 1.265.035.035 0 00-.027.021A16.59 16.59 0 00.095 12.658a.085.085 0 00.027.053 16.206 16.206 0 005 2.525c.027 0 .053 0 .069-.021a12.01 12.01 0 001.025-1.666.061.061 0 00-.037-.085 12 12 0 01-1.568-.745.062.062 0 010-.107c.107-.08.214-.16.31-.24a.068.068 0 01.064-.011 11.791 11.791 0 0010.036 0 .067.067 0 01.064.005c.1.085.2.165.31.246a.068.068 0 010 .107 10.532 10.532 0 01-1.564.747.061.061 0 00-.032.091 13.174 13.174 0 001.014 1.655.058.058 0 00.069.021 16.676 16.676 0 005.007-2.525.059.059 0 00.027-.053A16.716 16.716 0 0016.96 1.282c0-.011-.016-.021-.027-.021zm-10.25 9.129a2.041 2.041 0 111.815-2.029 1.923 1.923 0 01-1.815 2.029zm6.673 0a2.041 2.041 0 111.815-2.029 1.923 1.923 0 01-1.815 2.029z"
+                  fill="#5e5b70"
+                />
+              </svg>
+            </a>
+            <a
+              class="c25"
               href="https://t.me/onomyprotocol"
               target="_blank"
             >
@@ -2198,26 +2068,37 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </svg>
             </a>
             <a
-              class="c28"
+              class="c25"
               href="https://medium.com/onomy-protocol"
               target="_blank"
             >
               <svg
-                viewBox="0 0 20 20"
+                viewBox="0 0 195 195"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <defs />
                 <g
-                  opacity="0.5"
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
                 >
-                  <path
-                    d="M11.281 9.979A5.641 5.641 0 115.641 4.3a5.66 5.66 0 015.641 5.679m6.188 0c0 2.952-1.263 5.347-2.82 5.347s-2.82-2.394-2.82-5.347 1.261-5.346 2.818-5.346 2.82 2.394 2.82 5.347m2.531 0c0 2.645-.444 4.79-.992 4.79s-.992-2.145-.992-4.79.445-4.79.993-4.79S20 7.334 20 9.979"
-                    fill="#8d89a3"
-                  />
+                  <g
+                    fill-rule="nonzero"
+                    id="Monogram"
+                  >
+                    <path
+                      d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"
+                      fill="#5e5b70"
+                      id="Shape"
+                    />
+                  </g>
                 </g>
               </svg>
             </a>
             <a
-              class="c28"
+              class="c25"
               href="https://twitter.com/onomyprotocol"
               target="_blank"
             >
@@ -2233,6 +2114,11 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
               </svg>
             </a>
           </div>
+          <button
+            class="c26"
+          >
+            Logout
+          </button>
         </footer>
       </div>
     </div>

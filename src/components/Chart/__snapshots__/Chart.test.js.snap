@@ -104,12 +104,7 @@ exports[`Given the Chart component when the component is rendered should match t
         <button
           class="c3"
         >
-          Historical Chart
-        </button>
-        <button
-          class="c3"
-        >
-          Candles View
+          Trading View
         </button>
       </span>
     </header>

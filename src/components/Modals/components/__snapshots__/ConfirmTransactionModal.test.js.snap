@@ -25,7 +25,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   background-color: #1a1823;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -63,7 +63,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   fill: #4d4b57;
 }
 
-.c14 {
+.c15 {
   width: 170px;
   height: 50px;
   background-color: #e1dfeb;
@@ -74,24 +74,28 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   font-size: 14px;
 }
 
-.c14:hover {
+.c15:hover {
   background-color: #fff;
 }
 
-.c14:active {
+.c15:active {
   background-color: #9895a6;
 }
 
-.c15 {
+.c15:disabled {
+  cursor: not-allowed;
+}
+
+.c16 {
   background-color: #302E3D;
   color: #e1dfeb;
 }
 
-.c15:hover {
+.c16:hover {
   background-color: #47445a;
 }
 
-.c15:active {
+.c16:active {
   background-color: #9895a6;
 }
 
@@ -122,7 +126,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   text-align: center;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -138,7 +142,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   font-size: 14px;
 }
 
-.c12 svg {
+.c13 svg {
   width: 20px;
   height: 20px;
   -webkit-transform: rotate(0deg);
@@ -148,19 +152,19 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   transition: 0.1s ease;
 }
 
-.c12:hover {
+.c13:hover {
   color: #e1dfeb;
 }
 
-.c12:hover svg * {
+.c13:hover svg * {
   fill: #e1dfeb;
 }
 
-.c12:active {
+.c13:active {
   color: #938fa1;
 }
 
-.c12:active svg * {
+.c13:active svg * {
   fill: #938fa1;
 }
 
@@ -256,6 +260,24 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
   background-color: #191820;
 }
 
+.c12 {
+  padding: 12px 16px;
+  background-color: #302E3D;
+  border: 1px solid #302E3D;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e1dfeb;
+}
+
+.c12:hover {
+  background-color: #47445a;
+}
+
+.c12:active {
+  background-color: #191820;
+}
+
 @media screen and (max-width:1440px) {
   .c0 {
     width: 400px;
@@ -288,13 +310,13 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
 }
 
 @media screen and (max-width:1440px) {
-  .c13 {
+  .c14 {
     padding-bottom: 24px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c14 {
+  .c15 {
     width: 135px;
     height: 40px;
     font-size: 12px;
@@ -302,7 +324,7 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
 }
 
 @media screen and (max-width:480px) {
-  .c14 {
+  .c15 {
     font-size: 14px;
   }
 }
@@ -334,19 +356,19 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
 }
 
 @media screen and (max-width:1440px) {
-  .c12 {
+  .c13 {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:480px) {
-  .c12 {
+  .c13 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c12 svg {
+  .c13 svg {
     width: 16px;
     height: 16px;
   }
@@ -541,21 +563,21 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
         <button
           class="c11"
         >
-          0 (Standard)
+          0.000 (Standard)
         </button>
         <button
           class="c11"
         >
-          0 (Fast)
+          0.000 (Fast)
         </button>
         <button
-          class="c11"
+          class="c12"
         >
-          0 (Instant)
+          0.000 (Instant)
         </button>
       </div>
       <button
-        class="c12"
+        class="c13"
         data-testid="confirm-modal-slippage-button"
       >
         Slippage Limit 
@@ -572,16 +594,16 @@ exports[`Given the ConfirmTransactionModal component and bidDenom is weak should
     </section>
     <footer>
       <div
-        class="c13"
+        class="c14"
       >
         <button
-          class="c14 c15"
+          class="c15 c16"
           data-testid="confirm-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="c14"
+          class="c15"
           data-testid="confirm-modal-primary-button"
         >
           Confirm (60)
@@ -617,7 +639,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   background-color: #1a1823;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -655,7 +677,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   fill: #4d4b57;
 }
 
-.c14 {
+.c15 {
   width: 170px;
   height: 50px;
   background-color: #e1dfeb;
@@ -666,24 +688,28 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   font-size: 14px;
 }
 
-.c14:hover {
+.c15:hover {
   background-color: #fff;
 }
 
-.c14:active {
+.c15:active {
   background-color: #9895a6;
 }
 
-.c15 {
+.c15:disabled {
+  cursor: not-allowed;
+}
+
+.c16 {
   background-color: #302E3D;
   color: #e1dfeb;
 }
 
-.c15:hover {
+.c16:hover {
   background-color: #47445a;
 }
 
-.c15:active {
+.c16:active {
   background-color: #9895a6;
 }
 
@@ -714,7 +740,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   text-align: center;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -730,7 +756,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   font-size: 14px;
 }
 
-.c12 svg {
+.c13 svg {
   width: 20px;
   height: 20px;
   -webkit-transform: rotate(0deg);
@@ -740,19 +766,19 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   transition: 0.1s ease;
 }
 
-.c12:hover {
+.c13:hover {
   color: #e1dfeb;
 }
 
-.c12:hover svg * {
+.c13:hover svg * {
   fill: #e1dfeb;
 }
 
-.c12:active {
+.c13:active {
   color: #938fa1;
 }
 
-.c12:active svg * {
+.c13:active svg * {
   fill: #938fa1;
 }
 
@@ -848,6 +874,24 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
   background-color: #191820;
 }
 
+.c12 {
+  padding: 12px 16px;
+  background-color: #302E3D;
+  border: 1px solid #302E3D;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e1dfeb;
+}
+
+.c12:hover {
+  background-color: #47445a;
+}
+
+.c12:active {
+  background-color: #191820;
+}
+
 @media screen and (max-width:1440px) {
   .c0 {
     width: 400px;
@@ -880,13 +924,13 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
 }
 
 @media screen and (max-width:1440px) {
-  .c13 {
+  .c14 {
     padding-bottom: 24px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c14 {
+  .c15 {
     width: 135px;
     height: 40px;
     font-size: 12px;
@@ -894,7 +938,7 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
 }
 
 @media screen and (max-width:480px) {
-  .c14 {
+  .c15 {
     font-size: 14px;
   }
 }
@@ -926,19 +970,19 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
 }
 
 @media screen and (max-width:1440px) {
-  .c12 {
+  .c13 {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width:480px) {
-  .c12 {
+  .c13 {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c12 svg {
+  .c13 svg {
     width: 16px;
     height: 16px;
   }
@@ -1133,21 +1177,21 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
         <button
           class="c11"
         >
-          0 (Standard)
+          0.000 (Standard)
         </button>
         <button
           class="c11"
         >
-          0 (Fast)
+          0.000 (Fast)
         </button>
         <button
-          class="c11"
+          class="c12"
         >
-          0 (Instant)
+          0.000 (Instant)
         </button>
       </div>
       <button
-        class="c12"
+        class="c13"
         data-testid="confirm-modal-slippage-button"
       >
         Slippage Limit 
@@ -1164,16 +1208,16 @@ exports[`Given the ConfirmTransactionModal component when the component is rende
     </section>
     <footer>
       <div
-        class="c13"
+        class="c14"
       >
         <button
-          class="c14 c15"
+          class="c15 c16"
           data-testid="confirm-modal-secondary-button"
         >
           Cancel
         </button>
         <button
-          class="c14"
+          class="c15"
           data-testid="confirm-modal-primary-button"
         >
           Confirm (60)

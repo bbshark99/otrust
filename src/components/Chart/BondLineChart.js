@@ -45,7 +45,8 @@ export function bounds(formatSupply) {
     upperBound = (Math.round(formatSupply[1] / 10 ** digitsUpper) + 1) * 10 ** digitsUpper;
     lowerBound = 0;
   } catch (err) {
-    console.log(err);
+    // eslint-disable-next-line no-console
+    console.error(err);
   }
 
   return { lowerBound, upperBound };

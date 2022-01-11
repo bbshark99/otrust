@@ -66,6 +66,10 @@ exports[`Given the BridgeSwapModalDisconnected component when the component is r
   background-color: #9895a6;
 }
 
+.c13:disabled {
+  cursor: not-allowed;
+}
+
 .c4 {
   margin: 0 0 24px;
   font-size: 16px;

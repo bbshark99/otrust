@@ -91,12 +91,12 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
   const onTextChange = async event => {
     event.preventDefault();
 
-    console.log('Approve Amount:-approve ', approve);
+    // console.log('Approve Amount:-approve ', approve);
 
     const floatRegExp = new RegExp(/(^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$)|(^\d\.$)/);
 
     if (floatRegExp.test(event.target.value.toString())) {
-      console.log('Approve Amount:-pass ', approve);
+      // console.log('Approve Amount:-pass ', approve);
 
       const approvalAmount = parse18(new BigNumber(parseFloat(event.target.value).toString()));
 
@@ -116,7 +116,7 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
         value: strUpdate,
       });
     } else {
-      console.log('Text Change: ', 'regex failed');
+      // console.log('Text Change: ', 'regex failed');
       handleModal(<RequestFailedModal error="Please enter numbers only. Thank you!" />);
     }
   };
@@ -141,6 +141,9 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
     });
   };
 
+  const inputDisplay = parseFloat(input || 0).toFixed(6);
+  const initApproveAmountDisplay = format18(initialApproveAmount || 0).toFixed(6);
+
   return (
     <Modal.Wrapper>
       <Modal.CloseIcon onClick={() => handleModal()} data-testid="approve-tokens-modal-close-icon">
@@ -151,9 +154,9 @@ export default function ApproveTokensModal({ onConfirmApprove }) {
         <Caption>Approve Tokens</Caption>
 
         <Message>
-          You want to sell <strong>{input} wNOM</strong>, but you approved for sale only{' '}
-          {format18(NOMallowance).toFixed()} wNOM. To sell this amount, please approve{' '}
-          <strong>{format18(initialApproveAmount).toFixed()} wNOM</strong> or more.
+          You have approved the Bonding Curve to sell up to <strong>{inputDisplay} wNOM</strong>. To
+          sell <strong>{inputDisplay} wNOM</strong>, you must approve at least an additional{' '}
+          <strong>{initApproveAmountDisplay} wNOM</strong>.
         </Message>
 
         <ApproveTokensWrapper>

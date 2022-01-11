@@ -82,6 +82,10 @@ exports[`Given the RequestFailedModal component when the component is rendered s
   background-color: #9895a6;
 }
 
+.c8:disabled {
+  cursor: not-allowed;
+}
+
 .c4 {
   margin: 0 0 24px;
   font-size: 16px;

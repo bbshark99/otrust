@@ -23,6 +23,8 @@ import oneWayBridgeImg from '../assets/one-way-bridge.svg';
 import whyBridgeImg from '../assets/why-bridge.svg';
 import bridgeCurveImg from '../assets/icon-bridge-curve.svg';
 import walletImg from '../assets/icon-onomy-wallet.svg';
+import BridgeLineChart from './BridgeLineChart';
+import { useOnomy } from 'context/chain/OnomyContext';
 
 const InputWrapper = styled.div`
   margin: 0 0 12px;
@@ -97,9 +99,16 @@ const ModalBtn = styled.button`
   cursor: pointer;
 `;
 
+const KeplrLink = styled.a`
+  margin: 5px auto 0;
+
+  font-size: 12px;
+  color: ${props => props.theme.colors.textThirdly};
+`;
+
 function BridgeSwapModalInfo({ closeModal }) {
   const collapsedInfoBreakpoint = useMediaQuery({ maxWidth: responsive.laptopSmall });
-
+  const { bridgedSupply } = useOnomy();
   return (
     <Modal.Info>
       <ModalHeader collapsedInfoBreakpoint={collapsedInfoBreakpoint}>
@@ -108,14 +117,15 @@ function BridgeSwapModalInfo({ closeModal }) {
             <FontAwesomeIcon icon={faChevronLeft} />
           </ModalBtn>
         )}
-        <h2>What is Onomy Bridge?</h2>
       </ModalHeader>
 
-      <Modal.Desc>
-        The Onomy Bonding Curve platform is a gateway into the Onomy Network. This is achieved by
-        participants purchasing wrapped-NOM, an ERC-20 token on the Ethereum Network, and swapping
-        for NOM on the Onomy Network.
-      </Modal.Desc>
+      <BridgeLineChart
+        peakHeight={100}
+        peakPosition={150000000}
+        standardDeviation={50000000}
+        totalCoins={300000000}
+        coinsInCirculation={bridgedSupply}
+      />
 
       <Modal.InfoRow>
         <div>
@@ -158,6 +168,7 @@ function BridgeSwapModalInfo({ closeModal }) {
 export default function BridgeSwapModal({ ...props }) {
   const { active, account } = useWeb3React();
   const { values, flags, handlers } = { ...props };
+  const { hasKeplr } = useOnomy();
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   const collapsedInfoBreakpoint = useMediaQuery({
@@ -213,6 +224,11 @@ export default function BridgeSwapModal({ ...props }) {
                       />
                     </Modal.CosmosInputSection>
                   </Modal.ConnectionItem>
+                  {!hasKeplr && (
+                    <KeplrLink href="https://www.keplr.app/" target="_new">
+                      Get Keplr Cosmos Wallet
+                    </KeplrLink>
+                  )}
                 </Modal.BridgeContent>
                 <FormWrapper>
                   {flags.showLoader && (
@@ -222,7 +238,7 @@ export default function BridgeSwapModal({ ...props }) {
                   )}
                   <InputWrapper>
                     <BridgeSending error={values.errors.amountError}>
-                      <strong>Swap to NOM</strong>
+                      <strong>Bridge to NOM</strong>
                       <BridgeAmountInput
                         type="text"
                         value={values.amountValue}
@@ -261,7 +277,7 @@ export default function BridgeSwapModal({ ...props }) {
                     onClick={handlers.submitTransClickHandler}
                     disabled={flags.isDisabled || !active}
                   >
-                    Swap wNOM for NOM
+                    Bridge wNOM to NOM
                   </Modal.FullWidthButton>
                   {collapsedInfoBreakpoint && (
                     <Modal.SecondaryButton

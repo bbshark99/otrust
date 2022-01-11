@@ -21,6 +21,10 @@ exports[`Given the SidebarBalances component when the component is rendered shou
   background-color: #9895a6;
 }
 
+.c14:disabled {
+  cursor: not-allowed;
+}
+
 .c11 {
   display: none;
   padding: 12px 24px;
@@ -362,7 +366,7 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         >
           100
           <small>
-             = $16,208.04
+             = $375,000
           </small>
         </div>
       </div>
@@ -404,7 +408,7 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         >
           50
           <small>
-             = $16,208.04
+             = $∞
           </small>
           <div
             class="c9"
@@ -431,7 +435,7 @@ exports[`Given the SidebarBalances component when the component is rendered shou
           <h5
             class="c5"
           >
-            wNOM Balance
+            NOM Balance
           </h5>
           <p
             class="c6"
@@ -453,7 +457,7 @@ exports[`Given the SidebarBalances component when the component is rendered shou
         class="c14"
         style="width: 100%;"
       >
-        Withdraw wNOM
+        Bridge wNOM to NOM
       </button>
     </div>
   </div>

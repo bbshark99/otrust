@@ -7,32 +7,37 @@ exports[`Given the SidebarFooter component when the component is rendered should
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
   gap: 16px;
   padding: 24px 40px;
   margin-top: auto;
 }
 
-.c1 {
+.c3 {
   display: block;
-  margin-right: auto;
+  margin-top: 10px;
+  background: transparent;
+  border: none;
   color: #9895a6;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c1:hover {
+.c3:hover {
   color: #e1dfeb;
 }
 
-.c1:active {
+.c3:active {
   color: #656273;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -54,24 +59,24 @@ exports[`Given the SidebarFooter component when the component is rendered should
   cursor: pointer;
 }
 
-.c3 svg {
+.c2 svg {
   width: 20px;
   height: 20px;
 }
 
-.c3:hover {
+.c2:hover {
   background-color: #47445a;
 }
 
-.c3:hover svg * {
+.c2:hover svg * {
   fill: #e1dfeb;
 }
 
-.c3:active {
+.c2:active {
   background-color: #191820;
 }
 
-.c2 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -85,21 +90,12 @@ exports[`Given the SidebarFooter component when the component is rendered should
 
 @media screen and (max-width:1440px) {
   .c0 {
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    padding: 40px 24px;
+    padding: 20px 24px;
   }
 }
 
 @media screen and (max-width:1024px) {
   .c0 {
-    width: 100%;
-    gap: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 10px 24px;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -107,6 +103,16 @@ exports[`Given the SidebarFooter component when the component is rendered should
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 40px 24px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -118,33 +124,27 @@ exports[`Given the SidebarFooter component when the component is rendered should
   }
 }
 
-@media screen and (max-width:1440px) {
-  .c1 {
-    margin: 0 auto;
-  }
-}
-
 @media screen and (max-width:1024px) {
-  .c1 {
+  .c3 {
     margin: 0;
   }
 }
 
 @media screen and (max-width:1440px) {
-  .c3 {
+  .c2 {
     width: 32px;
     height: 32px;
     font-size: 14px;
   }
 
-  .c3 svg {
+  .c2 svg {
     width: 16px;
     height: 16px;
   }
 }
 
 @media screen and (max-width:1024px) {
-  .c2 {
+  .c1 {
     gap: 12px;
   }
 }
@@ -152,18 +152,42 @@ exports[`Given the SidebarFooter component when the component is rendered should
 <footer
     class="c0"
   >
-    <a
-      class="c1"
-      href="https://onomy.io/"
-      target="_blank"
-    >
-      About Onomy
-    </a>
     <div
-      class="c2"
+      class="c1"
     >
       <a
-        class="c3"
+        class="c2"
+        href="https://onomy.io/"
+        target="_blank"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.778 20.012a4.057 4.057 0 01-4.2-4.2v-6.24a4.077 4.077 0 014.03-4.38h2.9a.547.547 0 01.07 1.088h-2.8a2.969 2.969 0 00-3.1 3.118v6.234a2.986 2.986 0 002.939 3.283h6.609a2.965 2.965 0 003.1-3.112v-3.111a.547.547 0 011.09-.074l.005.074v2.94a4.073 4.073 0 01-4.03 4.377h-.171zm2.962-7.781a.785.785 0 01.1-1.033l.085-.088 4.694-4.378-2.041-.066a.692.692 0 01-.663-.613v-.1a.693.693 0 01.608-.668h.1l3.72.117a.692.692 0 01.666.615v.1l-.131 3.72a.693.693 0 01-1.382.051v-.1l.075-2.039-4.699 4.375a1.024 1.024 0 01-.681.289.6.6 0 01-.451-.182z"
+            data-name="Edit Square"
+            fill="#5e5b70"
+          />
+        </svg>
+      </a>
+      <a
+        class="c2"
+        href="https://discord.gg/27r73SYAkQ"
+        target="_blank"
+      >
+        <svg
+          viewBox="0 0 20.001 15.237"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.932 1.266A16.658 16.658 0 0012.859.001c-.027 0-.053 0-.064.032a10.981 10.981 0 00-.507 1.041 15.282 15.282 0 00-4.575 0A7.37 7.37 0 007.179.033a.065.065 0 00-.064-.032 20.026 20.026 0 00-4.057 1.265.035.035 0 00-.027.021A16.59 16.59 0 00.095 12.658a.085.085 0 00.027.053 16.206 16.206 0 005 2.525c.027 0 .053 0 .069-.021a12.01 12.01 0 001.025-1.666.061.061 0 00-.037-.085 12 12 0 01-1.568-.745.062.062 0 010-.107c.107-.08.214-.16.31-.24a.068.068 0 01.064-.011 11.791 11.791 0 0010.036 0 .067.067 0 01.064.005c.1.085.2.165.31.246a.068.068 0 010 .107 10.532 10.532 0 01-1.564.747.061.061 0 00-.032.091 13.174 13.174 0 001.014 1.655.058.058 0 00.069.021 16.676 16.676 0 005.007-2.525.059.059 0 00.027-.053A16.716 16.716 0 0016.96 1.282c0-.011-.016-.021-.027-.021zm-10.25 9.129a2.041 2.041 0 111.815-2.029 1.923 1.923 0 01-1.815 2.029zm6.673 0a2.041 2.041 0 111.815-2.029 1.923 1.923 0 01-1.815 2.029z"
+            fill="#5e5b70"
+          />
+        </svg>
+      </a>
+      <a
+        class="c2"
         href="https://t.me/onomyprotocol"
         target="_blank"
       >
@@ -178,26 +202,37 @@ exports[`Given the SidebarFooter component when the component is rendered should
         </svg>
       </a>
       <a
-        class="c3"
+        class="c2"
         href="https://medium.com/onomy-protocol"
         target="_blank"
       >
         <svg
-          viewBox="0 0 20 20"
+          viewBox="0 0 195 195"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs />
           <g
-            opacity="0.5"
+            fill="none"
+            fill-rule="evenodd"
+            id="Page-1"
+            stroke="none"
+            stroke-width="1"
           >
-            <path
-              d="M11.281 9.979A5.641 5.641 0 115.641 4.3a5.66 5.66 0 015.641 5.679m6.188 0c0 2.952-1.263 5.347-2.82 5.347s-2.82-2.394-2.82-5.347 1.261-5.346 2.818-5.346 2.82 2.394 2.82 5.347m2.531 0c0 2.645-.444 4.79-.992 4.79s-.992-2.145-.992-4.79.445-4.79.993-4.79S20 7.334 20 9.979"
-              fill="#8d89a3"
-            />
+            <g
+              fill-rule="nonzero"
+              id="Monogram"
+            >
+              <path
+                d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"
+                fill="#5e5b70"
+                id="Shape"
+              />
+            </g>
           </g>
         </svg>
       </a>
       <a
-        class="c3"
+        class="c2"
         href="https://twitter.com/onomyprotocol"
         target="_blank"
       >
@@ -213,6 +248,11 @@ exports[`Given the SidebarFooter component when the component is rendered should
         </svg>
       </a>
     </div>
+    <button
+      class="c3"
+    >
+      Logout
+    </button>
   </footer>
 </DocumentFragment>
 `;

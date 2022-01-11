@@ -98,7 +98,7 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
   margin-right: 56px;
 }
 
-.c11 {
+.c10 {
   padding-left: 56px;
   border-left: 1px solid #302E3D;
 }
@@ -110,11 +110,7 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
   font-size: 24px;
 }
 
-.c10 {
-  color: #7cf9ba;
-}
-
-.c12 {
+.c11 {
   color: #e1dfeb;
 }
 
@@ -194,13 +190,13 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
 }
 
 @media screen and (max-width:1440px) {
-  .c11 {
+  .c10 {
     padding-left: 32px;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c11 {
+  .c10 {
     padding: 0;
     border: none;
   }
@@ -270,27 +266,21 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
                 class="c7 c8"
               >
                 <strong>
-                  NOM / USDT
+                  wNOM / USDT
                 </strong>
                 <div
                   class="c9"
                 >
                   <strong>
-                    $10.12
+                    $∞
                   </strong>
-                  <span
-                    class="c10"
-                    type="increase"
-                  >
-                    24.2%
-                  </span>
                 </div>
               </div>
               <div
                 class="c7 c8"
               >
                 <strong>
-                  NOM / ETH
+                  wNOM / ETH
                 </strong>
                 <div
                   class="c9"
@@ -304,13 +294,13 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
               </div>
             </div>
             <div
-              class="c11"
+              class="c10"
             >
               <div
                 class="c7 c8"
               >
                 <strong>
-                  NOM Issued
+                  wNOM Issued
                 </strong>
                 <div
                   class="c9"
@@ -321,9 +311,9 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not o
                     </span>
                   </strong>
                   <span
-                    class="c12"
+                    class="c11"
                   >
-                    / 1E8
+                    / 100,000,000
                   </span>
                 </div>
               </div>
@@ -434,7 +424,7 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
   margin-right: 56px;
 }
 
-.c11 {
+.c10 {
   padding-left: 56px;
   border-left: 1px solid #302E3D;
 }
@@ -446,11 +436,7 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
   font-size: 24px;
 }
 
-.c10 {
-  color: #7cf9ba;
-}
-
-.c12 {
+.c11 {
   color: #e1dfeb;
 }
 
@@ -530,13 +516,13 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
 }
 
 @media screen and (max-width:1440px) {
-  .c11 {
+  .c10 {
     padding-left: 32px;
   }
 }
 
 @media screen and (max-width:700px) {
-  .c11 {
+  .c10 {
     padding: 0;
     border: none;
   }
@@ -606,27 +592,21 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
                 class="c7 c8"
               >
                 <strong>
-                  NOM / USDT
+                  wNOM / USDT
                 </strong>
                 <div
                   class="c9"
                 >
                   <strong>
-                    $10.12
+                    $375,000,000,000,000,000,000
                   </strong>
-                  <span
-                    class="c10"
-                    type="increase"
-                  >
-                    24.2%
-                  </span>
                 </div>
               </div>
               <div
                 class="c7 c8"
               >
                 <strong>
-                  NOM / ETH
+                  wNOM / ETH
                 </strong>
                 <div
                   class="c9"
@@ -640,13 +620,13 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
               </div>
             </div>
             <div
-              class="c11"
+              class="c10"
             >
               <div
                 class="c7 c8"
               >
                 <strong>
-                  NOM Issued
+                  wNOM Issued
                 </strong>
                 <div
                   class="c9"
@@ -657,9 +637,9 @@ exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of Bi
                     </span>
                   </strong>
                   <span
-                    class="c12"
+                    class="c11"
                   >
-                    / 1E8
+                    / 100,000,000
                   </span>
                 </div>
               </div>
