@@ -24,6 +24,7 @@ export class TVChartContainer extends React.PureComponent {
       datafeed,
       containerId: 'tv_chart_container',
       libraryPath: '../../charting_library/',
+      custom_css_url: '/tv-chart-styles.css',
       fullscreen: false,
       autosize: false,
       studiesOverrides: {},
@@ -38,6 +39,7 @@ export class TVChartContainer extends React.PureComponent {
       interval: this.state.interval,
       container: this.state.containerId,
       library_path: this.state.libraryPath,
+      custom_css_url: this.state.custom_css_url,
 
       locale: getLanguageFromURL() || 'en',
       disabled_features: [
@@ -52,6 +54,33 @@ export class TVChartContainer extends React.PureComponent {
       fullscreen: this.state.fullscreen,
       autosize: this.state.autosize,
       studies_overrides: this.state.studiesOverrides,
+      loading_screen: { backgroundColor: '#1a1823' },
+
+      overrides: {
+        'paneProperties.bottomMargin': 2,
+
+        'paneProperties.legendProperties.showStudyArguments': false,
+        'paneProperties.legendProperties.showStudyTitles': false,
+        'paneProperties.legendProperties.showStudyValues': false,
+        'paneProperties.legendProperties.showSeriesTitle': false,
+        'paneProperties.legendProperties.showSeriesOHLC': false,
+        'paneProperties.legendProperties.showLegend': false,
+        'paneProperties.legendProperties.showBarChange': false,
+        'paneProperties.legendProperties.showBackground': false,
+
+        'paneProperties.backgroundType': 'solid',
+        'paneProperties.background': '#211d2a',
+
+        'scalesProperties.textColor': '#e1dfea',
+        'scalesProperties.fontSize': 11,
+
+        'mainSeriesProperties.candleStyle.upColor': '#7cf9ba',
+        'mainSeriesProperties.candleStyle.downColor': '#c75a5a',
+        'mainSeriesProperties.candleStyle.drawBorder': false,
+        'mainSeriesProperties.candleStyle.wickColor': '#fff',
+        'mainSeriesProperties.candleStyle.wickUpColor': '#7cf9ba',
+        'mainSeriesProperties.candleStyle.wickDownColor': '#c75a5a',
+      },
     };
 
     // eslint-disable-next-line new-cap
@@ -89,6 +118,6 @@ export class TVChartContainer extends React.PureComponent {
   }
 
   render() {
-    return <div id={this.state.containerId} style={{ height: HEIGHT }} />;
+    return <div id={this.state.containerId} style={{ marginTop: 10, height: HEIGHT }} />;
   }
 }
