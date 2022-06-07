@@ -4,7 +4,7 @@ import {
   useBridgedBalanceValue,
   useDelegationTotalValue,
   useUnbondingTotalValue,
-} from '@onomy/react-client';
+} from '@onomy/react-hub';
 
 import { NomBalanceDisplay } from 'components/NomBalanceDisplay';
 import { EquivalentValue } from 'components/EquivalentValue';

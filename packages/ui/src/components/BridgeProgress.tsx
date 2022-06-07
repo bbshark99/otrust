@@ -1,17 +1,15 @@
 import React from 'react';
-import { useOnomy } from '@onomy/react-client';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import ProgressCircle from './ProgressCircle';
 
 export function BridgeProgress() {
-  const { address: nomAddress, bridgeProgress } = useOnomy();
+  const { onomyAddress, bridgeProgress } = useBondingCurve();
 
   return (
     <>
-      {nomAddress && bridgeProgress !== null && (
-        <>
-          <ProgressCircle message="Bridging bNOM to NOM…" percent={bridgeProgress} />
-        </>
+      {onomyAddress && bridgeProgress !== null && (
+        <ProgressCircle message="Bridging bNOM to NOM…" percent={bridgeProgress} />
       )}
     </>
   );

@@ -31,52 +31,50 @@ export default function SidebarBalances({
   allowance: string;
 }) {
   return (
-    <>
-      <Balances>
-        <Balance>
-          <BalancePrice>
-            <strong>{strong} Balance</strong>
-            <BalanceNumber>
-              {strongBalance}
-              <small>
-                <EquivalentValue amount={strongBalance} asset="ETH" />
-              </small>
-            </BalanceNumber>
-          </BalancePrice>
-          <Hint>
-            <TooltipCaption>ETH Balance</TooltipCaption>
-            <TooltipDesc>This is your connected wallet Ether balance.</TooltipDesc>
-          </Hint>
-        </Balance>
-        <Balance>
-          <BalancePrice>
-            <strong>{weak} Balance</strong>
-            <BalanceNumber strong>
-              {weakBalance}
-              <small>
-                <EquivalentValue amount={weakBalance} asset="NOM" />
-              </small>
-              <TrimmedApproved value={allowance} />
-              {/* <CloseIcon onClick={() => {}} /> */}
-            </BalanceNumber>
-          </BalancePrice>
-          <Hint>
-            <TooltipCaption>NOM Balance</TooltipCaption>
-            <TooltipDesc>
-              This shows your total bNOM balance and the amount approved for selling. You must
-              approve bNOM for selling before it can be sold.
-            </TooltipDesc>
-          </Hint>
-        </Balance>
+    <Balances>
+      <Balance>
+        <BalancePrice>
+          <strong>{strong} Balance</strong>
+          <BalanceNumber>
+            {strongBalance}
+            <small>
+              <EquivalentValue amount={strongBalance} asset="ETH" />
+            </small>
+          </BalanceNumber>
+        </BalancePrice>
+        <Hint>
+          <TooltipCaption>ETH Balance</TooltipCaption>
+          <TooltipDesc>This is your connected wallet Ether balance.</TooltipDesc>
+        </Hint>
+      </Balance>
+      <Balance>
+        <BalancePrice>
+          <strong>{weak} Balance</strong>
+          <BalanceNumber strong>
+            {weakBalance}
+            <small>
+              <EquivalentValue amount={weakBalance} asset="NOM" />
+            </small>
+            <TrimmedApproved value={allowance} />
+            {/* <CloseIcon onClick={() => {}} /> */}
+          </BalanceNumber>
+        </BalancePrice>
+        <Hint>
+          <TooltipCaption>NOM Balance</TooltipCaption>
+          <TooltipDesc>
+            This shows your total bNOM balance and the amount approved for selling. You must approve
+            bNOM for selling before it can be sold.
+          </TooltipDesc>
+        </Hint>
+      </Balance>
 
-        {REACT_APP_SHOW_BRIDGED_NOM && <SidebarBridgedBalance />}
+      {REACT_APP_SHOW_BRIDGED_NOM && <SidebarBridgedBalance />}
 
-        <WithdrawBtnWrapper>
-          <Link to="/bridge">
-            <PrimaryButton style={{ width: '100%' }}>Bridge bNOM to NOM</PrimaryButton>
-          </Link>
-        </WithdrawBtnWrapper>
-      </Balances>
-    </>
+      <WithdrawBtnWrapper>
+        <Link to="/bridge">
+          <PrimaryButton style={{ width: '100%' }}>Bridge bNOM to NOM</PrimaryButton>
+        </Link>
+      </WithdrawBtnWrapper>
+    </Balances>
   );
 }

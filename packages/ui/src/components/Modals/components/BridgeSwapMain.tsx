@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BigNumber } from 'bignumber.js';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
-import { useOnomy } from '@onomy/react-client';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 import { OnomyAddress } from '@onomy/client';
 
 import BridgeSwapMobile from './BridgeSwapMobile';
@@ -32,10 +31,13 @@ export const initialGasOptions = [
 
 export default function BridgeSwapMain() {
   const {
-    address: onomyWalletValue,
-    setAddress: setOnomyWalletValue,
+    onomyAddress: onomyWalletValue,
+    setOnomyAddress: setOnomyWalletValue,
     addPendingBridgeTransaction,
-  } = useOnomy();
+    weakBalance,
+    bondingCurve,
+    ethAddress,
+  } = useBondingCurve();
   const navigate = useNavigate();
   const [amountValue, setAmountValue] = useState('');
   const [errors, setErrors] = useState(initialErrorsState);
@@ -51,27 +53,25 @@ export default function BridgeSwapMain() {
 
   const standardBrigdeBreakpoint = useMediaQuery({ minWidth: responsive.smartphoneLarge });
 
-  const { weakBalance, bondingCurve, address: account } = useOnomyEth();
-
   useEffect(() => {
     setFormattedWeakBalance(weakBalance.shiftedBy(-18));
   }, [weakBalance]);
 
   const updateAllowanceAmount = useCallback(async () => {
-    if (!account) {
+    if (!ethAddress) {
       throw new Error();
     }
-    const allowanceGravity = await bondingCurve.bNomBridgeAllowance(account);
+    const allowanceGravity = await bondingCurve!.actions.bNomBridgeAllowance(ethAddress);
     setAllowanceAmountGravity(allowanceGravity);
     return allowanceGravity;
-  }, [bondingCurve, account, setAllowanceAmountGravity]);
+  }, [bondingCurve, ethAddress, setAllowanceAmountGravity]);
 
   useEffect(() => {
-    if (bondingCurve && account && allowanceAmountGravity.eq(0)) {
+    if (bondingCurve && ethAddress && allowanceAmountGravity.eq(0)) {
       updateAllowanceAmount();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bondingCurve, account, updateAllowanceAmount]);
+  }, [bondingCurve, ethAddress, updateAllowanceAmount]);
 
   const walletChangeHandler: React.ChangeEventHandler<HTMLInputElement> = event => {
     setOnomyWalletValue(event.target.value);
@@ -155,7 +155,11 @@ export default function BridgeSwapMain() {
           setIsTransactionPending(true);
 
           addPendingBridgeTransaction(new BigNumber(amountValue));
-          await bondingCurve.bridgeBNOMSendToCosmos(onomyWalletValue, amountValueAtoms, gasPrice);
+          await bondingCurve!.actions.bridgeBNOMSendToCosmos(
+            onomyWalletValue,
+            amountValueAtoms,
+            gasPrice
+          );
 
           setIsDisabled(false);
           setShowBridgeExchangeModal(false);

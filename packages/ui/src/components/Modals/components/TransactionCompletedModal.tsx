@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
-import { ContractTransaction } from '@onomy/react-eth';
+import { EthContractTransaction } from '@onomy/hub';
 
 import { useExchange, useUpdateExchange } from 'context/exchange/ExchangeContext';
 import { Caret, Close, Success } from '../Icons';
@@ -21,7 +21,7 @@ export default function TransactionCompletedModal({
   tx,
 }: {
   isApproving?: boolean;
-  tx: ContractTransaction;
+  tx: EthContractTransaction;
 }) {
   const [detailsActive, setDetailsActive] = useState(false);
 

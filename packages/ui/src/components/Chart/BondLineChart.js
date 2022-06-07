@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { area, extent, select, scaleLinear, line, curveCardinal, axisBottom, axisLeft } from 'd3';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { format18 } from 'utils/math';
 import { useExchange } from 'context/exchange/ExchangeContext';
@@ -61,7 +61,7 @@ function LineChart({ id = 'bondingChart' }) {
   const dimensions = useResizeObserver(wrapperRef);
   const theme = useContext(ThemeContext);
 
-  const { supplyNOM } = useOnomyEth();
+  const { supplyNOM } = useBondingCurve();
   const { askAmount, bidAmount, bidDenom } = useExchange();
 
   let supplyTop = supplyNOM;

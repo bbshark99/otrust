@@ -63,6 +63,12 @@ module.exports = {
     "jest-dom/prefer-to-have-attribute": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "no-restricted-syntax": "warn"
+    "no-restricted-syntax": "warn",
+
+    "react/jsx-no-useless-fragment": "warn",
+    "prefer-regex-literals": "warn",
+    "no-unsafe-optional-chaining": "warn",
+    "react/jsx-no-constructed-context-values": "warn",
+    "react/function-component-definition": "warn"
   }
 }

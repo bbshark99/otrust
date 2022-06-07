@@ -1,5 +1,5 @@
 import React from 'react';
-import { useOnomy } from '@onomy/react-client';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { NomBalanceDisplay } from 'components/NomBalanceDisplay';
 import {
@@ -13,19 +13,19 @@ import {
 import { EquivalentValue } from 'components/EquivalentValue';
 
 export function SidebarBridgedBalance() {
-  const { amount: nomBalance, address: nomAddress, bridgeProgress } = useOnomy();
+  const { nomBalance, onomyAddress, bridgeProgress } = useBondingCurve();
 
   return (
     <>
-      {nomAddress && (
+      {onomyAddress && (
         <Balance>
           <BalancePrice>
             <strong>NOM Balance</strong>
             <BalanceNumber strong>
-              <NomBalanceDisplay value={nomBalance} />
+              <NomBalanceDisplay value={nomBalance.amount.toString()} />
               {bridgeProgress === null ? (
                 <small>
-                  <EquivalentValue amount={nomBalance} asset="NOM" />
+                  <EquivalentValue amount={nomBalance.amount.toString()} asset="NOM" />
                 </small>
               ) : (
                 <small>{bridgeProgress.toFixed(2)}%</small>

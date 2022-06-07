@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import useInterval from '@use-it/interval';
 import { BigNumber } from 'bignumber.js';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { Close } from '../Icons';
 import * as Modal from '../styles';
@@ -77,7 +77,7 @@ export default function ApproveTokensModal({
   const { handleModal } = useModal();
   const { approve, bidAmount, input } = useExchange();
   const { objDispatch, strDispatch } = useUpdateExchange();
-  const { NOMallowance, weakBalance } = useOnomyEth();
+  const { NOMallowance, weakBalance } = useBondingCurve();
 
   const initialApproveAmount = bidAmount.minus(NOMallowance);
 

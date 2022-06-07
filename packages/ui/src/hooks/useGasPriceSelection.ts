@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
-import { useGasPrices } from '@onomy/react-eth';
+import { useEthGasPrices } from '@onomy/react-hub';
 
 export function useGasPriceSelection() {
   const [gasPriceChoice, setGasPriceChoice] = useState(2);
-  const [gasPrices] = useGasPrices();
+  const [gasPrices] = useEthGasPrices();
   const gasOptions = useMemo(
     () => [
       {

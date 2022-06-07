@@ -2,7 +2,7 @@ import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { BigNumber } from 'bignumber.js';
-import { OnomyEthContext } from '@onomy/react-eth';
+import { BondingCurveContext } from '@onomy/react-hub';
 
 import { format18 } from 'utils/math';
 import { darkNew } from 'theme/theme';
@@ -56,11 +56,11 @@ describe('Given the LineChart component', () => {
     it('should match the snapshot with not defined bidDenom', () => {
       const { asFragment } = render(
         <ThemeProvider theme={darkNew}>
-          <OnomyEthContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
+          <BondingCurveContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
             <ExchangeContext.Provider value={{ askAmount: 0, bidAmount: 0, bidDenom: undefined }}>
               <LineChart />
             </ExchangeContext.Provider>
-          </OnomyEthContext.Provider>
+          </BondingCurveContext.Provider>
         </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
@@ -69,11 +69,11 @@ describe('Given the LineChart component', () => {
     it('should match the snapshot with bidDenom strong', () => {
       const { asFragment } = render(
         <ThemeProvider theme={darkNew}>
-          <OnomyEthContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
+          <BondingCurveContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
             <ExchangeContext.Provider value={{ askAmount: 0, bidAmount: 0, bidDenom: 'strong' }}>
               <LineChart />
             </ExchangeContext.Provider>
-          </OnomyEthContext.Provider>
+          </BondingCurveContext.Provider>
         </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();
@@ -82,11 +82,11 @@ describe('Given the LineChart component', () => {
     it('should match the snapshot with bidDenom weak', () => {
       const { asFragment } = render(
         <ThemeProvider theme={darkNew}>
-          <OnomyEthContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
+          <BondingCurveContext.Provider value={{ supplyNOM: new BigNumber(0), theme: darkNew }}>
             <ExchangeContext.Provider value={{ askAmount: 0, bidAmount: 0, bidDenom: 'weak' }}>
               <LineChart />
             </ExchangeContext.Provider>
-          </OnomyEthContext.Provider>
+          </BondingCurveContext.Provider>
         </ThemeProvider>
       );
       expect(asFragment()).toMatchSnapshot();

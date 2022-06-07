@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useOnomy } from '@onomy/react-client';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { BridgeProgress } from 'components/BridgeProgress';
 import { Success } from '../Icons';
@@ -13,7 +13,7 @@ export const ExplorerButton = styled(Modal.SecondaryButton)`
 `;
 
 export default function BridgeTransactionComplete({ amountValue }: { amountValue?: string }) {
-  const { bridgeProgress } = useOnomy();
+  const { bridgeProgress } = useBondingCurve();
 
   if (bridgeProgress === null) {
     return <BridgeSuccess amountValue={amountValue} />;

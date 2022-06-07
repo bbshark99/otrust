@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { BigNumber } from 'bignumber.js';
-import { OnomyEthContext } from '@onomy/react-eth';
+import { BondingCurveContext } from '@onomy/react-hub';
 
 import { darkNew } from 'theme/theme';
 import { ExchangeContext, UpdateExchangeContext } from '../context/exchange/ExchangeContext';
@@ -28,17 +28,17 @@ export const renderWithTheme = (Component, props, children) => {
   );
 };
 
-export const ThemeWrapper = (Component, props, children) => {
+export function ThemeWrapper(Component, props, children) {
   return (
     <ThemeProvider theme={darkNew}>
       <Component {...props}>{children}</Component>
     </ThemeProvider>
   );
-};
+}
 
-export const ChainContextWrapper = (children, contextProps) => {
+export function ChainContextWrapper(children, contextProps) {
   return (
-    <OnomyEthContext.Provider
+    <BondingCurveContext.Provider
       value={{
         blockNumber: BigNumber(0),
         currentETHPrice: BigNumber(0),
@@ -51,11 +51,11 @@ export const ChainContextWrapper = (children, contextProps) => {
       }}
     >
       {children}
-    </OnomyEthContext.Provider>
+    </BondingCurveContext.Provider>
   );
-};
+}
 
-export const ExchangeContextWrapper = (children, contextProps) => {
+export function ExchangeContextWrapper(children, contextProps) {
   return (
     <ExchangeContext.Provider
       value={{
@@ -71,9 +71,9 @@ export const ExchangeContextWrapper = (children, contextProps) => {
       {children}
     </ExchangeContext.Provider>
   );
-};
+}
 
-export const UpdateExchangeContextWrapper = (children, contextProps) => {
+export function UpdateExchangeContextWrapper(children, contextProps) {
   return (
     <UpdateExchangeContext.Provider
       value={{
@@ -86,9 +86,9 @@ export const UpdateExchangeContextWrapper = (children, contextProps) => {
       {children}
     </UpdateExchangeContext.Provider>
   );
-};
+}
 
-export const ModalContextWrapper = (children, contextProps) => {
+export function ModalContextWrapper(children, contextProps) {
   return (
     <ModalContext.Provider
       value={{
@@ -101,12 +101,12 @@ export const ModalContextWrapper = (children, contextProps) => {
       {children}
     </ModalContext.Provider>
   );
-};
+}
 
 export const renderWithContext = (Component, props, contextValues) => {
   return render(
     <ThemeProvider theme={darkNew}>
-      <OnomyEthContext.Provider
+      <BondingCurveContext.Provider
         value={{
           supplyNOM: BigNumber(0),
           blockNumber: BigNumber(0),
@@ -149,7 +149,7 @@ export const renderWithContext = (Component, props, contextValues) => {
             </ModalContext.Provider>
           </ExchangeContext.Provider>
         </UpdateExchangeContext.Provider>
-      </OnomyEthContext.Provider>
+      </BondingCurveContext.Provider>
     </ThemeProvider>
   );
 };

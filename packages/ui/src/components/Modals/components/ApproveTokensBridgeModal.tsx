@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 import styled from 'styled-components';
 import useInterval from '@use-it/interval';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -142,7 +142,7 @@ export default function ApproveTokensBridgeModal({
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [isTransactionCompleted, setIsTransactionCompleted] = useState(false);
-  const { bondingCurve } = useOnomyEth();
+  const { bondingCurve } = useBondingCurve();
 
   useEffect(() => {
     if (amountValue && allowanceAmountGravity) {
@@ -194,7 +194,7 @@ export default function ApproveTokensBridgeModal({
         setDelay(null);
         setShowLoader(true);
 
-        await bondingCurve.bNomIncreaseBridgeAllowance(
+        await bondingCurve?.actions.bNomIncreaseBridgeAllowance(
           new BigNumber(approveAmountInputValue).shiftedBy(18),
           gasPrice
         );

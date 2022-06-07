@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components/macro';
 import { Link, useParams } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
-import { ValidatorData } from '@onomy/react-client';
+import { ValidatorData } from '@onomy/react-hub';
 
 import ValidatorFooter from './ValidatorFooter';
 import { Success } from '../Icons';

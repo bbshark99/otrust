@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, useParams } from 'react-router-dom';
-import { useValidatorDetail } from '@onomy/react-client';
+import { useValidatorDetail } from '@onomy/react-hub';
 
 import StakingModal from './StakingModal';
 import LoadingSpinner from 'components/UI/LoadingSpinner';

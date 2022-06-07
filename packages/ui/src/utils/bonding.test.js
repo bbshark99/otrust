@@ -70,6 +70,7 @@ describe('Given NOMtoETH util function', () => {
       const result1 = NOMtoETH(100000000, 100000000);
       const result2 = NOMtoETH(0, 0);
       const result3 = NOMtoETH(100.5, 2000);
+      // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
       const result4 = NOMtoETH(10000005556668456848645, 250000685555565285525555);
       expect(result1).toEqual({ diff: 33000000, supplyBot: 0, supplyTop: 100000000 });
       expect(result2).toEqual({ diff: 0, supplyBot: 0, supplyTop: 0 });

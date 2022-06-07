@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
-import { SUPPORTED_WALLETS, AbstractConnector } from '@onomy/react-eth';
+import { SUPPORTED_WALLETS, AbstractConnector } from '@onomy/wallet-backend-web';
 
 import { AccentButton } from 'components/UI/Button';
 import { responsive } from 'theme/constants';

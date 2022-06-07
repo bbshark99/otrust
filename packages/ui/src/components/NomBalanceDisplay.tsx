@@ -1,15 +1,14 @@
 /* eslint-disable react/require-default-props */
 import React, { useMemo } from 'react';
 import { BigNumber } from 'bignumber.js';
-import { useOnomy, useDelegationTotalValue } from '@onomy/react-client';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve, useDelegationTotalValue } from '@onomy/react-hub';
 
 import { format18 } from 'utils/math';
 import { FormattedNumber } from './FormattedNumber';
 import { EquivalentValue } from './EquivalentValue';
 
 export function useWrappedNomValue() {
-  const { weakBalance } = useOnomyEth();
+  const { weakBalance } = useBondingCurve();
   return useMemo(() => new BigNumber(weakBalance), [weakBalance]);
 }
 
@@ -35,8 +34,8 @@ export function MyWrappedNomBalanceDisplay() {
 }
 
 export function MyBridgedNomBalanceDisplay({ usdValue = false } = {}) {
-  const { amount } = useOnomy();
-  return <NomBalanceDisplay value={amount} usdValue={usdValue} />;
+  const { nomBalance } = useBondingCurve();
+  return <NomBalanceDisplay value={nomBalance.amount.toString()} usdValue={usdValue} />;
 }
 
 export function MyDelegatedNomBalanceDisplay({ usdValue = false }) {

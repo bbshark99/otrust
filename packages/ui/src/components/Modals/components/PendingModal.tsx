@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { Metamask } from 'components/Modals/Icons';
@@ -53,7 +53,7 @@ const WalletIcon = styled.div`
 // `;
 
 export default function PendingModal({ isApproving }: { isApproving?: boolean }) {
-  const { address: account } = useOnomyEth();
+  const { ethAddress } = useBondingCurve();
   const { approve, bidDenom, strong, weak, bidAmount, askAmount } = useExchange();
 
   return (
@@ -104,10 +104,12 @@ export default function PendingModal({ isApproving }: { isApproving?: boolean })
             <div>
               <strong>
                 {/* eslint-disable-next-line no-nested-ternary */}
-                {account === null
+                {ethAddress === null
                   ? '-'
-                  : account
-                  ? `${account.substring(0, 10)}...${account.substring(account.length - 4)}`
+                  : ethAddress
+                  ? `${ethAddress.substring(0, 10)}...${ethAddress.substring(
+                      ethAddress.length - 4
+                    )}`
                   : ''}
               </strong>
             </div>

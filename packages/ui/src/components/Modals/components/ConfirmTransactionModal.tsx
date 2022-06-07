@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import useInterval from '@use-it/interval';
 import { BigNumber } from 'bignumber.js';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { Close, Metamask } from 'components/Modals/Icons';
 import { Caret } from '../Icons';
@@ -132,7 +132,7 @@ export default function ConfirmTransactionModal({
   const [activeSlippageId, setActiveSlippageId] = useState(0);
   const [showSlippageDetails, setShowSlippageDetails] = useState(false);
   const { handleModal } = useModal();
-  const { address: account } = useOnomyEth();
+  const { ethAddress } = useBondingCurve();
 
   const { askAmount, bidAmount, bidDenom, strong, weak, approve } = useExchange();
 
@@ -213,10 +213,12 @@ export default function ConfirmTransactionModal({
             <div>
               <strong>
                 {/* eslint-disable-next-line no-nested-ternary */}
-                {account === null
+                {ethAddress === null
                   ? '-'
-                  : account
-                  ? `${account.substring(0, 10)}...${account.substring(account.length - 4)}`
+                  : ethAddress
+                  ? `${ethAddress.substring(0, 10)}...${ethAddress.substring(
+                      ethAddress.length - 4
+                    )}`
                   : ''}
               </strong>
             </div>

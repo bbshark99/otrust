@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Link, useParams } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
-import { useWithdrawRewards, ValidatorData } from '@onomy/react-client';
+import { useWithdrawRewards, ValidatorData } from '@onomy/react-hub';
 
 import ValidatorFooter from './ValidatorFooter';
 import ValidatorNodeHeader from './ValidatorNodeHeader';

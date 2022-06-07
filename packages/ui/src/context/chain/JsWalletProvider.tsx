@@ -1,3 +1,5 @@
+export {};
+/*
 import React, { useCallback } from 'react';
 import { WalletProvider } from '@onomy/react-wallet';
 import { JsWalletBackend } from '@onomy/wallet-backend-js';
@@ -23,3 +25,4 @@ export function JsWalletProvider({ children }: { children: JSX.Element | JSX.Ele
     </WalletProvider>
   );
 }
+*/

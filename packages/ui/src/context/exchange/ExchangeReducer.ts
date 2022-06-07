@@ -1,5 +1,5 @@
 import { BigNumber } from 'bignumber.js';
-import type { ContractTransaction } from '@onomy/react-eth';
+import type { EthContractTransaction } from '@onomy/hub';
 
 export interface ExchStringState {
   bidDenom: string;
@@ -124,7 +124,7 @@ export interface ExchObjState {
   askAmount: BigNumber;
   bidAmount: BigNumber;
   approveAmount: BigNumber;
-  pendingTx: ContractTransaction | null;
+  pendingTx: EthContractTransaction | null;
   slippage: BigNumber;
   txPending: boolean;
 }

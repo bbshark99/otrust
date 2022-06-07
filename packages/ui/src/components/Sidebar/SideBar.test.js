@@ -3,7 +3,7 @@ import { cleanup, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { BigNumber } from 'bignumber.js';
 import { MemoryRouter } from 'react-router-dom';
-import { OnomyEthContext } from '@onomy/react-eth';
+import { BondingCurveContext } from '@onomy/react-hub';
 
 import { darkNew } from 'theme/theme';
 import { ExchangeContext } from '../../context/exchange/ExchangeContext';
@@ -17,17 +17,20 @@ describe('Given the Sidebar component and strongBalance, weakBalance are of BigN
       const { asFragment } = render(
         <MemoryRouter>
           <ThemeProvider theme={darkNew}>
-            <OnomyEthContext.Provider
+            <BondingCurveContext.Provider
               value={{
                 blockNumber: 12345678,
                 strongBalance: new BigNumber(0),
                 weakBalance: new BigNumber(10),
+                nomBalance: {
+                  amount: BigInt(0),
+                },
               }}
             >
               <ExchangeContext.Provider value={{ strong: 'ETH', weak: 'bNOM' }}>
                 <Sidebar />
               </ExchangeContext.Provider>
-            </OnomyEthContext.Provider>
+            </BondingCurveContext.Provider>
           </ThemeProvider>
         </MemoryRouter>
       );
@@ -44,18 +47,20 @@ describe('Given the Sidebar component and strongBalance, weakBalance are NOT of 
       const { asFragment } = render(
         <MemoryRouter>
           <ThemeProvider theme={darkNew}>
-            <OnomyEthContext.Provider
+            <BondingCurveContext.Provider
               value={{
                 blockNumber: 12345678,
                 strongBalance: 0,
                 weakBalance: 10,
-                allowance: 'Loading',
+                nomBalance: {
+                  amount: BigInt(0),
+                },
               }}
             >
               <ExchangeContext.Provider value={{ strong: 'ETH', weak: 'bNOM' }}>
                 <Sidebar />
               </ExchangeContext.Provider>
-            </OnomyEthContext.Provider>
+            </BondingCurveContext.Provider>
           </ThemeProvider>
         </MemoryRouter>
       );

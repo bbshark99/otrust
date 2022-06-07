@@ -2,11 +2,11 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import {
-  useOnomy,
+  useBondingCurve,
   useBridgedBalanceValue,
   useDelegationTotalValue,
   useUnbondingTotalValue,
-} from '@onomy/react-client';
+} from '@onomy/react-hub';
 
 import {
   Balances,
@@ -40,7 +40,7 @@ const Message = styled.div`
 `;
 
 export default function NOMBalances() {
-  const { address } = useOnomy();
+  const { onomyAddress } = useBondingCurve();
   const bridged = useBridgedBalanceValue();
   const [locked] = useUnbondingTotalValue();
   const [delegated] = useDelegationTotalValue();
@@ -49,7 +49,7 @@ export default function NOMBalances() {
 
   return (
     <Balances>
-      {address ? (
+      {onomyAddress ? (
         <>
           <Balance>
             <BalancePrice>

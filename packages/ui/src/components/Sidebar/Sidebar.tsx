@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { Panel } from 'components/UI';
 import { useExchange } from 'context/exchange/ExchangeContext';
@@ -48,7 +48,7 @@ const DarkWrapper = styled.div`
 `;
 
 export default function Sidebar() {
-  const { strongBalance, weakBalance, NOMallowance, logout, address: account } = useOnomyEth();
+  const { strongBalance, weakBalance, NOMallowance, logout, ethAddress } = useBondingCurve();
   const { strong, weak } = useExchange();
 
   const handleLogout = () => {
@@ -60,7 +60,7 @@ export default function Sidebar() {
     <div id="tour-sidebar">
       <PanelLayout>
         <SidebarLayout>
-          <SidebarHeader account={account} onLogout={handleLogout} />
+          <SidebarHeader account={ethAddress} onLogout={handleLogout} />
           <SidebarBalances
             strong={strong}
             weak={weak}

@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import ConfirmTransactionModal from 'components/Modals/components/ConfirmTransactionModal';
 import PendingModal from 'components/Modals/components/PendingModal';
@@ -171,7 +171,8 @@ export default function ExchangeModals() {
   const [isStrongOrWeak, setIsStrongOrWeak] = useState('');
 
   const { askAmount, bidAmount, approveAmount, bidDenom, strong, weak } = useExchange();
-  const { strongBalance, weakBalance, currentETHPrice, NOMallowance, bondingCurve } = useOnomyEth();
+  const { strongBalance, weakBalance, currentETHPrice, NOMallowance, bondingCurve } =
+    useBondingCurve();
   const { objDispatch, strDispatch } = useUpdateExchange();
   const { handleModal } = useModal();
   const approveRef = useRef<BigNumber>();
@@ -192,7 +193,7 @@ export default function ExchangeModals() {
         }
         try {
           if (buyModalOpen) {
-            askAmountUpdate = await bondingCurve.bondBuyQuoteETH(
+            askAmountUpdate = await bondingCurve!.actions.bondBuyQuoteETH(
               new BigNumber(value).shiftedBy(18)
             );
             setCalculatedAmount(prevState => {
@@ -205,7 +206,7 @@ export default function ExchangeModals() {
               };
             });
           } else if (sellModalOpen) {
-            askAmountUpdate = await bondingCurve.bondSellQuoteNOM(
+            askAmountUpdate = await bondingCurve!.actions.bondSellQuoteNOM(
               new BigNumber(value).shiftedBy(18)
             );
             setCalculatedAmount(prevState => {
@@ -331,7 +332,7 @@ export default function ExchangeModals() {
         if (!approveAmount || !approveRef.current) return;
 
         try {
-          const [, tx] = await bondingCurve.bNomIncreaseBondAllowance(
+          const [, tx] = await bondingCurve!.actions.bNomIncreaseBondAllowance(
             new BigNumber(approveRef.current),
             gasPrice
           );
@@ -355,7 +356,9 @@ export default function ExchangeModals() {
               switch (strong) {
                 case 'ETH':
                   // eslint-disable-next-line prefer-destructuring
-                  tx = (await bondingCurve.bondBuyNOM(bidAmount, askAmount, slippage, gasPrice))[1];
+                  tx = (
+                    await bondingCurve!.actions.bondBuyNOM(bidAmount, askAmount, slippage, gasPrice)
+                  )[1];
                   setCalculatedAmount(initialCalculatedAmount);
                   setSellAmount(initialAmount);
                   handleModal(<TransactionCompletedModal tx={tx} />);
@@ -372,7 +375,12 @@ export default function ExchangeModals() {
                 case 'bNOM':
                   // eslint-disable-next-line prefer-destructuring
                   tx = (
-                    await bondingCurve.bondSellNOM(bidAmount, askAmount, slippage, gasPrice)
+                    await bondingCurve!.actions.bondSellNOM(
+                      bidAmount,
+                      askAmount,
+                      slippage,
+                      gasPrice
+                    )
                   )[1];
 
                   setCalculatedAmount(initialCalculatedAmount);

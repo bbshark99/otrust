@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { BigNumber } from 'bignumber.js';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { format18 } from 'utils/math';
 
@@ -18,7 +18,7 @@ type EquivalentValueProps = {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function EquivalentValue({ amount, asset, prefix = ' = $' }: EquivalentValueProps) {
-  const { currentETHPrice } = useOnomyEth();
+  const { currentETHPrice } = useBondingCurve();
   const nomPerEth = BigNumber.isBigNumber(currentETHPrice)
     ? format18(currentETHPrice).toNumber()
     : 0;

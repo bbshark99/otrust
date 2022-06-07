@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { useWallet } from '@onomy/react-wallet';
+import { useOnomyHub } from '@onomy/react-hub';
 
 export function ConnectKeplr() {
-  const { onomy } = useWallet();
+  const { hub } = useOnomyHub();
 
   useEffect(() => {
-    onomy.connect();
-  }, [onomy]);
+    hub?.chains.onomy.wallet.connect();
+  }, [hub?.chains.onomy.wallet]);
 
   return <></>;
 }

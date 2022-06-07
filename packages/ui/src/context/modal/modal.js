@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Dimmer } from 'components/UI/Dimmer';
 import { useModal } from 'context/modal/ModalContext';
 
-const Modal = () => {
+function Modal() {
   const { modalContent, modal } = useModal();
   if (modal) {
     return ReactDOM.createPortal(
@@ -13,6 +13,6 @@ const Modal = () => {
     );
   }
   return null;
-};
+}
 
 export default Modal;

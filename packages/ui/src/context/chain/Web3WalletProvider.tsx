@@ -1,38 +1,46 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useMemo } from 'react';
-import { EthWeb3Provider, useWeb3React, AutoLogin } from '@onomy/react-eth';
-import ethers from 'ethers';
-import { WalletProvider } from '@onomy/react-wallet';
-import { WebWalletBackend } from '@onomy/wallet-backend-web';
+import { useWebWalletBackend, WebWalletBackendProvider } from '@onomy/wallet-backend-web';
+import { BondingCurveProvider, OnomyHubProvider } from '@onomy/react-hub';
 
 import Landing from 'pages/Landing';
-import { KEPLR_CONFIG } from 'constants/env';
+import {
+  KEPLR_CONFIG,
+  REACT_APP_BONDING_NOM_CONTRACT_ADDRESS,
+  REACT_APP_GRAVITY_CONTRACT_ADDRESS,
+  REACT_APP_ONOMY_RPC_URL,
+  REACT_APP_WNOM_CONTRACT_ADDRESS,
+} from 'constants/env';
 
 function Web3WalletChild({ children }: { children: JSX.Element | JSX.Element[] }) {
-  const { library: ethereumProvider } = useWeb3React<ethers.providers.Web3Provider>();
-  const ethereumSigner = useMemo(
-    () => ethereumProvider?.getSigner() ?? undefined,
-    [ethereumProvider]
-  );
+  const backend = useWebWalletBackend();
+  const chainId = useMemo(() => {
+    const pieces = KEPLR_CONFIG.chainId.split('-');
+    pieces.pop();
+    return pieces.join('-');
+  }, []);
 
-  const backend = useMemo(
-    () => new WebWalletBackend({ ethereumProvider, ethereumSigner }),
-    [ethereumProvider, ethereumSigner]
-  );
+  if (!backend) return null;
 
   return (
-    <WalletProvider backend={backend} onomyChainInfo={KEPLR_CONFIG}>
-      {children}
-    </WalletProvider>
+    <OnomyHubProvider
+      backend={backend}
+      onomyChainId={chainId}
+      onomyChainInfo={KEPLR_CONFIG}
+      onomyRpcUrl={REACT_APP_ONOMY_RPC_URL}
+      ethWsUrl="wss://ws-eth-rinkeby.onomy.io"
+      nomContractAddress={REACT_APP_WNOM_CONTRACT_ADDRESS}
+      bondContractAddress={REACT_APP_BONDING_NOM_CONTRACT_ADDRESS}
+      gravityContractAddress={REACT_APP_GRAVITY_CONTRACT_ADDRESS}
+    >
+      <BondingCurveProvider>{children}</BondingCurveProvider>
+    </OnomyHubProvider>
   );
 }
 
 export function Web3WalletProvider({ children }: { children: JSX.Element | JSX.Element[] }) {
   return (
-    <EthWeb3Provider>
-      <AutoLogin Landing={Landing}>
-        <Web3WalletChild>{children}</Web3WalletChild>
-      </AutoLogin>
-    </EthWeb3Provider>
+    <WebWalletBackendProvider Landing={Landing}>
+      <Web3WalletChild>{children}</Web3WalletChild>
+    </WebWalletBackendProvider>
   );
 }

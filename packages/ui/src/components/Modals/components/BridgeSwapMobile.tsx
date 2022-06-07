@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { responsive } from 'theme/constants';
@@ -187,7 +187,7 @@ const modalOverride = {
 };
 
 export default function BridgeSwapMobile({ ...props }: BridgeSwapModalProps) {
-  const { active } = useOnomyEth();
+  const { ethActive } = useBondingCurve();
   const { values, flags, handlers } = { ...props };
 
   const [infoModal, setInfoModal] = useState(false);
@@ -323,8 +323,8 @@ export default function BridgeSwapMobile({ ...props }: BridgeSwapModalProps) {
             <HeaderInfoItem align="flex-end">
               <strong>Bridge</strong>
               <HeaderInfoItemValue>
-                <ConnectionStatus active={active}>
-                  {active ? 'Connected' : 'Wallet Disconnected'}
+                <ConnectionStatus active={ethActive}>
+                  {ethActive ? 'Connected' : 'Wallet Disconnected'}
                 </ConnectionStatus>
               </HeaderInfoItemValue>
             </HeaderInfoItem>
@@ -381,7 +381,7 @@ export default function BridgeSwapMobile({ ...props }: BridgeSwapModalProps) {
             </div>
             <Modal.FullWidthButton
               onClick={handlers.submitTransClickHandler}
-              disabled={flags.isDisabled || !active}
+              disabled={flags.isDisabled || !ethActive}
             >
               Bridge bNOM to NOM
             </Modal.FullWidthButton>

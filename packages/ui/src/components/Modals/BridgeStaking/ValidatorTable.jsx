@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import { useTable, useSortBy } from 'react-table';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { useValidatorList } from '@onomy/react-client';
+import { useValidatorList } from '@onomy/react-hub';
 
 import { SortBy } from '../Icons';
 import { FormattedNumber } from 'components/FormattedNumber';

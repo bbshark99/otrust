@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import { Link, useParams } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
 import { useAsyncProcess } from '@onomy/react-utils';
-import { useOnomy, ValidatorData } from '@onomy/react-client';
+import { useBondingCurve, ValidatorData } from '@onomy/react-hub';
 
 import ValidatorFooter from './ValidatorFooter';
 import { Caption, Desc } from './ValidatorHeader';
@@ -78,7 +78,7 @@ export default function ValidatorDelegation({
   direction: 'DELEGATE' | 'UNDELEGATE';
 }) {
   const { id } = useParams();
-  const { onomyClient, amount: nomBalance } = useOnomy();
+  const { onomyClient, nomBalance } = useBondingCurve();
   const [attemptTx, { pending: txPending, error: txError, finished: txFinished }] =
     useAsyncProcess();
   const verb = useMemo(() => (direction === 'DELEGATE' ? 'delegate' : 'undelegate'), [direction]);
@@ -92,7 +92,7 @@ export default function ValidatorDelegation({
     }
 
     if (direction === 'DELEGATE') {
-      const bigNumBal = format18(new BigNumber(nomBalance));
+      const bigNumBal = format18(new BigNumber(nomBalance.amount.toString()));
       if (amount.lte(0)) return false;
       if (amount.gt(bigNumBal)) return false;
     } else {
@@ -103,21 +103,27 @@ export default function ValidatorDelegation({
   }, [amount, nomBalance, direction, delegation]);
 
   const onConfirm = useCallback(async () => {
-    if (!isValid) throw new Error('Invalid delegation form');
+    if (!isValid || !id) throw new Error('Invalid delegation form');
     return attemptTx(async () => {
       const intAmount = parse18(amount);
 
       if (direction === 'DELEGATE') {
-        await onomyClient.delegate(id!, intAmount);
+        await onomyClient?.delegate({
+          validatorAddress: id,
+          amountFixed: intAmount,
+        });
       } else {
-        await onomyClient.undelegate(id!, intAmount);
+        await onomyClient?.undelegate({
+          validatorAddress: id,
+          amountFixed: intAmount,
+        });
       }
     });
   }, [attemptTx, direction, amount, onomyClient, id, isValid]);
 
   function setMax() {
     if (direction === 'DELEGATE') {
-      setAmount(format18(new BigNumber(nomBalance)));
+      setAmount(format18(new BigNumber(nomBalance.amount.toString())));
     } else {
       const delegated = format18(delegation ?? new BigNumber(0));
       setAmount(delegated);

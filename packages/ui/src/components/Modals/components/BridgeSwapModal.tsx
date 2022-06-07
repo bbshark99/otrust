@@ -5,9 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { useAnomSupply, useOnomy } from '@onomy/react-client';
-import { useWallet } from '@onomy/react-wallet';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useAnomSupply, useBondingCurve, useOnomyHub } from '@onomy/react-hub';
 
 import { Dimmer } from 'components/UI/Dimmer';
 import LoadingSpinner from 'components/UI/LoadingSpinner';
@@ -210,11 +208,10 @@ export interface BridgeSwapModalProps {
 }
 
 export default function BridgeSwapModal({ ...props }: BridgeSwapModalProps) {
-  const { active, address: account } = useOnomyEth();
   const { values, flags, handlers } = { ...props };
-  const wallet = useWallet();
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const { bridgeProgress } = useOnomy();
+  const { hub } = useOnomyHub();
+  const { bridgeProgress, ethActive, ethAddress } = useBondingCurve();
 
   const collapsedInfoBreakpoint = useMediaQuery({
     query: `(max-width: ${responsive.laptopSmall})`,
@@ -246,8 +243,10 @@ export default function BridgeSwapModal({ ...props }: BridgeSwapModalProps) {
                     <Modal.ConnectionItemContent>
                       <strong>Onomy Bonding Curve</strong>
                       <span>
-                        {account
-                          ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}`
+                        {ethAddress
+                          ? `${ethAddress.substring(0, 6)}...${ethAddress.substring(
+                              ethAddress.length - 4
+                            )}`
                           : ''}
                       </span>
                     </Modal.ConnectionItemContent>
@@ -256,8 +255,8 @@ export default function BridgeSwapModal({ ...props }: BridgeSwapModalProps) {
                       <span>{`${values.formattedWeakBalance.toFixed(6)}`}</span>
                     </Modal.Balance>
                   </Modal.ConnectionItem>
-                  <Modal.ConnectionStatus active={active}>
-                    {active ? 'Bridge Connected' : 'Wallet Disconnected'}
+                  <Modal.ConnectionStatus active={ethActive}>
+                    {ethActive ? 'Bridge Connected' : 'Wallet Disconnected'}
                   </Modal.ConnectionStatus>
 
                   <Modal.ConnectionItem>
@@ -273,7 +272,7 @@ export default function BridgeSwapModal({ ...props }: BridgeSwapModalProps) {
                       />
                     </Modal.CosmosInputSection>
                   </Modal.ConnectionItem>
-                  {!wallet?.onomy.isAvailable() && (
+                  {!hub?.chains.onomy.wallet.isAvailable() && (
                     <KeplrLink href="https://www.keplr.app/" target="_new">
                       Get Keplr Cosmos Wallet
                     </KeplrLink>
@@ -324,7 +323,7 @@ export default function BridgeSwapModal({ ...props }: BridgeSwapModalProps) {
                   </div>
                   <Modal.FullWidthButton
                     onClick={handlers.submitTransClickHandler}
-                    disabled={flags.isDisabled || !active}
+                    disabled={flags.isDisabled || !ethActive}
                   >
                     Bridge bNOM to NOM
                   </Modal.FullWidthButton>

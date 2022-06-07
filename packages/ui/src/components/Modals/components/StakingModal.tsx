@@ -2,12 +2,12 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { useAsyncValue } from '@onomy/react-utils';
-import { useOnomy } from '@onomy/react-client';
+import { useBondingCurve } from '@onomy/react-hub';
 
-import { Close } from '../Icons';
-import * as Modal from '../styles';
 import { responsive } from 'theme/constants';
 import { useModal } from 'context/modal/ModalContext';
+import { Close } from '../Icons';
+import * as Modal from '../styles';
 
 const Message = styled.div`
   margin: 32px 0 0;
@@ -21,13 +21,14 @@ const Caption = styled(Modal.Caption)`
   text-align: left;
 `;
 
+// eslint-disable-next-line react/function-component-definition
 export default function StakingModal() {
   const { handleModal } = useModal();
-  const { onomyClient, address } = useOnomy();
+  const { onomyClient, onomyAddress } = useBondingCurve();
 
   const [validators, { pending: validatorsPending, error: validatorsError }] = useAsyncValue(
     useCallback(async () => {
-      const results = await onomyClient.getValidators();
+      const results = await onomyClient!.getValidators();
       /*
       return Promise.all(
         results.map(async validator => {
@@ -46,17 +47,17 @@ export default function StakingModal() {
 
   const [delegations, { pending: delegationsPending, error: delegationsError }] = useAsyncValue(
     useCallback(async () => {
-      const results = await onomyClient.getDelegationsForDelegator(address);
+      const results = await onomyClient!.getDelegationsForDelegator(onomyAddress);
       return results;
-    }, [address, onomyClient]),
+    }, [onomyAddress, onomyClient]),
     []
   );
 
   const [rewards, { pending: rewardsPending, error: rewardsError }] = useAsyncValue(
     useCallback(async () => {
-      const results = await onomyClient.getRewardsForDelegator(address);
+      const results = await onomyClient!.getRewardsForDelegator(onomyAddress);
       return results;
-    }, [address, onomyClient]),
+    }, [onomyAddress, onomyClient]),
     null
   );
 
@@ -73,8 +74,12 @@ export default function StakingModal() {
         ) : validatorsPending ? (
           <Message>Loading...</Message>
         ) : (
+          // TODO: figure out why item type isn't making it at runtime
           // eslint-disable-next-line react/no-array-index-key
-          validators.map((item, idx) => <pre key={idx}>{JSON.stringify(item, null, 2)}</pre>)
+          validators.map((item: any, idx: number) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <pre key={idx}>{JSON.stringify(item, null, 2)}</pre>
+          ))
         )}
 
         <Caption>Delegations</Caption>
@@ -83,8 +88,12 @@ export default function StakingModal() {
         ) : delegationsPending ? (
           <Message>Loading...</Message>
         ) : (
+          // TODO: figure out why item type isn't making it at runtime
           // eslint-disable-next-line react/no-array-index-key
-          delegations.map((item, idx) => <pre key={idx}>{JSON.stringify(item, null, 2)}</pre>)
+          delegations.map((item: any, idx: number) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <pre key={idx}>{JSON.stringify(item, null, 2)}</pre>
+          ))
         )}
 
         <Caption>Rewards</Caption>

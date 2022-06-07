@@ -108,62 +108,60 @@ export default function BondingCurve() {
     <BondingCurveContainer>
       <BondingCurveLayout>
         {disclosuresModal && !cookies.visitedBefore && (
-          <>
-            <Dimmer>
-              <Modal>
-                <div className="img-wrapper">
-                  <img src={welcome} alt="" />
-                </div>
-                <div className="content">
-                  <h4>Onomy Bonding Curve Platform</h4>
-                  <p>Purchase and access NOM, the native utility token of the Onomy Network.</p>
+          <Dimmer>
+            <Modal>
+              <div className="img-wrapper">
+                <img src={welcome} alt="" />
+              </div>
+              <div className="content">
+                <h4>Onomy Bonding Curve Platform</h4>
+                <p>Purchase and access NOM, the native utility token of the Onomy Network.</p>
 
-                  <p>
-                    The Bonding Curve supplies bNOM and ETH, providing liquidity for both purchases
-                    and sales.
-                  </p>
+                <p>
+                  The Bonding Curve supplies bNOM and ETH, providing liquidity for both purchases
+                  and sales.
+                </p>
 
+                <p>
+                  Bridge bNOM to NOM to access staking rewards, governance, and{' '}
+                  <a
+                    href="https://docs.onomy.io/nom-distribution/what-is-nom"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    more
+                  </a>
+                  !
+                </p>
+
+                <Checkbox>
+                  <input
+                    type="checkbox"
+                    defaultChecked={accepted}
+                    onChange={() => setAccepted(!accepted)}
+                  />
                   <p>
-                    Bridge bNOM to NOM to access staking rewards, governance, and{' '}
+                    I have read and understood the{' '}
                     <a
-                      href="https://docs.onomy.io/nom-distribution/what-is-nom"
+                      href="https://docs.onomy.io/nom-distribution/bonding-curve-offering"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      more
+                      documentation and disclosures.
                     </a>
-                    !
                   </p>
-
-                  <Checkbox>
-                    <input
-                      type="checkbox"
-                      defaultChecked={accepted}
-                      onChange={() => setAccepted(!accepted)}
-                    />
-                    <p>
-                      I have read and understood the{' '}
-                      <a
-                        href="https://docs.onomy.io/nom-distribution/bonding-curve-offering"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        documentation and disclosures.
-                      </a>
-                    </p>
-                  </Checkbox>
-                  <PrimaryButton
-                    type="button"
-                    disabled={!accepted}
-                    style={{ marginLeft: 'auto', width: '100%' }}
-                    onClick={() => accepted && setDisclosureModal(false)}
-                  >
-                    Continue
-                  </PrimaryButton>
-                </div>
-              </Modal>
-            </Dimmer>
-          </>
+                </Checkbox>
+                <PrimaryButton
+                  type="button"
+                  disabled={!accepted}
+                  style={{ marginLeft: 'auto', width: '100%' }}
+                  onClick={() => accepted && setDisclosureModal(false)}
+                >
+                  Continue
+                </PrimaryButton>
+              </div>
+            </Modal>
+          </Dimmer>
         )}
 
         {showOnboardingGuide && (

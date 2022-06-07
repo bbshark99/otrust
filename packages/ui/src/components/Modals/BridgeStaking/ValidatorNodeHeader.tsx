@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import styled from 'styled-components/macro';
-import { useStakingRewardAPR } from '@onomy/react-client';
+import { useStakingRewardAPR } from '@onomy/react-hub';
 
 import { Hint, TooltipCaption, TooltipDesc } from '../../Sidebar/SidebarStyles';
 import { ExternalLink } from '../Icons';

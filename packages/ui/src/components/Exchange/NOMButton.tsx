@@ -1,5 +1,5 @@
 import React from 'react';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import { useExchange } from 'context/exchange/ExchangeContext';
 import { SellBtn } from './exchangeStyles';
@@ -11,7 +11,7 @@ export default function NOMButton({
   onBid?: React.MouseEventHandler<HTMLButtonElement>;
   onApprove?: React.MouseEventHandler<HTMLButtonElement>;
 }) {
-  const { weakBalance, NOMallowance } = useOnomyEth();
+  const { weakBalance, NOMallowance } = useBondingCurve();
 
   const { bidAmount, bidDenom, input, weak } = useExchange();
 

@@ -3,7 +3,7 @@ import React, { useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
 import _ from 'lodash';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import ConfirmTransactionModal from 'components/Modals/components/ConfirmTransactionModal';
 import PendingModal from 'components/Modals/components/PendingModal';
@@ -38,7 +38,7 @@ const AvailableDiv = styled.strong`
 `;
 
 export default function ExchangeQuote({ strength }: { strength: 'strong' | 'weak' }) {
-  const { strongBalance, weakBalance, NOMallowance, bondingCurve } = useOnomyEth();
+  const { strongBalance, weakBalance, NOMallowance, bondingCurve } = useBondingCurve();
   const { handleModal } = useModal();
 
   const { askAmount, bidAmount, approveAmount, bidDenom, input, output, strong, weak } =
@@ -56,12 +56,12 @@ export default function ExchangeQuote({ strength }: { strength: 'strong' | 'weak
       switch (textStrength) {
         case 'strong':
           // console.log('Strong: ', bidAmountUpdate.toFixed(0));
-          askAmountUpdate = await bondingCurve.bondBuyQuoteETH(bidAmountUpdate);
+          askAmountUpdate = await bondingCurve!.actions.bondBuyQuoteETH(bidAmountUpdate);
           // console.log('Pull Strong Ask Amount', askAmountUpdate);
           break;
 
         case 'weak':
-          askAmountUpdate = await bondingCurve.bondSellQuoteNOM(bidAmountUpdate);
+          askAmountUpdate = await bondingCurve!.actions.bondSellQuoteNOM(bidAmountUpdate);
           // console.log('Pull Weak Ask Amount', askAmountUpdate);
           break;
 
@@ -82,7 +82,7 @@ export default function ExchangeQuote({ strength }: { strength: 'strong' | 'weak
         if (!approveAmount || !approveRef.current) return;
 
         try {
-          const [, tx] = await bondingCurve.bNomIncreaseBondAllowance(
+          const [, tx] = await bondingCurve!.actions.bNomIncreaseBondAllowance(
             new BigNumber(approveRef.current),
             gasPrice
           );
@@ -103,7 +103,9 @@ export default function ExchangeQuote({ strength }: { strength: 'strong' | 'weak
               switch (strong) {
                 case 'ETH':
                   // eslint-disable-next-line prefer-destructuring
-                  tx = (await bondingCurve.bondBuyNOM(bidAmount, askAmount, slippage, gasPrice))[1];
+                  tx = (
+                    await bondingCurve!.actions.bondBuyNOM(bidAmount, askAmount, slippage, gasPrice)
+                  )[1];
                   handleModal(<TransactionCompletedModal tx={tx} />);
                   break;
                 default: {
@@ -116,7 +118,12 @@ export default function ExchangeQuote({ strength }: { strength: 'strong' | 'weak
                 case 'bNOM':
                   // eslint-disable-next-line prefer-destructuring
                   tx = (
-                    await bondingCurve.bondSellNOM(bidAmount, askAmount, slippage, gasPrice)
+                    await bondingCurve!.actions.bondSellNOM(
+                      bidAmount,
+                      askAmount,
+                      slippage,
+                      gasPrice
+                    )
                   )[1];
                   handleModal(<TransactionCompletedModal tx={tx} />);
                   break;

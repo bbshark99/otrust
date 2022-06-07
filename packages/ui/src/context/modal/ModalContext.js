@@ -8,7 +8,7 @@ export const useModal = () => useContext(ModalContext);
 export const UpdateModalContext = createContext();
 export const useUpdateModal = () => useContext(UpdateModalContext);
 
-const ModalProvider = ({ children }) => {
+function ModalProvider({ children }) {
   const [modal, updateModal] = useState(false);
   const [modalContent, updateModalContent] = useState("I'm the Modal Content");
 
@@ -38,6 +38,6 @@ const ModalProvider = ({ children }) => {
       </ModalContext.Provider>
     </UpdateModalContext.Provider>
   );
-};
+}
 
 export default ModalProvider;

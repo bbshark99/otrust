@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BigNumber } from 'bignumber.js';
-import { useOnomyEth } from '@onomy/react-eth';
+import { useBondingCurve } from '@onomy/react-hub';
 
 import logo from 'assets/logo.svg';
 import { Container } from './UI';
@@ -167,7 +167,7 @@ const Details = styled.span<{
 `;
 
 export default function MainHeader() {
-  const { supplyNOM, currentETHPrice } = useOnomyEth();
+  const { supplyNOM, currentETHPrice } = useBondingCurve();
 
   return (
     <header>

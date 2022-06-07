@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
-import { useOnomyBondingTradeData } from '@onomy/react-eth';
+import { useOnomyBondingTradeData } from '@onomy/react-hub';
 
 import { responsive } from 'theme/constants';
 import BondLineChart from 'components/Chart/BondLineChart';
 import Dropdown from 'components/Dropdown/Dropdown';
+import { REACT_APP_GRAPHQL_ENDPOINT } from 'constants/env';
 import { TVChartContainer } from './TradingViewChart';
 
 const ChartWrapper = styled.div`
@@ -88,7 +89,7 @@ const chartTypes = [
 ];
 
 export default function Chart() {
-  const datafeed = useOnomyBondingTradeData();
+  const datafeed = useOnomyBondingTradeData(REACT_APP_GRAPHQL_ENDPOINT);
   const [chartType, setChartType] = useState<keyof typeof axisLabels>('bondingCurve');
 
   const isBigScreen = useMediaQuery({ minWidth: responsive.smartphoneLarge });
