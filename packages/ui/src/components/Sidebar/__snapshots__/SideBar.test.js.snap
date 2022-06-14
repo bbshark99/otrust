@@ -1055,7 +1055,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are NOT of B
                 Contract Address
               </span>
               <a
-                href="https://rinkeby.etherscan.io/address/0x52A4A4FBB36A2f6A83dBf7De9425C1ec5FF528Da"
+                href="https://rinkeby.etherscan.io/address/0xD179c5BEd30cADE4E62d53DD89240745Fb4C0CC2"
                 target="_new"
               >
                 Etherscan
@@ -2126,7 +2126,7 @@ exports[`Given the Sidebar component and strongBalance, weakBalance are of BigNu
                 Contract Address
               </span>
               <a
-                href="https://rinkeby.etherscan.io/address/0x52A4A4FBB36A2f6A83dBf7De9425C1ec5FF528Da"
+                href="https://rinkeby.etherscan.io/address/0xD179c5BEd30cADE4E62d53DD89240745Fb4C0CC2"
                 target="_new"
               >
                 Etherscan

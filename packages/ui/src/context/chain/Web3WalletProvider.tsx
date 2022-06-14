@@ -6,6 +6,7 @@ import Landing from 'pages/Landing';
 import {
   KEPLR_CONFIG,
   REACT_APP_BONDING_NOM_CONTRACT_ADDRESS,
+  REACT_APP_ETH_WS_URL,
   REACT_APP_GRAVITY_CONTRACT_ADDRESS,
   REACT_APP_ONOMY_RPC_URL,
   REACT_APP_WNOM_CONTRACT_ADDRESS,
@@ -14,6 +15,7 @@ import {
 function Web3WalletChild({ children }: { children: JSX.Element | JSX.Element[] }) {
   const backend = useWebWalletBackend();
   const chainId = useMemo(() => {
+    return KEPLR_CONFIG.chainId;
     const pieces = KEPLR_CONFIG.chainId.split('-');
     pieces.pop();
     return pieces.join('-');
@@ -27,7 +29,7 @@ function Web3WalletChild({ children }: { children: JSX.Element | JSX.Element[] }
       onomyChainId={chainId}
       onomyChainInfo={KEPLR_CONFIG}
       onomyRpcUrl={REACT_APP_ONOMY_RPC_URL}
-      ethWsUrl="wss://ws-eth-rinkeby.onomy.io"
+      ethWsUrl={REACT_APP_ETH_WS_URL}
       nomContractAddress={REACT_APP_WNOM_CONTRACT_ADDRESS}
       bondContractAddress={REACT_APP_BONDING_NOM_CONTRACT_ADDRESS}
       gravityContractAddress={REACT_APP_GRAVITY_CONTRACT_ADDRESS}
