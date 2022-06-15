@@ -2,7 +2,7 @@ import { BigNumber } from 'bignumber.js';
 
 export const {
   REACT_APP_ETHERSCAN_API_KEY = '3CVJBSFD6KVNBTNFCBN2T2QHRVYP1K81YB',
-  REACT_APP_GRAPHQL_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/onomyprotocol/ograph',
+  REACT_APP_GRAPHQL_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/onomyprotocol/ograph-devnet',
   REACT_APP_CHAIN_ID = 'onomy-devnet-1',
   REACT_APP_CHAIN_NAME = 'Onomy Devnet 1',
   REACT_APP_ONOMY_RPC_URL = 'https://rpc2-devnet.onomy.io/',

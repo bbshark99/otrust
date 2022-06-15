@@ -3419,10 +3419,10 @@
     ethers "^5.4.6"
     ramda "^0.28.0"
 
-"@onomy/react-hub@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@onomy/react-hub/-/react-hub-0.2.0.tgz#23dbb738694df910bbaa8528f7272c8af24cb3c0"
-  integrity sha512-DoqX38owiYprqJGz+3ekY+EFtBXt1eti64Ow83zXOLtSi4icNon+fNG5xVgzUt7Ig8ETMDBoGHXTYG9J5qokLg==
+"@onomy/react-hub@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@onomy/react-hub/-/react-hub-0.2.1.tgz#6d1d20d18fd47f423e214ed6ed2f43e1ab0ba7ab"
+  integrity sha512-8gnF2/bZEnsDSLvEfbniYkSKt0gfcm0Fa8JXqJrqtVC2DJVk2ugfr2Vi0EUv3B3eWDe1kZ+r9I+o0MbMQy8wkQ==
   dependencies:
     "@apollo/client" "^3.4.11"
     "@onomy/client" "^0.2.0"
@@ -3432,6 +3432,7 @@
     "@onomy/wallet" "^0.2.0"
     bignumber.js "^9.0.1"
     ethers "^5.4.6"
+    graphql "^16.5.0"
 
 "@onomy/react-utils@^0.2.0":
   version "0.2.0"
