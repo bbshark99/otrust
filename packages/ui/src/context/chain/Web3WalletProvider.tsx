@@ -10,6 +10,7 @@ import {
   REACT_APP_GRAVITY_CONTRACT_ADDRESS,
   REACT_APP_ONOMY_RPC_URL,
   REACT_APP_WNOM_CONTRACT_ADDRESS,
+  BLOCKS_TO_WAIT_FOR_BRIDGE,
 } from 'constants/env';
 
 function Web3WalletChild({ children }: { children: JSX.Element | JSX.Element[] }) {
@@ -34,7 +35,9 @@ function Web3WalletChild({ children }: { children: JSX.Element | JSX.Element[] }
       bondContractAddress={REACT_APP_BONDING_NOM_CONTRACT_ADDRESS}
       gravityContractAddress={REACT_APP_GRAVITY_CONTRACT_ADDRESS}
     >
-      <BondingCurveProvider>{children}</BondingCurveProvider>
+      <BondingCurveProvider ethBridgeWaitBlocks={BLOCKS_TO_WAIT_FOR_BRIDGE}>
+        {children}
+      </BondingCurveProvider>
     </OnomyHubProvider>
   );
 }

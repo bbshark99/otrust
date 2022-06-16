@@ -1,5 +1,3 @@
-import { BigNumber } from 'bignumber.js';
-
 export const {
   REACT_APP_ETHERSCAN_API_KEY = '3CVJBSFD6KVNBTNFCBN2T2QHRVYP1K81YB',
   REACT_APP_GRAPHQL_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/onomyprotocol/ograph-devnet',
@@ -18,8 +16,9 @@ export const {
 export const DENOM = 'anom';
 export const COIN_DENOM = 'NOM';
 export const COIN_DENOM_DECIMALS = 18;
-export const BLOCKS_TO_WAIT_FOR_BRIDGE = new BigNumber(
-  process.env.REACT_APP_BLOCKS_TO_WAIT_FOR_BRIDGE || '14'
+export const BLOCKS_TO_WAIT_FOR_BRIDGE = parseInt(
+  process.env.REACT_APP_BLOCKS_TO_WAIT_FOR_BRIDGE || '35',
+  10
 );
 
 export const KEPLR_CONFIG = {
