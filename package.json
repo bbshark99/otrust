@@ -1,88 +1,19 @@
 {
-  "name": "otrust",
+  "name": "otrust-workspace",
   "version": "0.1.0",
+  "description": "Workspace for Onomy Bonding Curve Development",
   "private": true,
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!./src/utils/device.js",
-      "!./src/theme/colors.js",
-      "!./src/components/Chart/Style.js"
-    ],
-    "coverageReporters": [
-      "text-summary",
-      "json",
-      "html",
-      "lcovonly"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
-  },
-  "dependencies": {
-    "@apollo/client": "^3.4.11",
-    "@cosmjs/launchpad": "^0.26.0",
-    "@cosmjs/stargate": "^0.26.4",
-    "@cosmjs/tendermint-rpc": "^0.26.4",
-    "@ethersproject/address": "^5.4.0",
-    "@ethersproject/bignumber": "^5.4.1",
-    "@ethersproject/contracts": "^5.4.1",
-    "@ethersproject/providers": "^5.4.5",
-    "@ethersproject/units": "^5.4.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.15",
-    "@use-it/interval": "^1.0.0",
-    "@web3-react/core": "^6.1.9",
-    "@web3-react/injected-connector": "^6.0.7",
-    "@web3-react/ledger-connector": "^6.1.9",
-    "@web3-react/network-connector": "^6.1.9",
-    "@web3-react/walletconnect-connector": "^6.2.4",
-    "@web3-react/walletlink-connector": "^6.2.5",
-    "apollo-boost": "^0.4.9",
-    "bignumber.js": "^9.0.1",
-    "cosmos-lib": "^1.1.0",
-    "d3": "^6.5.0",
-    "dotenv": "^10.0.0",
-    "ethers": "^5.4.6",
-    "fp-ts": "^2.11.5",
-    "graphql": "^15.5.3",
-    "intro.js": "^4.2.2",
-    "intro.js-react": "^0.5.0",
-    "io-ts": "^2.2.16",
-    "lodash": "^4.17.21",
-    "mock-web3-provider": "^1.0.0",
-    "polished": "^4.1.3",
-    "react": "^17.0.2",
-    "react-cookie": "^4.1.1",
-    "react-device-detect": "^1.17.0",
-    "react-dom": "^17.0.2",
-    "react-error-boundary": "^3.1.3",
-    "react-modal": "^3.14.3",
-    "react-responsive": "^9.0.0-beta.4",
-    "resize-observer-polyfill": "^1.5.1",
-    "styled-components": "^5.3.1",
-    "swr": "^1.0.1",
-    "typescript": "^4.4.3",
-    "web-vitals": "^2.1.0",
-    "web3": "^1.5.2"
-  },
   "scripts": {
-    "dep-audit": "yarn improved-yarn-audit --fail-on-missing-exclusions --ignore-dev-deps",
-    "lint": "eslint src --ext js,jsx,ts,tsx --quiet --fix",
-    "tsc": "tsc",
-    "verify": "yarn dep-audit && yarn tsc && yarn lint && yarn test -- --watchAll=false",
-    "start": "react-scripts start",
-    "build": "CI=false && react-scripts build",
-    "verified-build": "yarn verify && yarn build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "ui:verify": "yarn workspace otrust verify-old",
+    "ui:lint": "yarn workspace otrust lint",
+    "ui:tsc": "yarn workspace otrust tsc",
+    "lint": "concurrently \"yarn ui:lint\"",
+    "tsc": "concurrently \"yarn ui:tsc\"",
+    "verify": "concurrently \"yarn ui:verify\"",
+    "start": "yarn workspace otrust start",
+    "build": "yarn workspace otrust build",
+    "verified-build": "yarn workspace otrust verified-build",
+    "test": "yarn workspace otrust test",
     "prepare": "husky install"
   },
   "husky": {
@@ -90,65 +21,30 @@
       "pre-push": "yarn verify"
     }
   },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
+  "workspaces": {
+    "packages": [
+      "packages/*"
     ]
+  },
+  "dependencies": {
+    "lerna": "^4.0.0"
   },
   "devDependencies": {
-    "@keplr-wallet/types": "^0.9.4-rc.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.0",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.9.1",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9",
-    "@types/styled-components": "^5.1.19",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
-    "@web3-react/types": "^6.0.7",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-airbnb-typescript": "^14.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jest-dom": "^3.9.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-react": "^7.25.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-testing-library": "^4.12.2",
-    "http-proxy-middleware": "^2.0.1",
-    "husky": "^7.0.2",
-    "improved-yarn-audit": "^2.3.3",
-    "jest-styled-components": "^7.0.5",
-    "prettier": "^2.4.0",
-    "react-scripts": "^4.0.3",
-    "react-test-renderer": "^17.0.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "concurrently": "^6.2.1",
+    "siroc": "^0.16.0"
   },
   "resolutions": {
     "**/ganache-core/lodash": "^4.17.21",
     "**/underscore": "^1.13.1",
-    "**/node-fetch": "^2.6.1",
+    "**/node-fetch": "^2.6.7",
     "**/ansi-regex": "^5.0.1",
     "**/set-value": "^4.0.1",
     "react-scripts/react-dev-utils/browserslist": "^4.16.5",
     "react-scripts/**/glob-parent": "^5.1.2",
-    "@web3-react/**/json-schema": "^0.4.0"
+    "@web3-react/**/json-schema": "^0.4.0",
+    "**/follow-redirects": "^1.14.7",
+    "**/simple-get": "^4.0.1",
+    "**/react-error-overlay": "6.0.9",
+    "**/ethers": "^5.4.6"
   }
 }

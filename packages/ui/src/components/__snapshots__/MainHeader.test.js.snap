@@ -1,0 +1,653 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the MainHeader component and supplyNOM, currentETHPrice are not of BigNumber type when the component is rendered should match the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  max-width: 100%;
+  width: 1600px;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 125px;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c4 > strong {
+  margin-bottom: 5px;
+  color: #e1dfeb;
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.c4 > span {
+  color: #656273;
+  line-height: 1;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.c7 + .c7 {
+  margin-left: 56px;
+}
+
+.c8 > strong {
+  color: #656273;
+  font-weight: 400;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 56px;
+}
+
+.c10 {
+  padding-left: 56px;
+  border-left: 1px solid #302E3D;
+}
+
+.c9 > strong {
+  margin-right: 12px;
+  color: #e1dfeb;
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 24px;
+}
+
+.c11 {
+  color: #e1dfeb;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c0 {
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    height: auto;
+    padding: 20px;
+    background-color: #201d2a;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    height: 50px;
+    width: 40px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c4 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 > strong {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 + .c7 {
+    margin-left: 32px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c8 > strong {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c6 {
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c10 {
+    padding-left: 32px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c10 {
+    padding: 0;
+    border: none;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c9 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 > strong {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c9 > strong {
+    font-size: 18px;
+  }
+}
+
+<header>
+    <div
+      class="c0"
+    >
+      <header
+        class="c1"
+      >
+        <div
+          class="c2"
+        >
+          <img
+            alt="Onomy"
+            class="c3"
+            src="logo.svg"
+          />
+          <div
+            class="c4"
+          >
+            <strong>
+              Onomy
+            </strong>
+            <span>
+              Bonding curve
+            </span>
+          </div>
+        </div>
+        <div
+          id="tour-prices"
+        >
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+            >
+              <div
+                class="c7 c8"
+              >
+                <strong>
+                  bNOM / USDT
+                </strong>
+                <div
+                  class="c9"
+                >
+                  <strong>
+                    $∞
+                  </strong>
+                </div>
+              </div>
+              <div
+                class="c7 c8"
+              >
+                <strong>
+                  bNOM / ETH
+                </strong>
+                <div
+                  class="c9"
+                >
+                  <strong>
+                    <span>
+                      Loading
+                    </span>
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c10"
+            >
+              <div
+                class="c7 c8"
+              >
+                <strong>
+                  bNOM Issued
+                </strong>
+                <div
+                  class="c9"
+                >
+                  <strong>
+                    <span>
+                      Loading
+                    </span>
+                  </strong>
+                  <span
+                    class="c11"
+                  >
+                    / 100,000,000
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`Given the MainHeader component and supplyNOM, currentETHPrice are of BigNumber type when the component is rendered should match the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  max-width: 100%;
+  width: 1600px;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 125px;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c4 > strong {
+  margin-bottom: 5px;
+  color: #e1dfeb;
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.c4 > span {
+  color: #656273;
+  line-height: 1;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.c7 + .c7 {
+  margin-left: 56px;
+}
+
+.c8 > strong {
+  color: #656273;
+  font-weight: 400;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 56px;
+}
+
+.c10 {
+  padding-left: 56px;
+  border-left: 1px solid #302E3D;
+}
+
+.c9 > strong {
+  margin-right: 12px;
+  color: #e1dfeb;
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 24px;
+}
+
+.c11 {
+  color: #e1dfeb;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c0 {
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c1 {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    height: auto;
+    padding: 20px;
+    background-color: #201d2a;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c3 {
+    height: 50px;
+    width: 40px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c4 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 > strong {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c7 + .c7 {
+    margin-left: 32px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c8 > strong {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c6 {
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c10 {
+    padding-left: 32px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c10 {
+    padding: 0;
+    border: none;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c9 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c9 > strong {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c9 > strong {
+    font-size: 18px;
+  }
+}
+
+<header>
+    <div
+      class="c0"
+    >
+      <header
+        class="c1"
+      >
+        <div
+          class="c2"
+        >
+          <img
+            alt="Onomy"
+            class="c3"
+            src="logo.svg"
+          />
+          <div
+            class="c4"
+          >
+            <strong>
+              Onomy
+            </strong>
+            <span>
+              Bonding curve
+            </span>
+          </div>
+        </div>
+        <div
+          id="tour-prices"
+        >
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+            >
+              <div
+                class="c7 c8"
+              >
+                <strong>
+                  bNOM / USDT
+                </strong>
+                <div
+                  class="c9"
+                >
+                  <strong>
+                    $375,000,000,000,000,000,000
+                  </strong>
+                </div>
+              </div>
+              <div
+                class="c7 c8"
+              >
+                <strong>
+                  bNOM / ETH
+                </strong>
+                <div
+                  class="c9"
+                >
+                  <strong>
+                    <span>
+                      100000000000000000.00000000
+                    </span>
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c10"
+            >
+              <div
+                class="c7 c8"
+              >
+                <strong>
+                  bNOM Issued
+                </strong>
+                <div
+                  class="c9"
+                >
+                  <strong>
+                    <span>
+                      0
+                    </span>
+                  </strong>
+                  <span
+                    class="c11"
+                  >
+                    / 100,000,000
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </header>
+</DocumentFragment>
+`;

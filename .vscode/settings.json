@@ -4,5 +4,17 @@
   "eslint.validate": ["javascript", "javascriptreact"],
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "eslint.workingDirectories": [
+    { "directory": "packages/ui", "changeProcessCWD": true },
+    { "directory": "packages/client", "changeProcessCWD": true },
+    { "directory": "packages/react-client", "changeProcessCWD": true },
+    { "directory": "packages/react-eth", "changeProcessCWD": true },
+    { "directory": "packages/react-wallet", "changeProcessCWD": true },
+    { "directory": "packages/react-utils", "changeProcessCWD": true },
+    { "directory": "packages/wallet", "changeProcessCWD": true },
+    { "directory": "packages/wallet-backend-js", "changeProcessCWD": true },
+    { "directory": "packages/wallet-backend-jsi-rn", "changeProcessCWD": true },
+    { "directory": "packages/wallet-backend-web", "changeProcessCWD": true }
+  ]
 }

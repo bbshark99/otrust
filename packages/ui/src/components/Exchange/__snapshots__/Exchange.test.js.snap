@@ -1,0 +1,441 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given an Exchange component when the component is rendered should match the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 0 40px;
+}
+
+.c5 > strong {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.c4 + .c4 {
+  border-left: 2px solid #302E3D;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 16px 8px 16px 16px;
+  background-color: #302E3D;
+  border-radius: 8px;
+  border-bottom: 2px solid #1a1823;
+  color: #9895a6;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.c8 strong {
+  color: #9895a6;
+  margin-right: auto;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.c12 strong {
+  color: #656273;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.c11 {
+  padding: 15px 20px;
+  height: 54px;
+  border: none;
+  background-color: #201d2a;
+  border-radius: 7px;
+  color: #ffdda1;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.c11:hover {
+  background-color: #252130;
+}
+
+.c11:active {
+  background-color: #1b1924;
+}
+
+.c10 {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #e1dfeb;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: right;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c13 {
+  margin-left: auto;
+  font-weight: 500;
+  color: #9895a6;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(90deg,#5ac790,#1c7e4c);
+  border: none;
+  border-radius: 6px;
+  color: #e1dfeb;
+  text-shadow: 0 6px 3px rgba(0,0,0,0.03);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.c3 {
+  background: linear-gradient(90deg,#c75a5a,#7e1c1c);
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c7 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.c1 {
+  display: none;
+}
+
+@media screen and (max-width:700px) {
+  .c0 {
+    grid-template-columns: 1fr;
+    background-color: #1a1823;
+    padding: 24px 20px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c5 {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c5 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 > strong {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    height: 60px;
+    padding: 16px 8px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c8 {
+    height: 55px;
+    padding: 10px 5px 10px 8px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c8 strong {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c12 strong {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c12 strong {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c11 {
+    height: 44px;
+  }
+}
+
+@media screen and (max-width:1180px) {
+  .c10 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c10 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:834px) {
+  .c13 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .c1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <button
+        class="c2"
+        data-testid="exchanges-modals-buy-button"
+      >
+        Buy bNOM
+      </button>
+      <button
+        class="c2 c3"
+        data-testid="exchanges-modals-sell-button"
+      >
+        Sell bNOM
+      </button>
+    </div>
+    <div
+      id="tour-buy"
+    >
+      <div
+        class="c4 c5"
+      >
+        <div
+          class="c6"
+        >
+          <strong>
+            Buy NOM
+          </strong>
+          <strong
+            class="c7"
+          >
+            Available: 0.000000 ETH
+          </strong>
+        </div>
+        <div
+          class="c8"
+        >
+          <div
+            class="c9"
+            style="width: 100%; padding-right: 16px;"
+          >
+            <strong>
+              Amount
+            </strong>
+            <input
+              class="c10"
+              data-testid="exchange-strong-balance-input"
+              placeholder="0.00"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="c9"
+          >
+            ETH
+            <button
+              class="c11"
+              data-testid="max-value-button"
+            >
+              Max
+            </button>
+          </div>
+        </div>
+        <div
+          class="c12"
+        >
+          <strong>
+            You will receive
+          </strong>
+          <span
+            class="c13"
+            data-testid="exchange-weak-balance"
+          >
+             NOM
+          </span>
+        </div>
+        <button
+          class="c2"
+        >
+          Buy NOM
+        </button>
+      </div>
+    </div>
+    <div
+      id="tour-sell"
+    >
+      <div
+        class="c4 c5"
+      >
+        <div
+          class="c6"
+        >
+          <strong>
+            Sell NOM
+          </strong>
+          <strong
+            class="c7"
+          >
+            Available: 0.000000 NOM
+          </strong>
+        </div>
+        <div
+          class="c8"
+        >
+          <div
+            class="c9"
+            style="width: 100%; padding-right: 16px;"
+          >
+            <strong>
+              Amount
+            </strong>
+            <input
+              class="c10"
+              data-testid="exchange-strong-balance-input"
+              placeholder="0.00"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="c9"
+          >
+            NOM
+            <button
+              class="c11"
+              data-testid="max-value-button"
+            >
+              Max
+            </button>
+          </div>
+        </div>
+        <div
+          class="c12"
+        >
+          <strong>
+            You will receive
+          </strong>
+          <span
+            class="c13"
+            data-testid="exchange-weak-balance"
+          >
+             ETH
+          </span>
+        </div>
+        <button
+          class="c2 c3"
+        >
+          Sell NOM
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

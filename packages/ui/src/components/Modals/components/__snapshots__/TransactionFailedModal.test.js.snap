@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the TransactionFailedModal component when the component is rendered should match the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  width: 500px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #201d2a;
+  border-radius: 8px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 11;
+}
+
+.c0 main {
+  padding: 32px;
+}
+
+.c0 footer {
+  padding: 32px 36px 0;
+  background-color: #1a1823;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.c1 svg {
+  fill: #656273;
+}
+
+.c1:hover svg {
+  fill: #9895a6;
+}
+
+.c1:active svg {
+  fill: #4d4b57;
+}
+
+.c1:disabled {
+  cursor: not-allowed;
+}
+
+.c1:disabled svg {
+  fill: #656273;
+  opacity: 0.5;
+}
+
+.c8 {
+  width: 170px;
+  height: 50px;
+  background-color: #e1dfeb;
+  border: none;
+  border-radius: 8px;
+  color: #1a1823;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.c8:hover {
+  background-color: #fff;
+}
+
+.c8:active {
+  background-color: #9895a6;
+}
+
+.c8:disabled {
+  cursor: not-allowed;
+}
+
+.c4 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 88px;
+  width: 88px;
+  margin: 0 auto 16px;
+  background-color: #7cf9ba;
+  border-radius: 50%;
+  border: 6px solid #324946;
+}
+
+.c2 svg {
+  width: 35px;
+  height: 35px;
+}
+
+.c3 {
+  background-color: #c75a5a;
+  border-color: #412a33;
+}
+
+.c3 svg * {
+  fill: #e1dfeb;
+}
+
+.c7 {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c5 {
+  padding: 32px;
+  margin: 32px 0 24px;
+  background-color: #1a1823;
+  border-radius: 8px;
+  color: #9895a6;
+  text-align: center;
+}
+
+@media screen and (max-width:1440px) {
+  .c0 {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c0 {
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 main {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c0 footer {
+    padding: 24px 24px 0;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c6 {
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c8 {
+    width: 135px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c8 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c4 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c4 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c2 svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .c5 {
+    padding: 24px;
+    margin: 24px 0 20px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .c5 {
+    font-size: 14px;
+  }
+}
+
+<div
+    class="c0"
+  >
+    <button
+      class="c1"
+      data-testid="failed-modal-close-icon"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          opacity="0.5"
+        >
+          <g
+            transform="translate(-.453 .555)"
+          >
+            <path
+              class="cls-3"
+              d="M8.762.384a1.311 1.311 0 011.981 1.707l-.127.147-8.378 8.378A1.311 1.311 0 01.257 8.909l.127-.147z"
+              transform="translate(6.453 6.445)"
+            />
+            <path
+              class="cls-3"
+              d="M.384.384A1.311 1.311 0 012.09.257l.147.127 8.379 8.38a1.31 1.31 0 01-1.706 1.98l-.147-.127L.384 2.236a1.31 1.31 0 010-1.852z"
+              transform="translate(6.453 6.445)"
+            />
+          </g>
+        </g>
+      </svg>
+    </button>
+    <main>
+      <div
+        class="c2 c3"
+      >
+        <svg
+          viewBox="0 0 35.222 35.222"
+          width="35.222"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            transform="translate(1.826 2.834)"
+          >
+            <path
+              class="cls-2"
+              d="M14.337.628a2.146 2.146 0 013.242 2.794l-.208.241L3.663 17.372a2.146 2.146 0 01-3.242-2.794l.208-.241z"
+              transform="translate(6.785 6.778)"
+            />
+            <path
+              class="cls-2"
+              d="M.628.628A2.145 2.145 0 013.42.42l.24.208L17.372 14.34a2.144 2.144 0 01-2.792 3.24l-.24-.208L.628 3.66a2.144 2.144 0 010-3.032z"
+              transform="translate(6.785 6.778)"
+            />
+          </g>
+        </svg>
+      </div>
+      <h3
+        class="c4"
+      >
+        Transaction Failed
+      </h3>
+      <div
+        class="c5"
+      >
+        Error message
+      </div>
+    </main>
+    <footer>
+      <div
+        class="c6 c7"
+      >
+        <button
+          class="c8"
+          data-testid="failed-modal-primary-button"
+        >
+          Ok 😥
+        </button>
+      </div>
+    </footer>
+  </div>
+</DocumentFragment>
+`;
